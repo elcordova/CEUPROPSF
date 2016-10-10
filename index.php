@@ -11,7 +11,7 @@
 	<meta name="author" content="Luka Cvetinovic for Codrops" />
 	<!-- Favicons (created with http://realfavicongenerator.net/)-->
 	<link rel="manifest" href="img/favicons/manifest.json">
-	<link rel="shortcut icon" href="http://erlerobotics.com/blog/wp-content/uploads/2015/04/favicon.png">
+	<link rel="shortcut icon" href="img/logo.ico">
 	<meta name="msapplication-TileColor" content="#00a8ff">
 	<meta name="msapplication-config" content="img/favicons/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
@@ -51,21 +51,28 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#"><img src="img/erlerobotics-logo.png" data-active-url="img/erlerobotics-logo.png" alt=""></a>
+				<a class="navbar-brand" href="#"><img src="img/logo1.png" width="70px" data-active-url="img/logo1.png" alt=""></a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right main-nav">
 					<li><a href="#inicio">Inicio</a></li>
-					<li><a href="#inicio">¿Quiénes somos?</a></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Información <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="#">¿Quiénes somos?</a></li>
+							<li><a href="#">Objetivo</a></li>
+							<li><a href="#">Historia</a></li>
+						</ul>
+					</li>
 					<li><a href="#noticias">Noticias</a></li>
 					<li><a href="#services">Frameworks</a></li>
-					<!-- <li><a href="#team">Team</a></li> -->
 					<li><a href="#pricing">Pricing</a></li>
 					<li><a href="#" data-toggle="modal" data-target="#modal1" class="btn btn-blue">Acceso</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
+			
 		</div>
 		<!-- /.container-fluid -->
 	</nav>
@@ -75,7 +82,7 @@
 				<div class="header-text">
 					<div class="row">
 						<div class="col-md-12 text-center">
-							<h3 class="light white">Centro Universitario de Protección y Prevención de Salud Familiar</h3>
+							<h3 class="light white">Centro Universitario de Promoción y Prevención de la Salud Familiar</h3>
 							<h1 class="white typed">CEUPROPSF</h1>
 							<span class="typed-cursor">|</span>
 						</div>
@@ -104,11 +111,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3">
-                    <h3>Our Latest Project</h3>
-                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+                    <h3>Últimas Noticias</h3>
+                    <p>Estas son las últimas noticias de CEUPROPSF.</p>
                     <div class="btn-group">
-                        <a class="btn btn-danger" href="#scroller" data-slide="prev"><i class="icon-angle-left"></i></a>
-                        <a class="btn btn-danger" href="#scroller" data-slide="next"><i class="icon-angle-right"></i></a>
+                        <a class="btn btn-blue" href="#scroller" data-slide="prev"><i class="icon-angle-left"></i></a>
+                        <a class="btn btn-blue" href="#scroller" data-slide="next"><i class="icon-angle-right"></i></a>
                     </div>
                     <p class="gap"></p>
                 </div>
@@ -125,7 +132,7 @@
                                                     Nova - Corporate site template
                                                 </h5>
                                                 <div class="overlay">
-                                                    <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                    <a class="preview btn btn-blue" title="Malesuada fames ac turpis egestas" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -138,7 +145,7 @@
                                                     Fornax - Apps site template
                                                 </h5>
                                                 <div class="overlay">
-                                                    <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                    <a class="preview btn btn-blue" title="Malesuada fames ac turpis egestas" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -151,7 +158,7 @@
                                                     Flat Theme - Business Theme
                                                 </h5>
                                                 <div class="overlay">
-                                                    <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                    <a class="preview btn btn-blue" title="Malesuada fames ac turpis egestas" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -168,7 +175,7 @@
                                                     Flat Theme - Business Theme
                                                 </h5>
                                                 <div class="overlay">
-                                                    <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                    <a class="preview btn btn-blue" title="Malesuada fames ac turpis egestas" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -181,7 +188,7 @@
                                                     Nova - Corporate site template
                                                 </h5>
                                                 <div class="overlay">
-                                                    <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                    <a class="preview btn btn-blue" title="Malesuada fames ac turpis egestas" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                                                 </div>
                                             </div>
                                         </div>
@@ -194,7 +201,7 @@
                                                     Fornax - Apps site template
                                                 </h5>
                                                 <div class="overlay">
-                                                    <a class="preview btn btn-danger" title="Malesuada fames ac turpis egestas" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                    <a class="preview btn btn-blue" title="Malesuada fames ac turpis egestas" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                                                 </div>
                                             </div>
                                         </div>
