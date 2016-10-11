@@ -60,9 +60,9 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">Información <b class="caret"></b></a>
 						<ul class="dropdown-menu">
-							<li><a href="#">¿Quiénes somos?</a></li>
-							<li><a href="#">Objetivo</a></li>
-							<li><a href="#">Historia</a></li>
+							<li><a href="#info1">¿Quiénes somos?</a></li>
+							<li><a href="#info1">Objetivo</a></li>
+							<li><a href="#info1">Historia</a></li>
 						</ul>
 					</li>
 					<li><a href="#noticias">Noticias</a></li>
@@ -72,7 +72,7 @@
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->
-			
+
 			
 		</div>
 		<!-- /.container-fluid -->
@@ -101,6 +101,50 @@
 			</div>
 		</div>
 	</section>
+
+
+	<section id="info1" class="section section-padded">
+		<div class="container">
+			<div class="row text-center title">
+				<h2>Información</h2>
+				<h4 class="light muted">Aquí encontrará información acerca de CEUPROPSF.</h4>
+			</div>
+			<div class="row services">
+				<div class="col-md-4">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="img/icons/ros.png" alt="" class="icon">
+						</div>
+						<h4 class="heading">¿Quiénes Somos?</h4>
+						<p class="description">CEUPROPSF (Centro Universitario de Promoción y Prevención de la Salud Familiar). </p>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="img/icons/ros2.png" alt="" class="icon">
+						</div>
+						<h4 class="heading">Objetivo</h4>
+						<p class="description">ROS 2 is the next rev. of the Robot Operating System, designed to define the standard for the following 10 years in robotics!. Try it now easily with this shield.</p>
+					</div>
+				</div>				
+				<div class="col-md-4">
+					<div class="service">
+						<div class="icon-holder">
+							<img src="img/icons/apm_logo.png" alt="" class="icon">
+						</div>
+						<h4 class="heading">Historia</h4>
+						<p class="description">APM (also known as ardupilot) is a multiplatform autopilot for making robots and drones. We'll provide support for it ;).</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="cut cut-bottom"></div>
+	</section>
+
+
+
+
 	<section id="noticias" class="section section-padded">
 		<div class="container">
 			<div class="row text-center title">
@@ -219,6 +263,13 @@
 		</div>
 		<div class="cut cut-bottom"></div>
 	</section>
+
+
+
+
+
+
+
 	<section id="services" class="section section-padded">
 		<div class="container">
 			<div class="row text-center title">
