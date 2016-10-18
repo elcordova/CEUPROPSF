@@ -20,14 +20,23 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
+		if(isset($_POST['password'])){
+			$this->load->model('usuario_model');
+			if($this->usuario_model->login($_POST['username'],$_POST['password'])){
+				$usuario = $this->usuario_model->consultar_usuario($_POST['username']);
+				$sesion_usuario = array('id' => $usuario->id_usuario,
+									'email' => $usuario->correo_electronico,
+									'estado'=> $usuario->estado,
+									'conectado'=> true,);
+				$this->session->set_userdata($sesion_usuario);
+				redirect('Administracion');
+			}
+			
+		}
 		$this->load->view('index');
 	}
 
-	public function nuevo()
-	{
-		$dato["string"]="valor nuevo";
-		$this->load->view('welcome_message',$dato);
-	}
+	
 }
 
 ?>
