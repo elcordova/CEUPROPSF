@@ -9,7 +9,7 @@
 				<?php include("includes/cabecera.php") ?>
 				<h2> acceso como administrador a <?php echo $username; ?></h2>
 				<h3>bienvenido  su id es <?php echo $id_user; ?></h3>
-			
+				<?php include("includes/footer.php") ?>
 		<?php 
 		} else 
 		{
@@ -19,3 +19,4 @@
 
 		 </body>
 			</html>
+
