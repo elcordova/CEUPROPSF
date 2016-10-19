@@ -33,7 +33,7 @@
             <div class="modal-dialog">
                 <div class="modal-content modal-popup">
                     <a href="#" class="close-link"><i class="close"></i></a>
-                    <h3 class="white">Acceder al Sistema</h3>
+                    <h3><a class="white">Acceder al Sistema</a></h3>
                     <form action="" method="POST" accept-charset="utf-8" class="popup-form">
                         <input type="text" class="form-control form-white" placeholder="Usuario" id="username" name="username">
                         <input type="password" class="form-control form-white" placeholder="Contraseña" name="password" id="password">
