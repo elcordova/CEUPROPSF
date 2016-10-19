@@ -13,9 +13,9 @@
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#intro">Inicio</a></li>
-        <li><a href="#about">Acerca</a></li>
-		<li><a href="#service">Servicios</a></li>
-		<li><a href="#contact">Contactenos</a></li>
+        <li><a href="#about">Usuarios</a></li>
+		<li><a href="#service">Noticas</a></li>
+		<li><a href="#contact">Eventos</a></li>
         <li><a href="<?=base_url()?>index.php/administracion/logout">Cerra Sesion</a></li>
       </ul>
             </div>

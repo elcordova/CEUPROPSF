@@ -1,5 +1,7 @@
 	<?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
+	if (!$this->session->userdata('conectado')==true) {
+		
 	?>
 
 	
@@ -64,7 +66,7 @@
                     <div class="inner">
 						<h5>Dra. Maritza Agudo</h5>
                         <p class="subtitle">Gestora del Proyecto</p>
-                        <div class="avatar"><img src="static/img/team/1.jpg" alt="" class="img-responsive img-circle" /></div>
+                        <div class="avatar"><img src="<?=base_url()?>static/img/team/1.jpg" alt="" class="img-responsive img-circle" /></div>
                     </div>
                 </div>
 				</div>
@@ -75,7 +77,7 @@
                     <div class="inner">
 						<h5>Dr. Nombre 2</h5>
                         <p class="subtitle">Cargo 2</p>
-                        <div class="avatar"><img src="static/img/team/2.jpg" alt="" class="img-responsive img-circle" /></div>
+                        <div class="avatar"><img src="<?=base_url()?>static/img/team/2.jpg" alt="" class="img-responsive img-circle" /></div>
 
                     </div>
                 </div>
@@ -87,7 +89,7 @@
                     <div class="inner">
 						<h5>Dr. Nombre 3</h5>
                         <p class="subtitle">Cargo 3</p>
-                        <div class="avatar"><img src="static/img/team/3.jpg" alt="" class="img-responsive img-circle" /></div>
+                        <div class="avatar"><img src="<?=base_url()?>static/img/team/3.jpg" alt="" class="img-responsive img-circle" /></div>
 
                     </div>
                 </div>
@@ -99,7 +101,7 @@
                     <div class="inner">
 						<h5>Dr. Nombre 4</h5>
                         <p class="subtitle">Cargo 4</p>
-                        <div class="avatar"><img src="static/img/team/4.jpg" alt="" class="img-responsive img-circle" /></div>
+                        <div class="avatar"><img src="<?=base_url()?>static/img/team/4.jpg" alt="" class="img-responsive img-circle" /></div>
 
                     </div>
                 </div>
@@ -141,7 +143,7 @@
 				<div class="wow fadeInLeft" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<img src="static/img/icons/hiper.png" alt="" />
+						<img src="<?=base_url()?>static/img/icons/hiper.png" alt="" />
 					</div>
 					<div class="service-desc">
 						<h5>Hipertensión arterial en adultos mayores</h5>
@@ -154,7 +156,7 @@
 				<div class="wow fadeInUp" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<img src="static/img/icons/lact.png" alt="" />
+						<img src="<?=base_url()?>static/img/icons/lact.png" alt="" />
 					</div>
 					<div class="service-desc">
 						<h5>Lactancia Materna</h5>
@@ -167,7 +169,7 @@
 				<div class="wow fadeInUp" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<img src="static/img/icons/diabe.png" alt="" />
+						<img src="<?=base_url()?>static/img/icons/diabe.png" alt="" />
 					</div>
 					<div class="service-desc">
 						<h5>Diabetes Mellitus</h5>
@@ -180,7 +182,7 @@
 				<div class="wow fadeInRight" data-wow-delay="0.2s">
                 <div class="service-box">
 					<div class="service-icon">
-						<img src="static/img/icons/gene.png" alt="" />
+						<img src="<?=base_url()?>static/img/icons/gene.png" alt="" />
 					</div>
 					<div class="service-desc">
 						<h5>Medicina General</h5>
@@ -298,5 +300,13 @@
 
 		</div>
 	</section>
-	<?php include("includes/footer.php") ?>
+	<?php 
+		}else{
+		redirect('Administracion');
+		}
 
+		include("includes/footer.php")
+		?>
+	
+
+	
