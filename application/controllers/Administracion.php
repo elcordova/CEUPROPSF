@@ -12,7 +12,13 @@ class Administracion extends CI_Controller {
 		$this->load->view('administracion/administra');
 	}
 
-	
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		header("Location:".base_url());
+	}
+
+
 }
 
 /* End of file Administracion.php */

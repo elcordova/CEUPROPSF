@@ -7,6 +7,8 @@
 			<body>
 				
 				<?php include("includes/cabecera.php") ?>
+
+				<?php include("includes/navbar.php") ?>
 				<h2> acceso como administrador a <?php echo $username; ?></h2>
 				<h3>bienvenido  su id es <?php echo $id_user; ?></h3>
 				<?php include("includes/footer.php") ?>

@@ -13,7 +13,7 @@ class Usuario_model extends CI_Model {
 	public function login($username, $password)
 	{
 		$this->db->where('correo_electronico',$username);
-		$this->db->where('password',$password);
+		$this->db->where('password',md5($password));
 		$q = $this->db->get('usuario');
 		if($q->num_rows()>0)
 		{

@@ -16,14 +16,7 @@
         <li><a href="#about">Acerca</a></li>
 		<li><a href="#service">Servicios</a></li>
 		<li><a href="#contact">Contactenos</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sistema <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#" data-toggle="modal" data-target="#modal1">Login</a></li>
-            <li><a href="#">Example 2</a></li>
-            <li><a href="#">Example 3</a></li>
-          </ul>
-        </li>
+        <li><a href="<?=base_url()?>index.php/administracion/logout">Cerra Sesion</a></li>
       </ul>
             </div>
             <!-- /.navbar-collapse -->
