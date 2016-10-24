@@ -28,14 +28,16 @@
 						</div>
 						<div class="col-xs-6 col-sm-3 col-md-3">
 							<div class="wow bounceInUp" data-wow-delay="0.5s">
-								<div class="team boxed-grey">
-									<div class="inner">
-										<h5>Administra</h5>
-										<p class="subtitle">Noticias</p>
-										<div class="avatar"><img src="<?=base_url()?>static/images/megafone.png" alt="" class="img-responsive img-rounded" /></div>
+								<a href="Noticias">
+									<div class="team boxed-grey">
+										<div class="inner">
+											<h5>Administra</h5>
+											<p class="subtitle">Noticias</p>
+											<div class="avatar"><img src="<?=base_url()?>static/images/megafone.png" alt="" class="img-responsive img-rounded" /></div>
 
+										</div>
 									</div>
-								</div>
+								</a>
 							</div>
 						</div>
 						<div class="col-xs-6 col-sm-3 col-md-3">

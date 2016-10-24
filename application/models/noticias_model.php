@@ -48,6 +48,23 @@ class Noticias_model extends CI_Model {
         }
     }
 
+    //FUNCIÓN PARA INSERTAR LOS DATOS DE LA IMAGEN SUBIDA
+    function subir($titulo,$contenido,$banner,$id_usuario)
+    {
+    	$now = new DateTime();
+		$timestring = $now->format('Y-m-d h:i:s');
+        $data = array(
+            'fecha_publicacion' => $timestring,
+            'titulo' => $titulo,
+            'contenido' => $contenido,
+            'banner' => $banner,
+            'id_usuario' => $id_usuario,
+        );
+        return $this->db->insert('noticia', $data);
+    }
+
+
+
     /**
      * Inserts new data into database
      *
