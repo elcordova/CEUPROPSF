@@ -47,3 +47,4 @@ class Noticias extends CI_Controller {
 
 /* End of file Noticias.php */
 /* Location: ./application/controllers/Noticias.php */
+
