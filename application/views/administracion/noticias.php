@@ -1,16 +1,23 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 include('includes/cabecera.php');
+include('includes/navbar.php');
 if ($estado) {
-
 	?>
 
+<script type="text/javascript">
+	$(document).ready(function(){
+    $('table').DataTable();});
+</script>
 
-
-	<table class="table">
+	<div class="container-fluid container">
+			<table class="table table-striped table-bordered " cellspacing="0" width="100%">
 		<thead>
 			<tr>
-				<th>Noticias Guardadas</th>
+				<th>Identificador</th>
+				<th>Titulo </th>
+				<th>Fecha</th>
+				<th>Acciones</th>				
 			</tr>
 		</thead>
 		<tbody>
@@ -18,16 +25,35 @@ if ($estado) {
 			foreach ($noticias as $noticia) {
 				echo "<tr>";
 				echo "<td>";
-				echo $noticia['id_noticia'];
+				echo ($noticia['id_noticia']);
 				echo "</td>";
 				echo "<td>";
-				echo $noticia['titulo'];
+				echo ($noticia['titulo']);
 				echo "</td>";
-				echo "</tr>";	
+				echo "<td>";
+				echo ($noticia['fecha_publicacion']);
+				echo "</td>";
+				echo "<td>";
+				echo "<div class='btn-group' >
+    <button type='button' class='btn btn-default'>
+      <span class='glyphicon glyphicon-edit'></span>
+    </button>
+ 
+    <button type='button' class='btn btn-default'>
+      <span class='glyphicon glyphicon-trash'></span>
+    </button>
+ 
+    </div>
+</div>";
+			echo "</td>";
+			echo "</tr>";	
+
 			}
 			?>
 		</tbody>
 	</table>
+
+	</div>
 
 	<?php  
 }else{
@@ -38,7 +64,7 @@ if ($estado) {
 
 
 
-<div class="container">
+<div class="container container-fluid">
 	<div class="row">
 		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 			<!--$ERROR MUESTRA LOS ERRORES QUE PUEDAN HABER AL SUBIR LA IMAGEN-->
@@ -56,8 +82,3 @@ if ($estado) {
 
 	</div>
 
-
-<?php 
-include('includes/footer.php');
-
- ?>

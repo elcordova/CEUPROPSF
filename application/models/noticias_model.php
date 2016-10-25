@@ -36,7 +36,7 @@ class Noticias_model extends CI_Model {
                 $this->db->where(self::PRI_INDEX, $where);
             }
         }
-        $result = $this->db->get()->result();
+        $result = $this->db->get()->result_array();
         if ($result) {
             if ($where !== NULL) {
                 return array_shift($result);
