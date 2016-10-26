@@ -25,11 +25,15 @@
 	<link rel="shortcut icon" href="<?=base_url()?>static/img/logo1.png">
 
 	<!-- Core JavaScript Files -->
-    <script src="<?=base_url()?>static/js/jquery.min.js"></script>
+    <!-- /<script src="<?=base_url()?>static/js/jquery.min.js"></script> -->
+    <script src="<?=base_url()?>static/js/validate/jquery.min.js"></script>
     <script src="<?=base_url()?>static/js/bootstrap.min.js"></script>
     <script src="<?=base_url()?>static/js/jquery.easing.min.js"></script>	
 	<script src="<?=base_url()?>static/js/jquery.scrollTo.js"></script>
 	<script src="<?=base_url()?>static/js/wow.min.js"></script>
+    
+	<script src="<?=base_url()?>static/js/validate/jquery.validate.min.js"></script>
+
     <!-- Custom Theme JavaScript -->
     <script src="<?=base_url()?>static/js/custom.js"></script>
 	<script src="<?=base_url()?>static/js/datatables.js"></script>
