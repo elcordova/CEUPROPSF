@@ -2,16 +2,11 @@
 
 include('includes/cabecera.php');
 include('includes/navbar.php');
-if ($estado) {
-	?>
+?>
+<script type="text/javascript" src="<?=base_url()?>static/js/noticias/noticias.js"></script>
 
-<script type="text/javascript">
-	$(document).ready(function(){
-    $('table').DataTable();});
-</script>
-
-	<div class="container-fluid container">
-			<table class="table table-striped table-bordered " cellspacing="0" width="100%">
+<div class="container-fluid container">
+	<table class="table table-striped table-bordered " cellspacing="0" width="100%">
 		<thead>
 			<tr>
 				<th>Identificador</th>
@@ -35,50 +30,64 @@ if ($estado) {
 				echo "</td>";
 				echo "<td>";
 				echo "<div class='btn-group' >
-    <button type='button' class='btn btn-default'>
-      <span class='glyphicon glyphicon-edit'></span>
-    </button>
- 
-    <button type='button' class='btn btn-default'>
-      <span class='glyphicon glyphicon-trash'></span>
-    </button>
- 
-    </div>
-</div>";
-			echo "</td>";
-			echo "</tr>";	
+				<button type='button' class='btn btn-default'>
+					<span class='glyphicon glyphicon-edit'></span>
+				</button>
 
-			}
-			?>
-		</tbody>
-	</table>
+				<button type='button' class='btn btn-default'>
+					<span class='glyphicon glyphicon-trash'></span>
+				</button>
 
-	</div>
+			</div>
+		</div>";
+		echo "</td>";
+		echo "</tr>";	
 
-	<?php  
-}else{
-	echo "NADA QUE MOSTRAR";
-}
-?>
+	}
+	?>
+</tbody>
+</table>
 
+</div>
+
+
+	
 
 
 
 <div class="container container-fluid">
-	<div class="row">
-		<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+	<div class="row jumbotron">
+		<div >
 			<!--$ERROR MUESTRA LOS ERRORES QUE PUEDAN HABER AL SUBIR LA IMAGEN-->
 			<?=@$error?>
-			<div id="formulario_imagenes">
+			<div id="formulario_imagenes" class="col-md-6 col-sm-10 col-lg-5">
 				<span><?php echo validation_errors(); ?></span>
-				<?=form_open_multipart("Noticias/insert")?>
-				<label>Título:</label><input type="text" id="titulo" name="titulo" />
-				<label>Contenido:</label><input type="text" id="contenido" name="contenido" />
-				<label>Imagen 1:</label><input type="file" id="file" name="file" /><br /><br />
-				<input type="submit" value="Subir imágenes" />
+				<?=form_open_multipart("Noticias/insert",array('id'=>'form_noticia','class'=>'form-horizontal'))?>
+
+				<div class="form-group">
+				<label for="titulo">Titulo de Noticia:</label>
+					<input type="text" class="form-control" id="titulo" name="titulo">
+				</div>
+				<div class="form-group">
+					<label for="contenido">Contenido de Noticia:</label>
+					<textarea type="text" class="form-control" id="contenido" name="contenido" rows="5"></textarea>
+				</div>
+				
+				<div class="form-group">
+					<label class="custom-file">
+					  <input type="file" id="file" class="custom-file-input"  name="file">
+					  <span class="custom-file-control"></span>
+					</label>
+				</div>
+				<input id="guardar" type="submit" value="Guardar Noticia" class="btn btn-large btn-primary btn-block"/>
 				<?=form_close()?>
+			</div>
+			<div class="col-md-4 col-sm-10 col-lg-5 jumbotron jumbotron-fluid" >
+				<label for="list">Vista Previa:</label>
+				<img id="list" src="" class="img-rounded img-thumbnail"/>
 			</div>
 		</div>
 
 	</div>
+</div>
 
