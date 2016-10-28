@@ -52,6 +52,7 @@ class Noticias extends CI_Controller {
                 $status = "error";
                 $msg = "ha ocurrido un error mientrar intentabamos cargar la imagen, por favor intente otra vez";
 			}
+			
 		}
 		@unlink($_FILES[$file_element]);
 		echo json_encode(array('status' => $status, 'msg' => $msg));	
