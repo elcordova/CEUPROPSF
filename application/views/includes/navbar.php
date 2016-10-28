@@ -15,6 +15,7 @@
         <li class="active"><a href="#intro">Inicio</a></li>
         <li><a href="#about">Acerca</a></li>
 		<li><a href="#service">Servicios</a></li>
+        <li><a href="#noticia">Noticias</a></li>
 		<li><a href="#contact">Contactenos</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sistema <b class="caret"></b></a>

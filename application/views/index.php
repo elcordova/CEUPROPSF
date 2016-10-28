@@ -195,9 +195,91 @@
 		</div>
 	</section>
 	<!-- /Section: services -->
-	
 
-	
+
+	<!-- Section: noticias -->
+    <section id="noticia" class="home-section text-center bg-gray">
+		
+		<div class="heading-about">
+			<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="wow bounceInDown" data-wow-delay="0.4s">
+					<div class="section-heading">
+					<h2>Noticias</h2>
+					<i class="fa fa-2x fa-angle-down"></i>
+					<p>Aquí podrá encontrar las noticias acerca de nuestros eventos y demás, CEUPROPSF.</p>
+					<div class="btn-group">
+                        <a class="btn btn-primary" href="#scroller" data-slide="prev"><i class="icon-angle-left"></i></a>
+                        <a class="btn btn-primary" href="#scroller" data-slide="next"><i class="icon-angle-right"></i></a>
+                    </div>
+					</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="container">
+		<hr>
+
+		
+
+       	<div class="row">
+                <div class="col-md-12">
+                    <div id="scroller" class="carousel slide">
+                        <div class="carousel-inner">
+                        	
+                        	<?php 
+                        		$cont = 0;
+                        		$active = 'active';
+								foreach ($noticias as $noticia) {
+									$cont++;
+									if($cont==1){
+							?>
+							<div class="item <?php echo $active ?>">
+                                <div class="row">
+							<?php
+									}
+							?>
+							
+                                    <div class="col-xs-4">
+                                        <div class="portfolio-item">
+                                            <div class="item-inner">
+                                                <img class="img-responsive" src="<?=base_url()?>public/img/notices/<?php echo $noticia['banner'] ?>" alt="">
+                                                <h5>
+                                                    <?php echo ($noticia['titulo']); ?>
+                                                </h5>
+                                                <div class="overlay">
+                                                    <a class="preview btn btn-primary" title="Malesuada fames ac turpis egestas" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                            
+                                
+							<?php
+									if($cont==3){
+										$cont=0;
+							?>
+								</div><!--/.row-->
+                            </div><!--/.item-->
+							<?php
+									}
+
+									
+									$active = '';
+								}
+							?>
+								
+                            
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.row-->		
+		</div>
+	</section>
+	<!-- /Section: noticias -->
 
 	<!-- Section: contact -->
     <section id="contact" class="home-section text-center">
