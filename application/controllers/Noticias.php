@@ -28,10 +28,10 @@ class Noticias extends CI_Controller {
 
 	public function insert()
 	{
-		$status="";
+		$status="";		
 		$msg="";
 		$file_element=$_FILES;
-        echo file_element
+
         $post= $this->input->post();
 		$config['upload_path'] = './public/img/notices/';
 		$config['allowed_types'] = 'gif|jpg|png';

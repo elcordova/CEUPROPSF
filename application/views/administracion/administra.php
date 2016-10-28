@@ -4,7 +4,8 @@
 			$username=$this->session->userdata('email');
 			$id_user=$this->session->userdata('id');
 			?>
-			<?php include("includes/cabecera.php") ?>
+			<?php 
+			include("includes/cabecera.php") ?>
 			
 			<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 				<!-- Preloader -->
