@@ -242,15 +242,18 @@
 									}
 							?>
 							
-                                    <div class="col-xs-4">
+                                    <div class="col-md-4">
                                         <div class="portfolio-item">
                                             <div class="item-inner">
-                                                <img class="img-responsive" src="<?=base_url()?>public/img/notices/<?php echo $noticia['banner'] ?>" alt="">
+                                                <div align="center">
+                                                	<img class="img-responsive" style="max-height:250px; min-height:250px; max-width:450px" src="<?=base_url()?>public/img/notices/<?php echo $noticia['banner'] ?>" alt="">
+                                                </div>
                                                 <h5>
                                                     <?php echo ($noticia['titulo']); ?>
                                                 </h5>
+                                                <h9><?php echo ($noticia['fecha_publicacion']); ?></h9>
                                                 <div class="overlay">
-                                                    <a class="preview btn btn-primary" title="Malesuada fames ac turpis egestas" href="images/portfolio/full/item1.jpg" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                    <a class="preview btn btn-primary" title="Ver Noticia" href="#" data-toggle="modal" data-target="#modal_noticia" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                                                 </div>
                                             </div>
                                         </div>
