@@ -27,8 +27,25 @@ $(document).ready(function(){
         minlength:"El contenido de una noticia debe tener mas de 5 caracteres"
       }
     },
-    submitHandler: function(form){
-      alert("se ha enviado el formulario");
+    submitHandler: function(){
+     
+      $.ajax({
+              type: "POST",
+              url: "Noticias/insert",
+              data: FormData($('#form_noticia')[0]),
+              dataType: 'json',
+              
+              success: function(data,status){
+                if (status !='error') {
+                  alert(status);  
+                }else {
+                  alert(status);
+                }
+                 
+              }         
+
+      });
+      return false;
     }
   });
   
