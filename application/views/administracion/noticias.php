@@ -5,6 +5,7 @@ include('includes/navbar.php');
 ?>
 <script type="text/javascript" src="<?=base_url()?>static/js/noticias/noticias.js"></script>
 
+
 <div class="container-fluid container">
 	<table class="table table-striped table-bordered " cellspacing="0" width="100%">
 		<thead>

@@ -28,22 +28,34 @@ class Noticias extends CI_Controller {
 
 	public function insert()
 	{
-		
-            $post= $this->input->post();
-			$config['upload_path'] = './public/img/notices/';
-			$config['allowed_types'] = 'gif|jpg|png';
-			$this->load->library('upload', $config);
-			// $post['banner']=$nombre_archivo;
-		 	if (!$this->upload->do_upload('file')) {
-            	$error = array('error' => $this->upload->display_errors());
-            	redirect('Noticias/','refresh');
-        	} else {
-        		$file_info = $this->upload->data();
-				$id_usuario=$this->session->userdata('id');
-				$this->noticias_model->subir($post['titulo'],$post['contenido'],$file_info['file_name'],$id_usuario);
-				redirect('Noticias/','refresh');
-			}	
-        
+		$status="";		
+		$msg="";
+		$file_element=$_FILES;
+
+        $post= $this->input->post();
+		$config['upload_path'] = './public/img/notices/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$this->load->library('upload', $config);
+		// $post['banner']=$nombre_archivo;
+		if (!$this->upload->do_upload($file_element)) {
+			$status="error";
+           	$msg= $this->upload->display_errors('','');
+        } else {
+        	$file_info = $this->upload->data();
+			$id_usuario=$this->session->userdata('id');
+			$file_ok=$this->noticias_model->subir($post['titulo'],$post['contenido'],$file_info['file_name'],$id_usuario);
+			if ($file_ok) {
+				$status = "ok";
+                $msg = "Noticia Cargada Correctamente";	
+			}else{
+				unlink($file_info['full_path']);
+                $status = "error";
+                $msg = "ha ocurrido un error mientrar intentabamos cargar la imagen, por favor intente otra vez";
+			}
+			
+		}
+		@unlink($_FILES[$file_element]);
+		echo json_encode(array('status' => $status, 'msg' => $msg));	
 	}
 }
 
