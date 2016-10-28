@@ -253,7 +253,7 @@
                                                 </h5>
                                                 <h9><?php echo ($noticia['fecha_publicacion']); ?></h9>
                                                 <div class="overlay">
-                                                    <a class="preview btn btn-primary" title="Ver Noticia" href="#" data-toggle="modal" data-target="#modal_noticia" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                    <a class="preview btn btn-primary" title="Ver Noticia" data-toggle="modal" data-target="#modal_noticia" onclick="verNoticia(<?php echo ($noticia['id_noticia']); ?>);" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                                                 </div>
                                             </div>
                                         </div>
