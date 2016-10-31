@@ -33,7 +33,18 @@ class Welcome extends CI_Controller {
 			}
 			
 		}
-		$this->load->view('index');
+
+		$this->load->model('noticias_model');
+		$data=null;
+		$arrayNoticias=$data=$this->noticias_model->get();
+		$dato['noticias']=$arrayNoticias;
+		$dato['estado']=true;
+		
+
+
+
+
+		$this->load->view('index', $dato);
 	}
 
 	

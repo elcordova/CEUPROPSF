@@ -24,6 +24,7 @@
 	<script src="<?=base_url()?>static/js/wow.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="<?=base_url()?>static/js/custom.js"></script>
+    <script src="<?=base_url()?>static/js/script_principal.js"></script>
 
 </body>
 

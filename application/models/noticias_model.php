@@ -27,13 +27,16 @@ class Noticias_model extends CI_Model {
     public function get($where = NULL) {
         $this->db->select('*');
         $this->db->from(self::TABLE_NAME);
+        $this->db->order_by("fecha_publicacion", "desc");
         if ($where !== NULL) {
             if (is_array($where)) {
                 foreach ($where as $field=>$value) {
                     $this->db->where($field, $value);
+
                 }
             } else {
                 $this->db->where(self::PRI_INDEX, $where);
+
             }
         }
         $result = $this->db->get()->result_array();
