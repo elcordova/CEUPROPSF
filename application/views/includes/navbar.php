@@ -52,10 +52,10 @@
             </div>
 </div>
 
-<div class="modal fade" id="modal_noticia" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog ">
+<div class="modal fade " id="modal_noticia" aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content modal-popup">
-            <a href="#" class="close-link"><i class="close"></i></a>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             <div class="blog">
                     <div class="blog-item">
                         <img class="img-responsive img-blog" src="<?=base_url()?>public/img/notices/robot.jpg" width="100%" alt="" />
@@ -90,7 +90,7 @@
                              <div class="well" align="left">
                                 <span><i class="icon-user"></i> John</span>
                                 <span><i class="icon-calendar"></i> Sept 16th, 2012</span>
-                                <span><i class="icon-comment"></i> <a href="#comments">3 Comments</a></span>
+                                <span><i class="icon-comment"></i> <a href="#comments">2 Comments</a></span>
                             </div>
                             <hr>
 

@@ -13,6 +13,7 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="<?=base_url()?>static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="<?=base_url()?>static/css/bootstrap.css" rel="stylesheet" type="text/css">
 
     <!-- Fonts -->
     <link href="<?=base_url()?>static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">

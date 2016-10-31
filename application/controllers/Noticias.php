@@ -49,6 +49,11 @@ class Noticias extends CI_Controller {
 			
 		}
 	}
+
+	public function obtener()
+	{
+		echo 'BIEN';
+	}
 }
 
 /* End of file Noticias.php */
