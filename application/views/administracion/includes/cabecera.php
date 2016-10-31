@@ -38,6 +38,8 @@
     <script src="<?=base_url()?>static/js/custom.js"></script>
 	<script src="<?=base_url()?>static/js/datatables.js"></script>
 	<script src="<?=base_url()?>static/js/ajaxfileupload.js"></script>
+	
+
 </head>
 
 

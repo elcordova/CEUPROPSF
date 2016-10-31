@@ -28,26 +28,34 @@ $(document).ready(function(){
       }
     },
     submitHandler: function(){
-     
-      $.ajax({
+    var formData = new FormData(document.getElementById("form_noticia"));
+    $.ajax({
               type: "POST",
               url: "Noticias/insert",
-              data: FormData($('#form_noticia')[0]),
-              dataType: 'json',
-              
-              success: function(data,status){
-                if (status !='error') {
-                  alert(status);  
-                }else {
-                  alert(status);
-                }
-                 
-              }         
+              data: formData,
+              dataType: 'html',
+              cache: false,
+              contentType: false,
+              processData: false,
 
-      });
-      return false;
+              success:function(res){
+                if (res==='exito'){
+                  noty({
+    text: 'NOTY - a jquery notification library!',
+    animation: {
+        open: {height: 'toggle'}, // jQuery animate function property object
+        close: {height: 'toggle'}, // jQuery animate function property object
+        easing: 'swing', // easing
+        speed: 500 // opening & closing animation speed
     }
-  });
+});
+                }else {
+                  alert('ocurrio algun error en el proceso');
+                }
+              }
+    });
+  }});
+
   
   $(function() {
     $('#file').change(function(e) {
