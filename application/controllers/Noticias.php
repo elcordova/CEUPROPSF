@@ -52,7 +52,8 @@ class Noticias extends CI_Controller {
 
 	public function obtener()
 	{
-		echo 'BIEN';
+		$id = $this->input->post('id');
+		echo 'HOLA'.$id;
 	}
 }
 

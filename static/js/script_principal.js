@@ -18,7 +18,22 @@ function objetoAjax(){
 
 function verNoticia(idNoticia){
 
-	ajax = objetoAjax();
+	 $.ajax({
+	 	type: "POST",
+	 	url: "index.php/Noticias/obtener",
+	 	data: {id:idNoticia},
+	 	
+	 	
+	 	success:function(res){
+	 		if (res==='BIEN'){
+	 			alert('LOL') ;
+	 		}else{
+	 			alert(res) ;
+	 		}
+	 	}
+	});
+
+	/*ajax = objetoAjax();
 	ajax.open("POST", "Noticias/obtener", true);
 	ajax.onreadystatechange=function() {
 	if (ajax.readyState==4) {
@@ -28,12 +43,13 @@ function verNoticia(idNoticia){
 	    alert('BIEN');
 	    
 	  }else{
-	   	alert('MAL');
+	   	alert(mensajeRespuesta);
 	  }
 	}
 	}
 	ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
 	ajax.send();
+	*/
 
 	$('#n_titulo').html(idNoticia);
 }
