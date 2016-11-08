@@ -22,34 +22,76 @@ function verNoticia(idNoticia){
 	 	type: "POST",
 	 	url: "index.php/Noticias/obtener",
 	 	data: {id:idNoticia},
+	 	dataType: 'json',
 	 	
-	 	
-	 	success:function(res){
-	 		if (res==='BIEN'){
-	 			alert('LOL') ;
-	 		}else{
-	 			alert(res) ;
-	 		}
+	 	success:function(data){
+	 		$('#n_imagen').attr("src","public/img/notices/"+data.banner);
+	 		$('#n_titulo').html(data.titulo);
+	 		$('#n_contenido').html(data.contenido);
+	 		$('#n_fecha').html(data.fecha_publicacion);
 	 	}
 	});
 
-	/*ajax = objetoAjax();
-	ajax.open("POST", "Noticias/obtener", true);
-	ajax.onreadystatechange=function() {
-	if (ajax.readyState==4) {
-	  var mensajeRespuesta = ajax.responseText;
-
-	  if(mensajeRespuesta == 'BIEN'){
-	    alert('BIEN');
-	    
-	  }else{
-	   	alert(mensajeRespuesta);
-	  }
-	}
-	}
-	ajax.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-	ajax.send();
-	*/
-
-	$('#n_titulo').html(idNoticia);
 }
+
+$(document).ready(function(){
+
+	$('#form_comentario').submit(function(e) {
+	    e.preventDefault();
+	  }).validate({
+	    debug: true,
+	    rules: {
+	      "come_nombre": {
+	        required: true
+	      },
+	      "come_contenido": {
+	        required: true
+	      }
+	    },
+	    messages: {
+	      "come_nombre": {
+	        required: "Introduce tu nombre"
+	      },
+	      "come_contenido": {
+	        required: "Introduce tu comentario"
+	      }
+	    },
+	    submitHandler: function(){
+	   
+	    $.ajax({
+			type: "POST",
+			url: "Comentario/insert",
+			data: {
+				contenido : $('#come_contenido').val(),
+				nombre : $('#come_nombre').val(),
+				correo : $('#come_correo').val(),
+				id_noticia : 5
+			},
+			dataType: 'html',
+			cache: false,
+			contentType: false,
+			processData: false,
+
+			success:function(data)
+			{
+				if (data==='0')
+				{
+				  	noty({
+						text: 'NOTY - a jquery notification library!',
+						animation: {
+							open: {height: 'toggle'}, // jQuery animate function property object
+							close: {height: 'toggle'}, // jQuery animate function property object
+							easing: 'swing', // easing
+							speed: 500 // opening & closing animation speed
+						}
+					});
+				}
+				else
+				{
+				  	alert(data);
+				}
+			}
+	    });
+	 }
+	});
+}); 

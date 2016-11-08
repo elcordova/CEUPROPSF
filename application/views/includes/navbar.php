@@ -58,27 +58,15 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             <div class="blog">
                     <div class="blog-item">
-                        <img class="img-responsive img-blog" src="<?=base_url()?>public/img/notices/robot.jpg" width="100%" alt="" />
+                        <img class="img-responsive img-blog" src="<?=base_url()?>public/img/notices/robot.jpg" 
+                        width="100%" style="max-height:450px; " alt="" id="n_imagen"/>
                         <div class="blog-content">
-                            <h3 style="color:white" id="n_titulo">Duis sed odio sit amet nibh vulputate cursus</h3>
+                            <h3 style="color:white" id="n_titulo"></h3>
                             <div class="media">
                                 <div class="media-body">
-                                    <div class="well" align="justify">
+                                    <div class="well" align="justify" id="n_contenido">
                                         <p>
-                                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames 
-                                            ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, 
-                                            ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris 
-                                            placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat 
-                                            wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget 
-                                            tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non 
-                                            enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, 
-                                            tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. 
-                                            Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
-                                        </p>
-                                        <p>
-                                            Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
-                                            estibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero 
-                                            sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+                                            
                                         </p>
                                     </div>
                                    
@@ -88,8 +76,8 @@
 
                             
                              <div class="well" align="left">
-                                <span><i class="icon-user"></i> John</span>
-                                <span><i class="icon-calendar"></i> Sept 16th, 2012</span>
+                                <span><i class="icon-user"></i> CEUPROPSF</span>
+                                <span><i class="icon-calendar"></i> <span id="n_fecha"></span></span>
                                 <span><i class="icon-comment"></i> <a href="#comments">2 Comments</a></span>
                             </div>
                             <hr>
@@ -123,24 +111,26 @@
                                    
                                 </div><!--/#comments-list-->  
                                 <hr>
+                                <?=@$error?>
                                 <div id="comment-form">
                                     <h3 style="color:white">Agregar un Comentario</h3>
-                                    <form class="form-horizontal" role="form">
+                                    <span><?php echo validation_errors(); ?></span>
+                                    <?=form_open_multipart("Comentario/insert",array('id'=>'form_comentario','class'=>'form-horizontal'))?>
                                         <div class="form-group">
                                             <div class="col-sm-6">
-                                                <input type="text" class="form-control" placeholder="Nombre">
+                                                <input type="text" class="form-control" placeholder="Nombre" id="come_nombre" name="come_nombre">
                                             </div>
                                             <div class="col-sm-6">
-                                                <input type="email" class="form-control" placeholder="Email">
+                                                <input type="email" class="form-control" placeholder="Email" id="come_correo" name="come_correo">
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-12">
-                                                <textarea rows="8" class="form-control" placeholder="Comentario"></textarea>
+                                                <textarea rows="8" class="form-control" placeholder="Comentario" id="come_contenido" name="come_contenido"></textarea>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-lg">Comentar</button>
-                                    </form>
+                                        <input type="submit" class="btn btn-primary btn-lg" value="Comentar">
+                                    <?=form_close()?>
                                 </div><!--/#comment-form-->
                             </div><!--/#comments-->
                         </div>
