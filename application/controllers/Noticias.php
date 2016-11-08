@@ -53,7 +53,10 @@ class Noticias extends CI_Controller {
 
 	public function obtener()
 	{
-		echo 'BIEN';
+		$id = $this->input->post('id');
+		$this->load->model('noticias_model');
+		$data=$this->noticias_model->get($id);
+		echo json_encode($data);
 	}
 	public function consultar_noticias(){
 		$where = NULL;
