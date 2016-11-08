@@ -6,7 +6,7 @@ include('includes/navbar.php');
 <script type="text/javascript" src="<?=base_url()?>static/js/noticias/noticias.js"></script>
 
 
-<div class="container-fluid container">
+<div class="container-fluid container" id='contenedor_tabla'>
 	<table class="table table-striped table-bordered " cellspacing="0" width="100%">
 		<thead>
 			<tr>
@@ -18,20 +18,21 @@ include('includes/navbar.php');
 		</thead>
 		<tbody>
 			<?php 
-			foreach ($noticias as $noticia) {
+			if (isset($noticias)) {
+					foreach ($noticias as $noticia) {
 				echo "<tr>";
 				echo "<td>";
-				echo ($noticia['id_noticia']);
+				echo ($noticia['not_id']);
 				echo "</td>";
 				echo "<td>";
-				echo ($noticia['titulo']);
+				echo ($noticia['not_tit']);
 				echo "</td>";
 				echo "<td>";
-				echo ($noticia['fecha_publicacion']);
+				echo ($noticia['not_fec_pub']);
 				echo "</td>";
 				echo "<td>";
 				echo "<div class='btn-group' >
-				<button type='button' class='btn btn-default'>
+				<button type='button' class='btn btn-default' onclick=carga_noticia(".$noticia['not_id'].")>
 					<span class='glyphicon glyphicon-edit'></span>
 				</button>
 
@@ -45,6 +46,9 @@ include('includes/navbar.php');
 		echo "</tr>";	
 
 	}
+			}
+		
+	
 	?>
 </tbody>
 </table>
@@ -61,7 +65,7 @@ include('includes/navbar.php');
 		<div >
 			<!--$ERROR MUESTRA LOS ERRORES QUE PUEDAN HABER AL SUBIR LA IMAGEN-->
 			<?=@$error?>
-			<div id="formulario_imagenes" class="col-md-6 col-sm-10 col-lg-5">
+			<div id="formulario_imagenes" class="col-md-7 col-sm-10 col-lg-7">
 				<span><?php echo validation_errors(); ?></span>
 				<?=form_open_multipart("Noticias/insert",array('id'=>'form_noticia','class'=>'form-horizontal'))?>
 
@@ -80,10 +84,13 @@ include('includes/navbar.php');
 					  <span class="custom-file-control"></span>
 					</label>
 				</div>
-				<input id="guardar" type="submit" value="Guardar Noticia" class="btn btn-large btn-primary btn-block"/>
+					<div class="btn-group">
+					<input id="guardar" type="submit" value="Guardar Noticia" class="btn  btn-primary "/>
+					<input id="cancelar" value="Cancelar" name='cancelar' onclick='limp_form_noticia()' class="btn  btn-primary "/>
+				</div>
 				<?=form_close()?>
 			</div>
-			<div class="col-md-4 col-sm-10 col-lg-5 jumbotron jumbotron-fluid" >
+			<div class="col-md-3 col-sm-10 col-lg-3 jumbotron jumbotron-fluid" >
 				<label for="list">Vista Previa:</label>
 				<img id="list" src="" class="img-rounded img-thumbnail"/>
 			</div>

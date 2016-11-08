@@ -12,8 +12,8 @@ class Usuario_model extends CI_Model {
 
 	public function login($username, $password)
 	{
-		$this->db->where('correo_electronico',$username);
-		$this->db->where('password',md5($password));
+		$this->db->where('usu_eml',$username);
+		$this->db->where('usu_pas',md5($password));
 		$q = $this->db->get('usuario');
 		if($q->num_rows()>0)
 		{
@@ -25,7 +25,7 @@ class Usuario_model extends CI_Model {
 
 	public function consultar_usuario($username)
 	{
-		$this->db->where('correo_electronico',$username);
+		$this->db->where('usu_eml',$username);
 		$q = $this->db->get('usuario');
 		return $q->row();
 	}

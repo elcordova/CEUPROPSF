@@ -22,6 +22,7 @@
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>static/css/datatables.min.css">
 	<link href="<?=base_url()?>static/color/default.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>static/css/cardio.css">
+	<link rel="stylesheet" type="text/css" href="<?=base_url()?>static/css/toastr/toastr.min.css">
 	<link rel="shortcut icon" href="<?=base_url()?>static/img/logo1.png">
 
 	<!-- Core JavaScript Files -->
@@ -33,7 +34,7 @@
 	<script src="<?=base_url()?>static/js/wow.min.js"></script>
     
 	<script src="<?=base_url()?>static/js/validate/jquery.validate.min.js"></script>
-
+	<script src="<?=base_url()?>static/js/toastr/toastr.min.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="<?=base_url()?>static/js/custom.js"></script>
 	<script src="<?=base_url()?>static/js/datatables.js"></script>

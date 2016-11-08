@@ -40,15 +40,7 @@ $(document).ready(function(){
 
               success:function(res){
                 if (res==='exito'){
-                  noty({
-    text: 'NOTY - a jquery notification library!',
-    animation: {
-        open: {height: 'toggle'}, // jQuery animate function property object
-        close: {height: 'toggle'}, // jQuery animate function property object
-        easing: 'swing', // easing
-        speed: 500 // opening & closing animation speed
-    }
-});
+                  actualizar_tabla_noticias();
                 }else {
                   alert('ocurrio algun error en el proceso');
                 }
@@ -81,7 +73,59 @@ $(document).ready(function(){
   }
 });
 
+  function actualizar_tabla_noticias(){
+    $.ajax({
+            type:"GET",
+            url:"Noticias/consultar_noticias",
+            dataType: 'json',
+            success:function(res){
+              $('#contenedor_tabla').empty();
+              var contenido="";
+              if (res) {
+                for (i = 0; i < res.length; i++){
+                  contenido+="<tr>"+
+                          "<td>"+res[i]['not_id']+"</td>"+
+                          "<td>"+res[i]['not_tit']+"</td>"+
+                          "<td>"+res[i]['not_fec_pub']+"</td>"+
+                          "<td>"+
+                              "<div class='btn-group'>"+
+                                "<button type='button' class='btn btn-default' onclick=carga_noticia("+res[i]['not_id']+")>"+
+                                "<span class='glyphicon glyphicon-edit'></span>"+
+                                "</button>"+
+                                "<button type='button' class='btn btn-default'>"+
+                                "<span class='glyphicon glyphicon-trash'></span>"+
+                                "</button>"+
+                              "</div>"+
+                          "</td>"+
+                        "</tr>";
+                };
+              }
+              var tabla="<table class='table table-striped table-bordered' cellspacing='0' width='100%'>"+
+                        "<thead>"+
+                          "<tr>"+
+                            "<th>Identificador</th>"+
+                            "<th>Titulo</th>"+
+                            "<th>Fecha</th>"+
+                            "<th>Acciones</th>"+       
+                          "</tr>"+
+                        "</thead>"+
+                        "<tbody>"+contenido
+                        "</tbody>"+
+                        "</table>";
+              $('#contenedor_tabla').append(tabla);
+              limp_form_noticia();
+              $('html,body').animate({
+                scrollTop: $("#contenedor_tabla").offset().top
+                }, 2000);
+              toastr.options={"progressBar": true}
+              toastr.success('Noticia Agregada con Exito!','Estado');
+            }
+    });
+  }
 
+
+
+  
 
 
   $("#guardar").click(function(){
@@ -90,3 +134,23 @@ $(document).ready(function(){
 
 }); 
 
+function carga_noticia(id_noticia){
+  $.ajax({
+          type:"GET",
+            url:"Noticias/consultar_noticias",
+            data:{'not_id':id_noticia},
+            dataType: 'json',
+            success:function(res){
+              $('#titulo').val(res['not_tit']);
+              $('#contenido').val(res['not_con']);
+              $('#file').val("./public/img/notices/"+res['not_ban']);
+            }
+  })
+}
+
+function limp_form_noticia(){
+    $('#titulo').val('');
+    $('#contenido').val('');
+    $('#file').val('');
+    $('#list').removeAttr("src");
+  }
