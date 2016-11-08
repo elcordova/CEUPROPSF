@@ -14,7 +14,7 @@ class Noticias_model extends CI_Model {
     /**
      * @name string PRI_INDEX Holds the name of the tables' primary index used in this model
      */
-    const PRI_INDEX = 'id_noticia';
+    const PRI_INDEX = 'not_id';
 
     /**
      * Retrieves record(s) from the database
@@ -27,7 +27,7 @@ class Noticias_model extends CI_Model {
     public function get($where = NULL) {
         $this->db->select('*');
         $this->db->from(self::TABLE_NAME);
-        $this->db->order_by("fecha_publicacion", "desc");
+        $this->db->order_by("not_fec_pub", "desc");
         if ($where !== NULL) {
             if (is_array($where)) {
                 foreach ($where as $field=>$value) {
@@ -57,17 +57,14 @@ class Noticias_model extends CI_Model {
     	$now = new DateTime();
 		$timestring = $now->format('Y-m-d h:i:s');
         $data = array(
-            'fecha_publicacion' => $timestring,
-            'titulo' => $titulo,
-            'contenido' => $contenido,
-            'banner' => $banner,
-            'id_usuario' => $id_usuario,
+            'not_fec_pub' => $timestring,
+            'not_tit' => $titulo,
+            'not_con' => $contenido,
+            'not_ban' => $banner,
+            'usu_cod' => $id_usuario,
         );
         return $this->db->insert('noticia', $data);
     }
-
-
-
     /**
      * Inserts new data into database
      *
@@ -75,9 +72,7 @@ class Noticias_model extends CI_Model {
      * @return mixed Inserted row ID, or false if error occured
      */
     public function insert(Array $data) {
-
-
-    	
+	
         if ($this->db->insert(self::TABLE_NAME, $data)) {
             return $this->db->insert_id();
         } else {

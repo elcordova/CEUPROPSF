@@ -50,9 +50,20 @@ class Noticias extends CI_Controller {
 		}
 	}
 
+
 	public function obtener()
 	{
 		echo 'BIEN';
+	}
+	public function consultar_noticias(){
+		$where = NULL;
+		if($this->input->get())
+		{
+			$where=$this->input->get();
+		}
+		$arrayNoticias=$this->noticias_model->get($where);
+		echo json_encode($arrayNoticias);
+
 	}
 }
 
