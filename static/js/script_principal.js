@@ -26,6 +26,7 @@ function verNoticia(idNoticia){
 	 	
 	 	success:function(data){
 	 		$('#n_imagen').attr("src","public/img/notices/"+data.not_ban);
+<<<<<<< HEAD
 	 		$('#n_imagen').attr("onclick","window.open('public/img/notices/"+data.not_ban+"', '_blank')");
 	 		$('#n_titulo').html(data.not_tit);
 	 		$('#n_contenido').html(data.not_con);
@@ -52,6 +53,11 @@ function verNoticia(idNoticia){
 	 			'</div><p>'+data[i].com_con+'</p></div></div></div>';
 	 		};
 	 		$('#lista_comentarios').html(comentarios);
+=======
+	 		$('#n_titulo').html(data.not_tit);
+	 		$('#n_contenido').html(data.not_con);
+	 		$('#n_fecha').html(data.not_fec_puc);
+>>>>>>> master
 	 	}
 	});
 

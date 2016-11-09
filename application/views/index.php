@@ -249,6 +249,10 @@
                                                 	<img class="img-responsive" style="max-height:250px; min-height:250px; max-width:450px" src="<?=base_url()?>public/img/notices/<?php echo $noticia['not_ban'] ?>" alt="">
                                                 </div>
                                                 <h5>
+<<<<<<< HEAD
+=======
+                                                
+>>>>>>> master
                                                     <?php echo ($noticia['not_tit']); ?>
                                                 </h5>
                                                 <h9><?php echo ($noticia['not_fec_pub']); ?></h9>
