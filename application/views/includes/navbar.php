@@ -121,7 +121,7 @@
                                                 <textarea rows="8" class="form-control" placeholder="Comentario" id="come_contenido" name="come_contenido"></textarea>
                                             </div>
                                         </div>
-                                        <input type="submit" class="btn btn-primary btn-lg" value="Comentar" onclick="agregarComentario(); return false;">
+                                        <input class="btn btn-primary btn-lg" value="Comentar" onclick="agregarComentario(); return false;">
                                     </form>>
                                 </div><!--/#comment-form-->
                             </div><!--/#comments-->

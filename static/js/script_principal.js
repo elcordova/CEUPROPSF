@@ -61,35 +61,49 @@ function verNoticia(idNoticia){
 
 function agregarComentario(){
 
-	$.ajax({
-		type: "POST",
-		url: "index.php/Comentario/insert",
-		data: {
-			com_con : $('#come_contenido').val(),
-			com_nom : $('#come_nombre').val(),
-			com_eml : $('#come_correo').val(),
-			not_id : $('#not_codigo').val()
-		},
-		dataType: 'html',
+	var contenido = $('#come_contenido').val();
+	var nombre = $('#come_nombre').val();
+	var correo = $('#come_correo').val();
 
-		success:function(data)
-		{
-			if (data==='0')
+	if(contenido.trim()==''||nombre.trim()==''||correo.trim()=='')
+	{
+		toastr.error('Los campos son obligatorios','Estado');
+	}
+	else
+	{
+		$.ajax({
+			type: "POST",
+			url: "index.php/Comentario/insert",
+			data: {
+				com_con : contenido,
+				com_nom : nombre,
+				com_eml : correo,
+				not_id : $('#not_codigo').val()
+			},
+			dataType: 'html',
+
+			success:function(data)
 			{
-				
-	            toastr.success('Comentario Agregado con Exito!','Estado');
-	            $('#lista_comentarios').append('<div class="media"><div class="media-body"><div class="well" align="justify">'+
-	 			'<div class="media-heading"><strong>'+$("#come_nombre").val()+'</strong>&nbsp; <small>Ahora</small>'+
-	 			'</div><p>'+$("#come_contenido").val()+'</p></div></div></div>');
-	            //Limpiar campos
-	            $('#come_contenido').val('');
-	            $('#come_nombre').val('');
-	            $('#come_correo').val('');
+				if (data==='0')
+				{
+					
+		            toastr.success('Comentario Agregado con Exito!','Estado');
+		            $('#lista_comentarios').append('<div class="media"><div class="media-body"><div class="well" align="justify">'+
+		 			'<div class="media-heading"><strong>'+$("#come_nombre").val()+'</strong>&nbsp; <small>Ahora</small>'+
+		 			'</div><p>'+$("#come_contenido").val()+'</p></div></div></div>');
+		            //Limpiar campos
+		            $('#come_contenido').val('');
+		            $('#come_nombre').val('');
+		            $('#come_correo').val('');
+				}
+				else
+				{
+				  	 toastr.danger(data,'Estado');
+				}
 			}
-			else
-			{
-			  	alert(data);
-			}
-		}
-	});
+		});
+	}
+
+
+	
 }
