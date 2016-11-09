@@ -25,6 +25,7 @@ function verNoticia(idNoticia){
 	 	dataType: 'json',
 	 	
 	 	success:function(data){
+	 		$('#n_imagen').attr("src","public/img/notices/"+data.not_ban);
 	 		$('#n_imagen').attr("onclick","window.open('public/img/notices/"+data.not_ban+"', '_blank')");
 	 		$('#n_titulo').html(data.not_tit);
 	 		$('#n_contenido').html(data.not_con);
