@@ -17,10 +17,12 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 public/img/*
 
 
+
 # IDE Files
 #-------------------------
 /nbproject/
 .idea/*
+.php-tmp
 
 ## Sublime Text cache files
 *.tmlanguage.cache

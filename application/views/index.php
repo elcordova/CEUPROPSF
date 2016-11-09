@@ -246,14 +246,14 @@
                                         <div class="portfolio-item">
                                             <div class="item-inner">
                                                 <div align="center">
-                                                	<img class="img-responsive" style="max-height:250px; min-height:250px; max-width:450px" src="<?=base_url()?>public/img/notices/<?php echo $noticia['banner'] ?>" alt="">
+                                                	<img class="img-responsive" style="max-height:250px; min-height:250px; max-width:450px" src="<?=base_url()?>public/img/notices/<?php echo $noticia['not_ban'] ?>" alt="">
                                                 </div>
                                                 <h5>
-                                                    <?php echo ($noticia['titulo']); ?>
+                                                    <?php echo ($noticia['not_tit']); ?>
                                                 </h5>
-                                                <h9><?php echo ($noticia['fecha_publicacion']); ?></h9>
+                                                <h9><?php echo ($noticia['not_fec_pub']); ?></h9>
                                                 <div class="overlay">
-                                                    <a class="preview btn btn-primary" title="Ver Noticia" data-toggle="modal" data-target="#modal_noticia" onclick="verNoticia(<?php echo ($noticia['id_noticia']); ?>);" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                    <a class="preview btn btn-primary" title="Ver Noticia" data-toggle="modal" data-target="#modal_noticia" onclick="verNoticia(<?php echo ($noticia['not_id']); ?>);" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
                                                 </div>
                                             </div>
                                         </div>

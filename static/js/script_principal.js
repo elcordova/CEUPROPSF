@@ -25,10 +25,10 @@ function verNoticia(idNoticia){
 	 	dataType: 'json',
 	 	
 	 	success:function(data){
-	 		$('#n_imagen').attr("src","public/img/notices/"+data.banner);
-	 		$('#n_titulo').html(data.titulo);
-	 		$('#n_contenido').html(data.contenido);
-	 		$('#n_fecha').html(data.fecha_publicacion);
+	 		$('#n_imagen').attr("src","public/img/notices/"+data.not_ban);
+	 		$('#n_titulo').html(data.not_tit);
+	 		$('#n_contenido').html(data.not_con);
+	 		$('#n_fecha').html(data.not_fec_puc);
 	 	}
 	});
 
