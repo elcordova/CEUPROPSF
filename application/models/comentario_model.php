@@ -14,7 +14,7 @@ class Comentario_model extends CI_Model {
     /**
      * @name string PRI_INDEX Holds the name of the tables' primary index used in this model
      */
-    const PRI_INDEX = 'id_comentario';
+    const PRI_INDEX = 'com_id';
 
     /**
      * Retrieves record(s) from the database
@@ -27,12 +27,11 @@ class Comentario_model extends CI_Model {
     public function get($where = NULL) {
         $this->db->select('*');
         $this->db->from(self::TABLE_NAME);
-        $this->db->order_by("fecha_comentario", "desc");
+        $this->db->order_by("com_fec", "asc");
         if ($where !== NULL) {
             if (is_array($where)) {
                 foreach ($where as $field=>$value) {
                     $this->db->where($field, $value);
-
                 }
             } else {
                 $this->db->where(self::PRI_INDEX, $where);
@@ -42,7 +41,12 @@ class Comentario_model extends CI_Model {
         $result = $this->db->get()->result_array();
         if ($result) {
             if ($where !== NULL) {
-                return array_shift($result);
+                if (is_array($where)) {
+                    return $result;
+                }else{
+                    return array_shift($result);
+                }
+                
             } else {
                 return $result;
             }

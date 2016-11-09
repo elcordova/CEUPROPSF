@@ -58,10 +58,10 @@
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
             <div class="blog">
                     <div class="blog-item">
-                        <img class="img-responsive img-blog" src="<?=base_url()?>public/img/notices/robot.jpg" 
-                        width="100%" style="max-height:450px; " alt="" id="n_imagen"/>
+                        <h3 style="color:white" id="n_titulo"></h3>
+                        <img class="img-responsive img-blog" src="" 
+                        width="100%" style="max-height:450px; cursor:pointer;" title="Ver imagen completa" id="n_imagen"/>
                         <div class="blog-content">
-                            <h3 style="color:white" id="n_titulo"></h3>
                             <div class="media">
                                 <div class="media-body">
                                     <div class="well" align="justify" id="n_contenido">
@@ -78,45 +78,37 @@
                              <div class="well" align="left">
                                 <span><i class="icon-user"></i> CEUPROPSF</span>
                                 <span><i class="icon-calendar"></i> <span id="n_fecha"></span></span>
-                                <span><i class="icon-comment"></i> <a href="#comments">2 Comments</a></span>
+                                <span><i class="icon-comment"></i> <a href="#comments"><span id="n_comentario"></span></a></span>
                             </div>
                             <hr>
 
                             <div id="comments">
                                 <div id="comments-list">
-                                    <h3 style="color:white">2 Comentarios</h3>
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <div class="well" align="justify">
-                                                <div class="media-heading">
-                                                    <strong>John Doe</strong>&nbsp; <small>27 Aug 2013</small>
+                                    <h3 style="color:white" id="n_comentario2"></h3>
+                                    <h6 style="color:white"><a href="#comment-form">Comentar</a></h6>
+                                    <div id="lista_comentarios">
+                                        <!--<div class="media">
+                                            <div class="media-body">
+                                                <div class="well" align="justify">
+                                                    <div class="media-heading">
+                                                        <strong>John Doe</strong>&nbsp; <small>27 Aug 2013</small>
+                                                    </div>
+                                                    <p>Gracias por esta importante noticia, saludos.</p>
                                                 </div>
-                                                <p>Gracias por esta importante noticia, saludos.</p>
+                                               
                                             </div>
-                                           
-                                        </div>
-                                    </div><!--/.media-->
-                                    <div class="media">
-                                        <div class="media-body">
-                                            <div class="well" align="justify">
-                                                <div class="media-heading">
-                                                    <strong>Cristhian Delgado</strong>&nbsp; <small>27 Aug 2013</small>
-                                                </div>
-                                                <p>Excelente Noticia.</p>
-                                            </div>
-                                           
-                                        </div>
-                                        
-                                    </div><!--/.media-->
+                                        </div>-->
+                                    </div>
+                                    
                                    
                                 </div><!--/#comments-list-->  
                                 <hr>
-                                <?=@$error?>
+                                
                                 <div id="comment-form">
                                     <h3 style="color:white">Agregar un Comentario</h3>
-                                    <span><?php echo validation_errors(); ?></span>
-                                    <?=form_open_multipart("Comentario/insert",array('id'=>'form_comentario','class'=>'form-horizontal'))?>
+                                    <form class="form-horizontal" id="form_comentario">
                                         <div class="form-group">
+                                            <input type="hidden" id="not_codigo">
                                             <div class="col-sm-6">
                                                 <input type="text" class="form-control" placeholder="Nombre" id="come_nombre" name="come_nombre">
                                             </div>
@@ -129,8 +121,8 @@
                                                 <textarea rows="8" class="form-control" placeholder="Comentario" id="come_contenido" name="come_contenido"></textarea>
                                             </div>
                                         </div>
-                                        <input type="submit" class="btn btn-primary btn-lg" value="Comentar">
-                                    <?=form_close()?>
+                                        <input type="submit" class="btn btn-primary btn-lg" value="Comentar" onclick="agregarComentario(); return false;">
+                                    </form>>
                                 </div><!--/#comment-form-->
                             </div><!--/#comments-->
                         </div>
