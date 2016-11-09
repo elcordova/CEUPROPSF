@@ -20,9 +20,10 @@
 							<div class="wow bounceInUp" data-wow-delay="0.2s">
 								<div class="team boxed-grey">
 									<div class="inner">
-										<h5>USUARIOS</h5>
-										
+										<a href="<?php echo base_url()?>cusuario/start">
+										<h5>USUARIOS</h5>										
 										<div class="avatar"><img src="<?=base_url()?>static/images/user_admin.png" alt="" class="img-responsive img-rounded" /></div>
+										</a>
 									</div>
 								</div>
 							</div>
