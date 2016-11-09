@@ -26,6 +26,9 @@
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>static/css/noticias.css">
 	<link rel="shortcut icon" href="<?=base_url()?>static/img/logo1.png">
 
+    <link rel="stylesheet" type="text/css" href="<?=base_url()?>static/css/toastr/toastr.min.css">
+    
+
 
 </head>
 
