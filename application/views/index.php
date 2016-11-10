@@ -75,8 +75,9 @@
 				<div class="wow bounceInUp" data-wow-delay="0.5s">
                 <div class="team boxed-grey">
                     <div class="inner">
-						<h5>Dr. Nombre 2</h5>
-                        <p class="subtitle">Cargo 2</p>
+						<h5>Dra Maritza Agudo</h5>
+                        <p class="subtitle">Gestora del Proyecto</p>
+                        <p class="subtitle">_</p>
                         <div class="avatar"><img src="<?=base_url()?>static/img/team/2.jpg" alt="" class="img-responsive img-circle" /></div>
 
                     </div>
@@ -88,7 +89,7 @@
                 <div class="team boxed-grey">
                     <div class="inner">
 						<h5>Dr. Nombre 3</h5>
-                        <p class="subtitle">Cargo 3</p>
+                        <p class="subtitle">Coordinadora de la Carrera de Medicina</p>
                         <div class="avatar"><img src="<?=base_url()?>static/img/team/3.jpg" alt="" class="img-responsive img-circle" /></div>
 
                     </div>
