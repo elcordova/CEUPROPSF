@@ -64,9 +64,9 @@
 				<div class="wow bounceInUp" data-wow-delay="0.2s">
                 <div class="team boxed-grey">
                     <div class="inner">
-						<h5>Dra. Maritza Agudo</h5>
-                        <p class="subtitle">Gestora del Proyecto</p>
-                        <div class="avatar"><img src="<?=base_url()?>static/img/team/1.jpg" alt="" class="img-responsive img-circle" /></div>
+						<h5>Ing. Fausto Redrován</h5>
+                        <p class="subtitle">Coordinador de la Carrera de Ingeniería de Sistemas</p>
+                        <div class="avatar"><img src="<?=base_url()?>static/img/team/Ing_Fausto.jpg" alt="" class="img-responsive img-circle" /></div>
                     </div>
                 </div>
 				</div>
@@ -95,15 +95,6 @@
                 </div>
 				</div>
             </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
-				<div class="wow bounceInUp" data-wow-delay="1s">
-                <div class="team boxed-grey">
-                    <div class="inner">
-						<h5>Dr. Nombre 4</h5>
-                        <p class="subtitle">Cargo 4</p>
-                        <div class="avatar"><img src="<?=base_url()?>static/img/team/4.jpg" alt="" class="img-responsive img-circle" /></div>
-
-                    </div>
                 </div>
 				</div>
             </div>
