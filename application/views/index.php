@@ -52,7 +52,7 @@
 			</div>
 			</div>
 		</div>
-		<div class="container">
+		<div class="container fluid">
 
 		<div class="row">
 			<div class="col-lg-2 col-lg-offset-5">
@@ -60,37 +60,41 @@
 			</div>
 		</div>
         <div class="row">
-            <div class="col-xs-6 col-sm-3 col-md-3">
+        <!-- <div class="col-xs-4 col-sm-3 col-md-3"> -->
+           
+            <div class="col-sm-4">
 				<div class="wow bounceInUp" data-wow-delay="0.2s">
                 <div class="team boxed-grey">
                     <div class="inner">
 						<h5>Ing. Fausto Redrován</h5>
-                        <p class="subtitle">Coordinador de la Carrera de Ingeniería de Sistemas</p>
+                        <p class="subtitle">Coordinador de la Carrera</p>
+                        <p class="subtitle">Ingeniería de Sistemas</p>
                         <div class="avatar"><img src="<?=base_url()?>static/img/team/Ing_Fausto.jpg" alt="" class="img-responsive img-circle" /></div>
                     </div>
                 </div>
 				</div>
             </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
+			<div class="col-sm-4">
 				<div class="wow bounceInUp" data-wow-delay="0.5s">
                 <div class="team boxed-grey">
                     <div class="inner">
 						<h5>Dra Maritza Agudo</h5>
                         <p class="subtitle">Gestora del Proyecto</p>
-                        <p class="subtitle">_</p>
+                        <p class="subtitle">Ceupropsf</p>
                         <div class="avatar"><img src="<?=base_url()?>static/img/team/2.jpg" alt="" class="img-responsive img-circle" /></div>
 
                     </div>
                 </div>
 				</div>
             </div>
-			<div class="col-xs-6 col-sm-3 col-md-3">
+			<div class="col-sm-4">
 				<div class="wow bounceInUp" data-wow-delay="0.8s">
                 <div class="team boxed-grey">
                     <div class="inner">
 						<h5>Dr. Nombre 3</h5>
-                        <p class="subtitle">Coordinadora de la Carrera de Medicina</p>
-                        <div class="avatar"><img src="<?=base_url()?>static/img/team/3.jpg" alt="" class="img-responsive img-circle" /></div>
+                        <p class="subtitle">Coordinadora de la Carrera</p>
+                        <p class="subtitle">Medicina</p>
+                        <div class="avatar"><img src="<?=base_url()?>static/img/team/1.jpg" alt="" class="img-responsive img-circle" /></div>
 
                     </div>
                 </div>
@@ -363,7 +367,7 @@
 				  <a href="mailto:#">ceupropsf@gmail.com</a>
 				</address>	
 				<address>
-				  <strong>Estamos en las redes sociales</strong><br>
+				  <strong>Síguenos en:</strong><br>
                        	<ul class="company-social">
 
                             <li class="social-facebook"><a href="https://www.facebook.com/ceupropsf/" target="_blank"><i class="fa fa-facebook"></i></a></li>
