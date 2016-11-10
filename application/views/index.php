@@ -368,14 +368,14 @@
 
 				<address>
 				  <strong>Email</strong><br>
-				  <a href="mailto:#">ceupropsf@utmachala.edu.ec</a>
+				  <a href="mailto:#">ceupropsf@gmail.com</a>
 				</address>	
 				<address>
 				  <strong>Estamos en las redes sociales</strong><br>
                        	<ul class="company-social">
-                            <li class="social-facebook"><a href="#" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li class="social-twitter"><a href="#" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                            <li class="social-google"><a href="#" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                            <li class="social-facebook"><a href="https://www.facebook.com/ceupropsf/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                            <li class="social-twitter"><a href="https://twitter.com/ceupropsf" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                            <li class="social-google"><a href="https://plus.google.com/108705010349767747804" target="_blank"><i class="fa fa-google-plus"></i></a></li>
                         </ul>	
 				</address>					
 			
