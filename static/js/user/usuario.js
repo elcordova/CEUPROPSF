@@ -1,7 +1,9 @@
 $(function(){
-
 	
-
+	/*============== 
+	* GUARDAR USUARIO
+	*===============	
+	*/
 	$('#frmUsu_save').on("submit",function(){
 		event.preventDefault();
 		//console.log('pasa');
@@ -27,7 +29,7 @@ $(function(){
 	});
 
 	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalUsuario' data-toggle='modal' onclick='$.editarModal($(this).parent())'>"+
-							"<img src='/sgcm/static/img/edit.png' title='Editar'>"+
+							"<span class='glyphicon glyphicon-edit' title='Modificar'></span>"+
 						  "</button>";
 
 	$.renderizeRow = function( nRow, aData, iDataIndex )
@@ -35,23 +37,23 @@ $(function(){
 		if(aData['usu_est'] == 't')
 		{
 			$(nRow).append("<td class='text-center'>"+
-							"<button type='button' class='btn btn-danger' onclick='$.eliminar($(this).parent());' id='btnEliminar'>"+
-						  	"Desactivar"+
-						  "</button></td>");
+							"<button style='border: 0; background: transparent' onclick='$.eliminar($(this).parent());' id='btnEliminar'>"+
+						  	"<span class='glyphicon glyphicon-remove-circle' title='Desactivar'></span>"+
+						  	"</button></td>");
 		}
 		else
 		{
 			$(nRow).append("<td class='text-center'>"+
-							"<button type='button' class='btn btn-success' onclick='$.activar($(this).parent());' id='btnActivar'>"+
-						  	"Activar"+
-						  "</button></td>");	
+							"<button style='border: 0; background: transparent' onclick='$.activar($(this).parent());' id='btnActivar'>"+
+						  	"<span class='glyphicon glyphicon-ok-circle' title='Activar'></span>"+
+						  	"</button></td>");	
 		}
 		
 		$(nRow).append("<td class='text-center'>"+btnsOpTblModels+"</td>");
 		$(nRow).attr('id',aData['usu_cod']); //codigo
 		$(nRow).attr('data-usudir',aData['usu_dir']);
 		$(nRow).attr('data-tipcod',aData['tip_cod']);
-		$(nRow).attr('data-usupas',aData['usu_pas']);
+		//$(nRow).attr('data-usupas',aData['usu_pas']);
 	};
 	
 	var lngEsp = {
@@ -145,7 +147,7 @@ $(function(){
 		var ape 		= trChildren[2].textContent;
 		var dir 		= $(td).parent().attr('data-usudir');
 		var eml 		= trChildren[3].textContent;
-		var pas 		= $(td).parent().attr('data-usupas');
+		//var pas 		= $(td).parent().attr('data-usupas');
 		var est 		= trChildren[4].textContent;
 		var tip 		= trChildren[5].textContent;
 		var tip_user	= $(td).parent().attr('data-tipcod');
@@ -155,7 +157,7 @@ $(function(){
 		$('#txtapellido2').val(ape);
 		$('#txtdireccion2').val(dir);
 		$('#txtemail2').val(eml);
-		$('#txtpassword2').val(pas);
+		//$('#txtpassword2').val(pas);
 		$('#selectUser2').val(tip_user);
 		$('#txtcedula2').val(ced);
 	};
@@ -170,7 +172,7 @@ $(function(){
 					"apellido": $('#txtapellido2').val() , 
 					"direccion":$('#txtdireccion2').val(),
 					"email": $('#txtemail2').val(), 
-					"password": $('#txtpassword2').val(), 
+					//"password": $('#txtpassword2').val(), 
 					"tipo": $('#selectUser2').val()
 					},
 			url: "/ceup/cusuario/update/",

@@ -9,13 +9,14 @@ $(function(){
 			data:$(this).serialize(),
 			
 			success: function(response){
-				$.notify("Guardado Correctamente","success");
+				
 				$('#med_ced').val("");
 				$('#med_nom').val("");
 				$('#med_ape').val("");
 				$('#med_dir').val("");
 				$('#med_tel').val("");
 				$('#med_eml').val("");
+				$.notify("Guardado Correctamente","success");
 			},
 
 			error: function(){
@@ -26,25 +27,25 @@ $(function(){
 	});
 	
 	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalMedico' data-toggle='modal' onclick='$.editarModal($(this).parent())'>"+
-							"<img src='/ceup/static/img/edit.png' title='Editar'>"+
+							"<span class='glyphicon glyphicon-edit' title='Modificar'></span>"+
 						  "</button>"+
 						  "<button style='border: 0; background: transparent' onclick='$.eliminar($(this).parent())'>"+
-							"<img src='/ceup/static/img/delete.png' title='Eliminar'>"+
+							"<span class='glyphicon glyphicon-trash' title='Eliminar'></span>"+
 						  "</button>";
 
 	$.renderizeRow = function( nRow, aData, iDataIndex ) {
 	   $(nRow).append("<td class='text-center'>"+btnsOpTblModels+"</td>");
 	   $(nRow).attr('id',aData['med_cod']); // 
+	   $(nRow).attr('data-dir',aData['med_dir']);
 	};
 	
 	//Llenar tabla de datos
 	//Funcion que carga los datos
 	$.fnTbl('#tbMedico',
-			"/sgcm/cmedico/get/",
+			"/ceup/cmedico/get/",
 			[	{data:"med_ced"},
 				{data:"med_nom"},
-				{data:"med_ape"},
-				{data:"med_dir"},
+				{data:"med_ape"},				
 				{data:"med_tel"},
 				{data:"med_eml"}
 			],
@@ -89,7 +90,7 @@ $(function(){
 		$('#myModalLabel').html("Editar");
 		$('#mmed_nom').val(nom);
 		$('#mmed_ape').val(ape);
-		$('#mmed_dir').val(dir);
+		$('#mmed_dir').val($(td).parent().attr('data-dir'));
 		$('#mmed_tel').val(tel);
 		$('#mmed_eml').val(eml);
 		$('#txtId').val(ced);

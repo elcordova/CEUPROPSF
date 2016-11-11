@@ -29,7 +29,7 @@
 				'usu_ape' 	=> $this->input->post('usu_ape'),
 				'usu_dir'	=> $this->input->post('usu_dir'),
 				'usu_eml'	=> $this->input->post('usu_eml'),
-				'usu_pas' 	=> $this->input->post('usu_pas'),
+				'usu_pas' 	=> md5($this->input->post('usu_pas')),
 				'usu_tip_cod' 	=> $this->input->post('selectUser'),
 				'usu_est' 	=> TRUE,
 				);

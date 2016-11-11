@@ -79,8 +79,7 @@
                                         <tr>
                                             <th class="text-center"> Cedula </th>
                                             <th class="text-center"> Nombre </th>
-                                            <th class="text-center"> Apellido </th>
-                                            <th class="text-center"> Direccion </th>                                             
+                                            <th class="text-center"> Apellido </th>                                            
                                             <th class="text-center"> Telefono </th>
                                             <th class="text-center"> Email </th>                                          
                                             <th class="text-center" colspan="2">Acción</th>

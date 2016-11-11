@@ -121,7 +121,7 @@
             <div class="modal fade"  id="modalUsuario" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog" style="width:500px">
                     <div class="modal-content panel panel-primary">
-                        <div class="modal-header modal-header-success">
+                        <div class="modal-header panel panel-heading">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             <h4 class="modal-title" id="myModalLabel" style="text-align: center;"></h4>
                         </div>                   
@@ -140,10 +140,7 @@
 
                             <label >Email:</label>                        
                             <input type="text" class="form-control" placeholder="Email" name="txtemail2" id="txtemail2">
-                            
-                            <label >Password:</label>                        
-                            <input type="password" class="form-control" placeholder="Password" name="txtpassword2" id="txtpassword2">
-
+            
                             <label >Tipo de Usuario:</label>
                             <select class='form-control' id='selectUser2' name='selectUser2'>
                                 <option value='-----'>-----</option>

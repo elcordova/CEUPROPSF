@@ -11,7 +11,7 @@
                   <div class="panel panel-primary">
                     <div class="panel-heading panel-heading-custom">
                       <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" id="ltEsp">
                         CREAR ESPECIALIDAD</a>
                       </h4>
                     </div>
@@ -20,7 +20,7 @@
                       <div class="panel-body">
 
                         <div class="row">
-                        <div id="divFrmClient" class="col-md-6 col-md-offset-3" style="border: 1px solid #ccc; padding:10px 35px 40px 35px;background-color:#FFF;"> 
+                        <div id="divFrmEsp" class="col-md-6 col-md-offset-3" style="border: 1px solid #ccc; padding:10px 35px 40px 35px;background-color:#FFF;"> 
                             <form id="frmEsp">
                                 <fieldset class="scheduler-border">
                                   <legend class="scheduler-border">Nueva Especialidad</legend>         

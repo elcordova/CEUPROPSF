@@ -9,8 +9,8 @@ $(function(){
 			data:$(this).serialize(),
 			success: function(response){
 				$('#esp_des').val("");
-				toastr.options={"progressBar": true}
-              	toastr.success('Guardada con Exito','Especialidad');				
+				$('#esp_des').focus();
+				$.notify("Guardado con exito","success");				
 			},
 
 			error: function(){
@@ -21,10 +21,10 @@ $(function(){
 	});
 
 	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalEspecialidad' data-toggle='modal' onclick='$.editarModal($(this).parent())'>"+
-							"<img src='/sgcm/static/img/edit.png' title='Editar'>"+
+							"<span class='glyphicon glyphicon-edit' title='Modificar'></span>"+
 						  "</button>"+
 						  "<button style='border: 0; background: transparent' onclick='$.eliminar($(this).parent())'>"+
-							"<img src='/sgcm/static/img/delete.png' title='Eliminar'>"+
+							"<span class='glyphicon glyphicon-trash' title='Eliminar'></span>"+
 						  "</button>";
 
 	$.renderizeRow = function( nRow, aData, iDataIndex ) {
@@ -70,9 +70,9 @@ $(function(){
 			
 			success: function(response){
 				$('#modalEspecialidad').modal('hide');
-				toastr.options={"progressBar": true}
-              	toastr.success('Modificada con Exito','Especialidad');	
+				$.notify("Modificado con exito","success");	
 				$('#tbEspecialidad').DataTable().ajax.reload();
+
 			},
 
 			error: function(response){
