@@ -27,11 +27,7 @@ class Comentario_model extends CI_Model {
     public function get($where = NULL) {
         $this->db->select('*');
         $this->db->from(self::TABLE_NAME);
-<<<<<<< HEAD
         $this->db->order_by("com_id", "desc");
-=======
-        $this->db->order_by("com_fec", "asc");
->>>>>>> master
         if ($where !== NULL) {
             if (is_array($where)) {
                 foreach ($where as $field=>$value) {
