@@ -52,6 +52,9 @@
 			</div>
 			</div>
 		</div>
+		<div>
+			<h4>COLABORADORES</h4>
+		</div>
 		<div class="container fluid">
 
 		<div class="row">
@@ -78,7 +81,7 @@
 				<div class="wow bounceInUp" data-wow-delay="0.5s">
                 <div class="team boxed-grey">
                     <div class="inner">
-						<h5>Dra Maritza Agudo</h5>
+						<h5>Dra. Brigida Agudo Gonzabay</h5>
                         <p class="subtitle">Gestora del Proyecto</p>
                         <p class="subtitle">Ceupropsf</p>
                         <div class="avatar"><img src="<?=base_url()?>static/img/team/2.jpg" alt="" class="img-responsive img-circle" /></div>
@@ -91,9 +94,9 @@
 				<div class="wow bounceInUp" data-wow-delay="0.8s">
                 <div class="team boxed-grey">
                     <div class="inner">
-						<h5>Dr. Nombre 3</h5>
+						<h5>Dra. Sylvana Cuenca Buele</h5>
                         <p class="subtitle">Coordinadora de la Carrera</p>
-                        <p class="subtitle">Medicina</p>
+                        <p class="subtitle">Ciencias Médicas</p>
                         <div class="avatar"><img src="<?=base_url()?>static/img/team/1.jpg" alt="" class="img-responsive img-circle" /></div>
 
                     </div>
