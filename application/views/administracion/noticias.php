@@ -1,11 +1,7 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-include('includes/cabecera.php');
-include('includes/navbar.php');
 ?>
 <script type="text/javascript" src="<?=base_url()?>static/js/noticias/noticias.js"></script>
-
-<div id="page-content-wrapper">
    <div class="container-fluid">
    	<!-- inicio de Panel de Acordeones -->
       <div class="well panel panel-default" style="margin-top: 1%">
@@ -26,41 +22,42 @@ include('includes/navbar.php');
                      <div class="row">
 								
 								<!-- form de nueva Noticia -->
-								<div class="container container-fluid">
-									<div class="row jumbotron">
-										<div >
+								<div class="container-fluid">
+									<div class="jumbotron">
+							
 											<!--$ERROR MUESTRA LOS ERRORES QUE PUEDAN HABER AL SUBIR LA IMAGEN-->
 											<?=@$error?>
-											<div id="formulario_imagenes" class="col-md-7 col-sm-10 col-lg-7">
+											<div id="formulario_imagenes" >
 												<span><?php echo validation_errors(); ?></span>
 												<?=form_open_multipart("Noticias/insert",array('id'=>'form_noticia','class'=>'form-horizontal'))?>
 
-												<div class="form-group">
-												<label for="titulo">Titulo de Noticia:</label>
-													<input type="text" class="form-control" id="titulo" name="titulo">
-												</div>
-												<div class="form-group">
-													<label for="contenido">Contenido de Noticia:</label>
-													<textarea type="text" class="form-control" id="contenido" name="contenido" rows="5"></textarea>
-												</div>
-												
-												<div class="form-group">
-													<label class="custom-file">
-													  <input type="file" id="file" class="custom-file-input"  name="file">
-													  <span class="custom-file-control"></span>
-													</label>
-												</div>
-													<div class="btn-group">
-													<input id="guardar" type="submit" value="Guardar Noticia" class="btn  btn-primary "/>
-													<input id="cancelar" value="Cancelar" type="button" name='cancelar' onclick='limp_form_noticia()' class="btn  btn-primary "/>
-												</div>
+													<div class="form-group">
+													<label for="titulo">Titulo de Noticia:</label>
+														<input type="text" class="form-control" id="titulo" name="titulo">
+													</div>
+													<div class="form-group">
+														<label for="contenido">Contenido de Noticia:</label>
+														<textarea type="text" class="form-control" id="contenido" name="contenido" rows="5"></textarea>
+													</div>
+													
+													<div class="form-group">
+														<label class="custom-file">
+														  <input type="file" id="file" class="custom-file-input"  name="file">
+														  <span class="custom-file-control"></span>
+														</label>
+													</div>
+														<div class="btn-group">
+														<input id="guardar" type="submit" value="Guardar Noticia" class="btn  btn-primary "/>
+														<input id="cancelar" value="Cancelar" type="button" name='cancelar' onclick='limp_form_noticia()' class="btn  btn-primary "/>
+													</div>
+
 												<?=form_close()?>
 											</div>
-											<div class="col-md-3 col-sm-10 col-lg-3 jumbotron jumbotron-fluid" >
+											<div class="jumbotron jumbotron-fluid" >
 												<label for="list">Vista Previa:</label>
 												<img id="list" src="" class="img-rounded img-thumbnail"/>
 											</div>
-										</div>
+	
 									</div>
 								</div><!-- fin de form de nueva noticia -->
 							</div>
@@ -84,7 +81,7 @@ include('includes/navbar.php');
                      <div class="row">
 								
 								<!-- contenedor de tabla de Presentacion de Noticias -->
-								<div class="container-fluid container" id='contenedor_tabla'>
+								<div class="container-fluid" id='contenedor_tabla'>
 									
 								</div><!-- fin de contenedor de tabla de presentacion de noticias -->
 							</div>
@@ -95,7 +92,7 @@ include('includes/navbar.php');
 
 		</div> <!-- Fin de Panel de Acordeones -->
 	</div>
-</div>
+
 
 
 
@@ -118,17 +115,17 @@ include('includes/navbar.php');
 						<div class="panel-body">
                      <div class="row">
 								<!-- form de Edicion Noticia -->
-								<div class="container ">
+								<div class="container-fluid ">
 									<div class="row ">
 										<div>
 											
 											<!--$ERROR MUESTRA LOS ERRORES QUE PUEDAN HABER AL SUBIR LA IMAGEN-->
 											<?=@$error?>
-											<div id="formulario_imagenes" class="container col-sm-8 col-lg-3 col-md-3">
+											<div id="formulario_imagenes" class="container-fluid col-sm-8 col-lg-3 col-md-3">
 												<span><?php echo validation_errors(); ?></span>
 												<input type="text" class="form-control hidden" id="id_noticia" name="id_noticia">
 												<div class="form-group">
-												<label for="titulo_edit">Titulo de Noticia:</label>
+													<label for="titulo_edit">Titulo de Noticia:</label>
 													<input type="text" class="form-control" id="titulo_edit" name="titulo_edit">
 												</div>
 												<div class="form-group">
@@ -149,12 +146,12 @@ include('includes/navbar.php');
 												</div>
 											</div>
 
-											<div class="container col-sm-8 col-md-3 col-lg-2" id='bloque_imagen_ant' >
+											<div class="container-fluid col-sm-8 col-md-3 col-lg-2" id='bloque_imagen_ant' >
 												<label for="list">Vista Previa:</label>
 												<img id="list_edit" src="" class="img-rounded img-thumbnail"/>
 											</div>
 
-											<div class="container col-sm-8 col-md-3 col-lg-2" id='bloque_imagen_new' >
+											<div class="container-fluid col-sm-8 col-md-3 col-lg-2" id='bloque_imagen_new' >
 												<label for="list">Vista Previa:</label>
 												<img id="list_edit_new" src="" class="img-rounded img-thumbnail"/>
 											</div>

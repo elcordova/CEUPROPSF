@@ -4,7 +4,7 @@
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="Administracion">
+                <a class="navbar-brand" href="<?php echo base_url()?>Administracion/index">
                     <img src="<?=base_url()?>static/img/logo2.png" alt="" class="img-responsive img-responsive" />
                 </a>
             </div>
@@ -13,8 +13,8 @@
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#intro">Inicio</a></li>
-        <li><a href="#about">Usuarios</a></li>
-		<li><a href="#service">Noticas</a></li>
+        <li><a href="<?php echo base_url()?>cusuario/start">Usuarios</a></li>
+		<li><a href="<?php echo base_url()?>Noticias/index">Noticas</a></li>
 		<li><a href="#contact">Eventos</a></li>
         <li><a href="<?=base_url()?>index.php/administracion/logout">Cerra Sesion</a></li>
       </ul>

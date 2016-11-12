@@ -1,3 +1,7 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');?>
+<!-- cierre de div de clase "wraper abierto en menu.php" -->
+ 
+
 <footer>
 		<div class="container">
 			<div class="row">
@@ -14,7 +18,7 @@
 				</div>
 			</div>	
 		</div>
-	</footer>
-</body>
-
+</footer>
+</div>
+	</body>
 	</html>

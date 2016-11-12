@@ -185,7 +185,7 @@ $(document).ready(function(){
   function actualizar_tabla_noticias(){
     $.ajax({
             type:"GET",
-            url:"Noticias/consultar_noticias",
+            url:"/ceup/Noticias/consultar_noticias",
             dataType: 'json',
             success:function(res){
               $('#contenedor_tabla').empty();

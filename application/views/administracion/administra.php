@@ -1,11 +1,7 @@
 		<?php
 		defined('BASEPATH') OR exit('No direct script access allowed');
-		if ($this->session->userdata('conectado')==true) {
-			$username=$this->session->userdata('email');
-			$id_user=$this->session->userdata('id');
+		
 			?>
-			<?php 
-			include("includes/cabecera.php") ?>
 			
 			<body id="page-top" data-spy="scroll" data-target=".navbar-custom">
 				<!-- Preloader -->
@@ -81,14 +77,5 @@
 					</div>	
 				</div>
 
-				<?php include("includes/footer.php") ?>
-				<?php 
-			} else 
-			{
-				redirect(base_url());
-			}
-			?>
-
-		</body>
-		</html>
-
+				
+			

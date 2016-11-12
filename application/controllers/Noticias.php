@@ -13,9 +13,11 @@ class Noticias extends CI_Controller {
 	{
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		$this->load->model('noticias_model');
 		$data=null;
-		$this->load->view('administracion/noticias',$data);	
+		$this->load->view('administracion/includes/cabecera');
+		$this->load->view('menu');
+		$this->load->view('administracion/noticias',$data);
+		$this->load->view('administracion/includes/footer');
 	}
 
 	public function insert()
