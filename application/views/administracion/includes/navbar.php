@@ -5,7 +5,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="Administracion">
-                    <img src="<?=base_url()?>static/img/logo2.png" alt="" class="img-responsive img-responsive" />
+                    <img src="<?=base_url()?>static/img/logo121.png" alt="" class="img-responsive img-responsive" />
                 </a>
             </div>
 

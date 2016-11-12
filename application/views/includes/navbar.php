@@ -5,7 +5,7 @@
                     <i class="fa fa-bars"></i>
                 </button>
                 <a class="navbar-brand" href="index.html">
-                    <img src="<?=base_url()?>static/img/logo2.png" alt="" class="img-responsive img-responsive" />
+                    <img src="<?=base_url()?>static/img/logo121.png" alt="" class="img-responsive img-responsive" />
                 </a>
             </div>
 
@@ -16,7 +16,7 @@
         <li><a href="#about">Acerca</a></li>
 		<li><a href="#service">Servicios</a></li>
         <li><a href="#noticia">Noticias</a></li>
-		<li><a href="#contact">Contactenos</a></li>
+		<li><a href="#contact">Contáctenos</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sistema <b class="caret"></b></a>
           <ul class="dropdown-menu">

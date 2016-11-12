@@ -20,10 +20,22 @@
     <section id="intro" class="intro">
 	
 		<div class="slogan">
+		
 			<h2>BIENVENIDOS A <span class="text_color">CEUPROPSF</span> </h2>
 			<h4>Centro Universitario de Promoción y Prevención de la Salud Familiar</h4>
 		</div>
+
+		<!--carrusel-->
+
+
+
+
+  <!-- Left and right controls -->
+
+  
+
 		<div class="page-scroll">
+		
 			<a href="#service" class="btn btn-circle">
 				<i class="fa fa-angle-double-down animated"></i>
 			</a>
@@ -33,38 +45,32 @@
 
 	<!-- Section: about -->
     <section id="about" class="home-section text-center">
+
 		<div class="heading-about">
 			<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2">
 					<div class="wow bounceInDown" data-wow-delay="0.4s">
 					<div class="section-heading">
-					<h2>Acerca</h2>
+					<h2>COLABORADORES</h2>
 					<i class="fa fa-2x fa-angle-down"></i>
-					<h5>MISION:</h5>
-					<p>En el consultorio para la comunidad Machaleña, cuidamos la vida de nuestros pacientes y luchamos día a día por mejorar su salud.</p>
-					<h5>VISIÓN:</h5>
-					<p>Ser referente de excelencia en servicios de salud en El Oro. </p>
 
-					</div>
+
+
 					</div>
 				</div>
 			</div>
 			</div>
 		</div>
-		<div>
-			<h4>COLABORADORES</h4>
 		</div>
 		<div class="container fluid">
 
 		<div class="row">
-			<div class="col-lg-2 col-lg-offset-5">
-				<hr class="marginbot-50">
+			<div class="col-lg-1 col-lg-offset-5">
+				<hr class="marginbot-0">
 			</div>
 		</div>
         <div class="row">
-        <!-- <div class="col-xs-4 col-sm-3 col-md-3"> -->
-           
             <div class="col-sm-4">
 				<div class="wow bounceInUp" data-wow-delay="0.2s">
                 <div class="team boxed-grey">
@@ -73,6 +79,7 @@
                         <p class="subtitle">Coordinador de la Carrera</p>
                         <p class="subtitle">Ingeniería de Sistemas</p>
                         <div class="avatar"><img src="<?=base_url()?>static/img/team/Ing_Fausto.jpg" alt="" class="img-responsive img-circle" /></div>
+
                     </div>
                 </div>
 				</div>
@@ -103,11 +110,17 @@
                 </div>
 				</div>
             </div>
-                </div>
-				</div>
+            <div>
             </div>
-        </div>		
-		</div>
+					
+					<h5>MISION:</h5>
+					<p>En el consultorio para la comunidad Machaleña, cuidamos la vida de nuestros pacientes y luchamos día a día por mejorar su salud.</p>
+					<h5>VISIÓN:</h5>
+					<p>Ser referente de excelencia en servicios de salud en El Oro. </p>
+
+					</div>
+                </div>
+				
 	</section>
 	<!-- /Section: about -->
 	
@@ -291,7 +304,7 @@
 				<div class="col-lg-8 col-lg-offset-2">
 					<div class="wow bounceInDown" data-wow-delay="0.4s">
 					<div class="section-heading">
-					<h2>Contactenos</h2>
+					<h2>Contáctenos</h2>
 					<i class="fa fa-2x fa-angle-down"></i>
 
 					</div>
@@ -361,20 +374,22 @@
 				
 				<address>
 				  <strong>CEUPROPSF </strong><br>
-				  ubicado en las calles 10 de Agosto y Marcel Laniado, Esquina<br>
-				  <abbr title="Phone">Telefono:</abbr> (072) 900-000
+				  Ubicado en 10 de Agosto y Marcel Laniado, Esquina (Machala) <br>
+				  <strong>Teléfono</strong><br>
+				  (072) 900-000<br>
+				   <strong>Email</strong><br>
+				  <a href="mailto:#">ceupropsf@gmail.com</a>
 				</address>
 
 				<address>
-				  <strong>Email</strong><br>
-				  <a href="mailto:#">ceupropsf@gmail.com</a>
+				 
 				</address>	
 				<address>
 				  <strong>Síguenos en:</strong><br>
                        	<ul class="company-social">
 
                             <li class="social-facebook"><a href="https://www.facebook.com/ceupropsf/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                            <li class="social-twitter"><a href="https://twitter.com/ceupropsf" target="_blank"><i class="fa fa-twitter"></i></a></li>
+  							<li class="social-twitter"><a href="https://www.twitter.com/ceupropsf/" target="_blank"><i class="fa fa-twitter"></i></a></li>
                             <li class="social-google"><a href="https://plus.google.com/108705010349767747804" target="_blank"><i class="fa fa-google-plus"></i></a></li>
 
                         </ul>	
