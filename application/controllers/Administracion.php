@@ -9,7 +9,9 @@ class Administracion extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->view('administracion/includes/cabecera');
 		$this->load->view('administracion/administra');
+		$this->load->view('administracion/includes/footer');
 	}
 
 	public function logout()
