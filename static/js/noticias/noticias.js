@@ -209,7 +209,7 @@ $(document).ready(function(){
                                 "</button>"+
                                 
                                 "<button class='btn btn-primary' type='button'>"+
-                                  "Comentarios <span class='badge'>"+res[i]['not_id']+"</span>"+
+                                  "Comentarios <span class='badge'>"+cont_comentarios_noti(res[i]['not_id'])+"</span>"+
                                 "</button>"+
                               "</div>"+
                           "</td>"+
@@ -267,8 +267,28 @@ function carga_noticia(id_noticia){
               $('#contenido_edit').val(res['not_con']);
               $('#list_edit').attr("src",("../public/img/notices/"+res['not_ban']));
             }
-  })
+  });
 }
+
+
+function cont_comentarios_noti(id_noticia){
+  var cant=0;
+  // console.info(id_noticia);
+  $.ajax({
+            type:"GET",
+            url:"/ceup/Noticias/cantidad_comentarios",
+            data: {'not_id':5},
+            dataType: 'html',
+            success:function(res){ 
+              console.info(res);
+              cant= res;
+            } 
+  });
+
+  return cant;
+}
+
+
 
 function limp_form_noticia(){
     $('#titulo').val('');

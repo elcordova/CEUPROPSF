@@ -96,6 +96,17 @@ class Noticias extends CI_Controller {
 
 	}
 
+	public function cantidad_comentarios(){
+		$where=$this->input->get();
+		$arreglo=$this->comentario_model->get($where);
+		$present="no hay nada";
+		if ($arreglo) 
+		{
+			$present=$arreglo[0]['com_fec'];	
+		}
+		echo $present;
+	}
+
 
 }
 
