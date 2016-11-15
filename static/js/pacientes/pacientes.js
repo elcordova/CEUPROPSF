@@ -1,20 +1,20 @@
 $(function(){
 
-	$('table').DataTable();
+	//$('table').DataTable();
 
 	$('#frmPac').on("submit",function(){
 		event.preventDefault();
 		$.ajax({
 			type:"POST",
-			url: "Pacientes/save/",
+			url: "/ceup/cpaciente/save/",
 			dataType: 'json',
 			data:$(this).serialize(),
 			
 			success: function(response){
+				limp_form_paciente();
 				toastr.options={"progressBar": true}
 				toastr.success('Paciente registrado con Exito!','Estado');
-				limp_form_paciente();
-				$('#table').DataTable().ajax.reload();
+				//$('#table').DataTable().ajax.reload();
 			},
 
 			error: function(){
@@ -22,8 +22,7 @@ $(function(){
 				toastr.error('Paciente registrado con Exito!','Estado');
 			}
 		});
-
-	})
+	});
 	
 	function limp_form_paciente(){
 		$('#pac_ced').val("");
@@ -36,26 +35,113 @@ $(function(){
 		$('#pac_est_civ').val("");
 	}
 
+	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalPaciente' data-toggle='modal' onclick='$.editarModal($(this).parent())'>"+
+							"<span class='glyphicon glyphicon-edit' title='Modificar'></span>"+
+						  "</button>"+
+						  "<button style='border: 0; background: transparent' onclick='$.eliminar($(this).parent())'>"+
+							"<span class='glyphicon glyphicon-trash' title='Eliminar'></span>"+
+						  "</button>";
+
+	$.renderizeRow = function( nRow, aData, iDataIndex ) {
+	    if(aData['pac_est']=='t')
+	    {
+	   		$(nRow).append("<td class='text-center'>"+
+							"<button style='border: 0; background: transparent' onclick='$.eliminar($(this).parent());' id='btnEliminar'>"+
+						  	"<span class='glyphicon glyphicon-remove-circle' title='Desactivar'></span>"+
+						  	"</button></td>");
+	    }
+	    else
+	    {
+	    	$(nRow).append("<td class='text-center'>"+
+							"<button style='border: 0; background: transparent' onclick='$.activar($(this).parent());' id='btnActivar'>"+
+						  	"<span class='glyphicon glyphicon-ok-circle' title='Activar'></span>"+
+						  	"</button></td>");
+	    }
+	    $(nRow).append("<td class='text-center'>"+btnsOpTblModels+"</td>");
+		$(nRow).attr('id',aData['pac_id']); //codigo
+	};
 	
-	/**$.eliminar = function(td){
-		var tr = $(td).parent().children();
-		var med_ced = tr[0].textContent;
-		var med_e = 'FALSE';
+	var lngEsp = {
+		"sProcessing":     "Procesando...",
+		"sLengthMenu":     "Mostrar _MENU_ registros",
+		"sZeroRecords":    "No se encontraron resultados",
+		"sEmptyTable":     "Ningún dato disponible en esta tabla",
+		"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+		"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+		"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+		"sInfoPostFix":    "",
+		"sSearch":         "Buscar:",
+		"sUrl":            "",
+		"sInfoThousands":  ",",
+		"sLoadingRecords": "Cargando...",
+		"oPaginate": {
+			"sFirst":    "Primero",
+			"sLast":     "Último",
+			"sNext":     "Siguiente",
+			"sPrevious": "Anterior"
+		}
+	};
+
+	//Llenar tabla de datos
+	//Funcion que carga los datos
+	$('#tbPaciente').DataTable({
+		ordering: true,
+		"ajax":{
+			"url": "/ceup/cpaciente/get/",
+			"dataSrc": "datos"
+		},
+		"columns":[{data:"pac_ced"},{data:"pac_nom"},{data:"pac_ape"},{data:"pac_dir"},{data:"pac_cor"}],
+		"columnDefs": [
+			{
+				"targets": [5],
+				"visivle": false,
+				"searchable": false
+			}
+		],
+		"fnCreatedRow": $.renderizeRow,
+		"languaje": lngEsp
+	});
+	
+	$("#ltPaciente").click(function(){
+			event.preventDefault();
+			$('#tbPaciente').DataTable().ajax.reload();
+	});
+
+	$.eliminar = function(td){
+		var cedula = $(td).parent().children()[0].textContent;//cedula
 		$.ajax({
 			type: "POST",
-			data: {"med_ced":med_ced,"med_e":med_e},
-			url: "/sgcm/cmedico/delete/", 
+			data: {"id":cedula},
+			url: "/ceup/cpaciente/delete/", 
 			dataType: 'json',
 			success: function(response){
-				event.preventDefault();
 				$.notify("Eliminado con exito","success");
-
+				$(td).parent().remove(); // remove a tr
+				$('#tbPaciente').DataTable().ajax.reload();
 			},
 
 			error: function(response){
 				$.notify("Error al eliminar","error");
 			}
 
+		});
+	};
+
+	$.activar = function(td){
+		event.preventDefault();
+		var cedula = $(td).parent().children()[0].textContent; //cedula
+		$.ajax({
+			type: "POST",
+			url: "/ceup/cpaciente/activar/", 
+			dataType: 'json',
+			data: {"id":cedula},			
+			success: function(response){
+				$.notify("Activado con exito","success");
+				$('#tbPaciente').DataTable().ajax.reload();
+			},
+			error: function(response){
+				$.notify("Error al activar","error");
+			}
 		});
 	};
 
@@ -75,9 +161,9 @@ $(function(){
 		$('#mmed_tel').val(tel);
 		$('#mmed_eml').val(eml);
 		$('#txtId').val(ced);
-	};*/
+	};
 
-	/*$('#btnModalGuardar').click(function(){
+	$('#btnModalGuardar').click(function(){
 		event.preventDefault();
 		$.ajax({
 			type: "POST",
@@ -93,9 +179,9 @@ $(function(){
 			dataType: 'json',			
 			
 			success: function(response){
-				$('#modalMedico').modal('hide');				
+				$('#modalPaciente').modal('hide');				
 				$.notify("Medico editado con exito","success");
-				$('#tbMedico').DataTable().ajax.reload();
+				$('#tbPaciente').DataTable().ajax.reload();
 			},
 
 			error: function(response){
@@ -105,9 +191,9 @@ $(function(){
 		});
 	});
 			
-	$('#modalMedico').bind('shown.bs.modal' , function(){
+	$('#modalPaciente').bind('shown.bs.modal' , function(){
 		med_nom.focus();
-	});*/
+	});
 	
 	
 });

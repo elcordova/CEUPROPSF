@@ -64,14 +64,14 @@
 					<div class="row">
 						<div class="col-xs-6 col-sm-3 col-md-3">
 							<div class="wow bounceInUp" data-wow-delay="0.2s">
-								<a href="Pacientes">
 									<div class="team boxed-grey">
 										<div class="inner">
-											<h5>PACIENTES</h5>					
-											<div class="avatar"><img src="<?=base_url()?>static/images/users_siluete.png" alt="" class="img-responsive img-rounded" /></div>
+											<a href="<?php echo base_url()?>cpaciente/start">
+												<h5>PACIENTES</h5>					
+												<div class="avatar"><img src="<?=base_url()?>static/images/users_siluete.png" alt="" class="img-responsive img-rounded" /></div>
+											</a>
 										</div>
 									</div>
-								</a>
 							</div>
 						</div>
 					</div>	
