@@ -15,8 +15,10 @@
 
 		public function start()
 		{
+			$this->load->view('administracion/includes/cabecera');
 			$this->load->view('menu');
 			$this->load->view('vevento');
+			$this->load->view('administracion/includes/footer');
 		}
 		
 		public function save()
