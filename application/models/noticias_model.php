@@ -27,7 +27,7 @@ class Noticias_model extends CI_Model {
     public function get($where = NULL) {
         $this->db->select('*');
         $this->db->from(self::TABLE_NAME);
-        $this->db->order_by("not_fec_pub", "desc");
+        $this->db->order_by("not_id", "asc");
         if ($where !== NULL) {
             if (is_array($where)) {
                 foreach ($where as $field=>$value) {
