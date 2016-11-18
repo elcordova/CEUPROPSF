@@ -74,14 +74,14 @@
                                             <div class="col-sm-4">
                                                 <select id="pac_tip_san" class="input-field col s12 form-control" name="pac_tip_san" required="true">
                                                     <option value="" disabled selected>------</option>
-                                                    <option value="Masculino">AB</option>
-                                                    <option value="Femenino">AB-</option>
-                                                    <option value="Femenino">A</option>
-                                                    <option value="Femenino">A-</option>
-                                                    <option value="Femenino">B</option>
-                                                    <option value="Femenino">B-</option>
-                                                    <option value="Femenino">O</option>
-                                                    <option value="Femenino">O-</option>
+                                                    <option value="AB">AB</option>
+                                                    <option value="AB-">AB-</option>
+                                                    <option value="A">A</option>
+                                                    <option value="A-">A-</option>
+                                                    <option value="B">B</option>
+                                                    <option value="B-">B-</option>
+                                                    <option value="O">O</option>
+                                                    <option value="O-">O-</option>
                                                 </select>
                                             </div>
                                             <label class="label-control col-sm-2" for="">Estado Civil:</label>
@@ -92,7 +92,7 @@
                                                     <option value="Comprometido">Comprometido</option>
                                                     <option value="Casado">Casado</option>
                                                     <option value="Divorciado">Divorciado</option>
-                                                    <option value="Viduo">Viduo</option>
+                                                    <option value="Viudo">Viudo</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -100,7 +100,7 @@
                                     <!-- ************* BOTONES ***************-->
                                     <div class="row">
                                         <div align="center">
-                                            <button type="submit" class="btn btn-primary btn-large">Guardar</button>
+                                            <button type="submit" onclick="validarFormulario()" class="btn btn-primary btn-large">Guardar</button>
                                         </div>
                                     </div>
                                     <!-- ************* BOTONES ***************-->
@@ -123,7 +123,7 @@
                       <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <table data-order='[[ 2, "asc" ]]' class="table table-hovered table-bordered" cellspacing="0" width="100%" id="tbPaciente">
+                                <table data-order='[[ 2, "asc" ]]' class="table table-bordered" cellspacing="0" width="100%" id="tbPaciente">
                                     <thead>
                                         <tr>
                                             
@@ -131,8 +131,9 @@
                                             <th class="text-center">Nombre</th>
                                             <th class="text-center">Apellido</th>
                                             <th class="text-center">Direccion</th>
-                                            <th class="text-center">Email</th>                                          
-                                            <th class="text-center" colspan="2">Acción</th>
+                                            <th class="text-center">Email</th>
+                                            <th class="text-center">Estado</th>                                           
+                                            <th class="text-center">Acción</th>
                                         </tr>
                                     </thead>
                                     <tbody id="tblBody" class="text-justify">
@@ -156,30 +157,90 @@
     <!-- ********************* MODAL **************************************** -->
         <div class="row">
             <div class="modal fade"  id="modalPaciente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog" style="width:400px">
+                <div class="modal-dialog" style="width:800px">
                     <div class="modal-content panel panel-primary">
                         <div class="modal-header panel panel-heading">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             <h4 class="modal-title" id="myModalLabel" style="text-align: center;"></h4>
                         </div>                   
                         <div class="modal-body" >
-                            <input type="hidden" id="txtId">
-                            <div id="alert" style="display:none;" class="alert alert-danger"></div> 
-
-                            <label >Nombre:</label>                        
-                            <input type="text" class="form-control" placeholder="Nombre" name="mmed_nom" id="mmed_nom">
-
-                            <label >Apellido:</label>                        
-                            <input type="text" class="form-control" placeholder="Apellido" name="mmed_ape" id="mmed_ape">
-
-                            <label >Direccion:</label>                        
-                            <input type="text" class="form-control" placeholder="Direccion" name="mmed_dir" id="mmed_dir">
-
-                            <label >Telefono:</label>                        
-                            <input type="text" class="form-control" placeholder="Email" name="mmed_tel" id="mmed_tel">
-
-                            <label >Email:</label>                        
-                            <input type="emal" class="form-control" placeholder="Email" name="mmed_eml" id="mmed_eml">
+                            <form id="frmPac2" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="label-control col-sm-2" for="">Cedula:</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" required="true" disabled class="form-control" id="pac_ced2" name="pac_ced2" placeholder="Ingrese C.I" maxlength="10">
+                                    </div>
+                                    <div hidden="hidden">
+                                        <label aria-hidden="hidden" class="label-control col-sm-2" for="">Estado:</label>
+                                        <div class="col-sm-4">
+                                            <input hiden="hiden" type="checkbox" required="true" value="Cat" class="form-control" id="pac_est2" name="pac_est2">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label-control col-sm-2" for="">Nombre:  </label>
+                                    <div class="col-sm-4">
+                                        <input type="text" required="true" class="form-control" id="pac_nom2" name="pac_nom2" placeholder="Ingrese Nombre"/>
+                                    </div>
+                                    <label class="label-control col-sm-2" for="">Apellido:</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" required="true" class="form-control" id="pac_ape2" name="pac_ape2" placeholder="Ingrese Apellido"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label-control col-sm-2" for="">Fecha Nacimiento:</label>
+                                    <div class="col-sm-4">
+                                        <input type="date" required="true" class="input-field col s4 form-control" id="pac_fec_nac2" name="pac_fec_nac2"/>
+                                    </div>
+                                    <label class="label-control col-sm-2" for="">Sexo:</label>
+                                    <div class="col-sm-4">
+                                        <select id="pac_sex2" class="input-field col s12 form-control" name="pac_sex2" required="true">
+                                            <option value="" disabled selected>------</option>
+                                            <option value="Masculino">Masculino</option>
+                                            <option value="Femenino">Femenino</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label-control col-sm-2" for="">Direccion:</label>
+                                    <div class="col-sm-10">
+                                        <input type="text"  class="form-control" id="pac_dir2" name="pac_dir2" placeholder="Ingrese la direccion.." required="true"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="label-control col-sm-2" for="">Email:</label>
+                                    <div class="col-sm-10">
+                                        <input type="email"  class="form-control" id="pac_cor2" name="pac_cor2" placeholder="Ingrese el email.. " required="true"/>
+                                    </div>
+                                </div> 
+                                <div class="form-group">
+                                    <label class="label-control col-sm-2" for="">Tipo Sangre:</label>
+                                    <div class="col-sm-4">
+                                        <select id="pac_tip_san2" class="input-field col s12 form-control" name="pac_tip_san2" required="true">
+                                            <option value="" disabled selected>------</option>
+                                            <option value="AB">AB</option>
+                                            <option value="AB-">AB-</option>
+                                            <option value="A">A</option>
+                                            <option value="A-">A-</option>
+                                            <option value="B">B</option>
+                                            <option value="B-">B-</option>
+                                            <option value="O">O</option>
+                                            <option value="O-">O-</option>
+                                        </select>
+                                    </div>
+                                    <label class="label-control col-sm-2" for="">Estado Civil:</label>
+                                    <div class="col-sm-4">
+                                        <select id="pac_est_civ2" class="input-field col s12 form-control" name="pac_est_civ2" required="true">
+                                            <option value="" disabled selected>------</option>
+                                            <option value="Soltero">Soltero</option>
+                                            <option value="Comprometido">Comprometido</option>
+                                            <option value="Casado">Casado</option>
+                                            <option value="Divorciado">Divorciado</option>
+                                            <option value="Viudo">Viudo</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </form>
                         </div>           
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>

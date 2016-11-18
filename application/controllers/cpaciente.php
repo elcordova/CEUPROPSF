@@ -61,11 +61,9 @@ class Cpaciente extends CI_Controller {
 				'pac_est_civ'	=> $this->input->post('pac_est_civ'),
 				'pac_est'		=> $this->input->post('pac_est'),
 				);
-
 				$where = array(
 				'pac_ced' => $this->input->post('pac_ced')
 					);
-
 				$response = $this->mpaciente->update($data,$where);
 				echo json_encode($response);
 			}
@@ -96,14 +94,14 @@ class Cpaciente extends CI_Controller {
 			if($this->input->is_ajax_request())
 			{
 				$data = array(
-				'pac_est' 	=> $this->input->post('pac_est'),
+						'pac_est' 	=> FALSE,
 				);
 
 				$where = array(
-				'pac_ced' 	=> $this->input->post('pac_ced')
-					);
+						'pac_ced' 	=> $this->input->post('id')
+						);
 
-				$response = $this->mpaciente->update2($data,$where);
+				$response = $this->mpaciente->delete($data,$where);
 				echo json_encode($response);
 			}
 			else
@@ -111,7 +109,27 @@ class Cpaciente extends CI_Controller {
 				echo json_encode($response);
 			}
 		}
+
+		public function activar()
+		{
+			if($this->input->is_ajax_request())
+			{
+				$data = array(
+						'pac_est' 	=> TRUE,
+				);
+				$where = array(
+								'pac_ced' => $this->input->post('id')
+								);
+				$response = $this->mpaciente->activar($data,$where);
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode($response);
+			}else
+			{
+				echo json_encode($response);
+			}
+		}
 }
+
 
 /* End of file Noticias.php */
 /* Location: ./application/controllers/Noticias.php */
