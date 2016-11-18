@@ -7,9 +7,9 @@ $(function(){
 			url: "/ceup/cmedico/save/",
 			dataType: 'json',
 			data:$(this).serialize(),
-			
+
 			success: function(response){
-				
+
 				$('#med_ced').val("");
 				$('#med_nom').val("");
 				$('#med_ape').val("");
@@ -25,7 +25,7 @@ $(function(){
 		});
 
 	});
-	
+
 	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalMedico' data-toggle='modal' onclick='$.editarModal($(this).parent())'>"+
 							"<span class='glyphicon glyphicon-edit' title='Modificar'></span>"+
 						  "</button>"+
@@ -35,22 +35,28 @@ $(function(){
 
 	$.renderizeRow = function( nRow, aData, iDataIndex ) {
 	   $(nRow).append("<td class='text-center'>"+btnsOpTblModels+"</td>");
-	   $(nRow).attr('id',aData['med_cod']); // 
+	   $(nRow).attr('id',aData['med_cod']); //
 	   $(nRow).attr('data-dir',aData['med_dir']);
 	};
-	
-	//Llenar tabla de datos
-	//Funcion que carga los datos
-	$.fnTbl('#tbMedico',
-			"/ceup/cmedico/get/",
-			[	{data:"med_ced"},
-				{data:"med_nom"},
-				{data:"med_ape"},				
-				{data:"med_tel"},
-				{data:"med_eml"}
-			],
-			$.renderizeRow);
-	
+
+
+			//Llenar tabla de datos
+			$('#tbMedico').DataTable({
+				ordering: true,
+				"ajax":{
+					"url": "/ceup/cmedico/get/",
+					"dataSrc": "datos"
+				},
+				"columns":[	{data:"med_ced"},
+										{data:"med_nom"},
+										{data:"med_ape"},
+										{data:"med_tel"},
+										{data:"med_eml"}
+									],
+		        "fnCreatedRow": $.renderizeRow
+
+			});
+
 	$("#ltMedico").click(function(){
 			event.preventDefault();
 			$('#tbMedico').DataTable().ajax.reload();
@@ -63,7 +69,7 @@ $(function(){
 		$.ajax({
 			type: "POST",
 			data: {"med_ced":med_ced,"med_e":med_e},
-			url: "/ceup/cmedico/delete/", 
+			url: "/ceup/cmedico/delete/",
 			dataType: 'json',
 			success: function(response){
 				event.preventDefault();
@@ -100,19 +106,19 @@ $(function(){
 		event.preventDefault();
 		$.ajax({
 			type: "POST",
-			data: { 
+			data: {
 					"med_ced": $('#txtId').val(),
-					"med_nom": $('#mmed_nom').val(), 
-					"med_ape": $('#mmed_ape').val(), 
+					"med_nom": $('#mmed_nom').val(),
+					"med_ape": $('#mmed_ape').val(),
 					"med_dir": $('#mmed_dir').val(),
 					"med_tel": $('#mmed_tel').val(),
 					"med_eml": $('#mmed_eml').val()
 					},
 			url: "/ceup/cmedico/update/",
-			dataType: 'json',			
-			
+			dataType: 'json',
+
 			success: function(response){
-				$('#modalMedico').modal('hide');				
+				$('#modalMedico').modal('hide');
 				$.notify("Medico editado con exito","success");
 				$('#tbMedico').DataTable().ajax.reload();
 			},
@@ -123,11 +129,10 @@ $(function(){
 
 		});
 	});
-			
+
 	$('#modalMedico').bind('shown.bs.modal' , function(){
 		med_nom.focus();
 	});
-	
-	
-});
 
+
+});

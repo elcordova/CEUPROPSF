@@ -1,5 +1,6 @@
+
 <script src="<?php echo base_url()?>static/js/user/especialidad.js"></script>
-    
+
     <!-- Page Content -->
         <div id="page-content-wrapper">
 
@@ -7,7 +8,7 @@
               <div class="well panel panel-default" style="margin-top: 1%">
                 <!-- ************** ACORDIONES *****************-->
                 <div class="panel-group" id="accordion">
-  
+
                   <div class="panel panel-primary">
                     <div class="panel-heading panel-heading-custom">
                       <h4 class="panel-title">
@@ -16,21 +17,21 @@
                       </h4>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
-                      
+
                       <div class="panel-body">
 
                         <div class="row">
-                        <div id="divFrmEsp" class="col-md-6 col-md-offset-3" style="border: 1px solid #ccc; padding:10px 35px 40px 35px;background-color:#FFF;"> 
+                        <div id="divFrmEsp" class="col-md-6 col-md-offset-3" style="border: 1px solid #ccc; padding:10px 35px 40px 35px;background-color:#FFF;">
                             <form id="frmEsp">
                                 <fieldset class="scheduler-border">
-                                  <legend class="scheduler-border">Nueva Especialidad</legend>         
-                                  
+                                  <legend class="scheduler-border">Nueva Especialidad</legend>
+
                                   <div class="form-group">
                                     <label for="txtName">Especialidad:</label>
                                     <input type="text" required="true" class="form-control" id="esp_des" name="esp_des" placeholder="Ingrese Especialidad"/>
                                   </div>
-                                </fieldset>  
-                        
+                                </fieldset>
+
                               <div class="row">
                                   <div align="center">
                                     <button type="submit" class="btn btn-primary">Guardar</button>
@@ -52,7 +53,7 @@
                       </h4>
                     </div>
                     <div id="collapse2" class="panel-collapse collapse">
-                      
+
                       <div class="panel-body">
 
                         <div class="row">
@@ -67,7 +68,7 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tblBody" class="text-justify">
-                                        
+
                                     </tbody>
                                 </table>
                             </div>
@@ -77,7 +78,7 @@
 
                     </div>
                   </div>
-  
+
                 </div>
               <!-- ************************************* ACORDIONES ****************************-->
             </div>
@@ -93,23 +94,23 @@
                         <div class="modal-header panel panel-heading">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                             <h4 class="modal-title" id="myModalLabel" style="text-align: center;"></h4>
-                        </div>                   
+                        </div>
                         <div class="modal-body" >
                             <input type="hidden" id="txtId">
-                            <div id="alert" style="display:none;" class="alert alert-danger"></div>                        
-                            <label >Descripcion:</label>                        
+                            <div id="alert" style="display:none;" class="alert alert-danger"></div>
+                            <label >Descripcion:</label>
                             <input type="text" class="form-control" placeholder="Especialidad" name="mesp_des" id="mesp_des">
 
-                         
-                        </div>           
+
+                        </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
                             <a href="" type="button" class="btn btn-primary" id="btnModalGuardar">Guardar</a>
-                        </div>                
+                        </div>
                     </div>
                  </div>
-            </div>    
-        </div> 
-    <!-- ********************* END MODAL ***************************************************** -->    
+            </div>
+        </div>
+    <!-- ********************* END MODAL ***************************************************** -->
   </body>
 </html>

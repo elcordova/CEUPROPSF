@@ -1,11 +1,11 @@
-<?php 
+<?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	/**
-	* 
+	*
 	*/
 	class Cmedico extends CI_Controller
 	{
-		
+
 		function __construct()
 		{
 			# code...
@@ -18,11 +18,11 @@
 			$this->load->view('administracion/includes/cabecera');
 			$this->load->view('menu');
 			$this->load->view('vmedico');
-			$this->load->view('administracion/includes/footer');
-			
-			
+			//$this->load->view('administracion/includes/footer');
+
+
 		}
-		
+
 		public function save()
 		{
 			if ($this->input->is_ajax_request())
@@ -73,7 +73,7 @@
 			}
 		}
 
-		
+
 		public function get()
 		{
 			if($this->input->is_ajax_request())
@@ -85,7 +85,7 @@
 			else
 			{
 				exit("No direct scrip");
-				show_404();	
+				show_404();
 			}
 		}
 
@@ -125,7 +125,7 @@
 				}
 				header('Content-type: application/json; charset=utf-8');
 				echo json_encode($row);
-			}			
+			}
 		}
 
 		public function autocompletarMedico()
@@ -141,7 +141,7 @@
 				}
 				header('Content-type: application/json; charset=utf-8');
 				echo json_encode($row);
-			}			
+			}
 		}
 
 
@@ -178,6 +178,6 @@
 		}
 	}
 
-	
+
 
  ?>

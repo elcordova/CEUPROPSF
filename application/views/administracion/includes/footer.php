@@ -1,6 +1,6 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');?>
 <!-- cierre de div de clase "wraper abierto en menu.php" -->
- 
+
 
 <footer>
 		<div class="container">
@@ -14,10 +14,11 @@
 					</div>
 					</div>
 					<p>&copy;Copyright 2016 - CEUPROPSF. All rights reserved. </p>
-                    
+
 				</div>
-			</div>	
+			</div>
 		</div>
+    
 </footer>
 </div>
 	</body>

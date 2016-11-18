@@ -10,7 +10,7 @@ $(function(){
 			success: function(response){
 				$('#esp_des').val("");
 				$('#esp_des').focus();
-				$.notify("Guardado con exito","success");				
+				$.notify("Guardado con exito","success");
 			},
 
 			error: function(){
@@ -29,23 +29,26 @@ $(function(){
 
 	$.renderizeRow = function( nRow, aData, iDataIndex ) {
 	   $(nRow).append("<td class='text-center'>"+btnsOpTblModels+"</td>");
-	   //$(nRow).attr('id',aData['med_cod']); // 
+	   //$(nRow).attr('id',aData['med_cod']); //
 	};
-	
+
 	//Llenar tabla de datos
-	//Funcion que carga los datos
-	$.fnTbl('#tbEspecialidad',
-			"/ceup/cespecialidad/get/",
-			[	{data:"esp_cod"},
-				{data:"esp_des"}
-			],
-			$.renderizeRow);
-	
+		$('#tbEspecialidad').DataTable({
+			ordering: true,
+			"ajax":{
+				"url": "/ceup/cespecialidad/get/",
+				"dataSrc": "datos"
+			},
+			"columns":[{data:"esp_cod"},{data: "esp_des"}],
+	        "fnCreatedRow": $.renderizeRow
+
+		});
+
 	$("#ltEspecialidad").click(function(){
 			event.preventDefault();
 			$('#tbEspecialidad').DataTable().ajax.reload();
 	});
-	
+
 
 	$.editarModal = function(td)
 	{
@@ -61,16 +64,16 @@ $(function(){
 		event.preventDefault();
 		$.ajax({
 			type: "POST",
-			data: { 
-					"esp_cod":$('#txtId').val() , 
+			data: {
+					"esp_cod":$('#txtId').val() ,
 					"esp_des": $('#mesp_des').val()
-				  },				  
+				  },
 			url: "/ceup/cespecialidad/update/",
 			dataType: 'json',
-			
+
 			success: function(response){
 				$('#modalEspecialidad').modal('hide');
-				$.notify("Modificado con exito","success");	
+				$.notify("Modificado con exito","success");
 				$('#tbEspecialidad').DataTable().ajax.reload();
 
 			},
@@ -86,12 +89,12 @@ $(function(){
 		var cedula = $(td).parent().children()[0].textContent; //cedula
 		$.ajax({
 			type: "POST",
-			url: "/ceup/cespecialidad/delete/", 
+			url: "/ceup/cespecialidad/delete/",
 			data: {"id":cedula},
 			dataType: 'json',
 			success: function(response){
 				$.notify("Eliminado con exito","success");
-				$(td).parent().remove(); // remove a tr				
+				$(td).parent().remove(); // remove a tr
 			},
 
 			error: function(response){
@@ -100,11 +103,10 @@ $(function(){
 
 		});
 	};
-			
+
 	$('#modalEspecialidad').bind('shown.bs.modal' , function(){
 		mesp_des.focus();
 	});
-	
-	
-});
 
+
+});

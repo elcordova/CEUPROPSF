@@ -1,11 +1,11 @@
-	<?php 
+	<?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 	/**
-	* 
+	*
 	*/
 	class Cevento extends CI_Controller
 	{
-		
+
 		function __construct()
 		{
 			# code...
@@ -20,22 +20,19 @@
 			$this->load->view('vevento');
 			$this->load->view('administracion/includes/footer');
 		}
-		
+
 		public function save()
 		{
 			if ($this->input->is_ajax_request())
 			{
 				$data = array(
-				'usu_ced' 	=> $this->input->post('usu_ced'),
-				'usu_nom' 	=> $this->input->post('usu_nom'),
-				'usu_ape' 	=> $this->input->post('usu_ape'),
-				'usu_dir'	=> $this->input->post('usu_dir'),
-				'usu_eml'	=> $this->input->post('usu_eml'),
-				'usu_pas' 	=> md5($this->input->post('usu_pas')),
-				'usu_tip_cod' 	=> $this->input->post('selectUser'),
-				'usu_est' 	=> TRUE,
+				'eve_tit' 			=> $this->input->post('eve_tit'),
+				'eve_fec_ini' 	=> $this->input->post('eve_fec_ini'),
+				'eve_fec_fin' 	=> $this->input->post('eve_fec_fin'),
+				'eve_res'				=> $this->input->post('eve_res'),
+				'eve_dir'				=> $this->input->post('eve_dir'),
+				'not_id' 				=> $this->input->post('noticia'),
 				);
-
 				$response = $this->mevento->save($data);
 				echo json_encode($response);
 			}
@@ -53,17 +50,16 @@
 			if($this->input->is_ajax_request())
 			{
 				$data = array(
-				'usu_nom' 	=> $this->input->post('nombre'),
-				'usu_ape' 	=> $this->input->post('apellido'),
-				'usu_dir'	=> $this->input->post('direccion'),
-				'usu_eml'	=> $this->input->post('email'),
-				'usu_pas' 	=> $this->input->post('password'),
-				'usu_tip_cod' 	=> $this->input->post('tipo'),
-				'usu_est' 	=> TRUE,
+				'eve_tit' 		=> $this->input->post('eve_tit_edt'),
+				'eve_fec_ini' => $this->input->post('eve_fec_ini_edt'),
+				'eve_fec_fin'	=> $this->input->post('eve_fec_fin_edt'),
+				'eve_res'			=> $this->input->post('eve_res_edt'),
+				'eve_dir' 		=> $this->input->post('eve_dir_edt'),
+				'not_id' 			=> $this->input->post('noticia_edt'),
 				);
 
 				$where = array(
-				'usu_ced' => $this->input->post('cedula')
+				'eve_id' => $this->input->post('')
 					);
 
 				$response = $this->mevento->update($data,$where);
@@ -72,22 +68,6 @@
 			else
 			{
 				echo json_encode($response);
-			}
-		}
-
-		
-		public function get()
-		{
-			if($this->input->is_ajax_request())
-			{
-				$data = $this->mevento->getAll();
-				header('Content-type: application/json; charset=utf-8');
-				echo json_encode(array("datos"=>$data));
-			}
-			else
-			{
-				exit("No direct script");
-				show_404();	
 			}
 		}
 
@@ -126,9 +106,36 @@
 			}
 		}
 
+		public function get_noticias()
+		{
+			if($this->input->is_ajax_request())
+			{
+				$sql = "SELECT not_id as id, not_tit as text FROM noticia ORDER BY not_fec_pub DESC";
+				$data = $this->mevento->viewquery($sql);
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode($data);
+			}
+			else
+			{
+				show_404();
+			}
+		}
+
+		public function get()
+		{
+			if($this->input->is_ajax_request())
+			{
+				$sql = "SELECT eve_id, eve_fec_ini, eve_fec_fin, eve_fec_ini ||' | '||eve_fec_fin as fecha, eve_tit, eve_res, eve_dir, not_id, not_tit FROM evento_noticia_view";
+				$data = $this->mevento->viewquery($sql);
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode(array("datos"=>$data));
+			}
+			else
+			{
+				exit("No direct script");
+				show_404();
+			}
+		}
 
 	}
-
-	
-
  ?>
