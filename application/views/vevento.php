@@ -123,6 +123,7 @@
 							  <!-- END LISTAR SERVICIO -->
 							</div>
 						</div>
+
 						<!-- Modal Evento -->
 						<div id="eventoModal" class="modal fade">
 							<div class="modal-dialog modal-md">
@@ -171,6 +172,12 @@
 												</select>
 											</div>
 
+											<div class="row">
+												<div align="center">
+												<button type="submit" class="btn btn-primary btn-large">Guardar</button>
+												</div>
+											</div>
+											
 										</div>
 
 										<div class="modal-footer">

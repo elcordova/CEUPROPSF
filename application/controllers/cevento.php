@@ -59,7 +59,7 @@
 				);
 
 				$where = array(
-				'eve_id' => $this->input->post('')
+				'eve_id' => $this->input->post('eve_id_edt')
 					);
 
 				$response = $this->mevento->update($data,$where);
@@ -75,13 +75,8 @@
 		{
 			if($this->input->is_ajax_request())
 			{
-				$data = array(
-						'usu_est' 	=> FALSE,
-						);
-				$where = array(
-						'usu_ced' => $this->input->post('id')
-						);
-				$response = $this->mevento->delete($data,$where);
+				$sql = "SELECT delete_evento(?);";
+				$response = $this->mevento->customquery($sql,$this->input->post('eve_id'));
 				header('Content-type: application/json; charset=utf-8');
 				echo json_encode($response);
 			}

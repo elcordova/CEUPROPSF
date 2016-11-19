@@ -11,14 +11,11 @@ $(function(){
 			$("#noticia").select2({
 					data: response
 				})
-				/*
-			*/
 		};
 		$.post("/ceup/cevento/get_noticias/",$.getDataForNoticia);
 		//***********************************************************
 		$('#frmEvento').on("submit",function(e){
 			event.preventDefault();
-			console.log($(this).serialize());
 			$.ajax({
 				type:"POST",
 				url: "/ceup/cevento/save/",
@@ -93,7 +90,55 @@ $(function(){
 			$("#noticia_edt").select2({
 				data: dataNoticias
 			});
-
 		});
+
+		$('#frmMdEvento').on("submit", function(e){
+			e.preventDefault();
+			console.log($(this).serialize());
+			$.ajax({
+				type:"POST",
+				url: "/ceup/cevento/update/",
+				dataType: 'json',
+				data:$(this).serialize(),
+				success: function(response){
+					$('#eve_tit_edt').val("");
+					$('#eve_res_edt').val("");
+					$('#eve_dir_edt').val("");
+					$('#eve_fec_ini_edt').val("");
+					$('#eve_fec_fin_edt').val("");
+					$('#eventoModal').modal('hide');
+					toastr.options={"progressBar": true};
+					toastr.success('Evento Actualizado con Exito!','Estado');
+					$('#tbEvento').DataTable().ajax.reload();
+				},
+
+				error: function(){
+					toastr.error('Error','Estado');
+				}
+			});
+		});
+
+		$.eliminar = function(td){
+			var eve_id = $(td).parent().attr('data-id');
+			$.ajax({
+				type: "POST",
+				url: "/ceup/cevento/delete/",
+				data: {"eve_id":eve_id},
+				dataType: 'json',
+				success: function(response){
+					if (response.delete_evento === "1")
+					{
+						toastr.options={"progressBar": true};
+						toastr.success('Evento Eliminado con Exito!','Estado');
+						$(td).parent().remove(); // remove a tr
+					}
+				},
+
+				error: function(response){
+					$.notify("Error al eliminar","error");
+				}
+
+			});
+		};
 
 });
