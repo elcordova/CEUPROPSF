@@ -78,7 +78,8 @@
 		{
 			if($this->input->is_ajax_request())
 			{
-				$data = $this->mmedico->getAll();
+				$sql	= "SELECT * FROM medico WHERE med_est = TRUE";
+				$data = $this->mmedico->viewquery($sql);
 				header('Content-type: application/json; charset=utf-8');
 				echo json_encode(array("datos"=>$data));
 			}
@@ -94,7 +95,7 @@
 			if($this->input->is_ajax_request())
 			{
 				$data = array(
-				'med_est' 	=> $this->input->post('med_e'),
+				'med_est' 	=> FALSE,
 				);
 
 				$where = array(
