@@ -19,7 +19,10 @@
                 <li>
                     <a href="<?php echo base_url()?>cmedico/start">Medico</a>
                 </li>
-
+                <li>
+                    <a href="<?php echo base_url()?>cpaciente/start">Pacientes</a>
+                </li>
+                
                 <li>
                     <a href="<?php echo base_url()?>cespecialidad/start">Especialidad</a>
                 </li>
