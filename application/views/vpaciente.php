@@ -123,7 +123,8 @@
                       <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <table data-order='[[ 2, "asc" ]]' class="table table-bordered" cellspacing="0" width="100%" id="tbPaciente">
+                                <div class="">
+                                <table data-order='[[ 0, "asc" ]]' class="table table-hovered table-bordered" cellspacing="0" width="100%" id="tbPaciente">
                                     <thead>
                                         <tr>
                                             
@@ -140,6 +141,7 @@
                                         
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                       </div>

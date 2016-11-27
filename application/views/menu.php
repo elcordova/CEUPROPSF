@@ -28,6 +28,10 @@
                 </li>
                 
                 <li>
+                    <a href="<?php echo base_url()?>cbrigada/start">Brigada</a>
+                </li>
+
+                <li>
                     <a href="<?php echo base_url()?>cevento/start">Evento</a>
                 </li>
 
