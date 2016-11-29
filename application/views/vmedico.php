@@ -12,7 +12,7 @@
                     <div class="panel-heading panel-heading-custom">
                       <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                        CREAR MEDICO</a>
+                        <i class="fa fa-user-md">  </i><span class="nav-label">     CREAR MEDICO</a>
                       </h4>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
@@ -23,7 +23,7 @@
                                 <form id="frmMed">
                                     <!--*************************FORMULARIO*************************** -->
                                     <fieldset class="scheduler-border">
-                                      <legend class="scheduler-border">Nuevo Medico</legend>
+                                      <legend class="scheduler-border"><i class="fa fa-user-md">  </i><span class="nav-label"> Nuevo Medico</legend>
                                       <div class="form-group">
                                         <label for="txtName">Cedula:</label>
                                         <input type="text" required="true" class="form-control" id="med_ced" name="med_ced" placeholder="Ingrese C.I" maxlength="10"/>
@@ -52,7 +52,7 @@
                                     <!-- ************* BOTONES ***************-->
                                     <div class="row">
                                       <div align="center">
-                                        <button type="submit" class="btn btn-primary btn-large">Guardar</button>
+                                        <button type="submit" class="btn btn-primary btn-large"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></button>
                                       </div>
                                   </div>
                                     <!-- ************* BOTONES ***************-->
@@ -67,7 +67,7 @@
                     <div class="panel-heading panel-heading-custom">
                       <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" id="ltMedico">
-                        LISTAR MEDICO</a>
+                        <i class="fa fa-th-list">  </i><span class="nav-label"> LISTAR MEDICO</span></a>
                       </h4>
                     </div>
                     <div id="collapse2" class="panel-collapse collapse">
@@ -111,7 +111,7 @@
                     <div class="modal-content panel panel-primary">
                         <div class="modal-header panel panel-heading">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel" style="text-align: center;"></h4>
+                            <h4 class="modal-title fa fa-pencil-square-o" id="myModalLabel" style="text-align: center;"></h4>
                         </div>
                         <div class="modal-body" >
                             <input type="hidden" id="txtId">
@@ -133,8 +133,8 @@
                             <input type="emal" class="form-control" placeholder="Email" name="mmed_eml" id="mmed_eml">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                            <a href="" type="button" class="btn btn-primary" id="btnModalGuardar">Guardar</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban">  </i><span class="nav-label"> Cancelar</span></button>
+                            <a href="" type="button" class="btn btn-primary" id="btnModalGuardar"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></a>
                         </div>
                     </div>
                  </div>

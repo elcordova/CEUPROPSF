@@ -11,7 +11,7 @@
                     <div class="panel-heading panel-heading-custom">
                       <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                        CREAR PACIENTE</a>
+                        <i class="fa fa-wheelchair">  </i><span class="nav-label"> CREAR PACIENTE</span></a>
                       </h4>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
@@ -23,7 +23,7 @@
                                     <!--*************************FORMULARIO*************************** -->
                                     <fieldset class="scheduler-border">
                                         <div align="center">
-                                            <legend class="scheduler-border">Nuevo Paciente</legend>
+                                            <legend class="scheduler-border"><i class="fa fa-wheelchair">  </i><span class="nav-label"> Nuevo Paciente</span></legend>
                                         </div>
                                                  
                                         <div class="form-group">
@@ -100,7 +100,7 @@
                                     <!-- ************* BOTONES ***************-->
                                     <div class="row">
                                         <div align="center">
-                                            <button type="submit" onclick="validarFormulario()" class="btn btn-primary btn-large">Guardar</button>
+                                            <button type="submit" onclick="validarFormulario()" class="btn btn-primary btn-large"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></button>
                                         </div>
                                     </div>
                                     <!-- ************* BOTONES ***************-->
@@ -114,8 +114,7 @@
                   <div class="panel panel-primary">
                     <div class="panel-heading panel-heading-custom">
                       <h4 class="panel-title">
-                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" id="ltPaciente">
-                        LISTAR PACIENTES</a>
+                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" id="ltPaciente"><i class="fa fa-th-list">  </i><span class="nav-label"> LISTAR PACIENTES</span></a>
                       </h4>
                     </div>
                     <div id="collapse2" class="panel-collapse collapse">
@@ -161,7 +160,7 @@
                     <div class="modal-content panel panel-primary">
                         <div class="modal-header panel panel-heading">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel" style="text-align: center;"></h4>
+                            <h4 class="modal-title fa fa-pencil-square-o" id="myModalLabel" style="text-align: center;"></h4>
                         </div>                   
                         <div class="modal-body" >
                             <form id="frmPac2" class="form-horizontal">
@@ -243,8 +242,8 @@
                             </form>
                         </div>           
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                            <a href="" type="button" class="btn btn-primary" id="btnModalGuardar">Guardar</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban">  </i><span class="nav-label"> Cancelar</span></button>
+                            <a href="" type="button" class="btn btn-primary" id="btnModalGuardar"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></a>
                         </div>                
                     </div>
                  </div>

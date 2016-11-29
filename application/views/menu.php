@@ -7,32 +7,37 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li class="sidebar-brand">
-                    <a href="<?php echo base_url()?>">
-                        CEUPROPSF
+                    <a href="<?php echo base_url()?>"><img alt="image" class="img-circle" src="<?php echo base_url()?>static/img/logo121.jpg" />
+
+                        <strong>&nbsp;&nbsp;CEUPROPSF</strong> 
+                        <br/>
                     </a>
                 </li>
-
                 <li>
-                    <a href="<?php echo base_url()?>cusuario/start">Usuario</a>
+                    <br/>
                 </li>
 
                 <li>
-                    <a href="<?php echo base_url()?>cmedico/start">Medico</a>
+                    <a href="<?php echo base_url()?>cusuario/start"><i class="fa fa-users fa-large"></i><span class="nav-label"> Usuario</span></a>
+                </li> 
+
+                <li>
+                    <a href="<?php echo base_url()?>cmedico/start"><i class="fa fa-user-md"></i><span class="nav-label"> Medico</span></a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url()?>cpaciente/start">Pacientes</a>
+                    <a href="<?php echo base_url()?>cpaciente/start"><i class="fa fa-wheelchair"></i><span class="nav-label"> Pacientes</span></a>
                 </li>
                 
                 <li>
-                    <a href="<?php echo base_url()?>cespecialidad/start">Especialidad</a>
+                    <a href="<?php echo base_url()?>cespecialidad/start"><i class="fa fa-plus-square"></i><span class="nav-label"> Especialidad</span></a>
                 </li>
 
                 <li>
-                    <a href="<?php echo base_url()?>cevento/start">Evento</a>
+                    <a href="<?php echo base_url()?>cevento/start"><i class="fa fa-dedent"></i><span class="nav-label"> Evento</span></a>
                 </li>
 
                 <li>
-                    <a href="<?php echo base_url()?>Noticias/index">Noticias</a>
+                    <a href="<?php echo base_url()?>Noticias/index"><i class="fa fa-rss-square"></i><span class="nav-label"> Noticias</span></a>
                 </li>
 
             </ul>

@@ -13,7 +13,7 @@
                     <div class="panel-heading panel-heading-custom">
                       <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" id="ltEsp">
-                        CREAR ESPECIALIDAD</a>
+                        <i class="fa fa-plus-square">  </i><span class="nav-label"> CREAR ESPECIALIDAD</span></a>
                       </h4>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
@@ -24,7 +24,7 @@
                         <div id="divFrmEsp" class="col-md-6 col-md-offset-3" style="border: 1px solid #ccc; padding:10px 35px 40px 35px;background-color:#FFF;">
                             <form id="frmEsp">
                                 <fieldset class="scheduler-border">
-                                  <legend class="scheduler-border">Nueva Especialidad</legend>
+                                  <legend class="scheduler-border"><i class="fa fa-plus-square">  </i><span class="nav-label"> Nueva Especialidad</span></legend>
 
                                   <div class="form-group">
                                     <label for="txtName">Especialidad:</label>
@@ -34,7 +34,7 @@
 
                               <div class="row">
                                   <div align="center">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></button>
                                   </div>
                               </div>
                             </form>
@@ -49,7 +49,7 @@
                     <div class="panel-heading panel-heading-custom">
                       <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" id="ltEspecialidad">
-                        LISTAR ESPECIALIDAD</a>
+                        <i class="fa fa-th-list">  </i><span class="nav-label"> LISTAR ESPECIALIDAD</span></a>
                       </h4>
                     </div>
                     <div id="collapse2" class="panel-collapse collapse">
@@ -93,7 +93,7 @@
                     <div class="modal-content panel panel-primary">
                         <div class="modal-header panel panel-heading">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel" style="text-align: center;"></h4>
+                            <h4 class="modal-title fa fa-pencil-square-o" id="myModalLabel" style="text-align: center;"></h4>
                         </div>
                         <div class="modal-body" >
                             <input type="hidden" id="txtId">
@@ -104,8 +104,8 @@
 
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                            <a href="" type="button" class="btn btn-primary" id="btnModalGuardar">Guardar</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban">  </i><span class="nav-label"> Cancelar</span></button>
+                            <a href="" type="button" class="btn btn-primary" id="btnModalGuardar"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></a>
                         </div>
                     </div>
                  </div>

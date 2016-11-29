@@ -23,7 +23,7 @@
 								<div class="panel-heading" role="tab" id="headingSaveEvento">
 								  <h4 class="panel-title">
 									<a data-toggle="collapse" data-parent="#accordionEvento" href="#collapseSaveEvento" aria-expanded="true" aria-controls="collapseSaveEvento">
-									  CREAR EVENTO
+									  <i class="fa fa-dedent">  </i><span class="nav-label"> CREAR EVENTO</span>
 									</a>
 								  </h4>
 								</div>
@@ -34,7 +34,7 @@
 											<div class="col-md-8 col-md-offset-2" style="border: 1px solid #ccc; padding:10px 35px 40px 35px;background-color:#FFF;">
 												<form id="frmEvento">
 													<fieldset class="scheduler-border">
-					                                  <legend class="scheduler-border">Nuevo Evento</legend>
+					                                  <legend class="scheduler-border"><i class="fa fa-dedent">  </i><span class="nav-label"> Nuevo Evento</span></legend>
 
 					                                  <div class="form-group">
 					                                    <label for="txtTitulo">Titulo:</label>
@@ -73,10 +73,10 @@
 					                                  </div>
 
 					                                  <div class="row">
-																						  <div align="center">
-																							<button type="submit" class="btn btn-primary btn-large">Guardar</button>
-																						  </div>
-																					  </div>
+														<div align="center">
+														<button type="submit" class="btn btn-primary btn-large"> <i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></button>
+														</div>
+													  </div>
 					                    </fieldset>
 												</form>
 											</div>
@@ -93,7 +93,7 @@
 								<div class="panel-heading" role="tab" id="headingListCar">
 								  <h4 class="panel-title">
 									<a class="collapsed" id="ltEvento" data-toggle="collapse" data-parent="#accordionEvento" href="#collapseListService" aria-expanded="false" aria-controls="collapseListService">
-									  LISTAR EVENTO
+									  <i class="fa fa-th-list">  </i><span class="nav-label">LISTAR EVENTO</span>
 									</a>
 								  </h4>
 								</div>
@@ -130,7 +130,7 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-										<h4 class="modal-title">Editar Evento</h4>
+										<h4 class="modal-title"><i class="fa fa-pencil-square-o">  </i><span class="nav-label"> Editar Evento</span></h4>
 									</div>
 									<form role="form" id='frmMdEvento'>
 										<div class="modal-body">
@@ -174,7 +174,7 @@
 
 											<div class="row">
 												<div align="center">
-												<button type="submit" class="btn btn-primary btn-large">Guardar</button>
+												<button type="submit" class="btn btn-primary btn-large"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></button>
 												</div>
 											</div>
 											
@@ -203,7 +203,7 @@
 								<div class="panel-heading" role="tab" id="headingSaveMark">
 								  <h4 class="panel-title">
 									<a data-toggle="collapse" data-parent="#accordionMarks" href="#collapseSaveMark" aria-expanded="true" aria-controls="collapseSaveMark">
-									  CREAR TALLER
+									  <i class="fa fa-qrcode">  </i><span class="nav-label"> CREAR TALLER</span>
 									</a>
 								  </h4>
 								</div>
@@ -213,7 +213,7 @@
 											<div id="divFrmAreaTrab" class="col-md-6 col-md-offset-3" style="border: 1px solid #ccc; padding:10px 35px 40px 35px;background-color:#FFF;">
 												<form id="frmTaller">
 												  <fieldset class="scheduler-border">
-					                                  <legend class="scheduler-border">Nuevo Taller</legend>
+					                                  <legend class="scheduler-border"><i class="fa fa-qrcode">  </i><span class="nav-label"> Nuevo Taller</span></legend>
 
 					                                  <div class="form-group">
 					                                    <label for="txtTema">Tema:</label>
@@ -248,7 +248,7 @@
 
 					                                  <div class="row">
 														  <div align="center">
-															<button type="submit" class="btn btn-primary btn-large">Guardar</button>
+															<button type="submit" class="btn btn-primary btn-large"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></button>
 														  </div>
 													  </div>
 
@@ -267,7 +267,7 @@
 								<div class="panel-heading" role="tab" id="headingListMarks">
 								  <h4 class="panel-title">
 									<a class="collapsed" id="ltArea" data-toggle="collapse" data-parent="#accordionMarks" href="#collapseListMarks" aria-expanded="false" aria-controls="collapseListMarks">
-									  LISTAR TALLER
+									 <i class="fa fa-th-list">  </i><span class="nav-label"> LISTAR TALLER</span>
 									</a>
 								  </h4>
 								</div>
@@ -303,7 +303,7 @@
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-										<h4 class="modal-title">Editar Detalle de Trabajo</h4>
+										<h4 class="modal-title"><i class="fa fa-pencil-square-o">  </i><span class="nav-label"> Editar Detalle de Trabajo</span></h4>
 									</div>
 									<form role="form" id='frmMdArea'>
 										<div class="modal-body">
@@ -321,8 +321,8 @@
 										<div class="modal-footer">
 											<div class="row">
 												<div align="center">
-													<button type="button" class="button button-3d button-rounded" data-dismiss="modal">Cancelar</button>
-													<button type="submit"  class="button button-3d-primary button-rounded">Guardar</button>
+													<button type="button" class="button button-3d button-rounded" data-dismiss="modal"><i class="fa fa-ban">  </i><span class="nav-label"> Cancelar</span></button>
+													<button type="submit"  class="button button-3d-primary button-rounded"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></button>
 												</div>
 											</div>
 										</div>
