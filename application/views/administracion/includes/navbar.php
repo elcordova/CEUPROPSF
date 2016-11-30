@@ -13,10 +13,13 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#intro">Inicio</a></li>
+        <li class="active"><a href="<?=base_url()?>index.php/administracion/logout">Inicio</a></li>
         <li><a href="<?php echo base_url()?>cusuario/start">Usuarios</a></li>
-		<li><a href="<?php echo base_url()?>Noticias/index">Noticas</a></li>
-		<li><a href="#contact">Eventos</a></li>
+        <li><a href="<?php echo base_url()?>cpaciente/start">Pacientes</a></li>
+        <li><a href="<?php echo base_url()?>cmedico/start">Medicos</a></li>
+        <li><a href="<?php echo base_url()?>cevento/start">Eventos</a></li>        
+		<li><a href="<?php echo base_url()?>Noticias/index">Noticas</a></li>        
+        <li><a href="#">Brigadas</a></li>
         <li><a href="<?=base_url()?>index.php/administracion/logout">Cerra Sesion</a></li>
       </ul>
             </div>

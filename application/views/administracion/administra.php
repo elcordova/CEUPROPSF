@@ -42,8 +42,10 @@
 							<div class="wow bounceInUp" data-wow-delay="0.8s">
 								<div class="team boxed-grey">
 									<div class="inner">
+									<a href="<?php echo base_url()?>cevento/start">
 										<h5>EVENTOS</h5>
 										<div class="avatar"><img src="<?=base_url()?>static/images/event.png" alt="" class="img-responsive img-rounded" /></div>
+									</a>
 									</div>
 								</div>
 							</div>
@@ -61,6 +63,7 @@
 							</div>
 						</div>
 					</div>
+					<br/>
 					<div class="row">
 						<div class="col-xs-6 col-sm-3 col-md-3">
 							<div class="wow bounceInUp" data-wow-delay="0.2s">
@@ -73,8 +76,19 @@
 										</div>
 									</div>
 							</div>
-						</div>
-					</div>	
+						</div>					
+						<div class="col-xs-6 col-sm-3 col-md-3">
+							<div class="wow bounceInUp" data-wow-delay="0.5s">
+									<div class="team boxed-grey">
+										<div class="inner">
+											<a href="<?php echo base_url()?>cmedico/start">
+												<h5>MEDICOS</h5>					
+												<div class="avatar"><img src="<?=base_url()?>static/images/team-member.jpg" alt="" class="img-responsive img-rounded" /></div>
+											</a>
+										</div>
+									</div>
+							</div>
+						</div>						
 				</div>
 
 				
