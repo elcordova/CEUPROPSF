@@ -13,8 +13,8 @@
 
 					<div class="row">
 						<div class="col-xs-6 col-sm-3 col-md-3">
-							<div class="wow bounceInUp" data-wow-delay="0.2s">
-								<div class="team boxed-grey">
+							<div class="wow bounceInUp " data-wow-delay="0.2s">
+								<div class="team boxed-grey img-circle">
 									<div class="inner">
 										<a href="<?php echo base_url()?>cusuario/start">
 										<h5>USUARIOS</h5>										
@@ -27,7 +27,7 @@
 						<div class="col-xs-6 col-sm-3 col-md-3">
 							<div class="wow bounceInUp" data-wow-delay="0.5s">
 								<a href="Noticias">
-									<div class="team boxed-grey">
+									<div class="team boxed-grey img-circle">
 										<div class="inner">
 											<h5>NOTICIAS</h5>
 											
@@ -40,7 +40,7 @@
 						</div>
 						<div class="col-xs-6 col-sm-3 col-md-3">
 							<div class="wow bounceInUp" data-wow-delay="0.8s">
-								<div class="team boxed-grey">
+								<div class="team boxed-grey img-circle">
 									<div class="inner">
 									<a href="<?php echo base_url()?>cevento/start">
 										<h5>EVENTOS</h5>
@@ -52,7 +52,7 @@
 						</div>
 						<div class="col-xs-6 col-sm-3 col-md-3">
 							<div class="wow bounceInUp" data-wow-delay="1s">
-								<div class="team boxed-grey">
+								<div class="team boxed-grey img-circle">
 									<div class="inner">
 										<h5>BRIGADAS</h5>
 										
@@ -67,7 +67,7 @@
 					<div class="row">
 						<div class="col-xs-6 col-sm-3 col-md-3">
 							<div class="wow bounceInUp" data-wow-delay="0.2s">
-									<div class="team boxed-grey">
+									<div class="team boxed-grey img-circle">
 										<div class="inner">
 											<a href="<?php echo base_url()?>cpaciente/start">
 												<h5>PACIENTES</h5>					
@@ -79,11 +79,11 @@
 						</div>					
 						<div class="col-xs-6 col-sm-3 col-md-3">
 							<div class="wow bounceInUp" data-wow-delay="0.5s">
-									<div class="team boxed-grey">
+									<div class="team boxed-grey img-circle">
 										<div class="inner">
 											<a href="<?php echo base_url()?>cmedico/start">
 												<h5>MEDICOS</h5>					
-												<div class="avatar"><img src="<?=base_url()?>static/images/team-member.jpg" alt="" class="img-responsive img-rounded" /></div>
+												<div class="avatar"><img class="img-circle" width="220" height="230" src="<?=base_url()?>static/images/team.jpg" alt="" class="img-responsive img-rounded" /></div>
 											</a>
 										</div>
 									</div>
