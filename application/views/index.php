@@ -112,10 +112,10 @@
             </div>
             <div>
             </div>
-					
-					<h5>MISION:</h5>
+					<br></br>
+					<h4>MISION:</h4>
 					<p>En el consultorio para la comunidad Machaleña, cuidamos la vida de nuestros pacientes y luchamos día a día por mejorar su salud.</p>
-					<h5>VISIÓN:</h5>
+					<h4>VISIÓN:</h4>
 					<p>Ser referente de excelencia en servicios de salud en El Oro. </p>
 
 					</div>
