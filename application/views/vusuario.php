@@ -54,8 +54,8 @@
                                         <label for="txtName">Tipo Usuario:</label>
                                         <select class='form-control' id='selectUser' name='selectUser'>
                                                             <option value='-----'>-----</option>
-                                                            <option value='1'>Administrador</option>
-                                                            <option value='2'>Usuario</option>
+                                                            <option value='1'>Usuario</option>
+                                                            <option value='2'>Administrador</option>
                                                         </select>
                                       </div>
                                     </fieldset>                        
@@ -144,8 +144,8 @@
                             <label >Tipo de Usuario:</label>
                             <select class='form-control' id='selectUser2' name='selectUser2'>
                                 <option value='-----'>-----</option>
-                                <option value='1'>Administrador</option>
-                                <option value='2'>Usuario</option>
+                                <option value='1'>Usuario</option>
+                                <option value='2'>Administrador</option>
                             </select>
                         </div>           
                         <div class="modal-footer">
