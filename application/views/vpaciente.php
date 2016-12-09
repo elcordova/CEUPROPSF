@@ -29,7 +29,7 @@
                                         <div class="form-group">
                                             <label class="label-control col-sm-2" for="">Cedula:</label>
                                             <div class="col-sm-4">
-                                                <input type="text" required="true" class="form-control" id="pac_ced" name="pac_ced" placeholder="Ingrese C.I" maxlength="10">
+                                                <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" pattern="[0-9]*" required="true" class="form-control" id="pac_ced" name="pac_ced" placeholder="Ingrese C.I" maxlength="10">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -100,7 +100,7 @@
                                     <!-- ************* BOTONES ***************-->
                                     <div class="row">
                                         <div align="center">
-                                            <button type="submit" onclick="validarFormulario()" class="btn btn-primary btn-large">Guardar</button>
+                                            <button type="submit" onclick="" class="btn btn-primary btn-large">Guardar</button>
                                         </div>
                                     </div>
                                     <!-- ************* BOTONES ***************-->

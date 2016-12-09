@@ -17,7 +17,8 @@ $(function(){
 				//$('#table').DataTable().ajax.reload();
 			},
 
-			error: function(){
+			error: function(response){
+				console.log(response);
 				toastr.options={"progressBar": true}
 				toastr.error('Error al registrar paciente','Estado');
 			}
@@ -36,6 +37,28 @@ $(function(){
 		$('#pac_est_civ').val("");
 	}
 
+
+	var lngEsp = {
+		"sProcessing":     "Procesando...",
+		"sLengthMenu":     "Mostrar _MENU_ registros",
+		"sZeroRecords":    "No se encontraron resultados",
+		"sEmptyTable":     "Ningún dato disponible en esta tabla",
+		"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+		"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+		"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+		"sInfoPostFix":    "",
+		"sSearch":         "Buscar:",
+		"sUrl":            "",
+		"sInfoThousands":  ",",
+		"sLoadingRecords": "Cargando...",
+		"oPaginate": {
+			"sFirst":    "Primero",
+			"sLast":     "Último",
+			"sNext":     "Siguiente",
+			"sPrevious": "Anterior"
+		}
+	};
+	
 	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalPaciente' data-toggle='modal' onclick='$.editarModal($(this).parent())'>"+
 							"<span class='glyphicon glyphicon-edit' title='Modificar'></span>"+
 						  "</button>";
@@ -64,26 +87,6 @@ $(function(){
 		$(nRow).attr('data-pac_est',aData['pac_est']);
 	};
 	
-	var lngEsp = {
-		"sProcessing":     "Procesando...",
-		"sLengthMenu":     "Mostrar _MENU_ registros",
-		"sZeroRecords":    "No se encontraron resultados",
-		"sEmptyTable":     "Ningún dato disponible en esta tabla",
-		"sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
-		"sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
-		"sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
-		"sInfoPostFix":    "",
-		"sSearch":         "Buscar:",
-		"sUrl":            "",
-		"sInfoThousands":  ",",
-		"sLoadingRecords": "Cargando...",
-		"oPaginate": {
-			"sFirst":    "Primero",
-			"sLast":     "Último",
-			"sNext":     "Siguiente",
-			"sPrevious": "Anterior"
-		}
-	};
 
 	//Llenar tabla de datos
 	//Funcion que carga los datos

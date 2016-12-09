@@ -16,7 +16,7 @@
 								<div id="sectionA" class="tab-pane fade in active">
 									<br>
 									<div class="panel-group" id="accordionBrigada" role="tablist" aria-multiselectable="true">
-										<!-- CREAR SERVICIO -->
+										<!-- CREAR BRIGADA -->
 										<div class="panel panel-primary">
 											<div class="panel-heading" role="tab" id="headingSaveBrigada">
 									  			<h4 class="panel-title">
@@ -31,40 +31,42 @@
 													<span id="ars"></span>
 													<div class="row">
 														<div class="col-md-10 col-md-offset-1" style="border: 1px solid #ccc; padding:10px 35px 40px 35px;background-color:#FFF;">	
-															<div class="col-md-3"></div>
-															<div class="col-md-6">
-																<form id="frmEvento">
+															<div class="col-md-1"></div>
+															<div class="col-md-10">
+																<form id="frmEvento" class="form-horizontal">
 																	<fieldset class="scheduler-border">
 																		<div align="center">
 																			<legend class="scheduler-border">Nueva Brigada</legend> 
 																		</div>
-									                                  <div class="form-group">
-									                                    <label for="txtTitulo">Descripicon:</label>
-									                                    <input class="form-control" id="bri_des" name="bri_des" style="font-size: 14px" placeholder="Ingrese alguna descripcion" required="true">
-									                                  </div>
-									                                  <div class="col-md-6">
-										                                  <div class="form-group">
-										                                    <label for="txtFecIni">Fecha Inicio:</label>
-										                                    <input type="date" class="form-control" id="bri_fec_ini" name="bri_fec_ini" style="font-size: 14px" required="true">
-										                                  </div>	
-									                                  </div>
-									                                
-									                                  <div class="col-md-6">
+									                                  
+																		<div class="form-group">
+										                                    <label class="label-control col-sm-2">Responsable: </label>
+										                                    <div class="col-sm-4">
+										                                    	<input class="form-control" id="bri_res" name="bri_res" style="font-size: 14px" placeholder="Ingrese el Responsable" required="true">
+										                                    </div>
+										                                </div>
 									                                  	<div class="form-group">
-									                                    	<label for="txtFecFin">Fecha Fin:</label>
-									                                    	<input type="date" class="form-control" id="bri_fec_fin" name="bri_fec_fin" style="font-size: 14px" required="true">
+										                                    <label for="txtTitulo" class="label-control col-sm-2">Descripicon:</label>
+										                                    <div class="col-sm-10">
+										                                    	<input class="form-control" id="bri_des" name="bri_des" style="font-size: 14px" placeholder="Ingrese alguna descripcion" required="true">
+										                                    </div>
 									                                  	</div>
-									                                  </div>
-
-									                                  <div class="form-group">
-									                                    <label for="txtResponsable">Responsable:</label>
-									                                    <input class="form-control" id="bri_res" name="bri_res" style="font-size: 14px" placeholder="Ingrese el Responsable" required="true">
-									                                  </div>
-
-									                                  <div class="form-group">
-									                                    <label for="txtDireccion">Direccion:</label>
-									                                    <input class="form-control" id="bri_dir" name="bri_dir" style="font-size: 14px" placeholder="Ingrese el Direccion" required="true">
-									                                  </div>
+									                                  	<div class="form-group">
+										                                    <label for="txtDireccion" class="label-control col-sm-2">Direccion:</label>
+																			<div class="col-sm-10">
+										                                    	<input class="form-control" id="bri_dir" name="bri_dir" style="font-size: 14px" placeholder="Ingrese la Direccion" required="true">
+										                                  	</div>
+									                                  	</div>
+										                                <div class="form-group">
+										                                    <label for="txtFecIni" class="label-control col-sm-2">Fecha Inicio:</label>
+										                                    <div class="col-sm-4">
+										                                    	<input type="date" class="form-control" id="bri_fec_ini" name="bri_fec_ini" style="font-size: 14px" required="true">
+										                                  	</div>
+										                                  	<label for="txtFecFin" class="label-control col-sm-2">Fecha Fin:</label>
+										                                  	<div class="col-sm-4">
+										                                  		<input type="date" class="form-control" id="bri_fec_fin" name="bri_fec_fin" style="font-size: 14px" required="true">
+										                                  	</div>
+										                                </div>
 									                                </fieldset>													
 																</form>
 															</div>
@@ -72,43 +74,18 @@
 															<br>
 															<hr>
 															<br>
-															<div class="row">
-																<br>
-																<br>
-																<legend class="scheduler-border">Asigancion de Pacientes</legend>
-									                            <button type="button" class="btn btn-primary " id="buttonAddPaciente" data-target='#modalPaciente' data-toggle='modal' style="border-radius: 10px 10px 10px 10px;">Agregar Paciente</button>
-									                            <br>
-									                            <br>
-									                            <div class="col-md-11">
-									                                <div class="">
-									                                <table data-order='[[ 2, "asc" ]]' class="table table-bordered"  id="tbPaciente">
-									                                    <thead>
-									                                        <tr>
-									                                            
-									                                            <th class="text-center">Cedula </th>
-									                                            <th class="text-center">Nombre</th>
-									                                            <th class="text-center">Apellido</th>
-									                                                                                      
-									                                            <th class="text-center">Asignar</th>
-									                                        </tr>
-									                                    </thead>
-									                                    <tbody id="tblBody" class="text-justify">
-									                                        
-									                                    </tbody>
-									                                </table>
-									                                </div>
-									                            </div>
-                        									</div>
+															
                         									<div class="row">
 																<br>
 																<br>
+																<legend class="scheduler-border"></legend>
 																<legend class="scheduler-border">Asigancion de Medicos</legend>
 									                            <button type="button" class="btn btn-primary" id="buttonAddMedico" data-target='#modalMedico' data-toggle='modal' style="border-radius: 8px 8px 8px 8px;">Agregar Medico</button>
 									                            <br>
 									                            <br>
-									                            <div class="col-md-11">
+									                            <div class="col-md-10 col-md-offset-1">
 									                                <div class="table-responsive">
-									                                <table data-order='[[ 2, "asc" ]]' class="table table-bordered" cellspacing="" width="100%" id="tbMedico">
+									                                <table data-order='[[ 0, "asc" ]]' class="table table-hovered table-bordered" cellspacing="0" width="100%" id="tbMedico">
 									                                    <thead>
 									                                        <tr>
 									                                            
@@ -119,7 +96,7 @@
 									                                            <th class="text-center">Asignar</th>
 									                                        </tr>
 									                                    </thead>
-									                                    <tbody id="tblBody" class="text-justify">
+									                                    <tbody id="tblBodyMedico" class="text-justify">
 									                                        
 									                                    </tbody>
 									                                </table>
@@ -129,10 +106,9 @@
                         									<div class="row">
                         										<br>
                         										<br>
-                        										<button type="button" class="btn btn-primary btn-large col-md-offset-9" id="btnGuardarBitacora" style="border-radius: 8px 8px 8px 8px;">
+                        										<button type="button" class="btn btn-primary btn-large col-md-offset-9" id="btnGuardarBigrada" style="border-radius: 8px 8px 8px 8px;">
                         											<i class="fa fa-save"></i>
-                        											
-                        											GUARDAR BITACORA
+                        											GUARDAR BIGRADA
                         										</button>
                         									</div>
 														</div>
@@ -140,7 +116,7 @@
 												</div>
 											</div>
 										</div>
-										<!-- END CREAR SERVICIO -->
+										<!-- END CREAR BRIGADA -->
 										<!-- LISTAR BRIGADA -->
 										<div class="panel panel-primary">
 											<div class="panel-heading" role="tab" id="headingListCar">
@@ -154,16 +130,27 @@
 											 	<div class="panel-body">
 												
 													<div class="row">
-														<div class="col-md-8 col-md-offset-2">
+														<div class="col-md-10 col-md-offset-1">
+															<div class="table-responsive">
 															<table data-order='[[ 0, "asc" ]]' class="table table-hovered table-bordered" cellspacing="0" width="100%" id="tbBrigada">
 																<thead>
 																	<tr>
-																		<th class="text-center"> Nombre </th>
-																		<th class="text-center">Acción</th>
+																		<th class="text-center">Responsable	</th>
+																		<th class="text-center">Descripcion	</th>
+																		<th class="text-center">Direccion	</th>
+																		<th class="text-center">Fecha Inicio</th>
+																		<th class="text-center">Fecha Fin</th>
+																		
+																		
+																		<th class="text-center">Accion		</th>
 																	</tr>
 																</thead>
+																<tbody id="tblBodyBrigada" class="text-justify">
+                                        
+                                    							</tbody>
 																
 															</table>
+															</div>
 														</div>
 													</div>
 											  	</div>
@@ -174,103 +161,7 @@
 									</div>
 								</div>
 								<!-- END BRIGADA -->
-								<!--Modal Paciente-->
-								<div class="row">
-						            <div class="modal fade"  id="modalPaciente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						                <div class="modal-dialog" style="width:800px">
-						                    <div class="modal-content panel panel-primary">
-						                        <div class="modal-header panel panel-heading">
-						                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						                            <h4 class="modal-title" id="myModalLabel" style="text-align: center;">NUEVO PACIENTE</h4>
-						                        </div>                   
-						                        <div class="modal-body" >
-						                            <form id="frmPac2" class="form-horizontal">
-						                                <div class="form-group">
-						                                    <label class="label-control col-sm-2" for="">Cedula:</label>
-						                                    <div class="col-sm-4">
-						                                        <input type="text" required="true" class="form-control" id="pac_ced2" name="pac_ced2" placeholder="Ingrese C.I" maxlength="10">
-						                                    </div>
-						                                    <div hidden="hidden">
-						                                        <label aria-hidden="hidden" class="label-control col-sm-2" for="">Estado:</label>
-						                                        <div class="col-sm-4">
-						                                            <input hiden="hiden" type="checkbox" required="true" value="Cat" class="form-control" id="pac_est2" name="pac_est2">
-						                                        </div>
-						                                    </div>
-						                                </div>
-						                                <div class="form-group">
-						                                    <label class="label-control col-sm-2" for="">Nombre:  </label>
-						                                    <div class="col-sm-4">
-						                                        <input type="text" required="true" class="form-control" id="pac_nom2" name="pac_nom2" placeholder="Ingrese Nombre"/>
-						                                    </div>
-						                                    <label class="label-control col-sm-2" for="">Apellido:</label>
-						                                    <div class="col-sm-4">
-						                                        <input type="text" required="true" class="form-control" id="pac_ape2" name="pac_ape2" placeholder="Ingrese Apellido"/>
-						                                    </div>
-						                                </div>
-						                                <div class="form-group">
-						                                    <label class="label-control col-sm-2" for="">Fecha Nacimiento:</label>
-						                                    <div class="col-sm-4">
-						                                        <input type="date" required="true" class="input-field col s4 form-control" id="pac_fec_nac2" name="pac_fec_nac2"/>
-						                                    </div>
-						                                    <label class="label-control col-sm-2" for="">Sexo:</label>
-						                                    <div class="col-sm-4">
-						                                        <select id="pac_sex2" class="input-field col s12 form-control" name="pac_sex2" required="true">
-						                                            <option value="" disabled selected>------</option>
-						                                            <option value="Masculino">Masculino</option>
-						                                            <option value="Femenino">Femenino</option>
-						                                        </select>
-						                                    </div>
-						                                </div>
-						                                <div class="form-group">
-						                                    <label class="label-control col-sm-2" for="">Direccion:</label>
-						                                    <div class="col-sm-10">
-						                                        <input type="text"  class="form-control" id="pac_dir2" name="pac_dir2" placeholder="Ingrese la direccion.." required="true"/>
-						                                    </div>
-						                                </div>
-						                                <div class="form-group">
-						                                    <label class="label-control col-sm-2" for="">Email:</label>
-						                                    <div class="col-sm-10">
-						                                        <input type="email"  class="form-control" id="pac_cor2" name="pac_cor2" placeholder="Ingrese el email.. " required="true"/>
-						                                    </div>
-						                                </div> 
-						                                <div class="form-group">
-						                                    <label class="label-control col-sm-2" for="">Tipo Sangre:</label>
-						                                    <div class="col-sm-4">
-						                                        <select id="pac_tip_san2" class="input-field col s12 form-control" name="pac_tip_san2" required="true">
-						                                            <option value="" disabled selected>------</option>
-						                                            <option value="AB">AB</option>
-						                                            <option value="AB-">AB-</option>
-						                                            <option value="A">A</option>
-						                                            <option value="A-">A-</option>
-						                                            <option value="B">B</option>
-						                                            <option value="B-">B-</option>
-						                                            <option value="O">O</option>
-						                                            <option value="O-">O-</option>
-						                                        </select>
-						                                    </div>
-						                                    <label class="label-control col-sm-2" for="">Estado Civil:</label>
-						                                    <div class="col-sm-4">
-						                                        <select id="pac_est_civ2" class="input-field col s12 form-control" name="pac_est_civ2" required="true">
-						                                            <option value="" disabled selected>------</option>
-						                                            <option value="Soltero">Soltero</option>
-						                                            <option value="Comprometido">Comprometido</option>
-						                                            <option value="Casado">Casado</option>
-						                                            <option value="Divorciado">Divorciado</option>
-						                                            <option value="Viudo">Viudo</option>
-						                                        </select>
-						                                    </div>
-						                                </div>
-						                            </form>
-						                        </div>           
-						                        <div class="modal-footer">
-						                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-						                            <a href="" type="button" class="btn btn-primary" id="btnModalGuardarPaciente">Guardar</a>
-						                        </div>                
-						                    </div>
-						                 </div>
-						            </div>    
-						        </div> 
-								<!--END Modal Paciente-->
+						
 								<!--Modal Medico-->
 								<div class="row">
 									<div class="modal fade"  id="modalMedico" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -286,27 +177,27 @@
 					                                    <fieldset class="scheduler-border">     
 					                                      <div class="form-group">
 					                                        <label for="txtName">Cedula:</label>
-					                                        <input type="text" required="true" class="form-control" id="med_ced" name="med_ced" placeholder="Ingrese C.I" maxlength="10"/>
+					                                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" pattern="[0-9]*" class="form-control" id="med_ced" name="med_ced" placeholder="Ingrese C.I" maxlength="10" required="true">
 					                                      </div>
 					                                      <div class="form-group">
 					                                        <label for="txtName">Nombre:</label>
-					                                        <input type="text" required="true" class="form-control" id="med_nom" name="med_nom" placeholder="Ingrese Nombre"/>
+					                                        <input type="text" class="form-control" id="med_nom" name="med_nom" placeholder="Ingrese Nombre" required="true">
 					                                      </div>
 					                                      <div class="form-group">
 					                                        <label for="txtName">Apellido:</label>
-					                                        <input type="text" required="true" class="form-control" id="med_ape" name="med_ape" placeholder="Ingrese Apellido"/>
+					                                        <input type="text" class="form-control" id="med_ape" name="med_ape" placeholder="Ingrese Apellido" required="true">
 					                                      </div>
 					                                      <div class="form-group">
 					                                        <label for="txtName">Dirección:</label>
-					                                        <input type="text" required="true" class="form-control" id="med_dir" name="med_dir" placeholder="Ingrese Dirección"/>
+					                                        <input type="text" class="form-control" id="med_dir" name="med_dir" placeholder="Ingrese Dirección" required="true">
 					                                      </div>
 					                                      <div class="form-group">
 					                                        <label for="txtName">Telefono:</label>
-					                                        <input type="text"  class="form-control" id="med_tel" name="med_tel" placeholder="Ingrese Telefono" maxlength="10" />
+					                                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" pattern="[0-9]*"  class="form-control" id="med_tel" name="med_tel" placeholder="Ingrese Telefono" maxlength="10" required="true">
 					                                      </div>
 					                                      <div class="form-group">
 					                                        <label for="txtName">Email:</label>
-					                                        <input type="email"  class="form-control" id="med_eml" name="med_eml" placeholder="Ingrese Email"/>
+					                                        <input type="email"  class="form-control" id="med_eml" name="med_eml" placeholder="Ingrese Email" required="true">
 					                                      </div>
 					                                    </fieldset>
 					                                </form>
@@ -320,6 +211,99 @@
 									</div>
 								</div>
 								<!--END Modal Medico-->
+
+								<div class="form-group col-xs-12 col-sm-10">
+								  	<div id="wait" style="display:none;width:50px;height:50px;position:absolute;top:50%;left:50%;padding:1px;">
+		                                <img src="<?=base_url()?>static/images/espera.gif" width="50" height="50" />
+		                            </div>
+								</div>
+								
+								<!-- MODAL BRIGADA -->
+								<div class="row">
+									<div class="modal fade"  id="modalBrigada" tabindex="-1" role="dialog" aria-labelledby="myModalLabelB" aria-hidden="true">
+										<div class="modal-dialog" style="width:600px">
+											<div class="modal-content panel panel-primary">
+												<div class="modal-header panel panel-heading">
+													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						                            <h4 class="modal-title" id="myModalLabel" style="text-align: center;">EDITAR</h4>
+												</div>
+												<div class="modal-body">
+													<div class="col-md-10 col-md-offset-1">
+													<form id="frmEvento" class="form-horizontal" >
+														<fieldset class="scheduler-border">						                                  
+															<div class="form-group">
+							                                    <label class="label-control col-sm-2">Responsable: </label>
+							                                    <div class="col-sm-4">
+							                                    	<input class="form-control" id="bri_res2" name="bri_res2" style="font-size: 14px" placeholder="Ingrese el Responsable" required="true">
+							                                    </div>
+							                                </div>
+						                                  	<div class="form-group">
+							                                    <label for="txtTitulo" class="label-control col-sm-2">Descripicon:</label>
+							                                    <div class="col-sm-10">
+							                                    	<input class="form-control" id="bri_des2" name="bri_des2" style="font-size: 14px" placeholder="Ingrese alguna descripcion" required="true">
+							                                    </div>
+						                                  	</div>
+						                                  	<div class="form-group">
+							                                    <label for="txtDireccion" class="label-control col-sm-2">Direccion:</label>
+																<div class="col-sm-10">
+							                                    	<input class="form-control" id="bri_dir2" name="bri_dir2" style="font-size: 14px" placeholder="Ingrese la Direccion" required="true">
+							                                  	</div>
+						                                  	</div>
+							                                <div class="form-group">
+							                                    <label for="txtFecIni" class="label-control col-sm-2">Fecha Inicio:</label>
+							                                    <div class="col-sm-4">
+							                                    	<input type="date" class="form-control" id="bri_fec_ini2" name="bri_fec_ini2" style="font-size: 14px" required="true">
+							                                  	</div>
+							                                  	<label for="txtFecFin" class="label-control col-sm-2">Fecha Fin:</label>
+							                                  	<div class="col-sm-4">
+							                                  		<input type="date" class="form-control" id="bri_fec_fin2" name="bri_fec_fin2" style="font-size: 14px" required="true">
+							                                  	</div>
+							                                </div>
+						                                </fieldset>													
+													</form>	
+													</div>
+									  				<div class="row">
+														<div class="col-xs-12" id="divTablaFiltros">
+															<div class="panel panel-primary filterable table-responsive" style="width:">
+									            				<div class="panel-heading" >
+									                				<h3 class="panel-title" style="text-align: center;">Medicos</h3>	                
+									            				</div>
+										            			<div style="max-height: 200px; 	overflow-y:auto;">
+									                                <div class="table-responsive">
+										                                <table data-order='[[ 0, "asc" ]]' class="table table-hovered table-bordered" cellspacing="0" width="100%" id="tbMedico2" style="text-align: center; font-size: 12px">
+										                                    <thead>
+										                                        <tr>
+										                                            
+										                                            <th class="text-center">Cedula </th>
+										                                            <th class="text-center">Nombre</th>
+										                                            <th class="text-center">Apellido</th>
+										                                                                                      
+										                                            <th class="text-center">Asignar</th>
+										                                        </tr>
+										                                    </thead>
+										                                    <tbody id="tblBodyModalMedico" class="text-justify">
+										                                        
+										                                    </tbody>
+										                                </table>
+									                                </div>
+							                            		</div>
+
+										            		</div>
+										            	</div>
+							 						</div>
+												</div>
+												<div class="modal-footer">
+													<button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+						                            <a href="" type="button" class="btn btn-primary" id="btnModalGuardarBrigada">Guardar</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<!-- END MODAL BRIGADA -->
+
+
 								<!-- EVENTO -->
 								<div id="sectionB" class="tab-pane fade">
 									<br>

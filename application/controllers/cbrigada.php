@@ -21,7 +21,20 @@ class Cbrigada extends CI_Controller
 		$this->load->view('administracion/includes/footer');
 	}
 	
-
+	public function get()
+	{
+		if($this->input->is_ajax_request())
+		{
+			$data = $this->mbrigada->getAll();
+			header('Content-type: application/json; charset=utf-8');
+			echo json_encode(array("datos"=>$data));
+		}
+		else
+		{
+			exit("No direct scrip");
+			show_404();	
+		}
+	}
 
 	public function getPacientes()
 	{
@@ -52,22 +65,98 @@ class Cbrigada extends CI_Controller
 			show_404();	
 		}
 	}
-	/*public function save()
+
+	//Obtiene data para llenar la tabla de asignacion .......
+	public function getMedicos2()
+	{
+		if($this->input->is_ajax_request())
+		{
+			$id_bri = $this->input->post('id');
+			$sql = "SELECT * from view_brigada_medico where bri_id=".$id_bri;
+			$data = $this->mbrigada->statementSQL($sql);
+			header('Content-type: application/json; charset=utf-8');
+			echo json_encode(array("datos"=>$data));
+		}
+		else
+		{
+			exit("zeta");
+			show_404();	
+		}
+	}
+
+	public function save()
+	{
+		if($this->input->is_ajax_request())
+		{
+			$data = array(
+			'bri_des' 		=> $this->input->post('bri_des'),
+			'bri_res' 		=> $this->input->post('bri_res'),
+			'bri_fec_ini'	=> $this->input->post('bri_fec_ini'),
+			'bri_fec_fin' 	=> $this->input->post('bri_fec_fin'),
+			'bri_dir' 		=> $this->input->post('bri_dir'),
+			);
+			$id = $this->mbrigada->save($data);
+
+			$dataM = array();
+			$arrayMedic = $this->input->post('data2');
+			$lenght = sizeof($arrayMedic);
+			$response='';
+			for($i=0;$i<$lenght;$i++){
+			    $dataM = array('med_cod' => $arrayMedic[$i] , 'bri_id' => $id );
+			    $resp = $this->mbrigada->saveDetalleBrigadaMedico($dataM);
+			    $response = $resp;
+			}
+			header('Content-type: application/json; charset=utf-8');
+			echo json_encode($response);
+		}
+		else
+		{
+			$response = "shit answer me something !";
+			echo json_encode($response);
+		}
+	}
+
+	public function savePaciente()
 	{
 		if ($this->input->is_ajax_request())
 		{
 			$data = array(
-			'usu_ced' 	=> $this->input->post('usu_ced'),
-			'usu_nom' 	=> $this->input->post('usu_nom'),
-			'usu_ape' 	=> $this->input->post('usu_ape'),
-			'usu_dir'	=> $this->input->post('usu_dir'),
-			'usu_eml'	=> $this->input->post('usu_eml'),
-			'usu_pas' 	=> md5($this->input->post('usu_pas')),
-			'usu_tip_cod' 	=> $this->input->post('selectUser'),
-			'usu_est' 	=> TRUE,
+			'pac_ced' 		=> $this->input->post('pac_ced'),
+			'pac_nom' 		=> $this->input->post('pac_nom'),
+			'pac_ape' 		=> $this->input->post('pac_ape'),
+			'pac_sex'		=> $this->input->post('pac_sex'),
+			'pac_fec_nac'	=> $this->input->post('pac_fec_nac'),
+			'pac_dir' 		=> $this->input->post('pac_dir'),
+			'pac_cor'		=> $this->input->post('pac_cor'),
+			'pac_tip_san'	=> $this->input->post('pac_tip_san'),
+			'pac_est_civ'	=> $this->input->post('pac_est_civ'),
+			'pac_est'		=> true,
 			);
 
-			$response = $this->mevento->save($data);
+			$response = $this->mbrigada->savePaciente($data);
+			echo json_encode($response);
+		}
+		else
+		{
+			$response = "shit answer me something !";
+			echo json_encode($response);
+		}
+	}
+
+	public function saveMedico()
+	{
+		if ($this->input->is_ajax_request())
+		{
+			$data = array(
+			'med_ced' 	=> $this->input->post('med_ced'),
+			'med_nom' 	=> $this->input->post('med_nom'),
+			'med_ape' 	=> $this->input->post('med_ape'),
+			'med_dir'	=> $this->input->post('med_dir'),
+			'med_tel'	=> $this->input->post('med_tel'),
+			'med_est' 	=> TRUE,
+			'med_eml'	=> $this->input->post('med_eml'),
+			);
+			$response = $this->mbrigada->saveMedico($data);
 			echo json_encode($response);
 		}
 		else
@@ -84,20 +173,18 @@ class Cbrigada extends CI_Controller
 		if($this->input->is_ajax_request())
 		{
 			$data = array(
-			'usu_nom' 	=> $this->input->post('nombre'),
-			'usu_ape' 	=> $this->input->post('apellido'),
-			'usu_dir'	=> $this->input->post('direccion'),
-			'usu_eml'	=> $this->input->post('email'),
-			'usu_pas' 	=> $this->input->post('password'),
-			'usu_tip_cod' 	=> $this->input->post('tipo'),
-			'usu_est' 	=> TRUE,
+			'bri_des' 	=> $this->input->post('bri_des'),
+			'bri_res' 	=> $this->input->post('bri_res'),
+			'bri_fec_ini'	=> $this->input->post('bri_fec_ini'),
+			'bri_fec_fin'	=> $this->input->post('bri_fec_fin'),
+			'bri_dir' 	=> $this->input->post('bri_dir'),
 			);
 
 			$where = array(
-			'usu_ced' => $this->input->post('cedula')
+			'bri_id' => $this->input->post('bri_id')
 				);
 
-			$response = $this->mevento->update($data,$where);
+			$response = $this->mbrigada->update($data,$where);
 			echo json_encode($response);
 		}
 		else
@@ -107,7 +194,7 @@ class Cbrigada extends CI_Controller
 	}
 
 	
-	public function get()
+	/**public function get()
 	{
 		if($this->input->is_ajax_request())
 		{
