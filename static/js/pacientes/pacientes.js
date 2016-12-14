@@ -105,7 +105,7 @@ $(function(){
 			}
 		],
 		"fnCreatedRow": $.renderizeRow,
-		"languaje": lngEsp
+		"language": lngEsp
 	});
 	
 	$("#ltPaciente").click(function(){

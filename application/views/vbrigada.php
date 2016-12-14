@@ -46,13 +46,13 @@
 										                                    </div>
 										                                </div>
 									                                  	<div class="form-group">
-										                                    <label for="txtTitulo" class="label-control col-sm-2">Descripicon:</label>
+										                                    <label for="txtTitulo" class="label-control col-sm-2">Descripción:</label>
 										                                    <div class="col-sm-10">
 										                                    	<input class="form-control" id="bri_des" name="bri_des" style="font-size: 14px" placeholder="Ingrese alguna descripcion" required="true">
 										                                    </div>
 									                                  	</div>
 									                                  	<div class="form-group">
-										                                    <label for="txtDireccion" class="label-control col-sm-2">Direccion:</label>
+										                                    <label for="txtDireccion" class="label-control col-sm-2">Dirección:</label>
 																			<div class="col-sm-10">
 										                                    	<input class="form-control" id="bri_dir" name="bri_dir" style="font-size: 14px" placeholder="Ingrese la Direccion" required="true">
 										                                  	</div>
@@ -79,7 +79,7 @@
 																<br>
 																<br>
 																<legend class="scheduler-border"></legend>
-																<legend class="scheduler-border">Asigancion de Medicos</legend>
+																<legend class="scheduler-border">Asiganción de Médicos</legend>
 									                            <button type="button" class="btn btn-primary" id="buttonAddMedico" data-target='#modalMedico' data-toggle='modal' style="border-radius: 8px 8px 8px 8px;">Agregar Medico</button>
 									                            <br>
 									                            <br>
@@ -138,9 +138,9 @@
 																		<th class="text-center">Fecha Inicio</th>
 																		<th class="text-center">Fecha Fin	</th>
 																		<th class="text-center">Responsable	</th>
-																		<th class="text-center">Descripcion	</th>
-																		<th class="text-center">Direccion	</th>
-																		<th class="text-center">Accion		</th>
+																		<th class="text-center">Descripción	</th>
+																		<th class="text-center">Dirección	</th>
+																		<th class="text-center">Acción		</th>
 																	</tr>
 																</thead>
 																<tbody id="tblBodyBrigada" class="text-justify">
@@ -167,14 +167,14 @@
 											<div class="modal-content panel panel-primary">
 												<div class="modal-header panel panel-heading">
 													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						                            <h4 class="modal-title" id="myModalLabel" style="text-align: center;">NUEVO MEDICO</h4>
+						                            <h4 class="modal-title" id="myModalLabel" style="text-align: center;">NUEVO MÉDICO</h4>
 												</div>
 												<div class="modal-body">
 													<form id="frmMed">
 					                                    <!--*************************FORMULARIO*************************** -->
 					                                    <fieldset class="scheduler-border">     
 					                                      <div class="form-group">
-					                                        <label for="txtName">Cedula:</label>
+					                                        <label for="txtName">Cédula:</label>
 					                                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" pattern="[0-9]*" class="form-control" id="med_ced" name="med_ced" placeholder="Ingrese C.I" maxlength="10" required="true">
 					                                      </div>
 					                                      <div class="form-group">
@@ -190,7 +190,7 @@
 					                                        <input type="text" class="form-control" id="med_dir" name="med_dir" placeholder="Ingrese Dirección" required="true">
 					                                      </div>
 					                                      <div class="form-group">
-					                                        <label for="txtName">Telefono:</label>
+					                                        <label for="txtName">Teléfono:</label>
 					                                        <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" pattern="[0-9]*"  class="form-control" id="med_tel" name="med_tel" placeholder="Ingrese Telefono" maxlength="10" required="true">
 					                                      </div>
 					                                      <div class="form-group">
@@ -236,13 +236,13 @@
 							                                    </div>
 							                                </div>
 						                                  	<div class="form-group">
-							                                    <label for="txtTitulo" class="label-control col-sm-2">Descripicon:</label>
+							                                    <label for="txtTitulo" class="label-control col-sm-2">Descripción:</label>
 							                                    <div class="col-sm-10">
 							                                    	<input class="form-control" id="bri_des2" name="bri_des2" style="font-size: 14px" placeholder="Ingrese alguna descripcion" required="true">
 							                                    </div>
 						                                  	</div>
 						                                  	<div class="form-group">
-							                                    <label for="txtDireccion" class="label-control col-sm-2">Direccion:</label>
+							                                    <label for="txtDireccion" class="label-control col-sm-2">Dirección:</label>
 																<div class="col-sm-10">
 							                                    	<input class="form-control" id="bri_dir2" name="bri_dir2" style="font-size: 14px" placeholder="Ingrese la Direccion" required="true">
 							                                  	</div>
@@ -264,7 +264,7 @@
 														<div class="col-xs-12" id="divTablaFiltros">
 															<div class="panel panel-primary filterable table-responsive" style="width:">
 									            				<div class="panel-heading" >
-									                				<h3 class="panel-title" style="text-align: center;">Medicos</h3>	                
+									                				<h3 class="panel-title" style="text-align: center;">Médicos</h3>	                
 									            				</div>
 										            			<div style="max-height: 200px; 	overflow-y:auto;">
 									                                <br>

@@ -140,7 +140,7 @@ $(function(){
 			}
 		],
 		"fnCreatedRow": $.renderizeRow1,
-		"languaje": lngEsp
+		"language": lngEsp
 	});
 	//*********************************************CARGAR TABLA MODAL MEDICOS**************************************//
 	$.renderizeRow2 = function( nRow, aData, iDataIndex ) {
@@ -164,7 +164,7 @@ $(function(){
 			}
 		],
 		"fnCreatedRow": $.renderizeRow2,
-		"languaje": lngEsp
+		"language": lngEsp
 	});
 
 	//---------------------------------------------CARGAR TABLA BRIGADA--------------------------------------------//
@@ -262,6 +262,8 @@ $(function(){
 		var table = $('#tbMedico2').dataTable();
 		var nNodes = table.fnGetNodes();
 		var contador = 0;
+		var bandera = false;
+		
 
 		$(table.fnGetNodes()).each(function(i,v)
 		{
@@ -269,6 +271,7 @@ $(function(){
 			if ( check.is(':checked') && check.attr('data-dbmcod') === '0' )
 			{
 				contador++;
+				bandera=true;
 				var med_cod = check.attr('data-medcod');
 				$.ajax({
 					type: "POST",
@@ -282,38 +285,35 @@ $(function(){
 			}
 		})
 		
-		if(contador > 0 )
-		{
-			$.ajax({
-				type: "POST",
-				data: { 
-						"bri_id": id_bri,
-						"bri_des": $('#bri_des2').val(),
-						"bri_res": $('#bri_res2').val(), 
-						"bri_fec_ini": $('#bri_fec_ini2').val(), 
-						"bri_fec_fin": $('#bri_fec_fin2').val(),
-						"bri_dir": $('#bri_dir2').val(),
-						},
-				url: "/ceup/cbrigada/update/",
-				dataType: 'json',			
-				success: function(response){
-					$('#modalBrigada').modal('hide');
-					//$.notify("Medico editado con exito","success");
-					toastr.options={"progressBar": true}
-					toastr.success('Brigada modificado con Exito!','Estado');
-					$('#tbBrigada').DataTable().ajax.reload();
-				},
-				error: function(response){
-					//$.notify("Error al editar paciente","error");
-					toastr.options={"progressBar": true}
-					toastr.error('Error al editar Brigada!','Estado');
-				}
-			});
-		}
-		else
-		{
-			$.notify("No ha asignado ningun medico","error");
-		}
+		
+		$.ajax({
+			type: "POST",
+			data: { 
+					"bri_id": id_bri,
+					"bri_des": $('#bri_des2').val(),
+					"bri_res": $('#bri_res2').val(), 
+					"bri_fec_ini": $('#bri_fec_ini2').val(), 
+					"bri_fec_fin": $('#bri_fec_fin2').val(),
+					"bri_dir": $('#bri_dir2').val(),
+					},
+			url: "/ceup/cbrigada/update/",
+			dataType: 'json',			
+			success: function(response){
+				$('#modalBrigada').modal('hide');
+				//$.notify("Medico editado con exito","success");
+				bandera=true;
+				toastr.options={"progressBar": true}
+				toastr.success('Brigada modificado con Exito!','Estado');
+				$('#tbBrigada').DataTable().ajax.reload();
+			},
+			error: function(response){
+				//$.notify("Error al editar paciente","error");
+				toastr.options={"progressBar": true}
+				toastr.error('Error al editar Brigada!','Estado');
+			}
+		});
+		
+		
 	});
 
 	
@@ -351,11 +351,11 @@ $(function(){
 		{
 			if( $(this).is(':checked'))
 			{
-				alert('agrego');
+
 			}
 			else
 			{
-				alert('elimino');
+				
 				if(flag == 1) // si editar
 				{
 					if(	!($(this).is(':checked')) && $(this).attr('data-dbmcod')!== "0") //unchecked y tiene data-dbmcod
