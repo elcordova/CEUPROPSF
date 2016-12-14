@@ -31,9 +31,13 @@
                 <li>
                     <a href="<?php echo base_url()?>cespecialidad/start"><i class="fa fa-plus-square"></i><span class="nav-label"> Especialidad</span></a>
                 </li>
+                
+                <li>
+                    <a href="<?php echo base_url()?>cbrigada/start">Brigada</a>
+                </li>
 
                 <li>
-                    <a href="<?php echo base_url()?>cevento/start"><i class="fa fa-dedent"></i><span class="nav-label"> Evento</span></a>
+                    <a href="<?php echo base_url()?>cevento/start">Evento</a>
                 </li>
 
                 <li>

@@ -36,6 +36,7 @@ class Cpaciente extends CI_Controller {
 				'pac_est_civ'	=> $this->input->post('pac_est_civ'),
 				'pac_est'		=> true,
 				);
+				
 				$response = $this->mpaciente->save($data);
 				echo json_encode($response);
 			}

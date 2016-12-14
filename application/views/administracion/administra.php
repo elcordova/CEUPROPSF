@@ -52,10 +52,10 @@
 							<div class="wow bounceInUp" data-wow-delay="1s">
 								<div class="team boxed-grey">
 									<div class="inner">
-										<h5>BRIGADAS</h5>
-										
-										<div class="avatar"><img src="<?=base_url()?>static/images/brigadas.png" alt="" class="img-responsive img-rounded" /></div>
-
+										<a href="<?php echo base_url()?>cbrigada/start">
+											<h5>BRIGADAS</h5>
+											<div class="avatar"><img src="<?=base_url()?>static/images/brigadas.png" alt="" class="img-responsive img-rounded" /></div>
+										</a>
 									</div>
 								</div>
 							</div>

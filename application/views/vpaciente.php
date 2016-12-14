@@ -27,9 +27,9 @@
                                         </div>
                                                  
                                         <div class="form-group">
-                                            <label class="label-control col-sm-2" for="">Cedula:</label>
+                                            <label class="label-control col-sm-2" for="">Cédula:</label>
                                             <div class="col-sm-4">
-                                                <input type="text" required="true" class="form-control" id="pac_ced" name="pac_ced" placeholder="Ingrese C.I" maxlength="10">
+                                                <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" pattern="[0-9]*" required="true" class="form-control" id="pac_ced" name="pac_ced" placeholder="Ingrese C.I" maxlength="10">
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -57,7 +57,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="label-control col-sm-2" for="">Direccion:</label>
+                                            <label class="label-control col-sm-2" for="">Dirección:</label>
                                             <div class="col-sm-10">
                                                 <input type="text"  class="form-control" id="pac_dir" name="pac_dir" placeholder="Ingrese la direccion.." required="true"/>
                                             </div>
@@ -74,13 +74,13 @@
                                             <div class="col-sm-4">
                                                 <select id="pac_tip_san" class="input-field col s12 form-control" name="pac_tip_san" required="true">
                                                     <option value="" disabled selected>------</option>
-                                                    <option value="AB">AB</option>
+                                                    <option value="AB+">AB+</option>
                                                     <option value="AB-">AB-</option>
-                                                    <option value="A">A</option>
+                                                    <option value="A+">A+</option>
                                                     <option value="A-">A-</option>
-                                                    <option value="B">B</option>
+                                                    <option value="B+">B+</option>
                                                     <option value="B-">B-</option>
-                                                    <option value="O">O</option>
+                                                    <option value="O+">O+</option>
                                                     <option value="O-">O-</option>
                                                 </select>
                                             </div>
@@ -88,11 +88,11 @@
                                             <div class="col-sm-4">
                                                 <select id="pac_est_civ" class="input-field col s12 form-control" name="pac_est_civ" required="true">
                                                     <option value="" disabled selected>------</option>
-                                                    <option value="Soltero">Soltero</option>
-                                                    <option value="Comprometido">Comprometido</option>
-                                                    <option value="Casado">Casado</option>
-                                                    <option value="Divorciado">Divorciado</option>
-                                                    <option value="Viudo">Viudo</option>
+                                                    <option value="Soltero(a)">Soltero(a)</option>
+                                                    <option value="Comprometido(a)">Comprometido(a)</option>
+                                                    <option value="Casado(a)">Casado(a)</option>
+                                                    <option value="Divorciado(a)">Divorciado(a)</option>
+                                                    <option value="Viudo(a)">Viudo(a)</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -122,11 +122,12 @@
                       <div class="panel-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <table data-order='[[ 2, "asc" ]]' class="table table-bordered" cellspacing="0" width="100%" id="tbPaciente">
+                                <div class="">
+                                <table data-order='[[ 0, "asc" ]]' class="table table-hovered table-bordered" cellspacing="0" width="100%" id="tbPaciente">
                                     <thead>
                                         <tr>
                                             
-                                            <th class="text-center">Cedula </th>
+                                            <th class="text-center">Cédula </th>
                                             <th class="text-center">Nombre</th>
                                             <th class="text-center">Apellido</th>
                                             <th class="text-center">Direccion</th>
@@ -139,6 +140,7 @@
                                         
                                     </tbody>
                                 </table>
+                                </div>
                             </div>
                         </div>
                       </div>
@@ -165,7 +167,7 @@
                         <div class="modal-body" >
                             <form id="frmPac2" class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="label-control col-sm-2" for="">Cedula:</label>
+                                    <label class="label-control col-sm-2" for="">Cédula:</label>
                                     <div class="col-sm-4">
                                         <input type="text" required="true" disabled class="form-control" id="pac_ced2" name="pac_ced2" placeholder="Ingrese C.I" maxlength="10">
                                     </div>
@@ -201,7 +203,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="label-control col-sm-2" for="">Direccion:</label>
+                                    <label class="label-control col-sm-2" for="">Dirección:</label>
                                     <div class="col-sm-10">
                                         <input type="text"  class="form-control" id="pac_dir2" name="pac_dir2" placeholder="Ingrese la direccion.." required="true"/>
                                     </div>
@@ -217,13 +219,13 @@
                                     <div class="col-sm-4">
                                         <select id="pac_tip_san2" class="input-field col s12 form-control" name="pac_tip_san2" required="true">
                                             <option value="" disabled selected>------</option>
-                                            <option value="AB">AB</option>
+                                            <option value="AB+">AB+</option>
                                             <option value="AB-">AB-</option>
-                                            <option value="A">A</option>
+                                            <option value="A+">A+</option>
                                             <option value="A-">A-</option>
-                                            <option value="B">B</option>
+                                            <option value="B+">B+</option>
                                             <option value="B-">B-</option>
-                                            <option value="O">O</option>
+                                            <option value="O+">O+</option>
                                             <option value="O-">O-</option>
                                         </select>
                                     </div>
@@ -231,11 +233,11 @@
                                     <div class="col-sm-4">
                                         <select id="pac_est_civ2" class="input-field col s12 form-control" name="pac_est_civ2" required="true">
                                             <option value="" disabled selected>------</option>
-                                            <option value="Soltero">Soltero</option>
-                                            <option value="Comprometido">Comprometido</option>
-                                            <option value="Casado">Casado</option>
-                                            <option value="Divorciado">Divorciado</option>
-                                            <option value="Viudo">Viudo</option>
+                                            <option value="Soltero(a)">Soltero(a)</option>
+                                            <option value="Comprometido(a)">Comprometido(a)</option>
+                                            <option value="Casado(a)">Casado(a)</option>
+                                            <option value="Divorciado(a)">Divorciado(a)</option>
+                                            <option value="Viudo(a)">Viudo(a)</option>
                                         </select>
                                     </div>
                                 </div>
