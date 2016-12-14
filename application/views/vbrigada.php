@@ -6,11 +6,11 @@
 
 	    		<div class="well panel panel-default" style="margin-top:1%;min-height:590px;">
 	    			<div class="panel-body">
-	    				<div class="nav nav-tabs">
-	    					<ul class="nav nav-tabs">
+	    				<div class=""><!--class='nav nav-tabs'-->
+	    					<!--<ul class="nav nav-tabs">
 								<li class="active"><a data-toggle="tab" href="#sectionA">Brigada</a></li>
-								<li><a data-toggle="tab" href="#sectionB">Talleres</a></li>
-							</ul>
+								
+							</ul>-->
 							<div class="tab-content">
 								<!-- BRIGADA -->
 								<div id="sectionA" class="tab-pane fade in active">
@@ -135,13 +135,11 @@
 															<table data-order='[[ 0, "asc" ]]' class="table table-hovered table-bordered" cellspacing="0" width="100%" id="tbBrigada">
 																<thead>
 																	<tr>
+																		<th class="text-center">Fecha Inicio</th>
+																		<th class="text-center">Fecha Fin	</th>
 																		<th class="text-center">Responsable	</th>
 																		<th class="text-center">Descripcion	</th>
 																		<th class="text-center">Direccion	</th>
-																		<th class="text-center">Fecha Inicio</th>
-																		<th class="text-center">Fecha Fin</th>
-																		
-																		
 																		<th class="text-center">Accion		</th>
 																	</tr>
 																</thead>
@@ -221,7 +219,7 @@
 								<!-- MODAL BRIGADA -->
 								<div class="row">
 									<div class="modal fade"  id="modalBrigada" tabindex="-1" role="dialog" aria-labelledby="myModalLabelB" aria-hidden="true">
-										<div class="modal-dialog" style="width:600px">
+										<div class="modal-dialog" style="width:700px">
 											<div class="modal-content panel panel-primary">
 												<div class="modal-header panel panel-heading">
 													<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -229,7 +227,7 @@
 												</div>
 												<div class="modal-body">
 													<div class="col-md-10 col-md-offset-1">
-													<form id="frmEvento" class="form-horizontal" >
+													<form id="frmEvento" class="form-horizontal" style="text-align: center; font-size: 12px">
 														<fieldset class="scheduler-border">						                                  
 															<div class="form-group">
 							                                    <label class="label-control col-sm-2">Responsable: </label>
@@ -269,8 +267,9 @@
 									                				<h3 class="panel-title" style="text-align: center;">Medicos</h3>	                
 									            				</div>
 										            			<div style="max-height: 200px; 	overflow-y:auto;">
+									                                <br>
 									                                <div class="table-responsive">
-										                                <table data-order='[[ 0, "asc" ]]' class="table table-hovered table-bordered" cellspacing="0" width="100%" id="tbMedico2" style="text-align: center; font-size: 12px">
+										                                <table class="table table-hovered table-bordered" cellspacing="0" width="100%" id="tbMedico2" style="text-align: center; font-size: 12px">
 										                                    <thead>
 										                                        <tr>
 										                                            
@@ -302,8 +301,13 @@
 								</div>
 
 								<!-- END MODAL BRIGADA -->
+	
+								
 
 
+
+
+								
 								<!-- EVENTO -->
 								<div id="sectionB" class="tab-pane fade">
 									<br>

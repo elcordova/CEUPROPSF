@@ -19,6 +19,7 @@
     <!-- Core JavaScript Files -->
     <script src="<?=base_url()?>static/js/jquery.min.js"></script>
     <script src="<?=base_url()?>static/js/bootstrap.min.js"></script>
+    
     <script src="<?=base_url()?>static/js/jquery.easing.min.js"></script>	
 	<script src="<?=base_url()?>static/js/jquery.scrollTo.js"></script>
 	<script src="<?=base_url()?>static/js/wow.min.js"></script>
@@ -26,6 +27,7 @@
     <script src="<?=base_url()?>static/js/custom.js"></script>
     <script src="<?=base_url()?>static/js/script_principal.js"></script>
     <script src="<?=base_url()?>static/js/alls.js"></script>
+    
     <script src="<?=base_url()?>static/js/toastr/toastr.min.js"></script>
 
 </body>

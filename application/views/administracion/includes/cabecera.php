@@ -47,6 +47,7 @@
     <!-- DataTable --> 
     <script type="text/javascript" charset="utf8" src="<?php echo base_url()?>static/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" charset="utf8" src="<?php echo base_url()?>static/js/dataTables.bootstrap.js"></script>
+    <script src="<?=base_url()?>static/js/jquery.uitablefilter.js" charset="utf8" type="text/javascript"></script>
     <!-- Notify -->    
     <script src="<?php echo base_url()?>static/js/notify.js"></script>
  

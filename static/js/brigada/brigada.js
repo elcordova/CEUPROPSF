@@ -1,18 +1,14 @@
 $(function(){
 
 	var data2= [];
+	var flag=0;
 
 	//******************************************GUARDAR BRIGADA****************************************************
 	$('#btnGuardarBigrada').click(function(){
-		event.preventDefault();
-						/**console.log("tamaño: "+data2.length);
-						$.each(data2, function (idx, item) { 
-						 	console.log("Indice: "+idx+"   Valor: "+ item);
-						});
-						console.log("tamaño: "+data2.length);*/
-		
+		event.preventDefault();		
 		//aki ejecutar gif
 		$("#wait").css("display", "block");
+		console.log(data2);
 		$.ajax({
 			type:"POST",
 			url:"/ceup/cbrigada/save/",
@@ -27,7 +23,7 @@ $(function(){
 			dataType:'json',
 			success: function(response){
 				limp_form_brigada();
-				//$('#tbMedico').DataTable().ajax.reload();
+				$('#tbMedico').DataTable().ajax.reload();
 				toastr.options={"progressBar": true}
 				toastr.success('Brigada registrada con Exito!','Estado');
 			},
@@ -36,7 +32,7 @@ $(function(){
 				toastr.error('Error al registrar Brigada','Estado');
 			}
 		});
-		$("#wait").css("display", "none");
+		$("#wait").css("display", "none");//termina gif
 	});
 
 
@@ -67,7 +63,6 @@ $(function(){
 						},
 				dataType: 'json',
 				success: function(response){
-					console.log(response);
 					$('#modalMedico').modal('hide');
 					limp_form_medico();
 					toastr.options={"progressBar": true}
@@ -102,14 +97,10 @@ $(function(){
 	}
 	
 
-	//---------------------------------------------CARGAR TABLA MEDICOS--------------------------------------------//
-	
-	//checkbox para medico
-	var btnsOpTblModels2 = "<input type='checkbox' id='check'' data-med='m' data-dmhcod='0'>";	
-
-	$.renderizeRow2 = function( nRow, aData, iDataIndex ) {
+	//---------------------------------------------CARGAR TABLA MEDICOS--------------------------------------------//	
+	$.renderizeRow1 = function( nRow, aData, iDataIndex ) {
 	    
-	    $(nRow).append("<td class='text-center'>"+btnsOpTblModels2+"</td>");
+	    $(nRow).append("<td class='text-center'><input type='checkbox' id='check1M"+(iDataIndex)+"' data-med='med1' data-medcod="+aData['med_cod']+" data-dbmcod='0'></td>");
 		$(nRow).attr('id',aData['med_cod']); //codigo
 	};
 
@@ -148,16 +139,14 @@ $(function(){
 				"searchable": false
 			}
 		],
-		"fnCreatedRow": $.renderizeRow2,
+		"fnCreatedRow": $.renderizeRow1,
 		"languaje": lngEsp
 	});
 	//*********************************************CARGAR TABLA MODAL MEDICOS**************************************//
-	var btnsOpTblModels3 = "<input type='checkbox' id='check'' data-med='mm' data-dmhcod='0'>";
-
-	$.renderizeRow3 = function( nRow, aData, iDataIndex ) {
+	$.renderizeRow2 = function( nRow, aData, iDataIndex ) {
 	    
-	    $(nRow).append("<td class='text-center'>"+btnsOpTblModels3+"</td>");
-		$(nRow).attr('id',aData['med_cod']); //codigo
+	    $(nRow).append("<td class='text-center'><input type='checkbox' id='check2M"+(iDataIndex)+"' data-medcod="+aData['med_cod']+" data-med='med2' data-dbmcod='0'></td>");
+		$(nRow).attr('data-id_med',aData['med_cod']); //codigo
 	};
 
 	$('#tbMedico2').DataTable({
@@ -174,7 +163,7 @@ $(function(){
 				"searchable": false
 			}
 		],
-		"fnCreatedRow": $.renderizeRow3,
+		"fnCreatedRow": $.renderizeRow2,
 		"languaje": lngEsp
 	});
 
@@ -182,14 +171,14 @@ $(function(){
 
 	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalBrigada' data-toggle='modal' onclick='$.editarModal($(this).parent());'>"+
 						  "<img src='/sgcm/static/img/edit.png' title='Editar'>"+
-						  "</button>"+
-						  "<button style='border: 0; background: transparent' onclick='$.eliminar($(this).parent())'>"+
-							"<img src='/sgcm/static/img/delete.png' title='Eliminar'>"+
 						  "</button>";
+		
+	
 
 	$.renderizeRow = function( nRow, aData, iDataIndex ) {
 	   $(nRow).append("<td class='text-center'>"+btnsOpTblModels+"</td>");
-	   $(nRow).attr('id',aData['bri_id']); // 
+	   $(nRow).attr('id',aData['bri_id']); //
+
 	};
 
 	$('#tbBrigada').DataTable({
@@ -199,7 +188,7 @@ $(function(){
 			"dataSrc": "datos"
 		},
 		//"columns":[{data:"bri_res"},{data:"bri_des"},{data:"bri_dir"},{data:"bri_fec_ini"},{data:"bri_fec_fin"}],
-		"columns":[{data:"bri_res"},{data:"bri_des"},{data:"bri_dir"},{data:"bri_fec_ini"},{data:"bri_fec_fin"}],
+		"columns":[{data:"bri_fec_ini"},{data:"bri_fec_fin"},{data:"bri_res"},{data:"bri_des"},{data:"bri_dir"}],
 		"columnDefs": [
 			{
 				"targets": [4],
@@ -217,104 +206,130 @@ $(function(){
 		$('#tbBrigada').DataTable().ajax.reload();
 	});
 
-
-
-
-	/// Llena Tabla Horarios
-	$.getDataMed = function(response){
-		
-		var datos = "";
-		//se agrego data-horcod y data-dmhcod
-		$.each(response.datos,	function(i , item)
-		{
-			 datos+= "<tr id="+item.hor_cod+">"+
-			  		 "<td>"+item.hor_des+"</td>"+ 
-			  		 "<td> <input type='checkbox' id='check"+i+"' data-horcod="+item.hor_cod+" data-dmhcod='0'></td>"+
-			  		 "</tr>";				
-		});
-		$('#bodyTbAsig').html(datos);
-	};
-
-	//llamada ComboBox Especialidad
-	//llamada tabla asignar Horarios
-	$.post("/sgcm/chorario/get/",$.getDataForHor);
-
-
+	
 
 	//************************************EDITAR BRIGADA****************************************************//
-	var id_med='';
+	var id_bri='';
 	$.editarModal = function(td)
 	{
+		flag=1;
 		var tr = $(td).parent().children();
-		id_med = $(td).parent().attr('id');
-		var res = tr[0].textContent;
-		var des = tr[1].textContent;
-		var dir = tr[2].textContent;
-		var fec_ini = tr[3].textContent;
-		var fec_fin = tr[4].textContent;
+		id_bri = $(td).parent().attr('id');
+		var res = tr[2].textContent;
+		var des = tr[3].textContent;
+		var dir = tr[4].textContent;
+		var fec_ini = tr[0].textContent;
+		var fec_fin = tr[1].textContent;
 		//$('#myModalLabelB').html("Editar");
 		$('#bri_res2').val(res);
 		$('#bri_des2').val(des);
 		$('#bri_dir2').val(dir);
 		$('#bri_fec_ini2').val(fec_ini);
 		$('#bri_fec_fin2').val(fec_fin);
+		var table = $('#tbMedico2').dataTable();
+		var nNodes = table.fnGetNodes();
+		//var data = table.rows();
 		$.ajax({
 			type: "POST",
-			data: {"id": id_med },
+			data: {"id": id_bri },
 			url: "/ceup/cbrigada/getMedicos2/",
 			dataType: 'json',
-			success: function(datos){
-				console.log(datos);
-				var rows = $('#tblBodyModalMedico >tr');
-				console.log($(rows).length)
-			},
-			error: function(){
-
+			success: function(response){
+				console.log(response.datos);
+				if (response.datos !== null)
+				{
+					$(table.fnGetNodes()).each(function(i,v)
+					{
+						$.each(response.datos, function(j,value)
+						{		
+							if( $($($(v).children('td')[3]).children()[0]).attr('data-medcod') == value.med_cod )
+							{	
+								console.log("entro zeta");
+								$($($(v).children('td')[3]).children()[0]).prop("checked", true);
+								$($($(v).children('td')[3]).children()[0]).attr("data-dbmcod",value.bri_id);
+							}
+						});
+					})	
+				}
 			}
 		});
-		//$('#pac_est2').val(est);
-		//$("#pac_est2").prop("checked", est);
 	};
 
 
+	//----------------------GUARDAR EDICION BRIGADA
 	$('#btnModalGuardarBrigada').click(function(){
 		event.preventDefault();
-		$.ajax({
-			type: "POST",
-			data: { 
-					"bri_id": id_med,
-					"bri_des": $('#bri_des2').val(),
-					"bri_res": $('#bri_res2').val(), 
-					"bri_fec_ini": $('#bri_fec_ini2').val(), 
-					"bri_fec_fin": $('#bri_fec_fin2').val(),
-					"bri_dir": $('#bri_dir2').val(),
-					},
-			url: "/ceup/cbrigada/update/",
-			dataType: 'json',			
-			
-			success: function(response){
-				$('#modalBrigada').modal('hide');				
-				//$.notify("Medico editado con exito","success");
-				toastr.options={"progressBar": true}
-				toastr.success('Brigada modificado con Exito!','Estado');
-				$('#tbBrigada').DataTable().ajax.reload();
-			},
+		var table = $('#tbMedico2').dataTable();
+		var nNodes = table.fnGetNodes();
+		var contador = 0;
 
-			error: function(response){
-				//$.notify("Error al editar paciente","error");
-				toastr.options={"progressBar": true}
-				toastr.error('Error al editar Brigada!','Estado');
+		$(table.fnGetNodes()).each(function(i,v)
+		{
+			var check = $($($(v).children('td')[3]).children()[0]);
+			if ( check.is(':checked') && check.attr('data-dbmcod') === '0' )
+			{
+				contador++;
+				var med_cod = check.attr('data-medcod');
+				$.ajax({
+					type: "POST",
+					url:  "/ceup/cbrigada/saveDetalleBriMed",
+					dataType: 'json',
+					data:{
+						"bri_id": id_bri,
+						"med_cod": med_cod, 
+					}
+				});
 			}
-
-		});
+		})
+		
+		if(contador > 0 )
+		{
+			$.ajax({
+				type: "POST",
+				data: { 
+						"bri_id": id_bri,
+						"bri_des": $('#bri_des2').val(),
+						"bri_res": $('#bri_res2').val(), 
+						"bri_fec_ini": $('#bri_fec_ini2').val(), 
+						"bri_fec_fin": $('#bri_fec_fin2').val(),
+						"bri_dir": $('#bri_dir2').val(),
+						},
+				url: "/ceup/cbrigada/update/",
+				dataType: 'json',			
+				success: function(response){
+					$('#modalBrigada').modal('hide');
+					//$.notify("Medico editado con exito","success");
+					toastr.options={"progressBar": true}
+					toastr.success('Brigada modificado con Exito!','Estado');
+					$('#tbBrigada').DataTable().ajax.reload();
+				},
+				error: function(response){
+					//$.notify("Error al editar paciente","error");
+					toastr.options={"progressBar": true}
+					toastr.error('Error al editar Brigada!','Estado');
+				}
+			});
+		}
+		else
+		{
+			$.notify("No ha asignado ningun medico","error");
+		}
 	});
+
+	
+	
+
+	
+
+	
 
 
 	/*
-	CONTROLA LOS EVENTOS DE LOS CHECKBOXES
+	---------------------------------------------CONTROLA LOS EVENTOS DE LOS CHECKBOXES------------------------------------------------------
 	*/
 	$(document).on('change', '[type=checkbox]', function(e){
-		if ($(this).attr('data-med') === 'm')
+		//-----checkbox para la tabla medico
+		if ($(this).attr('data-med') === 'med1')
 		{
 			var id=$(this).parent().parent().attr('id');
 			//alert("esto es medico"+id);
@@ -331,6 +346,62 @@ $(function(){
 				});
 	        } 
 		}
+		//-----checkbox para la tabla MODAL medico
+		if ( $(this).attr('data-med') === 'med2')
+		{
+			if( $(this).is(':checked'))
+			{
+				alert('agrego');
+			}
+			else
+			{
+				alert('elimino');
+				if(flag == 1) // si editar
+				{
+					if(	!($(this).is(':checked')) && $(this).attr('data-dbmcod')!== "0") //unchecked y tiene data-dbmcod
+					{	
+						console.log("entro elimina 1 de table detalle-bri-med");
+						var bri_id = $(this).attr('data-dbmcod');
+						var med_cod = $(this).attr('data-medcod');
+						console.log(bri_id+"   "+med_cod);
+						$(this).attr('data-dbmcod','0');
+						$.ajax({
+							type: "POST",
+							url: "/ceup/cbrigada/deleteCustom/",
+							dataType: 'json',
+							data: {
+								"bri_id" : bri_id,
+								"med_cod": med_cod,
+								},
+							success: function(response){
+								console.log(response);
+								$.notify("Eliminado","success");
+							},
+							error: function(response)
+							{
+								$.notify("error","error");
+							}				
+						});
+					}
+				}
+			}
+		}
+		
 	}); // FIN CONTROL DE CHECKBOXES
 
+	//Evento al Cerrar el Modal Brigrada - borra todos los checks
+	$('#modalBrigada').on('hidden.bs.modal', function(){
+
+		var table = $('#tbMedico2').dataTable();
+		var nNodes = table.fnGetNodes();
+
+		$(table.fnGetNodes()).each(function(i,v)
+		{	
+			if( $($($(v).children('td')[3]).children()[0]).is(':checked') )
+			{	
+				$($($(v).children('td')[3]).children()[0]).prop("checked", false);
+				$($($(v).children('td')[3]).children()[0]).attr("data-dbmcod",0);
+			}
+		})
+	});
 });

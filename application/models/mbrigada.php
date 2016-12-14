@@ -48,6 +48,10 @@ class Mbrigada extends CI_Model
 	{
 		return $this->db->get('medico')->result_array();
 	}
+	public function delete($sql)
+	{
+		return $this->db->query($sql);
+	}
 	/*public function getActivos($sql)
 	{
 		return $this->db->query($sql)->result_array();

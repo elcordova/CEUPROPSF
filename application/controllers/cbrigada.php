@@ -116,6 +116,25 @@ class Cbrigada extends CI_Controller
 		}
 	}
 
+	public function saveDetalleBriMed()
+		{
+			if($this->input->is_ajax_request())
+			{
+				$dataM = array(
+				'bri_id' 	=> $this->input->post('bri_id'),
+				'med_cod' 	=> $this->input->post('med_cod'),
+				);
+				$response = $this->mbrigada->saveDetalleBrigadaMedico($dataM);
+				echo json_encode($response);
+			}
+			else
+			{
+				$response["mensaje"] = "Error";
+				echo json_encode($response);
+			}
+			
+		}
+
 	public function savePaciente()
 	{
 		if ($this->input->is_ajax_request())
@@ -193,7 +212,45 @@ class Cbrigada extends CI_Controller
 		}
 	}
 
+	//Delete toda la brigada ju ----------no a sido ejecutado
+	public function delete()
+	{
+		if($this->input->is_ajax_request())
+		{
+			$sql = "DELETE FROM detalle_medico_horario WHERE dmh_med_cod = ? AND dmh_esp_cod = ?";
+			$med_cod 	= $this->input->post('med_cod');
+			$esp_cod 	= $this->input->post('esp_cod');
+			$response 	= $this->mdmh->delete($sql,array($med_cod,$esp_cod));
+
+			header('Content-type: application/json; charset=utf-8');
+			echo json_encode($response);
+		}
+		else
+		{
+			exit("No direct scrip");
+			show_404();	
+		}
+	}
 	
+	//Delete un medico especifico de detalle brigada medico ... al momento de unchecked 
+	public function deleteCustom()
+	{
+		if($this->input->is_ajax_request())
+		{
+			$med_cod 	= $this->input->post('med_cod');
+			$bri_id		= $this->input->post('bri_id');
+			$sql 		= "DELETE FROM detalle_brigada_medico WHERE med_cod = ".$med_cod."AND bri_id = ".$bri_id;
+			$response 	= $this->mbrigada->delete($sql);
+
+			header('Content-type: application/json; charset=utf-8');
+			echo json_encode($response);
+		}
+		else
+		{
+			exit("No direct scrip");
+			show_404();	
+		}
+	}
 	/**public function get()
 	{
 		if($this->input->is_ajax_request())
