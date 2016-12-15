@@ -9,7 +9,7 @@
                 <li class="sidebar-brand">
                     <a href="<?php echo base_url()?>"><img alt="image" class="img-circle" src="<?php echo base_url()?>static/img/logo121.jpg" />
 
-                        <strong>&nbsp;&nbsp;CEUPROPSF</strong> 
+                        <strong class="fa-lg">&nbsp;CEUPROPSF</strong> 
                         <br/>
                     </a>
                 </li>
