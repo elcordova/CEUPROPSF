@@ -30,7 +30,7 @@
         <!-- /.container -->
 </nav>
 
-<div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal inmodal" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content modal-popup">
                     <a href="#" class="close-link"><i class="close"></i></a>

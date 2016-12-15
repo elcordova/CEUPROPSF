@@ -13,7 +13,7 @@
                <div class="panel-heading panel-heading-custom">
 				      <h4 class="panel-title">
 					      <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion2"  href="#collapseTwo">
-					        NUEVA NOTICIA
+					        <i class="fa fa-rss-square">  </i><span class="nav-label"> NUEVA NOTICIA</span>
 					      </a>
 				      </h4>
 				   </div>
@@ -46,15 +46,15 @@
 														  <span class="custom-file-control"></span>
 														</label>
 													</div>
-														<div class="btn-group">
-														<input id="guardar" type="submit" value="Guardar Noticia" class="btn  btn-primary "/>
-														<input id="cancelar" value="Cancelar" type="button" name='cancelar' onclick='limp_form_noticia()' class="btn  btn-primary "/>
-													</div>
+														<div class="row">
+														<button id="guardar" type="submit" value="Guardar Noticia" class="btn  btn-primary "><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></button>
+														<button id="cancelar" value="Cancelar" type="button" name='cancelar' onclick='limp_form_noticia()' class="btn  btn-primary "><i class="fa fa-ban">  </i><span class="nav-label"> Cancelar</span></button>
+														</div>
 
 												<?=form_close()?>
 											</div>
 											<div class="jumbotron jumbotron-fluid" >
-												<label for="list">Vista Previa:</label>
+												<label for="list" class="fa fa-picture-o"> Vista Previa:</label>
 												<img id="list" src="" class="img-rounded img-thumbnail"/>
 											</div>
 	
@@ -72,7 +72,7 @@
                <div class="panel-heading panel-heading-custom">
 				      <h4 class="panel-title">
 					      <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-					        LISTAR NOTICIAS
+					        <i class="fa fa-th-list">  </i><span class="nav-label"> LISTAR NOTICIAS</span>
 					      </a>
 				      </h4>
 				   </div>
@@ -163,8 +163,8 @@
 						</div>
 					</div>
 					<div class="modal-footer">
-													<input id="guardar" type="submit" value="Guardar Noticia" class="btn btn-lg  btn-primary "/>
-													<input id="cancelar" value="Cancelar" name='cancelar' data-dismiss="modal"  class="btn  btn-primary btn-lg "/>
+													<button id="guardar" type="submit" value="Guardar Noticia" class="btn btn-lg  btn-primary "><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></button>
+													<button id="cancelar" value="Cancelar" name='cancelar' data-dismiss="modal"  class="btn  btn-primary btn-lg "> <i class="fa fa-ban">  </i><span class="nav-label"> Cancelar</span></button>
 					</div>
 					<?=form_close()?>
 				</div><!-- /.modal-content -->

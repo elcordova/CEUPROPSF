@@ -13,7 +13,7 @@ $(function(){
 			dataType: 'json',
 			data:$(this).serialize(),
 			success: function(response){
-				$.notify("Guardado Correctamente","success");
+				toastr.success('Usuario guardado con Exito!', 'Estado');
 				$('#usu_ced').val("");
 				$('#usu_nom').val("");
 				$('#usu_ape').val("");
@@ -22,7 +22,7 @@ $(function(){
 				$('#usu_pas').val("");
 			},
 			error: function(){
-				$.notify("Error","error");
+				toastr.error('Error!', 'Estado');
 			}
 		});
 
@@ -109,13 +109,13 @@ $(function(){
 			data: {"id":cedula},
 			dataType: 'json',
 			success: function(response){
-				$.notify("Eliminado con exito","success");
+				toastr.success('Eliminado con Exito!', 'Estado');
 				$(td).parent().remove(); // remove a tr
 				$('#tbUsuario').DataTable().ajax.reload();				
 			},
 
 			error: function(response){
-				$.notify("Error al eliminar","error");
+				toastr.error('Error al eliminar !', 'Estado');
 			}
 
 		});
@@ -130,11 +130,11 @@ $(function(){
 			dataType: 'json',
 			data: {"id":cedula},			
 			success: function(response){
-				$.notify("Activado con exito","success");
+				toastr.success('Activado con exito !', 'Estado');
 				$('#tbUsuario').DataTable().ajax.reload();
 			},
 			error: function(response){
-				$.notify("Error al activar","error");
+				toastr.success('Error al activar', 'Estado');
 			}
 		});
 	};
@@ -180,12 +180,12 @@ $(function(){
 			
 			success: function(response){
 				$('#modalUsuario').modal('hide');
-				$.notify("Usuario editado con exito","success");
+				toastr.success('Editado con exito !', 'Estado');
 				$('#tbUsuario').DataTable().ajax.reload();
 			},
 
 			error: function(response){
-				$.notify("Error al editar","error");
+				toastr.error('Error al Editar', 'Estado');;
 			}
 
 		});

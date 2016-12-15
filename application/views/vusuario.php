@@ -12,7 +12,7 @@
                     <div class="panel-heading panel-heading-custom">
                       <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
-                        CREAR USUARIO</a>
+                        <i class="fa fa-user">  </i><span class="nav-label">     CREAR USUARIO</span></a>
                       </h4>
                     </div>
                     <div id="collapse1" class="panel-collapse collapse in">
@@ -23,7 +23,7 @@
                                 <form id="frmUsu_save">
                                     <!--*************************FORMULARIO*************************** -->
                                     <fieldset class="scheduler-border">
-                                      <legend class="scheduler-border">Nuevo Usuario</legend>         
+                                      <legend class="scheduler-border"><i class="fa fa-user">  </i><span class="nav-label">     Nuevo Usuario</legend>         
                                       <div class="form-group">
                                         <label for="txtName">C.I:</label>
                                         <input type="text" required="true" class="form-control" id="usu_ced" name="usu_ced" placeholder="Ingrese C.I." maxlength="10"/>
@@ -54,15 +54,15 @@
                                         <label for="txtName">Tipo Usuario:</label>
                                         <select class='form-control' id='selectUser' name='selectUser'>
                                                             <option value='-----'>-----</option>
-                                                            <option value='1'>Administrador</option>
-                                                            <option value='2'>Usuario</option>
+                                                            <option value='1'>Usuario</option>
+                                                            <option value='2'>Administrador</option>
                                                         </select>
                                       </div>
                                     </fieldset>                        
                                     <!-- ************* BOTONES ***************-->
                                     <div class="row">
                                       <div align="center">
-                                        <button type="submit" class="btn btn-primary btn-large">Guardar</button>
+                                        <button type="submit" class="btn btn-primary btn-large"> <i class="fa fa-save"></i>&nbsp;&nbsp;Guardar</button>
                                       </div>
                                   </div>
                                     <!-- ************* BOTONES ***************-->
@@ -77,7 +77,7 @@
                     <div class="panel-heading panel-heading-custom">
                       <h4 class="panel-title">
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" id="ltUsuario">
-                        LISTAR USUARIO</a>
+                        <i class="fa fa-th-list">  </i><span class="nav-label">    LISTAR USUARIO</a>
                       </h4>
                     </div>
                     <div id="collapse2" class="panel-collapse collapse">
@@ -123,7 +123,7 @@
                     <div class="modal-content panel panel-primary">
                         <div class="modal-header panel panel-heading">
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                            <h4 class="modal-title" id="myModalLabel" style="text-align: center;"></h4>
+                           <h4 class="modal-title fa fa-pencil-square-o" id="myModalLabel" style="text-align: center;"></h4>
                         </div>                   
                         <div class="modal-body" >
                             <input type="hidden" id="txtcedula2">
@@ -144,13 +144,13 @@
                             <label >Tipo de Usuario:</label>
                             <select class='form-control' id='selectUser2' name='selectUser2'>
                                 <option value='-----'>-----</option>
-                                <option value='1'>Administrador</option>
-                                <option value='2'>Usuario</option>
+                                <option value='1'>Usuario</option>
+                                <option value='2'>Administrador</option>
                             </select>
                         </div>           
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                            <a href="" type="button" class="btn btn-primary" id="btnModalGuardar">Guardar</a>
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban">  </i><span class="nav-label"> Cancelar</span></button>
+                            <a href="" type="button" class="btn btn-primary" id="btnModalGuardar"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></a>
                         </div>                
                     </div>
                  </div>

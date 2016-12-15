@@ -57,7 +57,7 @@
 				'usu_ape' 	=> $this->input->post('apellido'),
 				'usu_dir'	=> $this->input->post('direccion'),
 				'usu_eml'	=> $this->input->post('email'),
-				'usu_pas' 	=> $this->input->post('password'),
+				//'usu_pas' 	=> $this->input->post('password'),
 				'usu_tip_cod' 	=> $this->input->post('tipo'),
 				'usu_est' 	=> TRUE,
 				);

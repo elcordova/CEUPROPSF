@@ -20,6 +20,8 @@ class Administracion extends CI_Controller {
 		header("Location:".base_url());
 	}
 
+	
+
 
 }
 

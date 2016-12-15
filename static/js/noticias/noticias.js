@@ -50,7 +50,7 @@ $(document).ready(function(){
     console.info(formData);
     $.ajax({
               type: "POST",
-              url: "Noticias/insert",
+              url: "/ceup/Noticias/insert",
               data: formData,
               dataType: 'html',
               cache: false,
@@ -132,10 +132,10 @@ $(document).ready(function(){
 
 
 
-  
+
   $(function() {
     $('#file').change(function(e) {
-      addImage(e); 
+      addImage(e);
     });
 
     function addImage(e){
@@ -159,7 +159,7 @@ $(document).ready(function(){
 
   $(function() {
     $('#file_edit').change(function(e) {
-      addImage_2(e); 
+      addImage_2(e);
     });
 
     function addImage_2(e){
@@ -207,7 +207,7 @@ $(document).ready(function(){
                                 "<button type='button' class='btn btn-default'>"+
                                 "<span class='glyphicon glyphicon-trash'></span>"+
                                 "</button>"+
-                                
+
                                 "<button class='btn btn-primary' type='button'>"+
                                   "Comentarios <span class='badge'>"+cont_comentarios_noti(res[i]['not_id'])+"</span>"+
                                 "</button>"+
@@ -222,7 +222,7 @@ $(document).ready(function(){
                             "<th>Identificador</th>"+
                             "<th>Titulo</th>"+
                             "<th>Fecha</th>"+
-                            "<th>Acciones</th>"+       
+                            "<th>Acciones</th>"+
                           "</tr>"+
                         "</thead>"+
                         "<tbody>"+contenido
@@ -234,21 +234,21 @@ $(document).ready(function(){
               $('html,body').animate({
                 scrollTop: $("#contenedor_tabla").offset().top
                 }, 2000);
-              
+
             }
     });
   }
 
 
 
-  
+
 
 
   $("#guardar").click(function(){
     // alert("se ha enviado el formulario");
   });
 
-}); 
+});
 
 function carga_noticia(id_noticia){
   limp_form_noticia_edit();
@@ -258,7 +258,7 @@ function carga_noticia(id_noticia){
   $('#modal-editar_noticia').modal('show');
   $.ajax({
           type:"GET",
-            url:"Noticias/consultar_noticias",
+            url:"/ceup/Noticias/consultar_noticias",
             data:{'not_id':id_noticia},
             dataType: 'json',
             success:function(res){
@@ -279,10 +279,10 @@ function cont_comentarios_noti(id_noticia){
             url:"/ceup/Noticias/cantidad_comentarios",
             data: {'not_id':5},
             dataType: 'html',
-            success:function(res){ 
+            success:function(res){
               console.info(res);
               cant= res;
-            } 
+            }
   });
 
   return cant;
@@ -305,4 +305,3 @@ function limp_form_noticia_edit(){
     $('#list_edit_new').removeAttr("src");
     $('#checkbox_edit_img').attr('checked',false);
   }
-

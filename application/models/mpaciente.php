@@ -3,7 +3,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 /**
 * 
 */
-class Pacientes_model extends CI_Model
+class Mpaciente extends CI_Model
 {
 	
 	function __construct()
@@ -34,10 +34,14 @@ class Pacientes_model extends CI_Model
 	{
 		return $this->db->query($sql)->result_array();
 	}
-	
-	public function update2($data,$where)
+	public function delete($data,$where)
 	{
-		$this->db->update('paciente',$data,$where);
+		return $this->db->update('paciente',$data,$where);
+	}
+
+	public function activar($data,$where)
+	{
+		return $this->db->update('paciente',$data,$where);
 	}
 
 	public function viewquery($sql)
