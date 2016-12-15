@@ -4,6 +4,13 @@
 <!DOCTYPE html>
 	<html>
 <head>
+
+
+    
+  
+
+
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -26,6 +33,7 @@
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>static/css/noticias.css">
 	<link rel="shortcut icon" href="<?=base_url()?>static/img/logo1.png">
 
+
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>static/css/toastr/toastr.min.css">
 
     <!--<link href="<?=base_url()?>static/inspinia/css/bootstrap.min.css" rel="stylesheet">-->
@@ -34,6 +42,16 @@
     <!--<link href="<?=base_url()?>static/inspinia/css/style.css" rel="stylesheet">-->
     
 
+    <!-- Para carrusel -->
+   
+<style>
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+width: 60%;
+margin: auto;
+}
+</style>
+    
 
 </head>
 

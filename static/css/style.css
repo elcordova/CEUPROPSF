@@ -29,6 +29,8 @@ h6 {
     letter-spacing: 1px;
 }
 
+
+
 p {
     margin: 0 0 20px;
     font-size: 16px;
@@ -267,6 +269,7 @@ hr {
     position:relative;
     z-index:120;
 }
+
 
 
 .section-heading h2 {
@@ -785,6 +788,7 @@ Parallax
 	
 	.tp-banner-container {
 		padding-top:90px;
+
 	}
 
 	.page-scroll a.btn-circle {
