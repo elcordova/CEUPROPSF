@@ -1,6 +1,7 @@
 <script src="<?php echo base_url()?>static/js/select2.min.js"></script>
 <link href="<?php echo base_url()?>static/css/select2.min.css" rel="stylesheet" />
-<script src="<?php echo base_url()?>static/js/user/evento.js"></script>
+<script src="<?php echo base_url()?>static/js/evento/evento.js"></script>
+<script src="<?php echo base_url()?>static/js/taller/taller.js"></script>
 		<!-- PAGE CONTENT WRAPPER -->
 		<div id="page-content-wrapper">
 			<!-- CONTAINER FLUID -->
@@ -68,7 +69,6 @@
 					                                  <div class="form-group">
 					                                  	<label for="txtNoticia">Noticia:</label>
 					                                  	<select class="form-control" name="noticia" id="noticia">
-
 					                                  	</select>
 					                                  </div>
 
@@ -223,7 +223,6 @@
 					                                  <label for="txtFec">Fecha:</label>
 					                                  <div class="col-md-12">
 						                                  <div class="form-group">
-
 						                                    <input type="date" class="form-control" id="tal_fec" name="tal_fec" style="font-size: 14px">
 						                                  </div>
 					                                  </div>
@@ -231,20 +230,16 @@
 
 					                                  <div class="form-group">
 					                                    <label for="txtDescripcion">Descripcion:</label>
-					                                    <textarea class="form-control" rows="5" id="tal_des" name="tal_des"></textarea>
+					                                    <textarea class="form-control" rows="3" id="tal_des" name="tal_des"></textarea>
 					                                  </div>
 
-					                                  <div class="form-group">
-					                                  	<label for="txtEvento">Evento:</label>
-					                                  	<input class="form-control" type="text" list="eventos" />
-					                                  	<datalist id="eventos">
-															<option value="Evento # 1">
-															<option value="Evento # 2">
-															<option value="Evento # 3">
-															<option value="Evento # 4">
-															<option value="Evento # 5">
-														</datalist>
-					                                  </div>
+					                                  
+													<label for="txtEvento">Evento:</label>
+													<div class="col-md-12">
+														<div class="form-group">
+															<select class="" name="evento" id="evento"></select>
+														</div>
+													</div>
 
 					                                  <div class="row">
 														  <div align="center">
@@ -266,7 +261,7 @@
 							  <div class="panel panel-primary">
 								<div class="panel-heading" role="tab" id="headingListMarks">
 								  <h4 class="panel-title">
-									<a class="collapsed" id="ltArea" data-toggle="collapse" data-parent="#accordionMarks" href="#collapseListMarks" aria-expanded="false" aria-controls="collapseListMarks">
+									<a class="collapsed" id="ltTaller" data-toggle="collapse" data-parent="#accordionMarks" href="#collapseListMarks" aria-expanded="false" aria-controls="collapseListMarks">
 									 <i class="fa fa-th-list">  </i><span class="nav-label"> LISTAR TALLER</span>
 									</a>
 								  </h4>
@@ -275,13 +270,14 @@
 								  <div class="panel-body">
 
 									<div class="row">
-										<div class="col-md-8 col-md-offset-2">
-											<table data-order='[[ 0, "asc" ]]' class="table table-hovered table-bordered" cellspacing="0" width="100%" id="tbAreaTrab">
+										<div class="col-md-10 col-md-offset-1">
+											<table data-order='[[ 0, "asc" ]]' class="table table-hovered table-bordered" cellspacing="0" width="100%" id="tbTaller">
 												<thead>
 													<tr>
-														<th class="text-center"> Nombre </th>
-														<th class="text-center"> Disponible </th>
-														<th class="text-center">Acción</th>
+														<th class="text-center"> Fecha  </th>
+														<th class="text-center"> Titulo </th>
+														<th class="text-center"> Evento </th>
+														<th class="text-center"> Accion </th>
 													</tr>
 												</thead>
 
@@ -298,24 +294,45 @@
 						</div>
 
 						<!-- Modal AREA DE TRABAJO HTML -->
-						<div id="areaModal" class="modal fade">
-							<div class="modal-dialog modal-sm">
+						<div id="tallerModal" class="modal fade">
+							<div class="modal-dialog modal-md">
 								<div class="modal-content">
 									<div class="modal-header">
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-										<h4 class="modal-title"><i class="fa fa-pencil-square-o">  </i><span class="nav-label"> Editar Detalle de Trabajo</span></h4>
+										<h4 class="modal-title"><i class="fa fa-pencil-square-o">  </i><span class="nav-label"> Editar Taller</span></h4>
 									</div>
-									<form role="form" id='frmMdArea'>
+									<form role="form" id='frmMdTaller'>
 										<div class="modal-body">
-											<span id="spIdArea"></span>
+											
+											<input type="hidden" name="mtal_id" id="mtal_id" value="">
+
 											<div class="form-group">
-												<label for="txtNameAreaEdit">Nombre:</label>
-												<input type="text" class="form-control" id="txtNameAreaEdit" name="txtNameAreaEdit" placeholder="Ingrese Nombre">
+												<label for="mtxtNameAreaEdit">Titulo:</label>
+												<input type="text" class="form-control" id="mtal_tem" name="mtal_tem" placeholder="Ingrese Titulo">
 											</div>
-											<div class="form-group">
-												<label for="chkEstEdit">Disponible:</label>
-												<input type="checkbox" class="form-control" id="chkEstEdit" name="chkEstEdit" value="true" style="display:table-cell; height:auto; width:auto;">
+
+											<label for="mtxtFec">Fecha:</label>
+			                                  <div class="col-md-12">
+				                                  <div class="form-group">
+				                                    <input type="date" class="form-control" id=" mtal_fec" name=" mtal_fec" style="font-size: 14px">
+				                                  </div>
+			                                  </div>
+
+
+			                                  <div class="form-group">
+			                                    <label for="mtxtDescripcion">Descripcion:</label>
+			                                    <textarea class="form-control" rows="3" id=" mtal_des" name=" mtal_des"></textarea>
+			                                  </div>
+
+			                                  
+											<label for="mtxtEvento">Evento:</label>
+											<div class="col-md-12">
+												<div class="form-group">
+													<select class="" name="mevento" id="mevento"></select>
+												</div>
 											</div>
+
+											
 											</div>
 
 										<div class="modal-footer">
