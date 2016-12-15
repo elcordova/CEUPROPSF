@@ -18,30 +18,30 @@
                 </li>
 
                 <li>
-                    <a href="<?php echo base_url()?>cusuario/start"><i class="fa fa-users fa-large"></i><span class="nav-label"> Usuario</span></a>
+                    <a href="<?php echo base_url()?>cusuario/start"><i class="fa fa-users fa-lg"><span class="nav-label">  Usuario</span></i></a>
                 </li> 
+                <li>
+                    <a href="<?php echo base_url()?>cpaciente/start"><i class="fa fa-wheelchair fa-lg"><span class="nav-label">  Pacientes</span></i></a>
+                </li>
 
                 <li>
-                    <a href="<?php echo base_url()?>cmedico/start"><i class="fa fa-user-md"></i><span class="nav-label"> Medico</span></a>
-                </li>
-                <li>
-                    <a href="<?php echo base_url()?>cpaciente/start"><i class="fa fa-wheelchair"></i><span class="nav-label"> Pacientes</span></a>
-                </li>
+                    <a href="<?php echo base_url()?>cmedico/start"><i class="fa fa-user-md fa-lg"><span class="nav-label">  Medico</span></i></a>
+                </li>           
                 
                 <li>
-                    <a href="<?php echo base_url()?>cespecialidad/start"><i class="fa fa-plus-square"></i><span class="nav-label"> Especialidad</span></a>
+                    <a href="<?php echo base_url()?>cespecialidad/start"><i class="fa fa-plus-square fa-lg"><span class="nav-label">  Especialidad</span></i></a>
                 </li>
                 
-                <li>
+				<li>
                     <a href="<?php echo base_url()?>cbrigada/start">Brigada</a>
                 </li>
 
                 <li>
-                    <a href="<?php echo base_url()?>cevento/start">Evento</a>
+                    <a href="<?php echo base_url()?>cevento/start"><i class="fa fa-dedent"></i><span class="nav-label"> Evento</span></a>
                 </li>
 
                 <li>
-                    <a href="<?php echo base_url()?>Noticias/index"><i class="fa fa-rss-square"></i><span class="nav-label"> Noticias</span></a>
+                    <a href="<?php echo base_url()?>Noticias/index"><i class="fa fa-rss-square fa-lg"><span class="nav-label">  Noticias</span></i></a>
                 </li>
 
             </ul>
