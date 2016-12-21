@@ -88,7 +88,19 @@
 										</div>
 									</div>
 							</div>
-						</div>						
+						</div>
+						<div class="col-xs-6 col-sm-3 col-md-3">
+							<div class="wow bounceInUp" data-wow-delay="0.5s">
+									<div class="team boxed-grey img-circle">
+										<div class="inner">
+											<a href="<?php echo base_url()?>creporte/start">
+												<h5>REPORTES</h5>					
+												<div class="avatar"><img class="img-circle" width="220" height="230" src="<?=base_url()?>static/images/reporte.png" alt="" class="img-responsive img-rounded" /></div>
+											</a>
+										</div>
+									</div>
+							</div>
+						</div>					
 				</div>
 
 				
