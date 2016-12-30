@@ -37,12 +37,16 @@
                 </li>
 
                 <li>
-                    <a href="<?php echo base_url()?>cevento/start"><i class="fa fa-dedent"></i><span class="nav-label"> Evento</span></a>
+                    <a href="<?php echo base_url()?>cevento/start"><i class="fa fa-dedent fa-lg"><span class="nav-label"> Evento</span></i></a>
                 </li>
 
                 <li>
                     <a href="<?php echo base_url()?>Noticias/index"><i class="fa fa-rss-square fa-lg"><span class="nav-label">  Noticias</span></i></a>
                 </li>
+
+                <li>
+                    <a href="<?php echo base_url()?>creporte/start"><i class="fa fa-file-o fa-lg"><span class="nav-label">  Reportes</span></i></a>
+                </li>  
 
             </ul>
         </div>

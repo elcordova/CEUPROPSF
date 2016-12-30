@@ -20,6 +20,7 @@
         <li><a href="<?php echo base_url()?>cevento/start">Eventos</a></li>        
 		<li><a href="<?php echo base_url()?>Noticias/index">Noticas</a></li>        
         <li><a href="#">Brigadas</a></li>
+        <li><a href="<?php echo base_url()?>creporte/start">Reportes</a></li>
         <li><a href="<?=base_url()?>index.php/administracion/logout">Cerra Sesion</a></li>
       </ul>
             </div>
