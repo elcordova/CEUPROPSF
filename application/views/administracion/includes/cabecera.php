@@ -13,6 +13,8 @@
 
     <!-- Bootstrap Core CSS -->
     <link href="<?=base_url()?>static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="<?=base_url()?>static/css/bootstrap-select.css" rel="stylesheet" type="text/css">
+
 
     <!-- Fonts -->
     <link href="<?=base_url()?>static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -30,7 +32,7 @@
     <!--<script src="<?=base_url()?>static/js/validate/jquery.min.js"></script>-->
     <script src="<?php echo base_url()?>static/js/jquery-1.11.3.min.js"></script>
     <script src="<?=base_url()?>static/js/bootstrap.min.js"></script>
-
+	<script src="<?=base_url()?>static/js/bootstrap-select.js"></script>
     <script src="<?=base_url()?>static/js/jquery.easing.min.js"></script>
 		<script src="<?=base_url()?>static/js/jquery.scrollTo.js"></script>
 		<script src="<?=base_url()?>static/js/wow.min.js"></script>
