@@ -127,8 +127,8 @@
 						<!-- Modal Evento -->
 						<div id="eventoModal" class="modal fade">
 							<div class="modal-dialog modal-md">
-								<div class="modal-content">
-									<div class="modal-header">
+								<div class="modal-content panel panel-primary">
+									<div class="modal-header panel panel-heading">
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 										<h4 class="modal-title"><i class="fa fa-pencil-square-o">  </i><span class="nav-label"> Editar Evento</span></h4>
 									</div>
@@ -193,55 +193,59 @@
 						<!-- End Modal Evento -->
 						<!-- END EVENTO -->
 
-						<!-- AREAS DE TRABAJO -->
+						<!-- TALLER-->
 						<div id="sectionB" class="tab-pane fade">
 							<br>
-							<div class="panel-group" id="accordionMarks" role="tablist" aria-multiselectable="true">
+							<div class="panel-group" id="accordionMarks" role="tablist" aria-multiselectable="false">
 
-							  <!-- CREAR MARCA -->
+							  <!-- CREAR TALLER -->
 							  <div class="panel panel-primary">
 								<div class="panel-heading" role="tab" id="headingSaveMark">
 								  <h4 class="panel-title">
-									<a data-toggle="collapse" data-parent="#accordionMarks" href="#collapseSaveMark" aria-expanded="true" aria-controls="collapseSaveMark">
+									<a data-toggle="collapse"  data-parent="#accordionMarks" href="#crearTaller" aria-expanded="false" aria-controls="collapseSaveMark">
 									  <i class="fa fa-qrcode">  </i><span class="nav-label"> CREAR TALLER</span>
 									</a>
 								  </h4>
 								</div>
-								<div id="collapseSaveMark" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSaveMark">
+								<div id="crearTaller" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingSaveMark">
 									<div class="panel-body">
 										<div class="row">
-											<div id="divFrmAreaTrab" class="col-md-6 col-md-offset-3" style="border: 1px solid #ccc; padding:10px 35px 40px 35px;background-color:#FFF;">
+											<div id="divFrmTaller" class="col-md-6 col-md-offset-3" style="border: 1px solid #ccc; padding:10px 35px 40px 35px;background-color:#FFF;">
 												<form id="frmTaller">
 												  <fieldset class="scheduler-border">
 					                                  <legend class="scheduler-border"><i class="fa fa-qrcode">  </i><span class="nav-label"> Nuevo Taller</span></legend>
 
-					                                  <div class="form-group">
-					                                    <label for="txtTema">Tema:</label>
-					                                    <input class="form-control" id="tal_tem" name="tal_tem" style="font-size: 14px" placeholder="Ingrese el Tema">
+					                                  <div class="col-md-12">
+						                                  <div class="form-group">
+						                                    <label for="txtTema">Tema:</label>
+						                                    <input class="form-control" id="tal_tem" name="tal_tem" style="font-size: 14px" placeholder="Ingrese el Tema">
+						                                  </div>
 					                                  </div>
 
-					                                  <label for="txtFec">Fecha:</label>
 					                                  <div class="col-md-12">
+					                                  <label for="txtFec">Fecha:</label>
+					                                  
 						                                  <div class="form-group">
 						                                    <input type="date" class="form-control" id="tal_fec" name="tal_fec" style="font-size: 14px">
 						                                  </div>
 					                                  </div>
 
-
-					                                  <div class="form-group">
-					                                    <label for="txtDescripcion">Descripcion:</label>
-					                                    <textarea class="form-control" rows="3" id="tal_des" name="tal_des"></textarea>
+					                                  <div class="col-md-12">
+						                                  <div class="form-group">
+						                                    <label for="txtDescripcion">Descripcion:</label>
+						                                    <textarea class="form-control" rows="3" id="tal_des" name="tal_des"></textarea>
+						                                  </div>
 					                                  </div>
 
 					                                  
-													<label for="txtEvento">Evento:</label>
 													<div class="col-md-12">
+													<label for="txtEvento">Evento:</label>													
 														<div class="form-group">
-															<select class="" name="evento" id="evento"></select>
+															<select class="form-control" name="evento" id="evento"></select>
 														</div>
 													</div>
-
-					                                  <div class="row">
+													<br>
+					                                  <div class="col-md-12">
 														  <div align="center">
 															<button type="submit" class="btn btn-primary btn-large"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></button>
 														  </div>
@@ -255,9 +259,9 @@
 								</div>
 
 							  </div>
-							  <!-- END CREAR AREA DE TRABAJO -->
+							  <!-- END TALLER -->
 
-							  <!-- LISTAR AREA DE TRABAJO -->
+							  <!-- LISTAR TALLER -->
 							  <div class="panel panel-primary">
 								<div class="panel-heading" role="tab" id="headingListMarks">
 								  <h4 class="panel-title">
@@ -290,14 +294,13 @@
 							  </div>
 							  <!-- END LISTAR AREA DE TRABAJO -->
 							</div>
-
 						</div>
 
-						<!-- Modal AREA DE TRABAJO HTML -->
+						<!-- MODAL TALLER -->
 						<div id="tallerModal" class="modal fade">
 							<div class="modal-dialog modal-md">
-								<div class="modal-content">
-									<div class="modal-header">
+								<div class="modal-content panel panel-primary">
+									<div class="modal-header panel panel-heading">
 										<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 										<h4 class="modal-title"><i class="fa fa-pencil-square-o">  </i><span class="nav-label"> Editar Taller</span></h4>
 									</div>
@@ -314,41 +317,41 @@
 											<label for="mtxtFec">Fecha:</label>
 			                                  <div class="col-md-12">
 				                                  <div class="form-group">
-				                                    <input type="date" class="form-control" id=" mtal_fec" name=" mtal_fec" style="font-size: 14px">
+				                                    <input type="date" class="form-control" id="mtal_fec" name="mtal_fec" style="font-size: 14px">
 				                                  </div>
 			                                  </div>
 
 
 			                                  <div class="form-group">
 			                                    <label for="mtxtDescripcion">Descripcion:</label>
-			                                    <textarea class="form-control" rows="3" id=" mtal_des" name=" mtal_des"></textarea>
+			                                    <textarea class="form-control" rows="3" id="mtal_des" name="mtal_des"></textarea>
 			                                  </div>
 
 			                                  
 											<label for="mtxtEvento">Evento:</label>
 											<div class="col-md-12">
 												<div class="form-group">
-													<select class="" name="mevento" id="mevento"></select>
+													<select class="form-control" name="mevento" id="mevento"></select>
 												</div>
 											</div>
 
 											
 											</div>
-
+										<br>
 										<div class="modal-footer">
-											<div class="row">
+											
 												<div align="center">
 													<button type="button" class="button button-3d button-rounded" data-dismiss="modal"><i class="fa fa-ban">  </i><span class="nav-label"> Cancelar</span></button>
 													<button type="submit"  class="button button-3d-primary button-rounded"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></button>
 												</div>
-											</div>
+											
 										</div>
 									</form>
 								</div>
 							</div>
 						</div>
 						<!-- End Modal HTML -->
-						<!-- END AREA DE TRABAJO -->
+						
 					</div>
 				  </div>
 				</div>
@@ -357,5 +360,3 @@
 			<!-- END CONTAINER FLUID -->
 		</div>
 		<!-- END PAGE CONTENT WRAPPER -->
-	</body>
-</html>

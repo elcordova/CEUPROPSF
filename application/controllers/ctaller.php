@@ -46,7 +46,7 @@
 			if($this->input->is_ajax_request())
 			{
 				$data = array(
-				'tal_tem' 		=> $this->input->post('mtal_tit'),
+				'tal_tem' 		=> $this->input->post('mtal_tem'),
 				'tal_fec' 		=> $this->input->post('mtal_fec'),
 				'tal_des'		=> $this->input->post('mtal_des'),
 				'eve_id' 		=> $this->input->post('mevento'),
