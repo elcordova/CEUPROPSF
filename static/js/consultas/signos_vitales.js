@@ -22,7 +22,7 @@ $(document).ready(function(){
 				if(res){
 
 					console.log(res['fc']+" "+res['ta'])
-
+          $('#id_sv').val(res['sv_id']);
 					$('#txt_fc').val(res['fc']);
 					$('#txt_ta').val(res['ta']);
 					$('#txt_tem').val(res['t']);

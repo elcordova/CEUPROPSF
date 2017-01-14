@@ -3,7 +3,6 @@ $(document).ready(function(){
 	
 	
 	$("#btn_sg").click(function(){
-		alert("message");
 
 					$('#sg_apariencia').val("");
 					$('#sg_facie').val("");
@@ -24,7 +23,7 @@ $(document).ready(function(){
 				if(res){
 
 					console.log(res['sg_apariencia']+" "+res['sg_facie'])
-
+          $('#sg_id').val('sg_id');
 					$('#sg_apariencia').val(res['sg_apariencia']);
 					$('#sg_facie').val(res['sg_facie']);
 					$('#sg_biotipo').val(res['sg_biotipo']);
@@ -61,7 +60,6 @@ $(document).ready(function(){
 					'sg_unias':$('#sg_unias').val(), 'sg_pelo':$('#sg_pelo').val(),
 					'con_id':$('#cod_consulta').val()},
 			success:function(res){
-				alert(res);
 				toastr.options={"progressBar": true}
 				toastr.success('Datos Guardados','Estado');
 				$('#sg_id').val(res)

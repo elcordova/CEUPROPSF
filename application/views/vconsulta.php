@@ -78,13 +78,15 @@
 										<button type="button" id="btn_sg" class="btn btn-info col-md-11">Examen Somatico General</button>
 										<button type="button" id="btn_efr" class="btn btn-info col-md-11">Examen Físico Regional</button>
 										<button type="button" id="btn_ras" class="btn btn-info col-md-11">Revison por aparatos y sistemas</button>
-										<button type="button" id="btn_glasgow" class="btn btn-info col-md-11">Escala de GLASGOW</button>
+										<button type="button" id="btn_eg" class="btn btn-info col-md-11">Escala de GLASGOW</button>
 										<button type="button" id="btn_pc" class="btn btn-info col-md-11">Pares Craneales</button>
 										<button type="button" id="btn_reflejos" class="btn btn-info col-md-11">Reflejos</button>
 										<button type="button" id="btn_motilidad" class="btn btn-info col-md-11">Motilidad</button>
 										<button type="button" id="btn_sensibilidad" class="btn btn-info col-md-11">Sensibilidad</button>
 								</div>
 							</div>
+									<button type="button"  id="btn_salir_gen" class="btn btn-warning col-md-12 hidden ">Salir</button>
+									
 						</div>
 					</div>
 				</div>
@@ -96,7 +98,7 @@
                <div class="panel-heading panel-heading-custom">
 				      <h4 class="panel-title">
 					      <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-					        <i class="fa fa-th-list">  </i><span class="nav-label"> LISTAR NOTICIAS</span>
+					        <i class="fa fa-th-list">  </i><span class="nav-label"> LISTAR CONSULTAS</span>
 					      </a>
 				      </h4>
 				   </div>
