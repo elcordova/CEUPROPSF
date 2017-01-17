@@ -129,6 +129,18 @@ class Cpaciente extends CI_Controller {
 				echo json_encode($response);
 			}
 		}
+
+
+		public function get_one()
+	{
+		
+			$ced_pac = $this->input->get('ced_pac');
+			$sql = "SELECT * from paciente where pac_ced= '".$ced_pac."'";
+			$data = $this->mpaciente->stSQL($sql);
+			header('Content-type: application/json; charset=utf-8');
+			echo json_encode(array("datos"=>$data));
+		
+	}
 }
 
 

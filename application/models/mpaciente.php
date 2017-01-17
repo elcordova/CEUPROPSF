@@ -25,6 +25,10 @@ class Mpaciente extends CI_Model
 	{
 		$this->db->query($sql,$data);
 	}
+	public function stSQL($sql)
+	{
+		return $this->db->query($sql)->result_array();
+	}
 
 	public function getAll()
 	{

@@ -33,11 +33,15 @@
                 </li>
                 
 				<li>
-                    <a href="<?php echo base_url()?>cbrigada/start">Brigada</a>
+                    <a href="<?php echo base_url()?>cbrigada/start"><i class="fa fa-building-o fa-lg"><span class="nav-label">  Brigada</span></i></a>
                 </li>
 
+				<li>
+                    <a href="<?php echo base_url()?>cconsultas/start"><i class="fa fa-stethoscope fa-lg"><span class="nav-label"> Consultas</span></i></a>
+                </li>                
+
                 <li>
-                    <a href="<?php echo base_url()?>cevento/start"><i class="fa fa-dedent"></i><span class="nav-label"> Evento</span></a>
+                    <a href="<?php echo base_url()?>cevento/start"><i class="fa fa-dedent fa-lg"><span class="nav-label"> Evento</span></i></a>
                 </li>
 
                 <li>
