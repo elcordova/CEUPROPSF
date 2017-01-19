@@ -66,6 +66,7 @@ function FancyTable($header, $data)
     if($reporte=='MEDICO')$w = array(25, 100, 80, 38, 37);
     if($reporte=='EVENTO')$w = array(110, 30, 30, 110);
     if($reporte=='TALLER')$w = array(130, 30, 120);
+    if($reporte=='HISTORIA CLINICA')$w = array(130, 30, 120);
     for($i=0;$i<count($header);$i++)
         $this->Cell($w[$i],7,$header[$i],1,0,'C',true);
     $this->Ln();
@@ -134,6 +135,16 @@ function FancyTable($header, $data)
             $fill = !$fill;
         }
     }
+
+    if($reporte=='HISTORIA CLINICA'){
+        for($i=0;$i<count($data);$i=$i+3){
+            $this->Cell($w[0],6,$data[$i],'LR',0,'L',$fill);
+            $this->Cell($w[1],6,$data[$i+1],'LR',0,'L',$fill);
+            $this->Cell($w[2],6,$data[$i+2],'LR',0,'L',$fill);
+            $this->Ln();
+            $fill = !$fill;
+        }
+    }
     
    
 
@@ -183,6 +194,7 @@ if($reporte=='PACIENTE')$header = array('Cédula', 'Apellidos y Nombres', 'Sexo',
 if($reporte=='MEDICO')$header = array('Cédula', 'Apellidos y Nombres', 'E-mail','Teléfono','Estado');
 if($reporte=='EVENTO')$header = array('Título', 'Fecha Inicio', 'Fecha Fin','Dirección');
 if($reporte=='TALLER')$header = array('Tema', 'Fecha', 'Evento');
+if($reporte=='HISTORIA CLINICA')$header = array('Tema', 'Fecha', 'Evento');
 // Carga de datos
 
 $data = null;
@@ -230,6 +242,11 @@ $data = null;
                 array_push($data, $fila->tal_tem);
                 array_push($data, $fila->tal_fec);
                 array_push($data, $fila->eve_tit);
+            }
+            if($reporte=='HISTORIA CLINICA'){
+                array_push($data, $fila->pac_ced);
+                array_push($data, $fila->pac_apellido);
+                array_push($data, $fila->con_id);
             }
             
         }

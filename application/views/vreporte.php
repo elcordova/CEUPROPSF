@@ -360,12 +360,12 @@
                                         <!--*************************FORMULARIO*************************** -->
                                         <fieldset class="scheduler-border">
                                             <div align="center">
-                                                <legend class="scheduler-border"><i class="fa fa-dedent">  </i><span class="nav-label"> Reporte - Historial </span></legend>
+                                                <legend class="scheduler-border"><i class="fa fa-plus">  </i><span class="nav-label"> Reporte - Historia Clínica </span></legend>
                                             </div>
                                             <div class="col-lg-6">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">
-                                                        <input type="radio" name="gBusqueda_historia" id="checkBusquedaT_historia" style="cursor: pointer;" checked onclick="mostrarPanel_historia();">
+                                                        <input type="radio" name="gBusqueda_historia" id="checkBusquedaT_historia" style="cursor: pointer;" disabled onclick="mostrarPanel_historia();">
                                                     </span>
                                                     <input type="text" class="form-control" disabled value="Todo">
                                                 </div>
@@ -373,7 +373,7 @@
                                             <div class="col-lg-6">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">
-                                                        <input type="radio" name="gBusqueda_historia" id="checkBusquedaA_historia" style="cursor: pointer;" onclick="mostrarPanel_historia();">
+                                                        <input type="radio" name="gBusqueda_historia" id="checkBusquedaA_historia" style="cursor: pointer;" checked onclick="mostrarPanel_historia();">
                                                     </span>
                                                     <input type="text" class="form-control" disabled value="Búsqueda avanzada">
                                                 </div>
@@ -389,9 +389,9 @@
                                                         <span class="sr-only">Toggle Dropdown</span>
                                                       </button>
                                                       <ul class="dropdown-menu" role="menu">
-                                                        <li><a onclick="agregarCampo_historia(1);" style="cursor:pointer;">Tema</a></li>
-                                                        <li><a onclick="agregarCampo_historia(2);" style="cursor:pointer;">Fecha</a></li>
-                                                        <li><a onclick="agregarCampo_historia(3);" style="cursor:pointer;">Evento</a></li>
+                                                        <li><a onclick="agregarCampo_historia(1);" style="cursor:pointer;">Cédula</a></li>
+                                                        <li><a onclick="agregarCampo_historia(2);" style="cursor:pointer;">Nombres</a></li>
+                                                        <li><a onclick="agregarCampo_historia(3);" style="cursor:pointer;">Apellidos</a></li>
                                                       </ul>
                                                     </div>
                                                     <hr>
@@ -445,6 +445,7 @@
         $('#panelBusqueda_evento').hide();
         $('#panelBusqueda_taller').hide();
         $('#panelBusqueda_historia').hide();
+        $('#panelBusqueda_historia').show();
 
         var contadorCampos_usuario = 0;
         var contadorCampos_paciente = 0;
@@ -1051,6 +1052,69 @@
                                         '</div>';  
         }
 
+        function agregarCampo_historia(id){
+            contadorCampos_historia++;
+            var textCampo = '';
+            var textAtributo = '';
+            var textValor = '';
+            if(id==1){
+                textCampo = 'CEDULA';
+                textAtributo = 'pac_ced';
+                textValor = 'Cédula';
+            }
+            if(id==3){
+                textCampo = 'APELLIDOS';
+                textAtributo = 'pac_ape';
+                textValor = 'Apellidos';
+            }
+            if(id==2){
+                textCampo = 'NOMBRES';
+                textAtributo = 'pac_nom';
+                textValor = 'Nombres';
+            }
+            
+
+
+            var condiciones = '';
+            //if(id!=10)condiciones += '<option value="1">CONTIENE</option>';
+            //if(id!=10)condiciones += '<option value="2">NO CONTIENE</option>';
+            condiciones += '<option value="3">IGUAL</option>';
+            //if(id!=10)condiciones += '<option value="4">VACIO</option>';
+
+            var cajaValor =   '<input type="text" class="form-control" id="valor_historia_'+contadorCampos_historia+'">';
+
+
+            document.getElementById('panelCampos_historia').innerHTML += ''+
+                                        '<div id="campo_paciente_'+contadorCampos_historia+'">'+
+                                            '<input type="hidden" id="ocultoCampoN_historia_'+contadorCampos_historia+'" value="'+textCampo+'">'+
+                                            '<input type="hidden" id="ocultoCampo_historia_'+contadorCampos_historia+'" value="'+textAtributo+'">'+
+                                            '<div class="col-lg-12" id="">'+
+                                                '<div class="col-lg-3">'+
+                                                    '<div class="form-group">'+
+                                                        '<input type="text" class="form-control" name="" id="" value="'+textValor+'" disabled>'+
+                                                    '</div>'+
+                                                '</div>'+
+                                                '<div class="col-lg-3">'+
+                                                    '<div class="form-group">'+
+                                                        '<select class="form-control" id="condicion_historia_'+contadorCampos_historia+'" style="cursor: pointer;" onchange="condicion_historia('+contadorCampos_historia+');">'+
+                                                            ''+condiciones+
+                                                        '</select>'+
+                                                    '</div>'+
+                                                '</div>'+
+                                                '<div class="col-lg-5">'+
+                                                    '<div class="form-group">'+
+                                                        ''+cajaValor+
+                                                    '</div>'+
+                                                '</div>'+
+                                                '<div class="col-lg-1">'+
+                                                    '<div class="form-group">'+
+                                                        '<button class="btn btn-info" title="Quitar" onclick="quitarCampoHistoria('+contadorCampos_historia+')"><i class="fa fa-minus-circle"></i></button>'+
+                                                    '</div>'+
+                                               '</div>'+
+                                           '</div>'+
+                                        '</div>';  
+        }
+
         function quitarCampoUsuario(id){
             document.getElementById('campo_usuario_'+id).remove();
         }
@@ -1070,6 +1134,12 @@
         function quitarCampoTaller(id){
             document.getElementById('campo_taller_'+id).remove();
         }
+
+        function quitarCampoHistoria(id){
+            document.getElementById('campo_historia_'+id).remove();
+        }
+
+
 
         function condicion_usuario(id){
             if(document.getElementById('condicion_usuario_'+id).value==4){
@@ -1113,6 +1183,15 @@
                 $('#valor_taller_'+id).hide();
             }else{
                 $('#valor_taller_'+id).show();
+            }
+        }
+
+        function condicion_historia(id){
+            if(document.getElementById('condicion_historia_'+id).value==4){
+                document.getElementById('valor_historia_'+id).value = '';
+                $('#valor_historia_'+id).hide();
+            }else{
+                $('#valor_historia_'+id).show();
             }
         }
 
@@ -1313,6 +1392,46 @@
 
 
             window.open('<?= base_url()?>static/reporte/reporte_h.php?reporte=TALLER&fecha='+fecha+'&autor='+autor+'&filtro='+filtro+'&sql='+sql+'','_blank');
+        }
+
+        function reporteHistoria(){
+            var d = new Date();
+            var fecha = d.getDate()+'-'+(d.getMonth()+1)+'-'+d.getFullYear()+' --- '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
+            var autor = 'CEUPROPSF';
+            var filtro = 'Todos';
+            var sql = 'select * from paciente as p, consulta as c where p.pac_id=p.pac_id';
+            if(document.getElementById('checkBusquedaA_historia').checked){
+                filtro = '';
+                for (var i = 1; i <= contadorCampos_historia; i++) {
+                    try{
+
+                        filtro += document.getElementById('ocultoCampoN_historia_'+i).value+'  '+$('#condicion_historia_'+i+' option:selected').text()+' '+document.getElementById('valor_historia_'+i).value+', ';
+                        var condicion = '';
+                        var valor = document.getElementById("valor_historia_"+i).value;
+                        if(document.getElementById('condicion_historia_'+i).value==1)condicion = "like upper('%25"+valor+"%25')";
+                        if(document.getElementById('condicion_historia_'+i).value==2)condicion = "not like upper('%25"+valor+"%25')";
+                        if(document.getElementById('condicion_historia_'+i).value==3)condicion = "= ('"+valor+"')";
+                        if(document.getElementById('condicion_historia_'+i).value==4)condicion = "= null";
+
+                        var prefijo = '';
+                        if(document.getElementById('ocultoCampoN_historia_'+i).value!='ESTADO'){
+                            prefijo = 'upper';
+                        }
+
+                        sql += ' AND '+prefijo+'(p.'+document.getElementById('ocultoCampo_historia_'+i).value+') '+condicion;
+                         
+                    }catch(e){
+                        console.log(e.message);
+                    }
+                };
+
+                sql += ' and p.pac_id=c.pac_id order by c.con_id';
+                
+            }
+             console.log(sql);
+             
+
+            window.open('<?= base_url()?>static/reporte/reporte_h2.php?reporte=HISTORIA CLINICA&fecha='+fecha+'&autor='+autor+'&filtro='+filtro+'&sql='+sql+'','_blank');
         }
 
     </script>
