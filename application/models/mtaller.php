@@ -14,8 +14,13 @@ class Mtaller extends CI_Model
 	public function save($data)
 	{
 		$this->db->insert('taller',$data);
+		$id = $this->db->insert_id();
+		return $id;
 	}
-
+	public function saveEvidendia($datos)
+	{
+		return $this->db->insert('evidencia_taller',$datos);
+	}
 	public function update($data,$where)
 	{
 		$this->db->update('taller',$data,$where);

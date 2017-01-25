@@ -5,7 +5,7 @@ $(function(){
      *	CARGA COMBO BOX DE EVENTOS
      * ====================================
      */
-     var dataEvento = {};
+    var dataEvento = {};
     $.getDataForEvento = function(response) {
         dataEvento = response;
         $("#evento").select2({
@@ -14,29 +14,78 @@ $(function(){
     };
     $.post("/ceup/ctaller/getEvento/", $.getDataForEvento);
 
+    function limpiarFormulario() {
+        document.getElementById("frmTaller").reset();
+        desmove();
+        $('#files').html("");
+    }
+    //a lo q carga archivos carga los nombres en un bloque div
+    $("input[name='archivo[]'").change(function() {
+       var input = document.getElementById('archivo');
+        var file = input.files;
+        var tam = file.length;
+        var cad ="";
+        if(tam>0){
+            
+            for (var i = 0; i < tam; i++) {
+                cad +=""+ file[i]['name'] + "<br>";
+            };
+            move(cad);
+            
+        }else{
+            desmove();
+            $('#files').html("");
+        }
+    });
+  
+    //funcion para ejecutar el progres bar
+    function move(cad) {
+        var elem = document.getElementById("myBar");   
+        var width = 0;
+        var id = setInterval(frame, 0);
+        function frame() {
+            if (width >= 100) {
+              clearInterval(id);
+            } else {
+              width++; 
+              elem.style.width = width + '%'; 
+            }
+        }
+        $('#files').html(cad);
+    }
+
+    function desmove(){
+        var elem = document.getElementById("myBar");
+        elem.style.width = 0 + '%';
+    }
+
 	/**====================================
      *  CARGA DATOS
      * ====================================
      */
-	$('#frmTaller').on("submit",function(e){
-		e.preventDefault();
-		$.ajax({
-            type: "POST",
+	$('#frmTaller').submit(function(e){
+        e.preventDefault();
+        var formData = new FormData(document.getElementById("frmTaller"));
+        $.ajax({
             url: "/ceup/ctaller/save/",
-            dataType: 'json',
-            data: $(this).serialize(),
-            success: function(response) {
-                $('#tal_tem').val("");
-                $('#tal_fec').val("");
-                $('#tal_des').val("");
-                toastr.success('Taller Agregado con Exito!', 'Estado');
+            type: "POST",
+            data: formData,
+            contentType:false,
+            processData:false,
+            cache:false,
+            success:function(resp){
+                console.log(resp);
+                console.log("exito");
+                limpiarFormulario();
+                toastr.options={"progressBar": true}
+                toastr.success('Taller registrado con Exito!','Estado');
             },
-
-            error: function() {
-                toastr.error('Error', 'Estado');
+            error:function(){
+                toastr.options={"progressBar": true}
+                toastr.error('Error al registrar Taller','Estado');
             }
         });
-	});
+    });
 
 	/**====================================
      *  CARGA DATOS

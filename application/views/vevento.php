@@ -217,30 +217,48 @@
 
 					                                  <div class="form-group">
 					                                    <label for="txtTema">Tema:</label>
-					                                    <input class="form-control" id="tal_tem" name="tal_tem" style="font-size: 14px" placeholder="Ingrese el Tema">
+					                                    <input class="form-control" id="tal_tem" name="tal_tem" style="font-size: 14px" placeholder="Ingrese el Tema" required>
 					                                  </div>
 
-					                                  <label for="txtFec">Fecha:</label>
-					                                  <div class="col-md-12">
-						                                  <div class="form-group">
-						                                    <input type="date" class="form-control" id="tal_fec" name="tal_fec" style="font-size: 14px">
+					                                  
+					                                  <div class="form-group">
+						                                  <div class="">
+						                                  	<label for="txtFec">Fecha:</label>
+						                                    <input type="date" class="form-control" id="tal_fec" name="tal_fec" style="font-size: 14px" required>
 						                                  </div>
 					                                  </div>
 
 
 					                                  <div class="form-group">
 					                                    <label for="txtDescripcion">Descripcion:</label>
-					                                    <textarea class="form-control" rows="3" id="tal_des" name="tal_des"></textarea>
+					                                    <textarea class="form-control" rows="3" id="tal_des" name="tal_des" required></textarea>
 					                                  </div>
 
 					                                  
-													<label for="txtEvento">Evento:</label>
-													<div class="col-md-12">
-														<div class="form-group">
-															<select class="" name="evento" id="evento"></select>
-														</div>
+													
+													<div class="form-group">
+														<label for="txtEvento">Evento:</label>
+														<select class="form-control" name="evento" id="evento" required></select>
 													</div>
 
+													
+													<div class="form-group">
+														
+														<span class="btn btn-success fileinput-button">
+													        <i class="glyphicon glyphicon-plus"></i>
+													        <span>Select files...</span>
+													        <!-- The file input field used as target for the file upload widget -->
+													        <input name="archivo[]" type="file" multiple="multiple" id="archivo" />
+													    </span>
+													</div>
+													<!-- The global progress bar -->
+													<div id="progress" class="progress">
+														<div id="myBar" class="progress-bar progress-bar-success"></div>
+													</div>
+													<!-- The container for the uploaded files -->
+													<br>
+													<div id="files" class="files"></div>
+													<br>
 					                                  <div class="row">
 														  <div align="center">
 															<button type="submit" class="btn btn-primary btn-large"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></button>
@@ -357,5 +375,8 @@
 			<!-- END CONTAINER FLUID -->
 		</div>
 		<!-- END PAGE CONTENT WRAPPER -->
+
+		<!-- The template to display files available for upload -->
+		
 	</body>
 </html>

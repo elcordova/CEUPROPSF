@@ -25,6 +25,16 @@
 		<link rel="shortcut icon" href="<?=base_url()?>static/img/logo1.png">
 		<link href="<?php echo base_url()?>static/css/simple-sidebar.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>static/css/dataTables.bootstrap.css">
+    <!-- File Upload CSS -->
+    <!-- blueimp Gallery styles -->
+    <link rel="stylesheet" href="//blueimp.github.io/Gallery/css/blueimp-gallery.min.css">
+    <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
+    <link rel="stylesheet" href="<?php echo base_url()?>static/css/jqueryFileUpload/jquery.fileupload.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>static/css/jqueryFileUpload/jquery.fileupload-ui.css">
+    <!-- CSS adjustments for browsers with JavaScript disabled -->
+    <noscript><link rel="stylesheet" href="<?php echo base_url()?>static/css/jqueryFileUpload/jquery.fileupload-noscript.css"></noscript>
+    <noscript><link rel="stylesheet" href="<?php echo base_url()?>static/css/jqueryFileUpload/jquery.fileupload-ui-noscript.css"></noscript>
+
 
 
 	<!-- Core JavaScript Files -->
@@ -50,6 +60,9 @@
     <script type="text/javascript" charset="utf8" src="<?php echo base_url()?>static/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" charset="utf8" src="<?php echo base_url()?>static/js/dataTables.bootstrap.js"></script>
     <script src="<?=base_url()?>static/js/jquery.uitablefilter.js" charset="utf8" type="text/javascript"></script>
+    <!-- FILE UPLOAD -->
+    
+    
     <!-- Notify -->    
     <script src="<?php echo base_url()?>static/js/notify.js"></script>
  

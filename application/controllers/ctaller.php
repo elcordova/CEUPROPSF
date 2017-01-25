@@ -23,22 +23,56 @@
 
 		public function save()
 		{
-			if ($this->input->is_ajax_request())
-			{
+			$post=$this->input->post();	
+			if ($this->input->is_ajax_request()){
 				$data = array(
-				'tal_tem' 	=> $this->input->post('tal_tem'),
-				'tal_fec' 	=> $this->input->post('tal_fec'),
-				'tal_des' 	=> $this->input->post('tal_des'),
-				'eve_id'	=> $this->input->post('evento')
+					'tal_tem' 	=> $post['tal_tem'],
+					'tal_fec' 	=> $post['tal_fec'],
+					'tal_des' 	=> $post['tal_des'],
+					'eve_id'	=> $post['evento'],
 				);
-				$response = $this->mtaller->save($data);
-				echo json_encode($response);
+				$id = $this->mtaller->save($data);
+				
+				$this->load->library("upload");
+				$config = array(
+					'upload_path' => './public/recursos/', 
+					'allowed_types' => '*', 
+				);
+				$variablefile = $_FILES;
+				$info = array();
+				$filesCount = count($_FILES['archivo']['name']);
+				for ($i=0; $i < $filesCount; $i++) { 
+					$_FILES['archivo']['name'] = $variablefile['archivo']['name'][$i];
+					$_FILES['archivo']['type'] = $variablefile['archivo']['type'][$i];
+					$_FILES['archivo']['tmp_name'] = $variablefile['archivo']['tmp_name'][$i];
+					$_FILES['archivo']['error'] = $variablefile['archivo']['error'][$i];
+					$_FILES['archivo']['size'] = $variablefile['archivo']['size'][$i];
+					$this->upload->initialize($config);
+					if($this->upload->do_upload('archivo'))
+					{
+						echo "paso do_upload";
+						$nomb = array('upload_data' => $this->upload->data() );
+						$datos = array(
+							'evi_nom_arc' 	=> $nomb['upload_data']['file_name'],
+							'evi_pre' 		=> true,
+							'tal_id' 		=> $id,
+						);
+						if($this->mtaller->saveEvidendia($datos)){
+							echo "exito";	
+						}
+						else{
+							echo "error";
+							echo $this->upload->display_errors();
+						}
+					}else
+					{
+						echo "error";
+					}
+				}
 			}
-			else
-			{
-				$response = "Error contactese con el Administrador!";
-				echo json_encode($response);
-			}
+			else{
+				echo "error";
+			}	
 		}
 
 		public function update()
