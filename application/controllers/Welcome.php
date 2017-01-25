@@ -27,7 +27,8 @@ class Welcome extends CI_Controller {
 				$sesion_usuario = array('id' => $usuario->id_usuario,
 									'email' => $usuario->correo_electronico,
 									'estado'=> $usuario->estado,
-									'conectado'=> true,);
+									'conectado'=> true,
+									'tipo'=> $usuario->usu_tip_cod);
 				$this->session->set_userdata($sesion_usuario);
 				redirect('Administracion');
 			}

@@ -9,12 +9,17 @@
                 <li class="sidebar-brand">
                     <a href="<?php echo base_url()?>"><img alt="image" class="img-circle" src="<?php echo base_url()?>static/img/logo121.jpg" />
 
-                        <strong class="fa-lg">&nbsp;CEUPROPSF</strong> 
+                        <strong class="fa-lg">&nbsp;CEUPROPSF</strong>                         
                         <br/>
                     </a>
                 </li>
                 <li>
                     <br/>
+                </li>
+                <?php if($this->session->userdata('tipo') == '1'): ?> <!-- SI ES ADMINISTRADOR-->
+
+                <li>
+                    <a href="<?php echo base_url()?>cdispensario/start">Dispensario</a>
                 </li>
 
                 <li>
@@ -50,7 +55,27 @@
 
                 <li>
                     <a href="<?php echo base_url()?>creporte/start"><i class="fa fa-file-o fa-lg"><span class="nav-label">  Reportes</span></i></a>
-                </li>  
+                </li>
+
+                <li>
+                    <a href="<?php echo base_url()?>chorario/start">Horario</a>
+                </li>
+
+                <li>
+                    <a href="<?php echo base_url()?>cdmh/start">Asignar Horario</a>
+                </li>
+
+                <li>
+                    <a href="<?php echo base_url()?>ccita/start">Cita</a>
+                </li>
+
+                <?php endif; ?>
+
+                <?php if($this->session->userdata('tipo') == '2' || $this->session->userdata('tipo') == '3'): ?><!-- SI ES USUARIO O MEDICO-->
+                <li>
+                    <a href="<?php echo base_url()?>ccita/start">Cita</a>
+                </li>
+                <?php endif; ?>
 
             </ul>
         </div>
