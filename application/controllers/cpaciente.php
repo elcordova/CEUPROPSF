@@ -16,8 +16,6 @@ class Cpaciente extends CI_Controller {
 			$this->load->view('menu');
 			$this->load->view('vpaciente');
 			$this->load->view('administracion/includes/footer');
-			
-			
 		}
 		
 		public function save()
