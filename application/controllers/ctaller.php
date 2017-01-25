@@ -46,7 +46,7 @@
 			if($this->input->is_ajax_request())
 			{
 				$data = array(
-				'tal_tem' 		=> $this->input->post('mtal_tit'),
+				'tal_tem' 		=> $this->input->post('mtal_tem'),
 				'tal_fec' 		=> $this->input->post('mtal_fec'),
 				'tal_des'		=> $this->input->post('mtal_des'),
 				'eve_id' 		=> $this->input->post('mevento'),
@@ -99,7 +99,7 @@
 		{
 			if($this->input->is_ajax_request())
 			{
-				$sql = "SELECT eve_id as id, eve_tit as text FROM evento ORDER BY eve_fec_ini DESC";
+				$sql = "SELECT eve_id as id, eve_tit as titulo FROM evento ORDER BY eve_fec_ini DESC";
 				$data = $this->mtaller->viewquery($sql);
 				header('Content-type: application/json; charset=utf-8');
 				echo json_encode($data);

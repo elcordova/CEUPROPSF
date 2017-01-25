@@ -105,7 +105,7 @@
 		{
 			if($this->input->is_ajax_request())
 			{
-				$sql = "SELECT not_id as id, not_tit as text FROM noticia ORDER BY not_fec_pub DESC";
+				$sql = "SELECT not_id as id, not_tit as titulo FROM noticia ORDER BY not_fec_pub DESC";
 				$data = $this->mevento->viewquery($sql);
 				header('Content-type: application/json; charset=utf-8');
 				echo json_encode($data);
