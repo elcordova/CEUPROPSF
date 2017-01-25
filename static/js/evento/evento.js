@@ -6,10 +6,12 @@ $(function() {
      * ====================================
      */
     $.getDataForNoticia = function(response) {
-        dataNoticias = response;
-        $("#noticia").select2({
-            data: response
-        });
+        var datos = "";
+        $.each(response, function(i,item){
+                datos+= "<option value = "+item.id+">"+item.titulo+"</option>";
+            });
+        $('#noticia').html(datos);
+        $('#noticia_edt').html(datos);
     };
     $.post("/ceup/cevento/get_noticias/", $.getDataForNoticia);
     
@@ -34,6 +36,7 @@ $(function() {
                     "progressBar": true
                 }
                 toastr.success('Evento Agregado con Exito!', 'Estado');
+                $.post("/ceup/ctaller/getEvento/", $.getDataForEvento);
             },
 
             error: function() {
@@ -54,6 +57,27 @@ $(function() {
     "<button style='border: 0; background: transparent' onclick='$.eliminar($(this).parent())'>" +
     "<span class='glyphicon glyphicon-trash' title='Eliminar'></span>" +
     "</button>";
+
+    var lngEsp = {
+        "sProcessing":     "Procesando...",
+        "sLengthMenu":     "Mostrar _MENU_ registros",
+        "sZeroRecords":    "No se encontraron resultados",
+        "sEmptyTable":     "Ningún dato disponible en esta tabla",
+        "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+        "sInfoPostFix":    "",
+        "sSearch":         "Buscar:",
+        "sUrl":            "",
+        "sInfoThousands":  ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+            "sFirst":    "Primero",
+            "sLast":     "Último",
+            "sNext":     "Siguiente",
+            "sPrevious": "Anterior"
+        }
+    };
 
     $.renderizeRow = function(nRow, aData, iDataIndex) 
     {
@@ -77,7 +101,8 @@ $(function() {
                     "dataSrc": "datos"
                 },
                 "columns": [{data: "fecha"}, {data: "eve_tit"}, {data: "eve_dir"}, {data: "eve_res"}],
-                "fnCreatedRow": $.renderizeRow
+                "fnCreatedRow": $.renderizeRow,
+                "language": lngEsp
             });
 
             flagLoadTable = false;
@@ -88,8 +113,6 @@ $(function() {
             
         }
     });
-
-    
 
     /**====================================
      *  EDITAR
@@ -162,7 +185,7 @@ $(function() {
                     "progressBar": true
                 };
                 toastr.success('Evento Eliminado con Exito!', 'Estado');
-                $(td).parent().remove(); // remove a tr
+                $('#tbEvento').DataTable().row($(td).parent()).remove().draw(); // remove a tr
             }
         },
 
