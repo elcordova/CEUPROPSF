@@ -20,7 +20,7 @@ $(function(){
 		select: function(){
 			
 			$.ajax({
-				url: "/sgcm/cmedico/getMedicoByCed/",
+				url: "/ceup/cmedico/getMedicoByCed/",
 				type: "POST",
 				data: {
 						"med_ced":$("#med_ced").val()
@@ -39,7 +39,7 @@ $(function(){
 		select: function(){
 			
 			$.ajax({
-				url: "/sgcm/cmedico/getMedicoByNom/",
+				url: "/ceup/cmedico/getMedicoByNom/",
 				type: "POST",
 				data: {
 						"med_nom":$("#med_nom").val()
@@ -66,8 +66,8 @@ $(function(){
 	};
 
 
-	$.post("/sgcm/cmedico/autocompletarCedMedico/",$.getCed);
-	$.post("/sgcm/cmedico/autocompletarMedico/",$.getMed);
+	$.post("/ceup/cmedico/autocompletarCedMedico/",$.getCed);
+	$.post("/ceup/cmedico/autocompletarMedico/",$.getMed);
 
 	// ************************************************** END AUTOCOMPLETADO ***************************************
 
@@ -102,9 +102,9 @@ $(function(){
 	};
 
 	//llamada ComboBox Especialidad
-	$.post("/sgcm/cespecialidad/get/",$.getDataForCmbEsp);
+	$.post("/ceup/cespecialidad/get/",$.getDataForCmbEsp);
 	//llamada tabla asignar Horarios
-	$.post("/sgcm/chorario/get/",$.getDataForHor);
+	$.post("/ceup/chorario/get/",$.getDataForHor);
 
 //******************************************CRUD ASIGNACIONES*******************************************************************
 
@@ -112,9 +112,9 @@ $(function(){
 	$("#btnGuardar").click(function(event){
 		event.preventDefault();
 		
-		if(dis_cod !== "0" && $('#cmbEsp').val() !== "0" && $('#med_ced').val() !== "")
+		if(dis_cod !== "0" && $('#cmbEsp').val() !== "0")
 		{
-			var esp_cod = $('#cmbEsp').val();		
+			var esp_cod = $('#cmbEsp').val();
 			var rows = $('#bodyTbAsig >tr');
 			var contador = 0;
 			
@@ -127,7 +127,7 @@ $(function(){
 					var hor_cod = $(rows)[i].id;
 					$.ajax({
 						type: "POST",
-						url: "/sgcm/cdmh/save/", 
+						url: "/ceup/cdmh/save/", 
 						dataType: 'json', 
 						data:{
 								"dmh_med_cod" : med_cod_global,
@@ -185,7 +185,7 @@ $(function(){
 		}).get().on('pnotify.confirm', function(){
 			$.ajax({
 					type: "POST",
-					url: "/sgcm/cdmh/delete/", 
+					url: "/ceup/cdmh/delete/", 
 					data: {
 							"med_cod" : med_cod,
 							"esp_cod" : esp_cod
@@ -216,7 +216,7 @@ $(function(){
 		dis_cod = $(td).parent().attr('data-discod');
 
 		$('#myModalLabel').html("Horario de "+$(td).parent().children()[1].textContent);
-		$.post("/sgcm/cdmh/searchHorario/", 
+		$.post("/ceup/cdmh/searchHorario/", 
 				{"med_cod" : med_cod_global,
 				 "esp_cod" : esp_cod,
 				 "dis_cod" : dis_cod},
@@ -241,11 +241,11 @@ $(function(){
 	};
 //***************************************************CARGAR TABLAS*****************************************************************
 
-	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalAsignar' data-toggle='modal' onclick='$.editar($(this).parent());'>"+
-						  "<img src='/sgcm/static/img/edit.png' title='Editar'>"+
+	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalAsignar' data-toggle='modal' title='Editar' onclick='$.editar($(this).parent());'>"+
+						  "<span class='glyphicon glyphicon-edit'></span>"+
 						  "</button>"+
-						  "<button style='border: 0; background: transparent' onclick='$.eliminar($(this).parent())'>"+
-							"<img src='/sgcm/static/img/delete.png' title='Eliminar'>"+
+						  "<button style='border: 0; background: transparent' title='Eliminar' onclick='$.eliminar($(this).parent())'>"+
+						  "<span class='glyphicon glyphicon-remove'></span>"+
 						  "</button>";
 
 	var lngEsp = {
@@ -279,7 +279,7 @@ $(function(){
 	$('#tbAsig').DataTable({
 		ordering: true,
 		"ajax":{
-			"url": "/sgcm/cdmh/get/",
+			"url": "/ceup/cdmh/get/",
 			"dataSrc": "datos"
 		},
 		"columns":[{data:"med_ced"},{data: "medico"}, {data:"esp_des"},{data:"esp_cod"},{data:"med_cod"},{data:"dis_nom"}],
@@ -342,7 +342,7 @@ $(function(){
 			var esp_cod = $(this).val();
 			$.ajax({
 						type: "POST",
-						url: "/sgcm/cdmh/searchHorario/",
+						url: "/ceup/cdmh/searchHorario/",
 						dataType: 'json',
 						data: {
 								"med_cod" : med_cod_global,
@@ -386,7 +386,7 @@ $(function(){
 				var check = $(this);
 				$.ajax({
 					type: "POST",
-					url: "/sgcm/cdmh/deleteCustom/",
+					url: "/ceup/cdmh/deleteCustom/",
 					dataType: 'json',
 					data: {"dmh_cod" : dmh_cod},
 					success: function(response){						
@@ -435,7 +435,7 @@ $(function(){
 
 	function start()
 	{
-		$.post("/sgcm/cdispensario/get/",$.getDataForCmbDis);
+		$.post("/ceup/cdispensario/get/",$.getDataForCmbDis);
 	}
 
 	window.onload = start;

@@ -25,7 +25,7 @@
 								  
 								  <div class="form-group">
 									<label for="txtName">Horario:</label>
-									<input type="text" required="true" class="form-control" id="hor_des" name="hor_des" placeholder="formato: hh:mm"/>
+									<input type="text" required="true" class="form-control" id="hor_des" name="hor_des" placeholder="formato: hh:mm" required />
 								  </div>
 								</fieldset>  
 						

@@ -44,7 +44,7 @@ $(function(){
 		{
 			$.ajax({
 				type: "POST",
-				url: "/sgcm/ccita/getMedico/",
+				url: "/ceup/ccita/getMedico/",
 				dataType: 'json',
 				data: {
 					"esp_cod" : $(this).val(),
@@ -82,7 +82,7 @@ $(function(){
 			$('#btnGuardar').prop('disabled',false);
 			$.ajax({
 				type: "POST",
-				url: "/sgcm/ccita/getHorarioDisponible/", 
+				url: "/ceup/ccita/getHorarioDisponible/", 
 				data: {			
 						"med_ced" : med_ced_global,
 						"esp_cod" : esp_cod_global,
@@ -178,7 +178,7 @@ $(function(){
 		{
 			$.ajax({
 				type: "POST",
-				url: "/sgcm/ccita/getTc/", 
+				url: "/ceup/ccita/getTc/", 
 				dataType: 'json',
 				async: false,				
 				success : function(response)
@@ -205,7 +205,7 @@ $(function(){
 		//***********************GUARDA LA CITA ********************************************************
 			$.ajax({
 					type: "POST",
-					url: "/sgcm/ccita/save/", 
+					url: "/ceup/ccita/save/", 
 					dataType: 'json', 
 					data:{
 							"cit_dmh_cod" 	: dmh_cod_global,
@@ -307,7 +307,7 @@ $(function(){
 			        ordering : true,
 			        "ajax": {
 			        	"type": 'POST',
-			            "url": "/sgcm/ccita/getCita/",
+			            "url": "/ceup/ccita/getCita/",
 			            "data": {usu_cod: usu_cod_global,
 			            		 tip_usu: $('#usu_cod').attr('data-usutip')},
 			            "dataSrc": 'datos'
@@ -361,7 +361,7 @@ $(function(){
 		}
 	};
 
-	$.post("/sgcm/cusuario/getUserByNom/",$.getUser);
+	$.post("/ceup/cusuario/getUserByNom/",$.getUser);
 
 	/*******************
 	* OnLoad Pagina
@@ -371,12 +371,12 @@ $(function(){
 	{
 		if($('#usu_cod').attr('data-usutip') === "3")//si es medico
 		{
-			$.post("/sgcm/cespecialidad/getForCita/",$.getDataForCmbEsp);
+			$.post("/ceup/cespecialidad/getForCita/",$.getDataForCmbEsp);
 		}
 		else
 		{
 			//llamada ComboBox Especialidad
-			$.post("/sgcm/cespecialidad/get/",$.getDataForCmbEsp);
+			$.post("/ceup/cespecialidad/get/",$.getDataForCmbEsp);
 		}
 		
 	}
@@ -406,7 +406,7 @@ $(function(){
 		var cmt = $('#cit_cmt').val();
 		$.ajax({
 			type: 'POST',
-			url : '/sgcm/ccita/saveComment/',
+			url : '/ceup/ccita/saveComment/',
 			dataType : 'json',
 			data: {	cit_cod: cod,
 					cit_cmt: cmt

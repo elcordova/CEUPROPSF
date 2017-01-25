@@ -14,8 +14,10 @@
 
 		public function start()
 		{
+			$this->load->view('administracion/includes/cabecera');
 			$this->load->view('menu');
 			$this->load->view('vcita');
+			$this->load->view('administracion/includes/footer');
 		}
 
 		//Obtiene el Medico asignado a una especialidad

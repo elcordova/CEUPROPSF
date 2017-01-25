@@ -4,7 +4,7 @@ $(function(){
 		event.preventDefault(); // no permite recarga
 		$.ajax({
 			type: "POST",
-			url: "/sgcm/chorario/save/",
+			url: "/ceup/chorario/save/",
 			dataType: 'json',
 			data: $(this).serialize(),
 			success: function(response){
@@ -33,12 +33,12 @@ $(function(){
 	{
 		$.ajax({
 			type: "POST",
-			url: "/sgcm/chorario/delete/", 
+			url: "/ceup/chorario/delete/", 
 			data: {"hor_cod":$(td).parent().attr('id')},
 			dataType: 'json',
 			success: function(response){
 				$.notify("Eliminado con exito","success");
-				$(td).parent().remove(); // remove a tr
+				$('#tbHorario').DataTable().row($(td).parent()).remove().draw(); // remove a tr
 			},
 
 			error: function(response){
@@ -49,11 +49,11 @@ $(function(){
 	};
 
 
-	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalHorario' data-toggle='modal' onclick='$.editarModal($(this).parent())'>"+
-							"<img src='/sgcm/static/img/edit.png' title='Editar'>"+
+	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalHorario' data-toggle='modal' title='Editar' onclick='$.editarModal($(this).parent())'>"+
+							"<span class='glyphicon glyphicon-edit'></span>"+
 						  "</button>"+
-						  "<button style='border: 0; background: transparent' onclick='$.eliminar($(this).parent())'>"+
-							"<img src='/sgcm/static/img/delete.png' title='Eliminar'>"+
+						  "<button style='border: 0; background: transparent' title='Eliminar' onclick='$.eliminar($(this).parent())'>"+
+							"<span class='glyphicon glyphicon-remove'></span>"+
 						  "</button>";
 
 	$.renderizeRow = function( nRow, aData, iDataIndex ) {
@@ -68,7 +68,7 @@ $(function(){
 			if(flagLoadTable)
 			{
 				//Funcion que carga los datos
-				$.fnTbl('#tbHorario',"/sgcm/chorario/get/",[{data:"hor_des"}],$.renderizeRow);
+				$.fnTbl('#tbHorario',"/ceup/chorario/get/",[{data:"hor_des"}],$.renderizeRow);
 				flagLoadTable = false;
 			}
 			else
@@ -86,7 +86,7 @@ $(function(){
 					"hor_cod":$('#txtId').val() , 
 					"hor_des":$('#mhor_des').val()
 				},
-			url: "/sgcm/chorario/update/",
+			url: "/ceup/chorario/update/",
 			dataType: 'json',
 			
 			success: function(response){

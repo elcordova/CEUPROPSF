@@ -115,14 +115,13 @@ $(function(){
 	
 	$.fnTbl = function(id, url, columns, fnc){
 		$(id).dataTable({
-			ordering: true,
+			
 			"ajax": {
 				"url": url,
 				"dataSrc": 'datos' // JSON tipo Objeto				
 			},
 			
-			"columns": columns,
-			"scrollY": 300,
+			"columns": columns,	
 			"fnCreatedRow": fnc,
 			"language": lngEsp
 		} );

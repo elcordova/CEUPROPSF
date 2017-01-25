@@ -7,7 +7,7 @@ $(function(){
 		event.preventDefault();
 		$.ajax({
 			type:"POST",
-			url: "/sgcm/cdispensario/save/",
+			url: "/ceup/cdispensario/save/",
 			dataType: 'json',
 			data:$(this).serialize(),
 			
@@ -28,8 +28,8 @@ $(function(){
 	/***************
 	* LISTAR
 	****************/
-	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalMedico' data-toggle='modal' onclick='$.editarModal($(this).parent())'>"+
-							"<img src='/sgcm/static/img/edit.png' title='Editar'>"+
+	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalMedico' data-toggle='modal' onclick='$.editarModal($(this).parent())' title='Editar'>"+
+							"<span class='glyphicon glyphicon-edit'></span>"+
 						  "</button>";
 
 	$.renderizeRow = function( nRow, aData, iDataIndex ) 
@@ -56,7 +56,7 @@ $(function(){
 			}	
 	   $(nRow).append("<td class='text-center'>"+btnsOpTblModels+"</td>");
 	   $(nRow).attr('id',aData['dis_cod']);
-	   $(nRow).attr('data-dis_nom',aData['dis_nom']);	   
+	   $(nRow).attr('data-dis_nom',aData['dis_nom']);
 	   $(nRow).attr('data-dis_dir',aData['dis_dir']);
 	};
 	
@@ -67,7 +67,7 @@ $(function(){
 			if (flagLoadTable)
 			{
 				//Funcion que carga los datos
-				$.fnTbl('#tbDispensario',"/sgcm/cdispensario/get/",[	{data:"dis_nom"},{data:"dis_dir"},{data:"dis_tel"},{data:"dis_eml"}],$.renderizeRow);
+				$.fnTbl('#tbDispensario',"/ceup/cdispensario/get/",[{data:"dis_nom"},{data:"dis_dir"},{data:"dis_tel"},{data:"dis_eml"}],$.renderizeRow);
 				flagLoadTable=false;
 			}
 			else
@@ -108,7 +108,7 @@ $(function(){
 					"dis_eml": $('#mdis_eml').val(),
 					"dis_est": $('#mdis_est').val()
 					},
-			url: "/sgcm/cdispensario/update/",
+			url: "/ceup/cdispensario/update/",
 			dataType: 'json',			
 			
 			success: function(response){
@@ -139,7 +139,7 @@ $(function(){
 			($(this).val() === "true") ?$(this).val(false):$(this).val(true);
 			var id 		= $(this).attr('name');
 			var estado 	= $(this).val();
-			var url 	= '/sgcm/cdispensario/delete/';
+			var url 	= '/ceup/cdispensario/delete/';
 			$.ajax({
 					type	:"POST",
 					url		: url,

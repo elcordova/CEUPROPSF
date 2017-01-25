@@ -15,28 +15,13 @@
 
 		public function start()
 		{
+			$this->load->view('administracion/includes/cabecera');
 			$this->load->view('menu');
 			$this->load->view('vHorario');
+			$this->load->view('administracion/includes/footer');
 		}
 
-		/*
-		public function get()
-		{
-			if($this->input->is_ajax_request())
-			{
-				$data = $this->mhorario->getAll();
-				header('Content-type: application/json; charset=utf-8');
-				echo json_encode(array("datos"=>$data));
-			}
-
-			else
-			{
-				exit("error");
-				show_404();
-			}
-			
-		}*/
-
+		
 		public function save()
 		{
 			if($this->input->is_ajax_request())
