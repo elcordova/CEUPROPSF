@@ -99,7 +99,7 @@
 		{
 			if($this->input->is_ajax_request())
 			{
-				$sql = "SELECT eve_id as id, eve_tit as text FROM evento ORDER BY eve_fec_ini DESC";
+				$sql = "SELECT eve_id as id, eve_tit as titulo FROM evento ORDER BY eve_fec_ini DESC";
 				$data = $this->mtaller->viewquery($sql);
 				header('Content-type: application/json; charset=utf-8');
 				echo json_encode($data);

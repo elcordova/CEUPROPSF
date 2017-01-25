@@ -5,12 +5,14 @@ $(function(){
      * ====================================
      */
    	var dataEvento = {};
-	    	$.getDataForEvento = function(response) {
-	        dataEvento = response;
-	        $("#evento").select2({
-	            data: dataEvento
-	        	});
-	    	};
+	$.getDataForEvento = function(response) {	        
+        var datos = "";
+        $.each(response, function(i,item){
+                datos+= "<option value = "+item.id+">"+item.titulo+"</option>";
+            });
+            $("#evento").html(datos);
+            $("#mevento").html(datos);
+    	};
 	    
 	$.post("/ceup/ctaller/getEvento/", $.getDataForEvento);
 
@@ -58,6 +60,27 @@ $(function(){
         $(nRow).attr('data-tal-fec', 	aData['tal_fec']);
     };
 
+    var lngEsp = {
+        "sProcessing":     "Procesando...",
+        "sLengthMenu":     "Mostrar _MENU_ registros",
+        "sZeroRecords":    "No se encontraron resultados",
+        "sEmptyTable":     "Ningún dato disponible en esta tabla",
+        "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+        "sInfoPostFix":    "",
+        "sSearch":         "Buscar:",
+        "sUrl":            "",
+        "sInfoThousands":  ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+            "sFirst":    "Primero",
+            "sLast":     "Último",
+            "sNext":     "Siguiente",
+            "sPrevious": "Anterior"
+        }
+    };
+
     var flagLoadTableTaller = true; 
     $("#collapseListMarks").on("shown.bs.collapse",function(event){
         event.preventDefault();
@@ -71,7 +94,8 @@ $(function(){
                     "dataSrc": "datos"
                 },
                 "columns": [{data: "tal_fec"}, {data: "tal_tem"}, {data: "eve_tit"}],
-                "fnCreatedRow": $.afterLoad
+                "fnCreatedRow": $.afterLoad,
+                "language": lngEsp
             });
 
             flagLoadTableTaller = false;

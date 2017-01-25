@@ -39,31 +39,31 @@
 
 					                                  <div class="form-group">
 					                                    <label for="txtTitulo">Titulo:</label>
-					                                    <input class="form-control" id="eve_tit" name="eve_tit" style="font-size: 14px" placeholder="Ingrese el Titulo">
+					                                    <input class="form-control" id="eve_tit" name="eve_tit" style="font-size: 14px" placeholder="Ingrese el Titulo" required>
 					                                  </div>
 
 					                                  <div class="col-md-6">
 						                                  <div class="form-group">
 						                                    <label for="txtFecIni">Fecha Inicio:</label>
-						                                    <input type="date" class="form-control" id="eve_fec_ini" name="eve_fec_ini" style="font-size: 14px">
+						                                    <input type="date" class="form-control" id="eve_fec_ini" name="eve_fec_ini" style="font-size: 14px" required>
 						                                  </div>
 					                                  </div>
 
 					                                  <div class="col-md-6">
 					                                  	<div class="form-group">
 					                                    	<label for="txtFecFin">Fecha Fin:</label>
-					                                    	<input type="date" class="form-control" id="eve_fec_fin" name="eve_fec_fin" style="font-size: 14px">
+					                                    	<input type="date" class="form-control" id="eve_fec_fin" name="eve_fec_fin" style="font-size: 14px" required>
 					                                  	</div>
 					                                  </div>
 
 					                                  <div class="form-group">
 					                                    <label for="txtResponsable">Responsable:</label>
-					                                    <input class="form-control" id="eve_res" name="eve_res" style="font-size: 14px" placeholder="Ingrese el Responsable">
+					                                    <input class="form-control" id="eve_res" name="eve_res" style="font-size: 14px" placeholder="Ingrese el Responsable" required>
 					                                  </div>
 
 					                                  <div class="form-group">
 					                                    <label for="txtDireccion">Direccion:</label>
-					                                    <input class="form-control" id="eve_dir" name="eve_dir" style="font-size: 14px" placeholder="Ingrese el Direccion">
+					                                    <input class="form-control" id="eve_dir" name="eve_dir" style="font-size: 14px" placeholder="Ingrese el Direccion" required>
 					                                  </div>
 
 					                                  <div class="form-group">
@@ -168,7 +168,6 @@
 											<div class="form-group">
 												<label for="txtNoticiaEdt">Noticia:</label>
 												<select class="form-control" name="noticia_edt" id="noticia_edt">
-
 												</select>
 											</div>
 
@@ -218,7 +217,7 @@
 					                                  <div class="col-md-12">
 						                                  <div class="form-group">
 						                                    <label for="txtTema">Tema:</label>
-						                                    <input class="form-control" id="tal_tem" name="tal_tem" style="font-size: 14px" placeholder="Ingrese el Tema">
+						                                    <input class="form-control" id="tal_tem" name="tal_tem" style="font-size: 14px" placeholder="Ingrese el Tema" required>
 						                                  </div>
 					                                  </div>
 
@@ -226,14 +225,14 @@
 					                                  <label for="txtFec">Fecha:</label>
 					                                  
 						                                  <div class="form-group">
-						                                    <input type="date" class="form-control" id="tal_fec" name="tal_fec" style="font-size: 14px">
+						                                    <input type="date" class="form-control" id="tal_fec" name="tal_fec" style="font-size: 14px" required>
 						                                  </div>
 					                                  </div>
 
 					                                  <div class="col-md-12">
 						                                  <div class="form-group">
 						                                    <label for="txtDescripcion">Descripcion:</label>
-						                                    <textarea class="form-control" rows="3" id="tal_des" name="tal_des"></textarea>
+						                                    <textarea class="form-control" rows="3" id="tal_des" name="tal_des" required></textarea>
 						                                  </div>
 					                                  </div>
 
@@ -331,7 +330,7 @@
 											<label for="mtxtEvento">Evento:</label>
 											<div class="col-md-12">
 												<div class="form-group">
-													<select class="form-control" name="mevento" id="mevento"></select>
+													<select class="form-control " name="mevento" id="mevento"></select>
 												</div>
 											</div>
 
