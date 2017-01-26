@@ -14,13 +14,13 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear"> 
                             <span class="block m-t-xs"> <strong class="fa-lg">&nbsp;CEUPROPSF</strong></span> 
-                             <span class="text-muted text-xs block">Administrador <b class="caret"></b></span> </span> </a>
+                             <span class="text-muted text-xs block"> <b class="caret"></b></span> </span> </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a href="<?=base_url()?>index.php/administracion/logout"><i class="fa fa-sign-out"></i>Cerra Sesion</a></li>
                         </ul>
                     </div>               
                 </li>     
-                <p>___________________________________________________________________________________________________________</p>
+                <p>__________________________________________</p>
                 <li>
                     <a href="<?php echo base_url()?>cusuario/start"><i class="fa fa-users fa-lg"><span class="nav-label">  Usuario</span></i></a>
                 </li> 
@@ -62,7 +62,7 @@
         </div>
             <ul class="nav navbar-top-links navbar-right">
                 <li>
-                    <span class="m-r-sm text-muted welcome-message">Bienvenidos a CEUPROPSF - Administrador</span>
+                    <span class="m-r-sm text-muted welcome-message">Bienvenidos a CEUPROPSF</span>
                 </li>
                 <li>
                     <a href="<?=base_url()?>index.php/administracion/logout"><i class="fa fa-sign-out"></i>Cerra Sesion</a>
@@ -70,14 +70,7 @@
             </ul>
 
         </nav>
-        <div class="row wrapper border-bottom white-bg page-heading">
-                <div class="col-lg-10">
-                                        
-                </div>
-                <div class="col-lg-6">
-
-                </div>
-        </div>
+        
         
         <!-- /#sidebar-wrapper -->
       
