@@ -2,26 +2,30 @@
 <body>
 
     <div id="wrapper">
-
+        
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="<?php echo base_url()?>"><img alt="image" class="img-circle" src="<?php echo base_url()?>static/img/logo121.jpg" />
-
-                        <strong class="fa-lg">&nbsp;CEUPROPSF</strong>                         
-                        <br/>
-                    </a>
-                </li>
-                <li>
-                    <br/>
-                </li>
-                <?php if($this->session->userdata('tipo') == '1'): ?> <!-- SI ES ADMINISTRADOR-->
+         <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> 
+                    <span>
+                        <a href="<?php echo base_url()?>"><img alt="image" class="img-circle" src="<?php echo base_url()?>static/img/logo121.jpg" /></a>
+                    </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear"> 
+                            <span class="block m-t-xs"> <strong class="fa-lg">&nbsp;CEUPROPSF</strong></span> 
+                             <span class="text-muted text-xs block"> <b class="caret"></b></span> </span> </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a href="<?=base_url()?>index.php/administracion/logout"><i class="fa fa-sign-out"></i>Cerra Sesion</a></li>
+                        </ul>
+                    </div>               
+                </li>     
+                <p>__________________________________________</p>   
+<?php if($this->session->userdata('tipo') == '1'): ?> <!-- SI ES ADMINISTRADOR-->
 
                 <li>
                     <a href="<?php echo base_url()?>cdispensario/start">Dispensario</a>
                 </li>
-
                 <li>
                     <a href="<?php echo base_url()?>cusuario/start"><i class="fa fa-users fa-lg"><span class="nav-label">  Usuario</span></i></a>
                 </li> 
@@ -78,6 +82,24 @@
                 <?php endif; ?>
 
             </ul>
+
         </div>
+        <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+        <div class="navbar-header">
+            
+            
+        </div>
+            <ul class="nav navbar-top-links navbar-right">
+                <li>
+                    <span class="m-r-sm text-muted welcome-message">Bienvenidos a CEUPROPSF</span>
+                </li>
+                <li>
+                    <a href="<?=base_url()?>index.php/administracion/logout"><i class="fa fa-sign-out"></i>Cerra Sesion</a>
+                </li>
+            </ul>
+
+        </nav>
+        
+        
         <!-- /#sidebar-wrapper -->
       
