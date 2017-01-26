@@ -18,9 +18,7 @@
 			$this->load->view('administracion/includes/cabecera');
 			$this->load->view('menu');
 			$this->load->view('vmedico');
-			//$this->load->view('administracion/includes/footer');
-
-
+			$this->load->view('administracion/includes/footer');
 		}
 
 		public function save()
@@ -78,7 +76,7 @@
 		{
 			if($this->input->is_ajax_request())
 			{
-				$sql	= "SELECT * FROM medico WHERE med_est = TRUE";
+				$sql	= "SELECT * FROM medico";
 				$data = $this->mmedico->viewquery($sql);
 				header('Content-type: application/json; charset=utf-8');
 				echo json_encode(array("datos"=>$data));
@@ -118,8 +116,7 @@
 			{
 				$row=array();
 
-				$data = $this->mmedico->viewquery("Select med_ced FROM vista_medico");
-				//$data = $this->cfactura->selectSQLMultiple("SELECT cli_ced FROM cliente where cli_ced ilike '%'||'".$this->input->post('cli_ced')."'||'%'",null);
+				$data = $this->mmedico->viewquery("Select med_ced FROM vista_medico WHERE med_est = TRUE");				
 				foreach ($data as $valor)
 				{
 					$row["cedula"][] = $valor;
@@ -135,7 +132,7 @@
 			{
 				$row=array();
 
-				$data = $this->mmedico->viewquery("Select nombre FROM vista_medico");
+				$data = $this->mmedico->viewquery("Select nombre FROM vista_medico WHERE med_est = TRUE");
 				foreach ($data as $valor)
 				{
 					$row["medico"][] = $valor;

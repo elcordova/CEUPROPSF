@@ -130,7 +130,7 @@
 		{
 			if($this->input->is_ajax_request())
 			{
-				$sql = "SELECT usu_cod, concat(usu_nom,' ',usu_ape) as usuario FROM vista_usuario";
+				$sql = "SELECT usu_cod, concat(usu_nom,' ',usu_ape) as usuario FROM vista_usuario WHERE tip_cod = 2";
 				$data = $this->musuario->customQuery($sql);
 				header('Content-type: application/json; charset=utf-8');
 				echo json_encode(array("datos"=>$data));

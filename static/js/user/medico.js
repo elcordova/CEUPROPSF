@@ -74,8 +74,7 @@ $(function(){
 			success: function(response){
 				event.preventDefault();
 				toastr.success('Medico eliminado con Exito!', 'Estado');
-				$('#tbMedico').DataTable().ajax.reload();
-
+				$('#tbMedico').DataTable().row($(td).parent()).remove().draw();
 			},
 
 			error: function(response){
