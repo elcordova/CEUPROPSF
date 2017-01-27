@@ -174,8 +174,80 @@
 				echo json_encode($mensaje);
 			}
 		}
+
+		public function saveDme()
+		{
+			if($this->input->is_ajax_request())
+			{
+				$id = $this->input->post('med_cod');
+				$dataM = array();
+				$arrayEsp = $this->input->post('data2');
+				$lenght = sizeof($arrayEsp);
+				$response='';
+				for($i=0;$i<$lenght;$i++){
+				    $dataM = array('esp_cod' => $arrayEsp[$i] , 'med_cod' => $id );
+				    $resp = $this->mmedico->saveDme($dataM);
+				    $response = $resp;
+				}
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode($response);
+			}
+			else
+			{
+				$response = "shit answer me something !";
+				echo json_encode($response);
+			}
+		}
+
+		public function getAsig()
+		{
+			if ($this->input->is_ajax_request())
+			{
+				$sql = "SELECT DISTINCT med_cod, med_ced, medico from vista_med_espe";
+				$data = $this->mmedico->viewquery($sql);				
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode(array("datos" => $data));
+			}
+			else
+			{
+				$mensaje["error"] = "Error ......";
+				echo json_encode($mensaje);
+			}
+		}
+
+		public function getDme()
+		{
+			if ($this->input->is_ajax_request())
+			{
+				$sql = "SELECT dme_id, esp_cod from vista_med_espe WHERE med_cod = ?";
+				$data = $this->mmedico->customQueryN($sql,array($this->input->post('med_cod')));
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode(array("datos" => $data));
+			}
+			else
+			{
+				$mensaje["error"] = "Error ......";
+				echo json_encode($mensaje);
+			}
+		}
+
+		public function deleteDme()
+		{
+			if ($this->input->is_ajax_request())
+			{
+				$sql = "SELECT delete_det_med_esp(?)";
+				$data = $this->mmedico->customquery($sql,array($this->input->post('dme_id')));
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode($data->delete_det_med_esp);
+			}
+			else
+			{
+				$mensaje["error"] = "Error ......";
+				echo json_encode($mensaje);
+			}
+		}
+
+
 	}
-
-
 
  ?>

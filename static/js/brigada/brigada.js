@@ -143,8 +143,8 @@ $(function(){
 		"language": lngEsp
 	});
 	//*********************************************CARGAR TABLA MODAL MEDICOS**************************************//
-	$.renderizeRow2 = function( nRow, aData, iDataIndex ) {
-	    
+	$.renderizeRow2 = function( nRow, aData, iDataIndex ) 
+	{    
 	    $(nRow).append("<td class='text-center'><input type='checkbox' id='check2M"+(iDataIndex)+"' data-medcod="+aData['med_cod']+" data-med='med2' data-dbmcod='0'></td>");
 		$(nRow).attr('data-id_med',aData['med_cod']); //codigo
 	};

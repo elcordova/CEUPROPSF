@@ -28,7 +28,7 @@
 					              
 					              <div class="form-group col-xs-6">
 					              <label for="txtCedula">C.I.</label>
-					              <input type="text" required="true" class="form-control" id="med_ced" name="med_ced" placeholder="Ingrese C.I." maxlength="13" required />
+					              <input type="text" required="true" class="form-control" id="med_ced" name="med_ced" placeholder="Ingrese C.I." maxlength="13" />
 					              </div>
 
 					              <div class="form-group col-xs-6">
