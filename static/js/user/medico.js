@@ -23,61 +23,160 @@ $(function(){
 
 		$.post("/ceup/cmedico/autocompletarCedMedico/",$.getCed);
 		$.post("/ceup/cmedico/autocompletarMedico/",$.getMed);
-		//$('#tablaEspecialidadDos').DataTable();
+
+		cargarTablaEspecialidadModal();
 	}
 
 	window.onload = inicio;
+
+	function cargarTablaEspecialidadModal()
+	{
+		/******************************************
+		* LLENAR TABLA ESPECIALIDAD EN MODAL					
+		******************************************/
+		$.ajax({
+			url: '/ceup/cespecialidad/get/',
+			type: 'POST',
+			dataType: 'json',
+			success : function(response){
+				var espData = "";
+				if(response.datos.length > 0)
+				{
+					$.each(response.datos,function(i,item){
+						espData +="<tr id="+(i+1)+" data-espcod="+item.esp_cod+">"+
+									"<td>"+item.esp_des+"</td>"+										
+									"<td> <input type='checkbox' id='check"+i+"' data-espcod="+item.esp_cod+" data-esp='esp2' data-dmecod='0'></td>"+
+									"</tr>";
+					});								
+				}
+				$('#bodyTbAsig').html(espData);
+			},
+			error: function(response)
+			{
+				toastr.options={"progressBar": true}
+				toastr.error('Error al cargar Especialidades','Estado');
+
+			}
+		});
+	}
 
 	/****************
 	* AUTOCOMPLETADO
 	*****************/
 	var auto = function(response){
 			$("#amed_ced").val(response.medico.med_ced);
-			$("#amed_nom").val(response.medico.nombre);					
+			$("#amed_nom").val(response.medico.nombre);
 			$("#amed_dir").val(response.medico.med_dir);
 			$("#amed_tel").val(response.medico.med_tel);
 			$("#amed_eml").val(response.medico.med_eml);
 			med_cod_global = response.medico.med_cod;
-			//$('#med_ced').attr('disabled',true);
 		};
 
 		$('#amed_ced').autocomplete({
 			source: keywords , 
 			select: function(){
 				
+				/*============================================
+				*	COMPRUEBA SI YA TIENE ESPECIALIDAD ASIGNADA
+				***********************************************/
 				$.ajax({
-					url: "/ceup/cmedico/getMedicoByCed/",
-					type: "POST",
-					data: {
-							"med_ced":$("#amed_ced").val()
-						  },
-					dataType : "json",
+					url: '/ceup/cmedico/validarAsignacion/',
+					type: 'POST',
+					data: 	{
+								"med_ced":$('#amed_ced').val()
+							},
 					success: function(response){
-						auto(response);
+							if (response === "1")
+							{
+								/***************************************
+								* NO TIENE ASIGNADO NINGUNA ESPECIALIDAD
+								****************************************/
+								//$('#btnGuardarAsignacion').prop('disabled',false);
+								$.ajax({
+										url: "/ceup/cmedico/getMedicoByCed/",
+										type: "POST",
+										data: {
+												"med_ced":$("#amed_ced").val()
+											  },
+										dataType : "json",
+										success: function(response){
+											auto(response);
+										},
+									});
+							}
+							else
+							{
+								//$('#btnGuardarAsignacion').prop('disabled',true);
+								cleanBoxesAsig();
+								toastr.options={"progressBar": true};
+								toastr.error('El medico ya tiene asignada(s) especialidad (s)!','Estado');
+							}
 					},
-				});
+					error: function(response){
 
+					}
+				});	
 			},
 		});
 
 		$('#amed_nom').autocomplete({
 			source: keymedico , 
 			select: function(){
-				
-				$.ajax({
-					url: "/ceup/cmedico/getMedicoByNom/",
-					type: "POST",
-					data: {
-							"med_nom":$("#amed_nom").val()
-						  },
-					dataType : "json",
-					success: function(response){
-						auto(response);
-					},
-				});
 
+				/*============================================
+				*	COMPRUEBA SI YA TIENE ESPECIALIDAD ASIGNADA
+				***********************************************/
+				$.ajax({
+					url: '/ceup/cmedico/validarAsignacionNombre/',
+					type: 'POST',
+					data: 	{
+								"med_nom":$('#amed_nom').val()
+							},
+					success: function(response){
+							if (response === "1")
+							{
+								/***************************************
+								* NO TIENE ASIGNADO NINGUNA ESPECIALIDAD
+								****************************************/
+								//$('#btnGuardarAsignacion').prop('disabled',false);
+								$.ajax({
+										url: "/ceup/cmedico/getMedicoByNom/",
+										type: "POST",
+										data: {
+												"med_nom":$("#amed_nom").val()
+											  },
+										dataType : "json",
+										success: function(response){
+											auto(response);
+										},
+									});								
+							}
+							else
+							{
+								//$('#btnGuardarAsignacion').prop('disabled',true);
+								cleanBoxesAsig();
+								toastr.options={"progressBar": true};
+								toastr.error('El medico ya tiene asignada(s) especialidad (s)!','Estado');
+							}
+					},
+					error: function(response)
+					{
+						toastr.options={"progressBar": true};
+						toastr.error('Error en el servidor contactese con el Administrador','Estado');
+					}
+				});	
 			},
 		});
+
+	function cleanBoxesAsig()
+	{
+		$('#amed_nom').val("");
+		$('#amed_ape').val("");
+		$('#amed_dir').val("");
+		$('#amed_tel').val("");
+		$('#amed_eml').val("");
+		$('#amed_ced').val("");
+	}
 
 	/***********************
 	* GUARDAR MEDICO
@@ -91,7 +190,6 @@ $(function(){
 			data:$(this).serialize(),
 
 			success: function(response){
-
 				$('#med_ced').val("");
 				$('#med_nom').val("");
 				$('#med_ape').val("");
@@ -320,7 +418,7 @@ $(function(){
 								},
 							success: function(response){
 								$(check).attr('data-dmecod','0');						
-								toastr.options={"progressBar": true};
+								//toastr.options={"progressBar": true};
 								toastr.success('Asignacion eliminada correctamente!','Estado');
 								//flag = 0;
 							},
@@ -355,7 +453,7 @@ $(function(){
 	$('#btnGuardarAsignacion').click(function(){
 		event.preventDefault();
 		//aki ejecutar gif
-		if( $('#amed_ced').val() !== "" && $('#amed_nom').val() !== "")
+		if( $('#amed_ced').val() !== "" && $('#amed_nom').val() !== "" && data2.length > 0)
 		{
 			$("#wait").css("display", "block");			
 			$.ajax({
@@ -368,11 +466,7 @@ $(function(){
 				dataType:'json',
 				success: function(response){			
 					data2 = [];
-					$("#amed_ced").val("");
-					$("#amed_nom").val("");					
-					$("#amed_dir").val("");
-					$("#amed_tel").val("");
-					$("#amed_eml").val("");
+					cleanBoxesAsig();
 					cleanBoxes('tbEsp1');				
 					toastr.options={"progressBar": true}
 					toastr.success('Asignacion Guardada correctamente!','Estado');
@@ -409,6 +503,10 @@ $(function(){
 			});
 			$("#wait").css("display", "none");//termina gif
 		}
+		else
+		{
+			toastr.error('No ha sido asignado Medico o Especialidad !','Estado');
+		}
 	});
 
 	/**********************************************
@@ -416,7 +514,9 @@ $(function(){
 	*********************************************/
 	$('#abtnGuardar').click(function(e){
 		e.preventDefault();
-		$("#wait").css("display", "block");			
+		//if ( $('#amed_ced').val() !== "")
+		//{
+			$("#wait").css("display", "block");
 			$.ajax({
 				type:"POST",
 				url:"/ceup/cmedico/saveDme/",
@@ -461,6 +561,11 @@ $(function(){
 				}
 			});
 			$("#wait").css("display", "none");//termina gif
+		//}
+		//else{
+		//	toastr.options={"progressBar": true}
+		//	toastr.error('Asegurese de elegir un medico','Estado');
+		//}
 	});
 
 	/*****************************
@@ -512,34 +617,6 @@ $(function(){
 						flagLoadAsig = false;
 						$('#tblEsp2').html(datos);
 					}
-
-					/******************************************
-					* LLENAR TABLA ESPECIALIDAD EN MODAL					
-					******************************************/
-					$.ajax({
-						url: '/ceup/cespecialidad/get/',
-						type: 'POST',
-						dataType: 'json',
-						success : function(response){
-							var espData = "";
-							if(response.datos.length > 0)
-							{
-								$.each(response.datos,function(i,item){
-									espData +="<tr id="+(i+1)+" data-espcod="+item.esp_cod+">"+
-												"<td>"+item.esp_des+"</td>"+										
-												"<td> <input type='checkbox' id='check"+i+"' data-espcod="+item.esp_cod+" data-esp='esp2' data-dmecod='0'></td>"+
-												"</tr>";
-								});								
-							}
-							$('#bodyTbAsig').html(espData);
-						},
-						error: function(response)
-						{
-							toastr.options={"progressBar": true}
-							toastr.error('Error al cargar Especialidades','Estado');
-
-						}
-					});
 				},
 				error: function(response)
 				{

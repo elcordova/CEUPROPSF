@@ -91,6 +91,22 @@
 				echo json_encode($response);
 			}
 		}
+
+		public function getForCita()
+		{
+			if($this->input->is_ajax_request())
+			{				
+				$sql = "SELECT esp_cod, esp_des FROM vista_asignacion WHERE med_ced = ?  GROUP BY esp_cod, esp_des";
+				$data = $this->mespecialidad->customQueryN($sql,array($this->session->userdata('usu_ced')));
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode(array("datos"=>$data));
+			}
+			else
+			{
+				exit("No direct scrip");
+				show_404();	
+			}
+		}
 	}
 
 	

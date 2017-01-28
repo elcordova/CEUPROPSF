@@ -11,18 +11,14 @@
                     <span>
                         <a href="<?php echo base_url()?>"><img alt="image" class="img-circle" src="<?php echo base_url()?>static/img/logo121.jpg" /></a>
                     </span>
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="clear"> 
-                            <span class="block m-t-xs"> <strong class="fa-lg">&nbsp;CEUPROPSF</strong></span> 
-                             <span class="text-muted text-xs block"> <b class="caret"></b></span> </span> </a>
-                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a href="<?=base_url()?>index.php/administracion/logout"><i class="fa fa-sign-out"></i>Cerra Sesion</a></li>
-                        </ul>
+                        
+                        <span class="clear"> 
+                        <span class="block m-t-xs"> <strong class="fa-lg">&nbsp;CEUPROPSF</strong></span> 
+                            
                     </div>               
-                </li>     
-                <p>__________________________________________</p>   
-<?php if($this->session->userdata('tipo') == '1'): ?> <!-- SI ES ADMINISTRADOR-->
-
+                </li>  
+                
+                <?php if($this->session->userdata('tipo') == '1'): ?> <!-- SI ES ADMINISTRADOR-->
                 <li>
                     <a href="<?php echo base_url()?>cdispensario/start">Dispensario</a>
                 </li>
@@ -75,10 +71,15 @@
 
                 <?php endif; ?>
 
-                <?php if($this->session->userdata('tipo') == '2' || $this->session->userdata('tipo') == '3'): ?><!-- SI ES USUARIO O MEDICO-->
-                <li>
-                    <a href="<?php echo base_url()?>ccita/start">Cita</a>
-                </li>
+                <?php if($this->session->userdata('tipo') == '3'): ?><!-- SI ES USUARIO O MEDICO-->
+                    
+                    <li>
+                        <a href="<?php echo base_url()?>cconsultas/start"><i class="fa fa-stethoscope fa-lg"><span class="nav-label"> Consultas</span></i></a>
+                    </li>
+
+                    <li>
+                        <a href="<?php echo base_url()?>ccita/start">Cita</a>
+                    </li>
                 <?php endif; ?>
 
             </ul>

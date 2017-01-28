@@ -36,6 +36,11 @@ class Mespecialidad extends CI_Model
 		return $this->db->delete('especialidad',$data);
 	}
 
+	public function customQueryN($sql,$data)// many resuls
+	{
+		return $this->db->query($sql,$data)->result_array();
+	}
+
 }
 
  ?>

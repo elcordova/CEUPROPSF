@@ -331,10 +331,9 @@ $(function(){
 			}
 	});	
 	
-	/**
-	* Autocompletar el Paciente
-	*
-	*/
+	/**==========================
+	* AUTOCOMPLETAR PACIENTE
+	**==========================*/
 	$('#usuario').autocomplete({
 		source: usuario , 
 		select: function(t){
@@ -378,7 +377,6 @@ $(function(){
 			//llamada ComboBox Especialidad
 			$.post("/ceup/cespecialidad/get/",$.getDataForCmbEsp);
 		}
-		
 	}
 
 	window.onload = start;

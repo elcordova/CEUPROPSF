@@ -56,6 +56,7 @@
 				'med_tel'	=> $this->input->post('med_tel'),
 				'med_est' 	=> $this->input->post('med_est'),
 				'med_eml'	=> $this->input->post('med_eml'),
+				'med_est'	=> TRUE,
 				);
 
 				$where = array(
@@ -247,6 +248,37 @@
 			}
 		}
 
+		public function validarAsignacion()
+		{
+			if ($this->input->is_ajax_request())
+			{
+				$sql = "SELECT validar_asignacion_dme(?)";
+				$data = $this->mmedico->customquery($sql,array($this->input->post('med_ced')));
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode($data->validar_asignacion_dme);
+			}
+			else
+			{
+				$mensaje["error"] = "Error ......";
+				echo json_encode($mensaje);
+			}
+		}
+
+		public function validarAsignacionNombre()
+		{
+			if ($this->input->is_ajax_request())
+			{
+				$sql = "SELECT validar_asignacion_dme_nombre(?)";
+				$data = $this->mmedico->customquery($sql,array($this->input->post('med_nom')));
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode($data->validar_asignacion_dme_nombre);
+			}
+			else
+			{
+				$mensaje["error"] = "Error ......";
+				echo json_encode($mensaje);
+			}
+		}		
 
 	}
 
