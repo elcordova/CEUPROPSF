@@ -69,6 +69,10 @@
                     <a href="<?php echo base_url()?>ccita/start">Cita</a>
                 </li>
 
+                <li>
+                    <a href="<?php echo base_url()?>chistorial/start">Historial Paciente</a>
+                </li>
+
                 <?php endif; ?>
 
                 <?php if($this->session->userdata('tipo') == '3'): ?><!-- SI ES USUARIO O MEDICO-->
@@ -79,6 +83,10 @@
 
                     <li>
                         <a href="<?php echo base_url()?>ccita/start">Cita</a>
+                    </li>
+
+                    <li>
+                        <a href="<?php echo base_url()?>chistorial/start">Historial Paciente</a>
                     </li>
                 <?php endif; ?>
 
