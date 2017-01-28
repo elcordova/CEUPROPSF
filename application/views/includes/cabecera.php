@@ -27,7 +27,7 @@
 	<link href="<?=base_url()?>static/css/animate.css" rel="stylesheet" />
     <link href="<?=base_url()?>static/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <!-- theme CSS -->
-    <link href="<?=base_url()?>static/css/style.css" rel="stylesheet">
+    <link href="<?=base_url()?>static/css/styles.css" rel="stylesheet">
 	<link href="<?=base_url()?>static/color/default.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>static/css/cardio.css">
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>static/css/noticias.css">

@@ -94,11 +94,11 @@ $(function(){
 			dataType: 'json',
 			success: function(response){
 				$.notify("Eliminado con exito","success");
-				$(td).parent().remove(); // remove a tr
+				$('#tbEspecialidad').DataTable().row($(td).parent()).remove().draw(); // remove a tr
 			},
 
 			error: function(response){
-				$.notify("Error al eliminar","error");
+				$.notify("Error al eliminar, contactarse con el Administrador","error");
 			}
 
 		});

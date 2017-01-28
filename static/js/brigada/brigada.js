@@ -143,8 +143,8 @@ $(function(){
 		"language": lngEsp
 	});
 	//*********************************************CARGAR TABLA MODAL MEDICOS**************************************//
-	$.renderizeRow2 = function( nRow, aData, iDataIndex ) {
-	    
+	$.renderizeRow2 = function( nRow, aData, iDataIndex ) 
+	{    
 	    $(nRow).append("<td class='text-center'><input type='checkbox' id='check2M"+(iDataIndex)+"' data-medcod="+aData['med_cod']+" data-med='med2' data-dbmcod='0'></td>");
 		$(nRow).attr('data-id_med',aData['med_cod']); //codigo
 	};
@@ -169,8 +169,8 @@ $(function(){
 
 	//---------------------------------------------CARGAR TABLA BRIGADA--------------------------------------------//
 
-	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalBrigada' data-toggle='modal' onclick='$.editarModal($(this).parent());'>"+
-						  "<img src='/sgcm/static/img/edit.png' title='Editar'>"+
+	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalBrigada' data-toggle='modal' title='Editar' onclick='$.editarModal($(this).parent());'>"+
+						  "<span class='glyphicon glyphicon-edit'></span>"+
 						  "</button>";
 		
 	

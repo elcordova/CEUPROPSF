@@ -24,10 +24,13 @@ class Welcome extends CI_Controller {
 			$this->load->model('usuario_model');
 			if($this->usuario_model->login($_POST['username'],$_POST['password'])){
 				$usuario = $this->usuario_model->consultar_usuario($_POST['username']);
-				$sesion_usuario = array('id' => $usuario->id_usuario,
-									'email' => $usuario->correo_electronico,
-									'estado'=> $usuario->estado,
-									'conectado'=> true,);
+				$sesion_usuario = array(
+									'usu_cod' 	=> $usuario->usu_cod,
+									'email' 	=> $usuario->usu_eml,
+									'estado'	=> $usuario->usu_est,
+									'conectado'	=> true,
+									'tipo'		=> $usuario->usu_tip_cod,
+									'usu_ced'	=> $usuario->usu_ced);
 				$this->session->set_userdata($sesion_usuario);
 				redirect('Administracion');
 			}

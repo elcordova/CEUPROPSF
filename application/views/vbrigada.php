@@ -79,7 +79,7 @@
 																<br>
 																<br>
 																<legend class="scheduler-border"></legend>
-																<legend class="scheduler-border">Asiganción de Médicos</legend>
+																<legend class="scheduler-border">Asignación de Médicos</legend>
 									                            <button type="button" class="btn btn-primary" id="buttonAddMedico" data-target='#modalMedico' data-toggle='modal' style="border-radius: 8px 8px 8px 8px;">Agregar Medico</button>
 									                            <br>
 									                            <br>

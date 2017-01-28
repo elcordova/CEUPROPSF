@@ -45,6 +45,16 @@ class Mmedico extends CI_Model
 	{
 		return $this->db->query($sql,$data)->row();
 	}
+
+	public function saveDme($dataM)
+	{
+		$this->db->insert('detalle_medico_especialidad',$dataM);
+	}
+
+	public function customQueryN($sql,$data)// many resuls
+	{
+		return $this->db->query($sql,$data)->result_array();
+	}
 		
 }
 

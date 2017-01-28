@@ -28,13 +28,10 @@
 
 
 	<!-- Core JavaScript Files -->
-    <!-- /<script src="<?=base_url()?>static/js/jquery.min.js"></script> -->
-    <!--<script src="<?=base_url()?>static/js/validate/jquery.min.js"></script>-->
+   
     <script src="<?php echo base_url()?>static/js/jquery-1.11.3.min.js"></script>
     <script src="<?=base_url()?>static/js/bootstrap.min.js"></script>
-	<script src="<?=base_url()?>static/js/bootstrap-select.js"></script>
-    <script src="<?=base_url()?>static/js/jquery.easing.min.js"></script>
-		<script src="<?=base_url()?>static/js/jquery.scrollTo.js"></script>
+	
 		<script src="<?=base_url()?>static/js/wow.min.js"></script>
 
 		<script src="<?=base_url()?>static/js/validate/jquery.validate.min.js"></script>
@@ -52,7 +49,10 @@
     <script src="<?=base_url()?>static/js/jquery.uitablefilter.js" charset="utf8" type="text/javascript"></script>
     <!-- Notify -->    
     <script src="<?php echo base_url()?>static/js/notify.js"></script>
- 
+    <script src="<?=base_url()?>static/js/bootstrap-select.js"></script>
+    <script src="<?=base_url()?>static/js/jquery.easing.min.js"></script>
+    <script src="<?=base_url()?>static/js/jquery.scrollTo.js"></script>
+
 </head>
 <!-- validacion de session Iniciada -->
 				<?php

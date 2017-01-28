@@ -3,24 +3,22 @@
 	/**
 	* 
 	*/
-	class Cespecialidad extends CI_Controller
+	class Cdispensario extends CI_Controller
 	{
 		
 		function __construct()
 		{
 			# code...
 			parent::__construct();
-			$this->load->model(array('mespecialidad')); //get the model to work with
+			$this->load->model(array('mdispensario')); //get the model to work with
 		}
 
 		public function start()
 		{
 			$this->load->view('administracion/includes/cabecera');
 			$this->load->view('menu');
-			$this->load->view('vespecialidad');
+			$this->load->view('vdispensario');
 			$this->load->view('administracion/includes/footer');
-			
-			
 		}
 		
 		public function save()
@@ -28,10 +26,14 @@
 			if ($this->input->is_ajax_request())
 			{
 				$data = array(
-				'esp_des' 	=> $this->input->post('esp_des'),
+				'dis_nom' 	=> $this->input->post('dis_nom'),
+				'dis_dir' 	=> $this->input->post('dis_dir'),
+				'dis_tel' 	=> $this->input->post('dis_tel'),
+				'dis_eml' 	=> $this->input->post('dis_eml'),
+				'dis_est' 	=> true
 				);
 
-				$response = $this->mespecialidad->save($data);
+				$response = $this->mdispensario->save($data);
 				echo json_encode($response);
 			}
 			else
@@ -48,14 +50,17 @@
 			if($this->input->is_ajax_request())
 			{
 				$data = array(
-				'esp_des' 	=> $this->input->post('esp_des'),
+				'dis_nom' 	=> $this->input->post('dis_nom'),
+				'dis_dir' 	=> $this->input->post('dis_dir'),
+				'dis_tel' 	=> $this->input->post('dis_tel'),
+				'dis_eml' 	=> $this->input->post('dis_eml')
 				);
 
 				$where = array(
-				'esp_cod' => $this->input->post('esp_cod')
+				'dis_cod' => $this->input->post('dis_cod')
 					);
 
-				$response = $this->mespecialidad->update($data,$where);
+				$response = $this->mdispensario->update($data,$where);
 				echo json_encode($response);
 			}
 			else
@@ -69,7 +74,7 @@
 		{
 			if($this->input->is_ajax_request())
 			{
-				$data = $this->mespecialidad->getAll();
+				$data = $this->mdispensario->getAll();
 				header('Content-type: application/json; charset=utf-8');
 				echo json_encode(array("datos"=>$data));
 			}
@@ -85,30 +90,21 @@
 			if($this->input->is_ajax_request())
 			{
 				$data = array(
-					"esp_cod" => $this->input->post('id'));
-				$response = $this->mespecialidad->delete($data);
-				header('Content-type: application/json; charset=utf-8');
-				echo json_encode($response);
-			}
-		}
+				'dis_est' 	=> $this->input->post('dis_e'),
+				);
 
-		public function getForCita()
-		{
-			if($this->input->is_ajax_request())
-			{				
-				$sql = "SELECT esp_cod, esp_des FROM vista_asignacion WHERE med_ced = ?  GROUP BY esp_cod, esp_des";
-				$data = $this->mespecialidad->customQueryN($sql,array($this->session->userdata('usu_ced')));
-				header('Content-type: application/json; charset=utf-8');
-				echo json_encode(array("datos"=>$data));
+				$where = array(
+				'dis_cod' 	=> $this->input->post('dis_cod')
+					);
+
+				$response = $this->mdispensario->update2($data,$where);
+				echo json_encode($response);
 			}
 			else
 			{
-				exit("No direct scrip");
-				show_404();	
+				echo json_encode($response);
 			}
 		}
-	}
-
-	
+	}	
 
  ?>
