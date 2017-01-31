@@ -247,11 +247,12 @@ $(function(){
 
 	$.verCita = function(td){
 		var tr = $(td).parent();
-		var codCita = $(tr).attr('data-cit_cmt');
+		var codCita = $(tr).attr('data-cit_cod');
+		var codPaciente = $(tr).attr('data-usu_cod');
 		var d = new Date();
         var fecha = d.getDate()+'-'+(d.getMonth()+1)+'-'+d.getFullYear()+' --- '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
         var autor = 'CEUPROPSF';
-		window.open('<?= base_url()?>static/reporte/reporte_h3.php?reporte=CITA&fecha='+fecha+'&codigo='+codCita+'','_blank');
+		window.open('static/reporte/reporte_h3.php?reporte=CITA&fecha='+fecha+'&autor='+autor+'&paciente='+autor+'&cita='+codCita+'','_blank');
 	};
 
 	var printReport ="<button style='border: 0; background: transparent' data-target='#modalComentario' data-toggle='modal' onclick='$.verComentario($(this).parent())' title='Comentario'>"+		
