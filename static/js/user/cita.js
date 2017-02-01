@@ -252,7 +252,7 @@ $(function(){
 		var d = new Date();
         var fecha = d.getDate()+'-'+(d.getMonth()+1)+'-'+d.getFullYear()+' --- '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
         var autor = 'CEUPROPSF';
-		window.open('static/reporte/reporte_h3.php?reporte=CITA&fecha='+fecha+'&autor='+autor+'&paciente='+codPaciente+'&cita='+codCita+'','_blank');
+		window.open('/ceup/static/reporte/reporte_h3.php?reporte=CITA&fecha='+fecha+'&autor='+autor+'&paciente='+codPaciente+'&cita='+codCita+'','_blank');
 	};
 
 	var printReport ="<button style='border: 0; background: transparent' data-target='#modalComentario' data-toggle='modal' onclick='$.verComentario($(this).parent())' title='Comentario'>"+		
@@ -271,6 +271,7 @@ $(function(){
 	   $($(nRow).children('td')).addClass("text-center"); //centra el texto
 	   $(nRow).attr('data-cit_cod',aData['cit_cod']);
 	   $(nRow).attr('data-cit_cmt',aData['cit_cmt']);
+	   $(nRow).attr('data-usu_cod',aData['usu_cod']);
 	};
 	
 	var tbCitDet = $('#tbCitDet');
