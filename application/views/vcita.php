@@ -1,5 +1,8 @@
-<script src="<?php echo base_url()?>static/js/user/cita.js"></script>
-<link href="<?php echo base_url()?>/static/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
+  <link href="<?php echo base_url()?>static/css/switch.css" rel="stylesheet">
+  <script src="<?php echo base_url()?>static/js/user/cita.js"></script>
+  <link href="<?php echo base_url()?>/static/css/pnotify.custom.min.css" rel="stylesheet" type="text/css">
+  <script src="<?php echo base_url() ?>static/js/pnotify.custom.min.js"></script>
+  <link href="<?php echo base_url()?>/static/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
   <script src="<?php echo base_url()?>static/js/jquery-ui.min.js"></script>
     
     <!-- Page Content -->
@@ -86,7 +89,10 @@
                                               <th class="text-center">Medico</th>
                                               <th class="text-center">Especialidad</th>
                                               <th class="text-center">Dispensario</th>
-                                              <th class="text-center">Accion</th>
+                                              <?php if($this->session->userdata('tipo') != '2') { ?>
+                                              <th class="text-center">Activo?</th>
+                                              <?php } ?>
+                                              <th class="text-center">Acción</th>
                                           </tr>
                                       </thead>
                                       <tbody id="tblBody" class="text-justify">

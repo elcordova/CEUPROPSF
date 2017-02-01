@@ -21,7 +21,7 @@
 			$this->db->update('cita',$data,$where);
 		}
 
-		public function delete($sql,$data)
+		public function query($sql,$data)
 		{
 			return $this->db->query($sql,$data);
 		}

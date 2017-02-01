@@ -124,13 +124,13 @@
 				{
 					if($this->input->post('tip_usu') == "2") //usuario
 					{
-						$sql = "SELECT * FROM vista_cita WHERE usu_cod = ? AND cit_est = TRUE";
+						$sql = "SELECT * FROM vista_cita WHERE usu_cod = ? ";
 						$usu_cod = $this->input->post('usu_cod');
 						$data = $this->mcita->customQueryN($sql,array($usu_cod));
 					}
 					else
 					{
-						$sql = "SELECT * FROM vista_cita WHERE med_ced = ? AND cit_est = TRUE";						
+						$sql = "SELECT * FROM vista_cita WHERE med_ced = ? ";
 						$data = $this->mcita->customQueryN($sql,array($this->session->userdata('usu_ced')));
 					}						
 				}			
@@ -176,10 +176,46 @@
 				'cit_cmt'		=> $this->input->post('cit_cmt'),
 				'cit_cod' 		=> $this->input->post('cit_cod')				
 				);
-
 				$sql = "UPDATE cita SET cit_cmt = ? WHERE cit_cod = ?";
-				$response = $this->mcita->delete($sql,$data);
+				$response = $this->mcita->query($sql,$data);//no devuelve nada
 				echo json_encode($response);
+			}
+			else
+			{
+				$response["mensaje"] = "Error";
+				echo json_encode($response);
+			}
+		}
+
+		public function delete()
+		{
+			if($this->input->is_ajax_request())
+			{
+				$data = array(
+                'cit_cod' => $this->input->post('cit_cod')                
+				);
+				$sql = "SELECT delete_cita(?)";
+				$response = $this->mcita->customQuery($sql,$data); //la funcion devuelve "1"
+				echo json_encode($response->delete_cita);
+			}
+			else
+			{
+				$response["mensaje"] = "Error";
+				echo json_encode($response);
+			}
+		}
+
+		public function actualizar()
+		{
+			if($this->input->is_ajax_request())
+			{
+				$data = array(
+                'cit_cod' => $this->input->post('cit_cod'),
+                'cit_est' => $this->input->post('cit_est')                
+				);
+				$sql = "SELECT update_cita_estado(?,?);";
+				$response = $this->mcita->customQuery($sql,$data);
+				echo json_encode($response->update_cita_estado);
 			}
 			else
 			{
