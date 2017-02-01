@@ -5,8 +5,8 @@ error_reporting(0);
 $reporte = $_REQUEST['reporte'];
 $fecha = $_REQUEST['fecha'];
 $autor = $_REQUEST['autor'];
-$filtro = $_REQUEST['filtro'];
-$sql = $_REQUEST['sql'];
+$paciente = $_REQUEST['paciente'];
+$cita = $_REQUEST['cita'];
 
 //$reporte= 'HISTORIA CLÍNICA';
 
@@ -52,46 +52,6 @@ function Header()
 
 }
 
-function FancyTable($header, $data)
-{
-
-    // Colores, ancho de línea y fuente en negrita
-    $this->SetFillColor(0,0,102);
-    $this->SetTextColor(255);
-    $this->SetDrawColor(0,0,102);
-    $this->SetLineWidth(.3);
-    $this->SetFont('','B');
-    // Cabecera
-    $w = array(25, 118, 20, 30, 20, 30, 37);
-   
-    for($i=0;$i<count($header);$i++)
-        $this->Cell($w[$i],7,$header[$i],1,0,'C',true);
-    $this->Ln();
-    // Restauración de colores y fuentes
-    $this->SetFillColor(224,210,210);
-    $this->SetTextColor(0);
-    $this->SetFont('');
-    // Datos
-     $fill = false;
-
-
-    for($i=0;$i<count($data);$i=$i+7){
-        $this->Cell($w[0],6,$data[$i],'LR',0,'L',$fill);
-        $this->Cell($w[1],6,$data[$i+1],'LR',0,'L',$fill);
-        $this->Cell($w[2],6,$data[$i+2],'LR',0,'L',$fill);
-        $this->Cell($w[3],6,$data[$i+3],'LR',0,'L',$fill);
-        $this->Cell($w[4],6,$data[$i+4],'LR',0,'L',$fill);
-        $this->Cell($w[5],6,$data[$i+5],'LR',0,'L',$fill);
-        $this->Cell($w[6],6,$data[$i+6],'LR',0,'L',$fill);
-        $this->Ln();
-        $fill = !$fill;
-    }
-   
-   
-
-    // Línea de cierre
-    $this->Cell(array_sum($w),0,'','T');
-}
 
 // Pie de página
 function Footer()
@@ -115,14 +75,12 @@ $pdf->SetTitle($title);
 $pdf->AliasNbPages();
 $pdf->AddPage();
 $pdf->SetFont('Times','',12);
-$pdf->Cell(0,10,'Filtrado por: '.$filtro,0,1,'R');
-
 
 
 
 
 $data = null;
-$data_consultas = null;
+$sql = 'SELECT * FROM usuario where usu_cod='.$paciente.'';
 try {
     $db = getConnection();
     $stmt = $db->query($sql);
@@ -130,19 +88,15 @@ try {
     $db = null;
 
     $data = [];
-    $data_consultas = [];
+
+
 
     while($fila = $stmt->fetchObject()){
-        array_push($data_consultas, $fila->con_id);
-        array_push($data, $fila->pac_ced);
-        array_push($data, $fila->pac_ape.' '.$fila->pac_nom);
-        array_push($data, $fila->pac_sex);
-        array_push($data, $fila->pac_est_civ);
-        array_push($data, $fila->pac_tip_san);
-        array_push($data, $fila->pac_fec_nac);
-        array_push($data, $fila->pac_dir);
-        array_push($data, $fila->pac_cor);
-        if($fila->pac_est)array_push($data, 'ACTIVO');else array_push($data, 'PASIVO');
+        array_push($data, $fila->usu_ced);
+        array_push($data, $fila->usu_ape.' '.$fila->usu_nom);
+        array_push($data, $fila->usu_dir);
+        array_push($data, $fila->usu_eml);
+        if($fila->usu_est)array_push($data, 'ACTIVO');else array_push($data, 'PASIVO');
         
         
     }
@@ -189,39 +143,6 @@ $pdf->Cell(140,7,$data[1],1,0,'',true);
 
 $pdf->Ln();
 
-$pdf->SetFillColor(180,100,180);
-$pdf->SetTextColor(255);
-$pdf->Cell(20,7,'SEXO',1,0,'C',true);
-
-$pdf->SetFillColor(210,190,210);
-$pdf->SetTextColor(0);
-$pdf->Cell(20,7,$data[2],1,0,'',true);
-
-$pdf->SetFillColor(180,100,180);
-$pdf->SetTextColor(255);
-$pdf->Cell(50,7,'FECHA NAC.',1,0,'C',true);
-
-$pdf->SetFillColor(210,190,210);
-$pdf->SetTextColor(0);
-$pdf->Cell(50,7,$data[5],1,0,'',true);
-
-$pdf->SetFillColor(180,100,180);
-$pdf->SetTextColor(255);
-$pdf->Cell(35,7,'EST. CIVIL',1,0,'C',true);
-
-$pdf->SetFillColor(210,190,210);
-$pdf->SetTextColor(0);
-$pdf->Cell(35,7,$data[3],1,0,'',true);
-
-$pdf->SetFillColor(180,100,180);
-$pdf->SetTextColor(255);
-$pdf->Cell(35,7,'T. SANGRE',1,0,'C',true);
-
-$pdf->SetFillColor(210,190,210);
-$pdf->SetTextColor(0);
-$pdf->Cell(35,7,$data[4],1,0,'',true);
-
-$pdf->Ln();
 
 $pdf->SetFillColor(180,100,180);
 $pdf->SetTextColor(255);
@@ -229,7 +150,7 @@ $pdf->Cell(35,7,'DOMICILIO',1,0,'C',true);
 
 $pdf->SetFillColor(210,190,210);
 $pdf->SetTextColor(0);
-$pdf->Cell(105,7,$data[6],1,0,'',true);
+$pdf->Cell(105,7,$data[2],1,0,'',true);
 
 $pdf->SetFillColor(180,100,180);
 $pdf->SetTextColor(255);
@@ -237,7 +158,7 @@ $pdf->Cell(35,7,'E-MAIL',1,0,'C',true);
 
 $pdf->SetFillColor(210,190,210);
 $pdf->SetTextColor(0);
-$pdf->Cell(105,7,$data[7],1,0,'',true);
+$pdf->Cell(105,7,$data[3],1,0,'',true);
 
 $pdf->Ln();
 
@@ -247,17 +168,130 @@ $pdf->Cell(35,7,'ESTADO',1,0,'C',true);
 
 $pdf->SetFillColor(210,190,210);
 $pdf->SetTextColor(0);
-$pdf->Cell(50,7,$data[8],1,0,'',true);
+$pdf->Cell(50,7,$data[4],1,0,'',true);
 
 $pdf->Ln();
-
 
 $pdf->SetFillColor(0,0,102);
 $pdf->SetTextColor(255);
-$pdf->Cell(280,7,'HISTORIA CLINICA',1,0,'C',true);
+$pdf->Cell(280,7,'CITA MEDICA',1,0,'C',true);
 $pdf->Ln();
 
 $pdf->SetFont('','',10);
+
+
+$data_cita = null;
+$sql = 'SELECT * FROM vista_cita WHERE cit_cod='.$cita.'';
+try {
+    $db = getConnection();
+    $stmt = $db->query($sql);
+    //$resultado = $stmt->fetchAll(PDO::FETCH_OBJ);
+    $db = null;
+
+    $data_cita = [];
+
+
+
+    while($fila = $stmt->fetchObject()){
+        array_push($data_cita, $fila->cit_fec);
+        array_push($data_cita, $fila->hor_des);
+        array_push($data_cita, $fila->cit_tur);
+        array_push($data_cita, $fila->medico);
+        array_push($data_cita, $fila->esp_des);
+        array_push($data_cita, $fila->dis_nom);
+        array_push($data_cita, $fila->cit_cmt);
+        array_push($data_cita, $fila->med_ced);
+        if($fila->cit_est)array_push($data_cita, 'VALIDADA');else array_push($data_cita, 'PENDIENTE');
+        
+        
+    }
+
+
+    
+} catch(PDOException $e) {
+    $e->getMessage();
+}
+
+$pdf->SetFillColor(180,100,180);
+$pdf->SetTextColor(255);
+$pdf->Cell(20,7,'FECHA',1,0,'C',true);
+
+$pdf->SetFillColor(210,190,210);
+$pdf->SetTextColor(0);
+$pdf->Cell(30,7,$data_cita[0],1,0,'',true);
+
+$pdf->SetFillColor(180,100,180);
+$pdf->SetTextColor(255);
+$pdf->Cell(20,7,'HORA',1,0,'C',true);
+
+$pdf->SetFillColor(210,190,210);
+$pdf->SetTextColor(0);
+$pdf->Cell(30,7,$data_cita[1],1,0,'',true);
+
+$pdf->SetFillColor(180,100,180);
+$pdf->SetTextColor(255);
+$pdf->Cell(20,7,'TURNO',1,0,'C',true);
+
+$pdf->SetFillColor(210,190,210);
+$pdf->SetTextColor(0);
+$pdf->Cell(10,7,$data_cita[2],1,0,'',true);
+
+$pdf->SetFillColor(180,100,180);
+$pdf->SetTextColor(255);
+$pdf->Cell(30,7,'DISPENSARIO',1,0,'C',true);
+
+$pdf->SetFillColor(210,190,210);
+$pdf->SetTextColor(0);
+$pdf->Cell(70,7,$data_cita[5],1,0,'',true);
+
+$pdf->SetFillColor(180,100,180);
+$pdf->SetTextColor(255);
+$pdf->Cell(20,7,'ESTADO',1,0,'C',true);
+
+$pdf->SetFillColor(210,190,210);
+$pdf->SetTextColor(0);
+$pdf->Cell(30,7,$data_cita[8],1,0,'',true);
+
+$pdf->Ln();
+
+
+$pdf->SetFillColor(180,100,180);
+$pdf->SetTextColor(255);
+$pdf->Cell(30,7,'ESPECIALIDAD',1,0,'C',true);
+
+$pdf->SetFillColor(210,190,210);
+$pdf->SetTextColor(0);
+$pdf->Cell(70,7,$data_cita[4],1,0,'',true);
+
+$pdf->SetFillColor(180,100,180);
+$pdf->SetTextColor(255);
+$pdf->Cell(30,7,'MEDICO',1,0,'C',true);
+
+$pdf->SetFillColor(210,190,210);
+$pdf->SetTextColor(0);
+$pdf->Cell(90,7,$data_cita[3],1,0,'',true);
+
+$pdf->SetFillColor(180,100,180);
+$pdf->SetTextColor(255);
+$pdf->Cell(20,7,'CI MEDICO',1,0,'C',true);
+
+$pdf->SetFillColor(210,190,210);
+$pdf->SetTextColor(0);
+$pdf->Cell(40,7,$data_cita[7],1,0,'',true);
+
+$pdf->Ln();
+
+$pdf->SetFillColor(180,100,180);
+$pdf->SetTextColor(255);
+$pdf->Cell(30,7,'OBSERVACION',1,0,'C',true);
+
+$pdf->SetFillColor(210,190,210);
+$pdf->SetTextColor(0);
+$pdf->Cell(250,7,$data_cita[6],1,0,'',true);
+
+
+
+/*
 
 //////////////////////////////SIGNOS VITALES
 
@@ -1753,7 +1787,7 @@ for($i=0;$i<count($data_sensibilidad);$i=$i+9){
 
     $pdf->Ln();
 }
-
+*/
 
 
 
