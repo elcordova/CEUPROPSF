@@ -543,6 +543,13 @@ class Cconsultas extends CI_Controller {
 		echo json_encode($result);
 	}
 
+	function save_observacion(){
+		$data = array('con_observcion'=> $this->input->post('observacion'));
+		$where=array('con_id' 		=> $this->input->post('id_consulta'));
+		$afected=$this->mconsulta->update($data,$where);
+		header('Content-type: application/json; charset=utf-8');
+		echo json_encode($afected);
+	}
 
 
 }

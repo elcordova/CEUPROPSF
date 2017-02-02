@@ -11,21 +11,20 @@ $(document).ready(function(){
               var contenido="";
               if (res) {
                 for (i = 0; i < res.length; i++){
-                  contenido+="<tr>"+
+                  contenido+="<tr data-observacion='"+res[i]['con_observcion']+"' data-id="+res[i]['con_id']+">"+
                           "<td>"+res[i]['con_id']+"</td>"+
                           "<td>"+res[i]['fecha']+"</td>"+
                           "<td> Dr(a). "+res[i]['med_ape']+" "+res[i]['med_nom']+"</td>"+
                           "<td> Sr(a). "+res[i]['pac_ape']+" "+res[i]['pac_nom']+"</td>"+
                           "<td>"+res[i]['bri_des']+"</td>"+
-                          "<td>"+res[i]['con_observcion']+"</td>"+
                           "<td>"+
                               "<div class='btn-group'>"+
                                 "<button type='button' class='btn btn-default' onclick=carga_consulta_id("+res[i]['con_id']+",'"+res[i]['pac_nom']+"','"+res[i]['pac_ape']+"','"+res[i]['pac_sex']+"',"+res[i]['pac_id']+")>"+
                                 "<span class='glyphicon glyphicon-edit'></span>"+
                                 "</button>"+
 
-                                "<button type='button' class='btn btn-default'>"+
-                                "<span class='glyphicon glyphicon-trash'></span>"+
+                                "<button type='button' data-target='#modalObservacion' data-toggle='modal' class='btn btn-default' onclick=$.verObservacion($(this).parent())>"+
+                                "<span class='glyphicon glyphicon-comment'></span>"+
                                 "</button>"+
 
                               "</div>"+
@@ -33,7 +32,7 @@ $(document).ready(function(){
                         "</tr>";
                 };
               }
-              var tabla="<table class='table table-striped table-bordered' cellspacing='0' width='100%'>"+
+              var tabla="<table id='table_consultas' class='table table-striped table-bordered' cellspacing='0' width='100%'>"+
                         "<thead>"+
                           "<tr>"+
                             "<th>Identificador</th>"+
@@ -41,7 +40,6 @@ $(document).ready(function(){
                             "<th>Medico</th>"+
                             "<th>Paciente</th>"+
                             "<th>Brigada</th>"+
-                            "<th>Observacion</th>"+
                             "<th>Accion</th>"+
                           "</tr>"+
                         "</thead>"+
@@ -128,6 +126,33 @@ function consultar_Especialidad(){
 		});
 }
 
+$.verObservacion = function(td){
+    var tr = $(td).parent().parent();
+    $('#con_obs').val($(tr).attr('data-observacion'));
+    $('#con_id').val($(tr).attr('data-id'));
+
+  }
+
+
+$('#guardarObservacion').on('click',function(){
+   $.ajax({
+      type:'POST',
+      data:{'observacion':$('#con_obs').val(),'id_consulta':$('#con_id').val()},
+      dataType:'json',
+      url:'/ceup/Cconsultas/save_observacion/',
+      success:function(data){
+        toastr.options={"progressBar": true}
+        toastr.success('Observcion Editada ','Estado');
+        $('#modalObservacion').modal('hide');
+        get_consultas();
+      },error:function(textStatus){
+        toastr.options={"progressBar": true}
+        toastr.error('Error al Editar Observacion ','Estado');
+      }
+  });
+});
+
+
 function consultar_Medico(){
 	$('#sel_medico').empty();
   		$.ajax({
@@ -174,7 +199,7 @@ function consultar_dmb(){
 			}
 			}else {
 				
-				toastr.options={"progressBar": true}
+				        toastr.options={"progressBar": true}
                 toastr.error('No se encontraron ','Estado');
 			}
 			}

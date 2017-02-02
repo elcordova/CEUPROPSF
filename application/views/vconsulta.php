@@ -120,6 +120,52 @@
 	</div>
 
 
+	 <!-- MODAL VER CITA -->
+    <div class="modal fade" id="modalObservacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-dialog" style="width:500px ;">
+              <div class="modal-content panel panel-primary">
+
+                <div class="modal-header panel panel-heading">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Observacion</h4>
+                </div>              
+                <div class="modal-body">
+                <fieldset class="scheduler-border">
+                <legend class="scheduler-border">Observacion</legend>
+                  <div class="row">
+                    <input type="hidden" name="con_id" id="con_id">
+                    
+                    <div class="col-xs-12" id="">
+                      <textarea class="form-control input-sm" rows="5" name="con_obs" id="con_obs" placeholder="......" ></textarea>
+                    </div>
+                  </div>
+                </fieldset>                        
+                </div>
+                
+                <div class="modal-footer" >
+                  <button type="button" class="btn btn-default"  data-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary" id="guardarObservacion" name="guardarObservacion">Guardar</button>
+                </div>
+              </div>
+              </div>
+             </div>
+       </div>
+       <!--MODAL VER CITA --> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- modal de edicion de noticias -->

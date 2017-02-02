@@ -80,7 +80,6 @@ $(document).ready(function(){
 							'efr_boca':$('#efr_boca').val(), 'efr_cuello':$('#efr_cuello').val(),
 							'con_id':$('#cod_consulta').val()},
 			success:function(res){
-				alert(res);
 				toastr.options={"progressBar": true}
 				toastr.success('Datos Editados','Estado');
 				$('#btn_efr').removeClass("btn-info");
