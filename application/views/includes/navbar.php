@@ -29,28 +29,6 @@
         </div>
         <!-- /.container -->
 </nav>
-
-<!--<div class="modal inmodal" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content modal-popup">
-                    <a href="#" class="close-link"><i class="close"></i></a>
-                    <h3 style="color:white">Acceder al Sistema</h3>
-                    <form action="" method="POST" accept-charset="utf-8" class="popup-form">
-                        <input type="text" class="form-control form-white" placeholder="Usuario" id="username" name="username">
-                        <input type="password" class="form-control form-white" placeholder="Contraseña" name="password" id="password">
-                        <input type="hidden" name="list" value="L1JC1AAR7217B8f3PIl07g"/>
-                        
-                        <div class="checkbox-holder text-left">
-                            <div class="checkbox">
-                                <input type="checkbox" value="None" id="squaredOne" name="check" />
-                                <label for="squaredOne"><span>Recordarme.</span></label>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-submit btn-lg">Ingresar</button>
-                    </form>
-                </div>
-            </div>
-</div>-->
 <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -72,11 +50,7 @@
                                 <span id="text-login-msg">Ingrese su correo y contraseña</span>
                             </div>
                             <input id="username" class="form-control" type="text" placeholder="Usuario" name="username" required>
-                            <input id="password" class="form-control" type="password" placeholder="Contraseña" name="password" required>
-                            <div class="checkbox">
-                                <input type="checkbox" value="None" id="squaredOne" name="check" />
-                                <label for="squaredOne"><span>Recordarme.</span></label>
-                            </div>
+                            <input id="password" class="form-control" type="password" placeholder="Contraseña" name="password" required>                            
                          </div>
                         <div class="modal-footer">
                             <div>
@@ -105,31 +79,7 @@
                             </div>
                         </div>
                     </form>
-                    <!-- End | Lost Password Form -->
-                    
-                    <!-- Begin | Register Form -->
-                    <form id="register-form" style="display:none;">
-                        <div class="modal-body">
-                            <div id="div-register-msg">
-                                <div id="icon-register-msg" class="glyphicon glyphicon-chevron-right"></div>
-                                <span id="text-register-msg">Register an account.</span>
-                            </div>
-                            <input id="register_username" class="form-control" type="text" placeholder="Username (type ERROR for error effect)" required>
-                            <input id="register_email" class="form-control" type="text" placeholder="E-Mail" required>
-                            <input id="register_password" class="form-control" type="password" placeholder="Password" required>
-                        </div>
-                        <div class="modal-footer">
-                            <div>
-                                <button type="submit" class="btn btn-primary btn-lg btn-block">Register</button>
-                            </div>
-                            <div>
-                                <button id="register_login_btn" type="button" class="btn btn-link">Log In</button>
-                                <button id="register_lost_btn" type="button" class="btn btn-link">Lost Password?</button>
-                            </div>
-                        </div>
-                    </form>
-                    <!-- End | Register Form -->
-                    
+                    <!-- End | Lost Password Form -->                   
                 </div>
                 <!-- End # DIV Form -->
                 

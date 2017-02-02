@@ -44,7 +44,78 @@
 		</div>
     </section>
 	<!-- /Section: intro -->
-
+	<!-- Section: noticias -->
+    <section id="noticia" class="home-section text-center bg-gray">		
+		<div class="heading-about">
+			<div class="container">
+			<div class="row">
+				<div class="col-lg-8 col-lg-offset-2">
+					<div class="wow bounceInDown" data-wow-delay="0.4s">
+					<div class="section-heading">
+					<h2>Noticias</h2>
+					<i class="fa fa-2x fa-angle-down"></i>
+					<p>Aquí podrá encontrar las noticias acerca de nuestros eventos y demás, CEUPROPSF.</p>
+					<div class="btn-group">
+                        <a class="btn btn-primary" href="#scroller" data-slide="prev"><i class="icon-angle-left"></i></a>
+                        <a class="btn btn-primary" href="#scroller" data-slide="next"><i class="icon-angle-right"></i></a>
+                    </div>
+					</div>
+					</div>
+				</div>
+			</div>
+			</div>
+		</div>
+		<div class="container">
+		<hr>	
+       	<div class="row">
+                <div class="col-md-12">
+                    <div id="scroller" class="carousel slide">
+                        <div class="carousel-inner">
+                        	<?php 
+                        		$cont = 0;
+                        		$active = 'active';
+								foreach ($noticias as $noticia) {
+									$cont++;
+									if($cont==1){
+							?>
+							<div class="item <?php echo $active ?>">
+                                <div class="row">
+							<?php
+									}
+							?>       <div class="col-md-4">
+                                        <div class="portfolio-item">
+                                            <div class="item-inner">
+                                                <div align="center">
+                                                	<img class="img-responsive" style="max-height:250px; min-height:250px; max-width:450px" src="<?=base_url()?>public/img/notices/<?php echo $noticia['not_ban'] ?>" alt="">
+                                                </div>
+                                                <h5>                                                
+                                                    <?php echo ($noticia['not_tit']); ?>
+                                                </h5>
+                                                <h9><?php echo ($noticia['not_fec_pub']); ?></h9>
+                                                <div class="overlay">
+                                                    <a class="preview btn btn-primary" title="Ver Noticia" data-toggle="modal" data-target="#modal_noticia" onclick="verNoticia(<?php echo ($noticia['not_id']); ?>);" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                
+							<?php
+									if($cont==3){
+										$cont=0;
+							?>
+								</div><!--/.row-->
+                            </div><!--/.item-->
+							<?php
+									}									
+									$active = '';
+								}
+							?>                           
+                        </div>
+                    </div>
+                </div>
+            </div><!--/.row-->		
+		</div>
+	</section>
+	<!-- /Section: noticias -->
 	<!-- Section: about -->
     <section id="about" class="home-section text-center">
 
@@ -248,97 +319,6 @@
 		</div>
 	</section>
 	<!-- /Section: services -->
-
-
-	<!-- Section: noticias -->
-    <section id="noticia" class="home-section text-center bg-gray">
-		
-		<div class="heading-about">
-			<div class="container">
-			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2">
-					<div class="wow bounceInDown" data-wow-delay="0.4s">
-					<div class="section-heading">
-					<h2>Noticias</h2>
-					<i class="fa fa-2x fa-angle-down"></i>
-					<p>Aquí podrá encontrar las noticias acerca de nuestros eventos y demás, CEUPROPSF.</p>
-					<div class="btn-group">
-                        <a class="btn btn-primary" href="#scroller" data-slide="prev"><i class="icon-angle-left"></i></a>
-                        <a class="btn btn-primary" href="#scroller" data-slide="next"><i class="icon-angle-right"></i></a>
-                    </div>
-					</div>
-					</div>
-				</div>
-			</div>
-			</div>
-		</div>
-		<div class="container">
-		<hr>
-
-		
-
-       	<div class="row">
-                <div class="col-md-12">
-                    <div id="scroller" class="carousel slide">
-                        <div class="carousel-inner">
-                        	
-                        	<?php 
-                        		$cont = 0;
-                        		$active = 'active';
-								foreach ($noticias as $noticia) {
-									$cont++;
-									if($cont==1){
-							?>
-							<div class="item <?php echo $active ?>">
-                                <div class="row">
-							<?php
-									}
-							?>
-							
-                                    <div class="col-md-4">
-                                        <div class="portfolio-item">
-                                            <div class="item-inner">
-                                                <div align="center">
-                                                	<img class="img-responsive" style="max-height:250px; min-height:250px; max-width:450px" src="<?=base_url()?>public/img/notices/<?php echo $noticia['not_ban'] ?>" alt="">
-                                                </div>
-                                                <h5>
-
-                                                
-                                                    <?php echo ($noticia['not_tit']); ?>
-                                                </h5>
-                                                <h9><?php echo ($noticia['not_fec_pub']); ?></h9>
-                                                <div class="overlay">
-                                                    <a class="preview btn btn-primary" title="Ver Noticia" data-toggle="modal" data-target="#modal_noticia" onclick="verNoticia(<?php echo ($noticia['not_id']); ?>);" rel="prettyPhoto"><i class="icon-eye-open"></i></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>                            
-                                
-							<?php
-									if($cont==3){
-										$cont=0;
-							?>
-								</div><!--/.row-->
-                            </div><!--/.item-->
-							<?php
-									}
-
-									
-									$active = '';
-								}
-							?>
-								
-                            
-                            
-                            
-                        </div>
-                    </div>
-                </div>
-            </div><!--/.row-->		
-		</div>
-	</section>
-	<!-- /Section: noticias -->
-
 	<!-- Section: contact -->
     <section id="contact" class="home-section text-center">
 		<div class="heading-contact">
