@@ -24,6 +24,8 @@
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>static/css/toastr/toastr.min.css">
 		<link rel="shortcut icon" href="<?=base_url()?>static/img/logo1.png">
 		<link href="<?php echo base_url()?>static/css/simple-sidebar.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>static/css/jquery-ui.min.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>static/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>static/css/dataTables.bootstrap.css">
 
 
@@ -40,7 +42,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="<?=base_url()?>static/js/custom.js"></script>
 	<script src="<?=base_url()?>static/js/ajaxfileupload.js"></script>
-	
+	<script src="<?=base_url()?>static/js/jquery-ui.min.js"></script>
     <script src="<?php echo base_url()?>static/js/alls.js"></script>
 
     <!-- DataTable --> 
