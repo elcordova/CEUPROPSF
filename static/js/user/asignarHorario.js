@@ -446,7 +446,7 @@ $(function(){
 
 	function start()
 	{
-		$.post("/ceup/cdispensario/get/",$.getDataForCmbDis);
+		$.post("/ceup/ccita/getDispensario/",$.getDataForCmbDis);
 	}
 
 	window.onload = start;

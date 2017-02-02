@@ -223,5 +223,21 @@
 				echo json_encode($response);
 			}
 		}
+
+		public function getDispensario()
+		{
+			if($this->input->is_ajax_request())
+			{
+				$sql = "SELECT * FROM dispensario WHERE dis_est != FALSE";
+				$response = $this->mcita->statementSQL($sql);
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode(array("datos" => $response));
+			}
+			else
+			{
+				$response["mensaje"] = "Error 404";
+				echo json_encode($response);
+			}
+		}
 	}
  ?>
