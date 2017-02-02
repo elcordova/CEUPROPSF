@@ -31,7 +31,12 @@
                                   <legend class="scheduler-border">Nueva Cita</legend>         
                                   <?php if($this->session->userdata('tipo') == "1" || $this->session->userdata('tipo')== "3"): ?>                                  <div class="form-group">
                                     <label for="txtName">Seleccione al Paciente:</label>
-                                    <input class="form-control" id="usuario" name="usuario" style="font-size: 14px" placeholder="Ingrese el Nombre">
+                                    <div class="input-group">
+                                      <input class="form-control" id="usuario" name="usuario" style="font-size: 14px" placeholder="Ingrese el Nombre">
+                                      <span class="input-group-addon" id="btnBuscar">
+                                        <i class="fa fa-search"></i>
+                                      </span>
+                                    </div>                                    
                                   </div>
                                   <?php endif; ?>
                                   

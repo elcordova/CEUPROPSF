@@ -6,53 +6,64 @@ $(function(){
 	var med_cod_global, flag=0, dis_cod;
 
 	var auto = function(response){
-		$("#med_ced").val(response.medico.med_ced);
-		$("#med_nom").val(response.medico.nombre);					
-		$("#med_dir").val(response.medico.med_dir);
-		$("#med_tel").val(response.medico.med_tel);
-		$("#med_eml").val(response.medico.med_eml);
-		med_cod_global = response.medico.med_cod;
-		//$('#med_ced').attr('disabled',true);
-	};
-
-	$('#med_ced').autocomplete({
-		source: keywords , 
-		select: function(){
-			
-			$.ajax({
-				url: "/ceup/cmedico/getMedicoByCed/",
+		if(response.medico !== null)
+			{
+				$("#med_ced").val(response.medico.med_ced);
+				$("#med_nom").val(response.medico.nombre);					
+				$("#med_dir").val(response.medico.med_dir);
+				$("#med_tel").val(response.medico.med_tel);
+				$("#med_eml").val(response.medico.med_eml);
+				med_cod_global = response.medico.med_cod;
+			//$('#med_ced').attr('disabled',true);
+			}
+		};
+	
+	/******************************************
+	* BUSCAR EL MEDICO YA SE POR CEDULA O NOMBRE
+	********************************************/
+	function buscarMedico(url, valor)
+	{
+		$.ajax({
+				url: url,
 				type: "POST",
 				data: {
-						"med_ced":$("#med_ced").val()
+						"val":valor
 					  },
 				dataType : "json",
 				success: function(response){
 					auto(response);
 				},
+				error : function(response)
+				{
+					console.log(response);
+				}
 			});
+	}
 
+	$("#btnBuscarCed").on('click', function(event) {
+		event.preventDefault();
+		buscarMedico("/ceup/cmedico/getMedicoByCed/",$("#med_ced").val());
+	});
+
+	$("#btnBuscarNom").on('click', function(event) {
+		event.preventDefault();
+		buscarMedico("/ceup/cmedico/getMedicoByNom/",$("#med_nom").val());
+	});
+
+	$('#med_ced').autocomplete({
+		source: keywords , 
+		select: function(){
+			buscarMedico("/ceup/cmedico/getMedicoByCed/",$("#med_ced").val());
 		},
 	});
 
 	$('#med_nom').autocomplete({
 		source: keymedico , 
 		select: function(){
-			
-			$.ajax({
-				url: "/ceup/cmedico/getMedicoByNom/",
-				type: "POST",
-				data: {
-						"med_nom":$("#med_nom").val()
-					  },
-				dataType : "json",
-				success: function(response){
-					auto(response);
-				},
-			});
-
+			buscarMedico("/ceup/cmedico/getMedicoByNom/",$("#med_nom").val());
 		},
 	});
-	
+
 	$.getCed = function(response){
 		$.each(response.cedula, function(key, value){
 			keywords[key] = value.med_ced;			
