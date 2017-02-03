@@ -1,4 +1,5 @@
 $(function(){
+	/*
 	$("#products").on("click",function(e){
 		("#verificar").val('1');
 	});
@@ -16,6 +17,7 @@ $(function(){
 		$("#products1").addClass('active');
 		$("#products").removeClass('active');
 	}
+	*/
 
 
 

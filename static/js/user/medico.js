@@ -96,7 +96,7 @@ $(function(){
 										url: "/ceup/cmedico/getMedicoByCed/",
 										type: "POST",
 										data: {
-												"med_ced":$("#amed_ced").val()
+												"val":$("#amed_ced").val()
 											  },
 										dataType : "json",
 										success: function(response){
@@ -143,7 +143,7 @@ $(function(){
 										url: "/ceup/cmedico/getMedicoByNom/",
 										type: "POST",
 										data: {
-												"med_nom":$("#amed_nom").val()
+												"val":$("#amed_nom").val()
 											  },
 										dataType : "json",
 										success: function(response){
