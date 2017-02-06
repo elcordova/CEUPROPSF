@@ -91,6 +91,22 @@
 			}
 		}
 
+		public function get2()
+		{
+			if($this->input->is_ajax_request())
+			{
+				$sql	= "SELECT usu_ced FROM usuario";
+				$data = $this->musuario->viewquery($sql);
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode(array("datos"=>$data));
+			}
+			else
+			{
+				exit("No direct scrip");
+				show_404();
+			}
+		}
+
 		public function delete()
 		{
 			if($this->input->is_ajax_request())

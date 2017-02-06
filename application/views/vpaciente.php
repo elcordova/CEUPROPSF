@@ -35,11 +35,11 @@
                                         <div class="form-group">
                                             <label class="label-control col-sm-2" for="">Nombre:  </label>
                                             <div class="col-sm-4">
-                                                <input type="text" required="true" class="form-control" id="pac_nom" name="pac_nom" placeholder="Ingrese Nombre"/>
+                                                <input type="text" required="true" title="Ingrese solo letras" pattern="[aA-zZ;' ']*" class="form-control" id="pac_nom" name="pac_nom" placeholder="Ingrese Nombre"/>
                                             </div>
                                             <label class="label-control col-sm-2" for="">Apellido:</label>
                                             <div class="col-sm-4">
-                                                <input type="text" required="true" class="form-control" id="pac_ape" name="pac_ape" placeholder="Ingrese Apellido"/>
+                                                <input type="text" required="true" title="Ingrese solo letras" pattern="[aA-zZ;' ']*" class="form-control" id="pac_ape" name="pac_ape" placeholder="Ingrese Apellido"/>
                                             </div>
                                         </div>
                                         <div class="form-group">

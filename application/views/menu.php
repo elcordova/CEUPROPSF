@@ -79,14 +79,25 @@
                 <?php endif; ?>
 
                 <?php if($this->session->userdata('tipo') == '3'): ?><!-- SI ES USUARIO O MEDICO-->
+                    <li>
+                        <a href="<?php echo base_url()?>cpaciente/start"><i class="fa fa-wheelchair fa-lg"><span class="nav-label">  Pacientes</span></i></a>
+                    </li>
+
+                    <li>
+                        <a href="<?php echo base_url()?>cmedico/start"><i class="fa fa-user-md fa-lg"><span class="nav-label">  Medico</span></i></a>
+                    </li>
+
+                    <li>
+                        <a href="<?php echo base_url()?>cbrigada/start"><i class="fa fa-building-o fa-lg"><span class="nav-label">  Brigada</span></i></a>
+                    </li>
                     
                     <li>
                         <a href="<?php echo base_url()?>cconsultas/start"><i class="fa fa-stethoscope fa-lg"><span class="nav-label"> Consultas</span></i></a>
                     </li>
-
+                    <!--
                     <li>
                         <a href="<?php echo base_url()?>ccita/start"><i class="fa fa-book fa-lg"><span class="nav-label"> Cita</span></i></a>
-                    </li>
+                    </li>-->
 
                     <li>
                     <a href="<?php echo base_url()?>chistorial/start"><i class="fa fa-files-o fa-lg"> <span class="nav-label">Historial Paciente</span></i></a>
@@ -102,7 +113,7 @@
         </div>
             <ul class="nav navbar-top-links navbar-right">
                 <li>
-                    <span class="m-r-sm text-muted welcome-message">Bienvenidos a CEUPROPSF</span>
+                    <span class="m-r-sm text-muted welcome-message">Bienvenido a CEUPROPSF <?php echo $this->session->userdata('usu_nom') ?></span>
                 </li>
                 <li>
                     <a href="<?=base_url()?>index.php/administracion/logout"><i class="fa fa-sign-out"></i>Cerra Sesion</a>

@@ -66,7 +66,7 @@ $(function(){
 					$('#modalMedico').modal('hide');
 					limp_form_medico();
 					toastr.options={"progressBar": true}
-					toastr.success('Medico registrado con Exito!','Estado');
+					toastr.success('Medico registrado con Exito!, la contraseña es la cedula del Medico','Estado');
 					$('#tbMedico').DataTable().ajax.reload();
 				},
 				error: function(){
@@ -226,6 +226,7 @@ $(function(){
 		$('#bri_dir2').val(dir);
 		$('#bri_fec_ini2').val(fec_ini);
 		$('#bri_fec_fin2').val(fec_fin);
+		$('#tbMedico2').DataTable().ajax.reload();
 		var table = $('#tbMedico2').dataTable();
 		var nNodes = table.fnGetNodes();
 		//var data = table.rows();

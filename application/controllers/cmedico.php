@@ -89,6 +89,22 @@
 			}
 		}
 
+		public function get2()
+		{
+			if($this->input->is_ajax_request())
+			{
+				$sql	= "SELECT med_ced FROM medico";
+				$data = $this->mmedico->viewquery($sql);
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode(array("datos"=>$data));
+			}
+			else
+			{
+				exit("No direct scrip");
+				show_404();
+			}
+		}
+
 		public function delete()
 		{
 			if($this->input->is_ajax_request())

@@ -49,7 +49,7 @@
                                 <div id="icon-login-msg" class="glyphicon glyphicon-chevron-right"></div>
                                 <span id="text-login-msg">Ingrese su correo y contraseña</span>
                             </div>
-                            <input id="username" class="form-control" type="text" placeholder="Usuario" name="username" required>
+                            <input id="username" class="form-control" type="text" placeholder="Ingrese el correo electronico" name="username" required>
                             <input id="password" class="form-control" type="password" placeholder="Contraseña" name="password" required>                            
                          </div>
                         <div class="modal-footer">

@@ -30,7 +30,9 @@ class Welcome extends CI_Controller {
 									'estado'	=> $usuario->usu_est,
 									'conectado'	=> true,
 									'tipo'		=> $usuario->usu_tip_cod,
-									'usu_ced'	=> $usuario->usu_ced);
+									'usu_ced'	=> $usuario->usu_ced,
+									'usu_nom'	=> $usuario->usu_nom." ".$usuario->usu_ape);
+
 				$this->session->set_userdata($sesion_usuario);
 				redirect('Administracion');
 			}

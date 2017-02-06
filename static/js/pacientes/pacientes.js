@@ -1,28 +1,37 @@
 $(function(){
 
 	//$('table').DataTable();
+	var pacientes ;
+
+	$.getDataPac = function(response){
+		pacientes = response.datos;
+		//se agrego data-horcod y data-dmhcod
+	};
+	$.post("/ceup/cpaciente/get2/",$.getDataPac);
 
 	$('#frmPac').on("submit",function(){
 		event.preventDefault();
-		$.ajax({
-			type:"POST",
-			url: "/ceup/cpaciente/save/",
-			dataType: 'json',
-			data:$(this).serialize(),
-			
-			success: function(response){
-				limp_form_paciente();
-				toastr.options={"progressBar": true}
-				toastr.success('Paciente registrado con Exito!','Estado');
-				//$('#table').DataTable().ajax.reload();
-			},
+		if(validarCedula()){
+			$.ajax({
+				type:"POST",
+				url: "/ceup/cpaciente/save/",
+				dataType: 'json',
+				data:$(this).serialize(),
+				
+				success: function(response){
+					limp_form_paciente();
+					toastr.options={"progressBar": true}
+					toastr.success('Paciente registrado con Exito!','Estado');
+					//$('#table').DataTable().ajax.reload();
+				},
 
-			error: function(response){
-				console.log(response);
-				toastr.options={"progressBar": true}
-				toastr.error('Error al registrar paciente','Estado');
-			}
-		});
+				error: function(response){
+					console.log(response);
+					toastr.options={"progressBar": true}
+					toastr.error('Error al registrar paciente','Estado');
+				}
+			});
+		}
 	});
 	
 	function limp_form_paciente(){
@@ -225,96 +234,85 @@ $(function(){
 		pac_nom.focus();
 	});
 	
-	function validarFormulario(){
-
-            document.getElementById("frmPac").onsubmit=function(){
-
-                var cedula =  document.getElementById("pac_ced").value;
-                //Preguntamos si la cedula consta de 10 digitos
-                if(cedula.length == 10){
-                    if(cedula==2222222222){
-                        var box = bootbox.alert("La cedula "+cedula+" es incorrecta");
-                                    box.find('.modal-content').css({ color: '#0000', 'font-size': '1.5em'});
-                                    box.find('.btn-primary').css({'background-color': '#33CF64','border': '#33CF64 1px solid'});
-
-                        return false
-                    }
-                    //Obtenemos el digito de la region que sonlos dos primeros digitos
-                    var digito_region = cedula.substring(0,2);
-                    //Pregunto si la region existe ecuador se divide en 24 regiones
-                    if( digito_region >= 1 && digito_region <=24 ){
-                        // Extraigo el ultimo digito
-                        var ultimo_digito = cedula.substring(9,10);
-                        //Agrupo todos los pares y los sumo
-                        var pares = parseInt(cedula.substring(1,2)) + parseInt(cedula.substring(3,4)) + parseInt(cedula.substring(5,6)) + parseInt(cedula.substring(7,8));
-                        //Agrupo los impares, los multiplico por un factor de 2, si la resultante es > que 9 le restamos el 9 a la resultante
-                        var numero1 = cedula.substring(0,1);
-                        var numero1 = (numero1 * 2);
-                        if( numero1 > 9 ){ var numero1 = (numero1 - 9); }
-                        var numero3 = cedula.substring(2,3);
-                        var numero3 = (numero3 * 2);
-                        if( numero3 > 9 ){ var numero3 = (numero3 - 9); }
-                        var numero5 = cedula.substring(4,5);
-                        var numero5 = (numero5 * 2);
-                        if( numero5 > 9 ){ var numero5 = (numero5 - 9); }
-                        var numero7 = cedula.substring(6,7);
-                        var numero7 = (numero7 * 2);
-                        if( numero7 > 9 ){ var numero7 = (numero7 - 9); }
-                        var numero9 = cedula.substring(8,9);
-                        var numero9 = (numero9 * 2);
-                        if( numero9 > 9 ){ var numero9 = (numero9 - 9); }
-                        var impares = numero1 + numero3 + numero5 + numero7 + numero9;
-                        //Suma total
-                        var suma_total = (pares + impares);
-                        //extraemos el primero digito
-                        var primer_digito_suma = String(suma_total).substring(0,1);
-                        //Obtenemos la decena inmediata
-                        var decena = (parseInt(primer_digito_suma) + 1) * 10;
-                        //Obtenemos la resta de la decena inmediata - la suma_total esto nos da el digito validador
-                        var digito_validador = decena - suma_total;
-                        //Si el digito validador es = a 10 toma el valor de 0
-                        if(digito_validador == 10)
-                            var digito_validador = 0;
-
-                        //Validamos que el digito validador sea igual al de la cedula
-                        /*if(digito_validador == ultimo_digito){
-                            var usu =document.getElementById('pac_ced').value;
-                            usu=""+usu.slice(-9)
-                            {% for a in paci %}
-                                var ced=""+{{a.cedula}}
-                                if(usu == ced) {
-
-                                    var box = bootbox.alert("El numero de cedula ya existe");
-                                    box.find('.modal-content').css({ color: '#0000', 'font-size': '1.5em'});
-                                    box.find('.btn-primary').css({'background-color': '#33CF64','border': '#33CF64 1px solid'});
-                                    return false
-                                }
-                            {% endfor %}
-                            return true
-                        }else{
-
-                            var box = bootbox.alert("la cedula " + cedula + " es incorrecta");
-                            box.find('.modal-content').css({ color: '#0000', 'font-size': '1.5em'});
-                            box.find('.btn-primary').css({'background-color': '#33CF64','border': '#33CF64 1px solid'});
-                            return false
-                        }*/
-                    }else{
-                        // imprimimos en consola si la region no pertenece
-
-                        var box = bootbox.alert("Esta cedula no pertenece a ninguna region");
-                        box.find('.modal-content').css({ color: '#0000', 'font-size': '1.5em'});
-                        box.find('.btn-primary').css({'background-color': '#33CF64','border': '#33CF64 1px solid'});
-                        return false
-                    }
-                }else{
-                    //imprimimos en consola si la cedula tiene mas o menos de 10 digitos
-                    var box = bootbox.alert("Esta cedula no tiene 10 digitos");
-                    box.find('.modal-content').css({ color: '#0000', 'font-size': '1.5em'});
-                    box.find('.btn-primary').css({'background-color': '#33CF64','border': '#33CF64 1px solid'});
-                    return false
-                }
-
+	function validarCedula(){
+		$.post("/ceup/cpaciente/get2/",$.getDataPac);
+        var cedula =  document.getElementById("pac_ced").value;
+        //Preguntamos si la cedula consta de 10 digitos
+        if(cedula.length == 10){
+        	console.log("igual a 10");
+            if(cedula==2222222222){
+            	console.log("222222");
+                toastr.options={"progressBar": true}
+				toastr.info("La cedula "+cedula+" es incorrecta",'Aviso');
+                return false
             }
+            //Obtenemos el digito de la region que sonlos dos primeros digitos
+            var digito_region = cedula.substring(0,2);
+            //Pregunto si la region existe ecuador se divide en 24 regiones
+            if( digito_region >= 1 && digito_region <=24 ){
+                // Extraigo el ultimo digito
+                var ultimo_digito = cedula.substring(9,10);
+                //Agrupo todos los pares y los sumo
+                var pares = parseInt(cedula.substring(1,2)) + parseInt(cedula.substring(3,4)) + parseInt(cedula.substring(5,6)) + parseInt(cedula.substring(7,8));
+                //Agrupo los impares, los multiplico por un factor de 2, si la resultante es > que 9 le restamos el 9 a la resultante
+                var numero1 = cedula.substring(0,1);
+                var numero1 = (numero1 * 2);
+                if( numero1 > 9 ){ var numero1 = (numero1 - 9); }
+                var numero3 = cedula.substring(2,3);
+                var numero3 = (numero3 * 2);
+                if( numero3 > 9 ){ var numero3 = (numero3 - 9); }
+                var numero5 = cedula.substring(4,5);
+                var numero5 = (numero5 * 2);
+                if( numero5 > 9 ){ var numero5 = (numero5 - 9); }
+                var numero7 = cedula.substring(6,7);
+                var numero7 = (numero7 * 2);
+                if( numero7 > 9 ){ var numero7 = (numero7 - 9); }
+                var numero9 = cedula.substring(8,9);
+                var numero9 = (numero9 * 2);
+                if( numero9 > 9 ){ var numero9 = (numero9 - 9); }
+                var impares = numero1 + numero3 + numero5 + numero7 + numero9;
+                //Suma total
+                var suma_total = (pares + impares);
+                //extraemos el primero digito
+                var primer_digito_suma = String(suma_total).substring(0,1);
+                //Obtenemos la decena inmediata
+                var decena = (parseInt(primer_digito_suma) + 1) * 10;
+                //Obtenemos la resta de la decena inmediata - la suma_total esto nos da el digito validador
+                var digito_validador = decena - suma_total;
+                //Si el digito validador es = a 10 toma el valor de 0
+                if(digito_validador == 10)
+                    var digito_validador = 0;
+
+            
+                if(digito_validador == ultimo_digito){
+                	var usu =document.getElementById('pac_ced').value;
+                	for(p in pacientes){
+                    	var ced = pacientes[p].pac_ced
+                    	if(usu==ced){
+                    		toastr.options={"progressBar": true}
+							toastr.info('El numero de cedula ya existe','Aviso');
+                    		return false
+                    	}
+                    }
+                	return true
+                }else{
+                	toastr.options={"progressBar": true}
+					toastr.info('la cédula: ' + cedula + ' es incorrecta','Aviso');
+                	return false
+                }
+            }else{
+                // imprimimos en consola si la region no pertenece
+                toastr.options={"progressBar": true}
+				toastr.info('Esta cedula no pertenece a ninguna region','Aviso');
+                return false
+            }
+        }else{
+            //imprimimos en consola si la cedula tiene mas o menos de 10 digitos
+           	toastr.options={"progressBar": true}
+			toastr.info('Esta cedula no tiene 10 digitos','Aviso');
+            return false
         }
+
+    }
 });
 

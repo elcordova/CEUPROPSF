@@ -88,6 +88,22 @@ class Cpaciente extends CI_Controller {
 			}
 		}
 
+		public function get2()
+		{
+			if($this->input->is_ajax_request())
+			{
+				$sql	= "SELECT pac_ced FROM paciente";
+				$data = $this->mpaciente->viewquery($sql);
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode(array("datos"=>$data));
+			}
+			else
+			{
+				exit("No direct scrip");
+				show_404();
+			}
+		}
+		
 		public function delete()
 		{
 			if($this->input->is_ajax_request())
