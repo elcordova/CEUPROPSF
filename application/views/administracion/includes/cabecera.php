@@ -25,9 +25,9 @@
 		<link rel="shortcut icon" href="<?=base_url()?>static/img/logo1.png">
 		<link href="<?php echo base_url()?>static/css/simple-sidebar.css" rel="stylesheet">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>static/css/jquery-ui.min.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>static/css/dataTables.bootstrap.css">
 		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>static/css/jquery.dataTables.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>static/css/dataTables.bootstrap.css">
-
+    
 
 	<!-- Core JavaScript Files -->
    

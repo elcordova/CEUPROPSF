@@ -1,8 +1,41 @@
 $(document).ready(function(){
 
 	$('#sel_aparato').on('change', function() {
-		cargar_datos();
+    cargar_datos();
 	});
+
+  function verificar_sistema(){
+    habilitar_divs();
+    if ($('#sel_aparato').val()==1){  //RESPIRATORIO
+      $('#div_tacto').css("display", "none");
+      $('#div_sistema_ner').css("display", "none");
+    }
+    if ($('#sel_aparato').val()==2){ //CARDIACO
+      $('#div_tacto').css("display", "none");
+      $('#div_sistema_ner').css("display", "none");
+    }
+    if ($('#sel_aparato').val()==3){  //DIGESTIVO
+      $('#div_tacto').css("display", "none");
+      $('#div_sistema_ner').css("display", "none");
+    }
+    if ($('#sel_aparato').val()==4){ //GENITO URINARIO
+       $('#div_sistema_ner').css("display", "none");
+    }
+    if ($('#sel_aparato').val()==5){  //SOMA
+       $('#div_tacto').css("display", "none");
+       $('#div_percusion').css("display", "none");
+       $('#div_auscultacion').css("display", "none");
+    }
+  }
+
+  function habilitar_divs(){
+    $('#div_tacto').css("display", "block");
+    $('#div_sistema_ner').css("display", "block");
+    $('#div_percusion').css("display", "block");
+    $('#div_auscultacion').css("display", "block");
+    $('#div_inspeccion').css("display", "block");
+    $('#div_palpacion').css("display", "block");
+  }
 
 	function cargar_aparatos () {
 		$('#sel_aparato').empty();
@@ -34,6 +67,7 @@ $(document).ready(function(){
 		   		data:{'as_id':$('#sel_aparato').val(),'con_id':$('#cod_consulta').val()},
 		   		dataType:'json',
 		   		success:function(res){
+            verificar_sistema();
 		   			console.info(res);
 		   			$('#ras_inspeccion').val(res['ras_inspeccion']);
 					$('#ras_palpacion').val(res['ras_palpacion']);
@@ -60,6 +94,7 @@ $(document).ready(function(){
 		$('#sel_aparato').empty();
 		cargar_aparatos();
  			$('#modal_ras').modal('show');
+
  	});
 
 

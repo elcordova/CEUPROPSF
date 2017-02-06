@@ -26,38 +26,38 @@
 													</select>
 												</div>
 
-												<div class="form-group">
+												<div class="form-group" id="div_inspeccion">
 													<label for="ras_inspeccion">Inspeccion :</label>
 													<input type="text" class="form-control" id="ras_inspeccion" name="ras_inspeccion">
 												</div>
 
 												
-												<div class="form-group">
+												<div class="form-group" id="div_palpacion">
 													<label for="ras_palpacion">Palpacion :</label>
 													<input type="text" class="form-control" id="ras_palpacion" name="ras_palpacion">
 												</div>
 
 
 												
-												<div class="form-group">
+												<div class="form-group" id="div_percusion">
 													<label for="ras_percusion">Percusion :</label>
 													<input type="text" class="form-control" id="ras_percusion" name="ras_percusion">
 												</div>
 
 
-												<div class="form-group">
+												<div class="form-group" id="div_auscultacion">
 													<label for="ras_auscultacion">Auscultacion :</label>
 													<input type="text" class="form-control" id="ras_auscultacion" name="sel_auscultacion">
 												</div>
 
 
-												<div class="form-group">
+												<div class="form-group" id="div_tacto">
 													<label for="ras_tacto_rectal">Tacto Rectal :</label>
 													<input type="text" class="form-control" id="ras_tacto_rectal" name="ras_tacto_rectal">
 												</div>
 
 
-												<div class="form-group">
+												<div class="form-group" id="div_sistema_ner">
 													<label for="ras_sistema_nervioso">Sistema Nervioso :</label>
 													<input type="text" class="form-control" id="ras_sistema_nervioso" name="ras_sistema_nervioso">
 												</div>
