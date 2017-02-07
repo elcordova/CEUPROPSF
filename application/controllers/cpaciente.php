@@ -33,6 +33,16 @@ class Cpaciente extends CI_Controller {
 				'pac_tip_san'	=> $this->input->post('pac_tip_san'),
 				'pac_est_civ'	=> $this->input->post('pac_est_civ'),
 				'pac_est'		=> true,
+				'pac_ali'		=> $this->input->post('pac_ali'),
+				'pac_act_fis'	=> $this->input->post('pac_act_fis'),
+				'pac_sue'		=> $this->input->post('pac_sue'),
+				'pac_hig'		=> $this->input->post('pac_hig'),
+				'pac_mic'		=> $this->input->post('pac_mic'),
+				'pac_dep'		=> $this->input->post('pac_dep'),
+				'pac_alc'		=> $this->input->post('pac_alc'),
+				'pac_tab'		=> $this->input->post('pac_tab'),
+				'pac_dro'		=> $this->input->post('pac_dro'),
+				'pac_otr'		=> $this->input->post('pac_otr'),
 				);
 				
 				$response = $this->mpaciente->save($data);
@@ -72,6 +82,33 @@ class Cpaciente extends CI_Controller {
 			}
 		}
 
+		public function update2()
+		{
+			if($this->input->is_ajax_request())
+			{
+				$data = array(
+				'pac_ali'		=> $this->input->post('pac_ali'),
+				'pac_act_fis'	=> $this->input->post('pac_act_fis'),
+				'pac_sue'		=> $this->input->post('pac_sue'),
+				'pac_hig'		=> $this->input->post('pac_hig'),
+				'pac_mic'		=> $this->input->post('pac_mic'),
+				'pac_dep'		=> $this->input->post('pac_dep'),
+				'pac_alc'		=> $this->input->post('pac_alc'),
+				'pac_tab'		=> $this->input->post('pac_tab'),
+				'pac_dro'		=> $this->input->post('pac_dro'),
+				'pac_otr'		=> $this->input->post('pac_otr'),
+				);
+				$where = array(
+				'pac_ced' => $this->input->post('pac_ced')
+					);
+				$response = $this->mpaciente->update($data,$where);
+				echo json_encode($response);
+			}
+			else
+			{
+				echo json_encode($response);
+			}
+		}
 		
 		public function get()
 		{

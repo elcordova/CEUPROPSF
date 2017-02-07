@@ -70,6 +70,9 @@ $(function(){
 	
 	var btnsOpTblModels = "<button style='border: 0; background: transparent' data-target='#modalPaciente' data-toggle='modal' onclick='$.editarModal($(this).parent())'>"+
 							"<span class='glyphicon glyphicon-edit' title='Modificar'></span>"+
+						  "</button>"+
+						  "<button style='border: 0; background: transparent' data-target='#modalPacienteAntecedente' data-toggle='modal' onclick='$.editarModalAntecedentes($(this).parent())'>"+
+							"<span class='glyphicon glyphicon-folder-open' title='Editar Antecedentes'></span>"+
 						  "</button>";
 
 	$.renderizeRow = function( nRow, aData, iDataIndex ) {
@@ -94,6 +97,16 @@ $(function(){
 		$(nRow).attr('data-pac_tip_san',aData['pac_tip_san']);
 		$(nRow).attr('data-pac_est_civ',aData['pac_est_civ']);
 		$(nRow).attr('data-pac_est',aData['pac_est']);
+		$(nRow).attr('data-pac_ali',aData['pac_ali']);
+		$(nRow).attr('data-pac_act_fis',aData['pac_act_fis']);
+		$(nRow).attr('data-pac_sue',aData['pac_sue']);
+		$(nRow).attr('data-pac_hig',aData['pac_hig']);
+		$(nRow).attr('data-pac_mic',aData['pac_mic']);
+		$(nRow).attr('data-pac_dep',aData['pac_dep']);
+		$(nRow).attr('data-pac_alc',aData['pac_alc']);
+		$(nRow).attr('data-pac_tab',aData['pac_tab']);
+		$(nRow).attr('data-pac_dro',aData['pac_dro']);
+		$(nRow).attr('data-pac_otr',aData['pac_otr']);
 	};
 	
 
@@ -165,7 +178,7 @@ $(function(){
 			}
 		});
 	};
-
+	
 	$.editarModal = function(td)
 	{
 		var tr = $(td).parent().children();
@@ -234,6 +247,73 @@ $(function(){
 		pac_nom.focus();
 	});
 	
+	var cedula;
+	$.editarModalAntecedentes = function(td)
+	{
+		var tr = $(td).parent().children();
+		cedula = tr[0].textContent;
+		var id  = $(td).parent().attr('id')
+		var ali = $(td).parent().attr('data-pac_ali')
+		var act_fis = $(td).parent().attr('data-pac_act_fis')
+		var sue = $(td).parent().attr('data-pac_sue')
+		var hig = $(td).parent().attr('data-pac_hig')
+		var mic = $(td).parent().attr('data-pac_mic')
+		var dep = $(td).parent().attr('data-pac_dep')
+		var alc = $(td).parent().attr('data-pac_alc')
+		var tab = $(td).parent().attr('data-pac_tab')
+		var dro = $(td).parent().attr('data-pac_dro')
+		var otr = $(td).parent().attr('data-pac_otr')
+		$('#myModalLabel2').html("Editar Antecedentes");
+		$('#pac_ali2').val(ali);
+		$('#pac_act_fis2').val(act_fis);
+		$('#pac_sue2').val(sue);
+		$('#pac_hig2').val(hig);
+		$('#pac_mic2').val(mic);
+		$('#pac_dep2').val(dep);
+		$('#pac_alc2').val(alc);
+		$('#pac_tab2').val(tab);
+		$('#pac_dro2').val(dro);
+		$('#pac_otr2').val(otr);
+		
+	}
+
+	$('#btnModalAntecedenteGuardar').click(function(){
+		event.preventDefault();
+		$.ajax({
+			type: "POST",
+			data: { 
+					"pac_ced": cedula,
+					"pac_ali": $('#pac_ali2').val(),
+					"pac_act_fis": $('#pac_act_fis2').val(), 
+					"pac_sue": $('#pac_sue2').val(), 
+					"pac_hig": $('#pac_hig2').val(),
+					"pac_mic": $('#pac_mic2').val(),
+					"pac_dep": $('#pac_dep2').val(),
+					"pac_alc": $('#pac_alc2').val(),
+					"pac_tab": $('#pac_tab2').val(),
+					"pac_dro": $('#pac_dro2').val(),
+					"pac_otr": $('#pac_otr2').val()
+					},
+			url: "/ceup/cpaciente/update2/",
+			dataType: 'json',			
+			
+			success: function(response){
+				$('#modalPacienteAntecedente').modal('hide');				
+				//$.notify("Medico editado con exito","success");
+				toastr.options={"progressBar": true}
+				toastr.success('Antecedentes de Paciente modificado con Exito!','Estado');
+				$('#tbPaciente').DataTable().ajax.reload();
+			},
+
+			error: function(response){
+				//$.notify("Error al editar paciente","error");
+				toastr.options={"progressBar": true}
+				toastr.error('Error al editar antecedentes de paciente!','Estado');
+			}
+
+		});
+	});
+
 	function validarCedula(){
 		$.post("/ceup/cpaciente/get2/",$.getDataPac);
         var cedula =  document.getElementById("pac_ced").value;

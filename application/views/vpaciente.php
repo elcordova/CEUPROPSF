@@ -96,6 +96,68 @@
                                                 </select>
                                             </div>
                                         </div>
+        
+                                         <div align="left">
+                                            <legend class="scheduler-border"><span class="nav-label"><h4>ANTECEDENTES PERSONALES NO PATOLÓGICOS</h4></span></legend>
+                                        </div>
+                                        <div class="form-group">
+                                            <div align="center">
+                                                <label class="label-control col-sm-6">Toxico</label>
+                                                <label class="label-control col-sm-6">No Toxico</label>
+                                            </div>                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Alimentacion:  </label>
+                                                <textarea type="text" class="form-control" id="pac_ali" name="pac_ali" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Alcohol:</label>
+                                                <textarea type="text" class="form-control" id="pac_alc" name="pac_alc" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Actividad física:  </label>
+                                                <textarea type="text" class="form-control" id="pac_act_fis" name="pac_act_fis" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Tabaco:</label>
+                                                <textarea type="text" class="form-control" id="pac_tab" name="pac_tab" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Sueño:  </label>
+                                                <textarea type="text" class="form-control" id="pac_sue" name="pac_sue" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Drogas:</label>
+                                                <textarea type="text" class="form-control" id="pac_dro" name="pac_dro" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Hiegiene:  </label>
+                                                <textarea type="text" class="form-control" id="pac_hig" name="pac_hig" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Otros:</label>
+                                                <textarea type="text" class="form-control" id="pac_otr" name="pac_otr" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Micción:  </label>
+                                                <textarea type="text" class="form-control" id="pac_mic" name="pac_mic" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Deposición:  </label>
+                                                <textarea type="text" class="form-control" id="pac_dep" name="pac_dep" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
                                     </fieldset>                        
                                     <!-- ************* BOTONES ***************-->
                                     <div class="row">
@@ -246,6 +308,85 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban">  </i><span class="nav-label"> Cancelar</span></button>
                             <a href="" type="button" class="btn btn-primary" id="btnModalGuardar"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></a>
+                        </div>                
+                    </div>
+                 </div>
+            </div>    
+        </div>
+    <!-- ********************* MODAL ANTECEDENTES **************************************** -->
+    <div class="row">
+            <div class="modal fade"  id="modalPacienteAntecedente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+                <div class="modal-dialog" style="width:800px">
+                    <div class="modal-content panel panel-primary">
+                        <div class="modal-header panel panel-heading">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title fa fa-pencil-square-o" id="myModalLabel2" style="text-align: center;"></h4>
+                        </div>                   
+                        <div class="modal-body" >
+                            <form id="frmPac2" class="form-horizontal">
+                                <div class="form-group">
+                                            <div align="center">
+                                                <label class="label-control col-sm-6">Toxico</label>
+                                                <label class="label-control col-sm-6">No Toxico</label>
+                                            </div>                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Alimentacion:  </label>
+                                                <textarea type="text" class="form-control" id="pac_ali2" name="pac_ali2" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Alcohol:</label>
+                                                <textarea type="text" class="form-control" id="pac_alc2" name="pac_alc2" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Actividad física:  </label>
+                                                <textarea type="text" class="form-control" id="pac_act_fis2" name="pac_act_fis2" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Tabaco:</label>
+                                                <textarea type="text" class="form-control" id="pac_tab2" name="pac_tab2" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Sueño:  </label>
+                                                <textarea type="text" class="form-control" id="pac_sue2" name="pac_sue2" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Drogas:</label>
+                                                <textarea type="text" class="form-control" id="pac_dro2" name="pac_dro2" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Hiegiene:  </label>
+                                                <textarea type="text" class="form-control" id="pac_hig2" name="pac_hig2" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Otros:</label>
+                                                <textarea type="text" class="form-control" id="pac_otr2" name="pac_otr2" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Micción:  </label>
+                                                <textarea type="text" class="form-control" id="pac_mic2" name="pac_mic2" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Deposición:  </label>
+                                                <textarea type="text" class="form-control" id="pac_dep2" name="pac_dep2" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                            </form>
+                        </div>           
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban">  </i><span class="nav-label"> Cancelar</span></button>
+                            <a href="" type="button" class="btn btn-primary" id="btnModalAntecedenteGuardar"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></a>
                         </div>                
                     </div>
                  </div>
