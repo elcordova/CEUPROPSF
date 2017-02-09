@@ -44,6 +44,34 @@ $(function(){
 		$('#pac_fec_nac').val("");
 		$('#pac_tip_san').val("");
 		$('#pac_est_civ').val("");
+		$('#pac_g').val("");
+		$('#pac_p').val("");
+		$('#pac_c').val("");
+		$('#pac_a').val("");
+		$('#pac_hv').val("");
+		$('#pac_hm').val("");
+		$('#pac_fup').val("");
+		$('#pac_fuc').val("");
+		$('#pac_menar').val("");
+		$('#pac_cic_men').val("");
+		$('#pac_fum').val("");
+		$('#pac_menos').val("");
+		$('#pac_pap').val("");
+		$('#pac_mam').val("");
+		$('#pac_ant').val("");
+		$('#pac_met_ant').val("");
+		$('#pac_ivs').val("");
+		$('#pac_par_sex').val("");
+		$('#pac_ali').val("");
+		$('#pac_alc').val("");
+		$('#pac_act_fis').val("");
+		$('#pac_tab').val("");
+		$('#pac_sue').val("");
+		$('#pac_dro').val("");
+		$('#pac_hig').val("");
+		$('#pac_otr').val("");
+		$('#pac_mic').val("");
+		$('#pac_dep').val("");
 	}
 
 
@@ -107,6 +135,24 @@ $(function(){
 		$(nRow).attr('data-pac_tab',aData['pac_tab']);
 		$(nRow).attr('data-pac_dro',aData['pac_dro']);
 		$(nRow).attr('data-pac_otr',aData['pac_otr']);
+		$(nRow).attr('data-pac_g',aData['pac_g']);
+		$(nRow).attr('data-pac_p',aData['pac_p']);
+		$(nRow).attr('data-pac_c',aData['pac_c']);
+		$(nRow).attr('data-pac_a',aData['pac_a']);
+		$(nRow).attr('data-pac_hv',aData['pac_hv']);
+		$(nRow).attr('data-pac_hm',aData['pac_hm']);
+		$(nRow).attr('data-pac_fup',aData['pac_fup']);
+		$(nRow).attr('data-pac_fuc',aData['pac_fuc']);
+		$(nRow).attr('data-pac_menar',aData['pac_menar']);
+		$(nRow).attr('data-pac_cic_men',aData['pac_cic_men']);
+		$(nRow).attr('data-pac_fum',aData['pac_fum']);
+		$(nRow).attr('data-pac_menos',aData['pac_menos']);
+		$(nRow).attr('data-pac_pap',aData['pac_pap']);
+		$(nRow).attr('data-pac_mam',aData['pac_mam']);
+		$(nRow).attr('data-pac_ant',aData['pac_ant']);
+		$(nRow).attr('data-pac_met_ant',aData['pac_met_ant']);
+		$(nRow).attr('data-pac_ivs',aData['pac_ivs']);
+		$(nRow).attr('data-pac_par_sex',aData['pac_par_sex']);
 	};
 	
 
@@ -203,8 +249,32 @@ $(function(){
 		$('#pac_fec_nac2').val(fec);
 		$('#pac_tip_san2').val(san);
 		$('#pac_est_civ2').val(civ);
-		//$('#pac_est2').val(est);
 		$("#pac_est2").prop("checked", est);
+		$('#pac_g2').val($(td).parent().attr('data-pac_g'));
+		$('#pac_p2').val($(td).parent().attr('data-pac_p'));
+		$('#pac_c2').val($(td).parent().attr('data-pac_c'));
+		$('#pac_a2').val($(td).parent().attr('data-pac_a'));
+		$('#pac_hv2').val($(td).parent().attr('data-pac_hv'));
+		$('#pac_hm2').val($(td).parent().attr('data-pac_hm'));
+		$('#pac_fup2').val($(td).parent().attr('data-pac_fup'));
+		$('#pac_fuc2').val($(td).parent().attr('data-pac_fuc'));
+		$('#pac_menar2').val($(td).parent().attr('data-pac_menar'));
+		$('#pac_cic_men2').val($(td).parent().attr('data-pac_cic_men'));
+		$('#pac_fum2').val($(td).parent().attr('data-pac_fum'));
+		$('#pac_menos2').val($(td).parent().attr('data-pac_menos'));
+		$('#pac_pap2').val($(td).parent().attr('data-pac_pap'));
+		$('#pac_mam2').val($(td).parent().attr('data-pac_mam'));
+		$('#pac_ant2').val($(td).parent().attr('data-pac_ant'));
+		$('#pac_met_ant2').val($(td).parent().attr('data-pac_met_ant'));
+		$('#pac_ivs2').val($(td).parent().attr('data-pac_ivs'));
+		$('#pac_par_sex2').val($(td).parent().attr('data-pac_par_sex'));
+
+		if(sex == 'Femenino'){
+			$('#mujer2').show();
+		}else{
+			$('#mujer2').hide();
+		}
+
 	};
 
 	$('#btnModalGuardar').click(function(){
@@ -221,7 +291,26 @@ $(function(){
 					"pac_fec_nac": $('#pac_fec_nac2').val(),
 					"pac_tip_san": $('#pac_tip_san2').val(),
 					"pac_est_civ": $('#pac_est_civ2').val(),
-					"pac_est": $('#pac_est2').prop('checked')
+					"pac_est": $('#pac_est2').prop('checked'),
+					"pac_otr": $('#pac_otr2').val(),
+					"pac_g": $('#pac_g2').val(),
+					"pac_p": $('#pac_p2').val(),
+					"pac_c": $('#pac_c2').val(),
+					"pac_a": $('#pac_a2').val(),
+					"pac_hv": $('#pac_hv2').val(),
+					"pac_hm": $('#pac_hm2').val(),
+					"pac_fup": $('#pac_fup2').val(),
+					"pac_fuc": $('#pac_fuc2').val(),
+					"pac_menar": $('#pac_menar2').val(),
+					"pac_cic_men": $('#pac_cic_men2').val(),
+					"pac_fum": $('#pac_fum2').val(),
+					"pac_menos": $('#pac_menos2').val(),
+					"pac_pap": $('#pac_pap2').val(),
+					"pac_mam": $('#pac_mam2').val(),
+					"pac_ant": $('#pac_ant2').val(),
+					"pac_met_ant": $('#pac_met_ant2').val(),
+					"pac_ivs": $('#pac_ivs2').val(),
+					"pac_par_sex": $('#pac_par_sex2').val()
 					},
 			url: "/ceup/cpaciente/update/",
 			dataType: 'json',			
@@ -247,6 +336,24 @@ $(function(){
 		pac_nom.focus();
 	});
 	
+	$('#pac_sex').change(function(){
+		var valor = $(this).val();
+		if(valor == 'Femenino'){
+			$('#mujer').show();
+		}else{
+			$('#mujer').hide();
+		}
+	});
+
+	$('#pac_sex2').change(function(){
+		var valor = $(this).val();
+		if(valor == 'Femenino'){
+			$('#mujer2').show();
+		}else{
+			$('#mujer2').hide();
+		}
+	});
+
 	var cedula;
 	$.editarModalAntecedentes = function(td)
 	{
@@ -292,6 +399,7 @@ $(function(){
 					"pac_alc": $('#pac_alc2').val(),
 					"pac_tab": $('#pac_tab2').val(),
 					"pac_dro": $('#pac_dro2').val(),
+					"pac_otr": $('#pac_otr2').val(),
 					"pac_otr": $('#pac_otr2').val()
 					},
 			url: "/ceup/cpaciente/update2/",
