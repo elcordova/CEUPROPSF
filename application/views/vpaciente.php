@@ -18,14 +18,15 @@
                       
                       <div class="panel-body">                        
                         <div class="row">
-                            <div id="divFrmUsuario" class="col-md-8 col-md-offset-2" style="border: 1px solid #ccc; padding:10px 35px 40px 35px;background-color:#FFF;">    
+                            <div id="divFrmUsuario" class="col-md-10 col-md-offset-1" style="border: 1px solid #ccc; padding:10px 35px 40px 35px;background-color:#FFF;">    
                                 <form id="frmPac" class="form-horizontal">
                                     <!--*************************FORMULARIO*************************** -->
                                     <fieldset class="scheduler-border">
                                         <div align="center">
                                             <legend class="scheduler-border"><i class="fa fa-wheelchair">  </i><span class="nav-label"> Nuevo Paciente</span></legend>
                                         </div>
-                                                 
+                                        <div class="row">
+                                        <div class="col-md-8 col-md-offset-2">    
                                         <div class="form-group">
                                             <label class="label-control col-sm-2" for="">Cédula:</label>
                                             <div class="col-sm-4">
@@ -96,11 +97,172 @@
                                                 </select>
                                             </div>
                                         </div>
+
+                                        </div>
+                                        </div>
+
+                                        <div id="mujer" hidden>
+                                            <div class="form-group">
+                                                <label class="label-control col-sm-1">G:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_g" name="pac_g" placeholder="" />
+                                                </div>
+                                                <label class="label-control col-sm-1">P:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_p" name="pac_p" placeholder="" />
+                                                </div>
+                                                <label class="label-control col-sm-1">C:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_c" name="pac_c" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="label-control col-sm-1">A:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_a" name="pac_a" placeholder="" />
+                                                </div>
+                                                <label class="label-control col-sm-1">HV:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_hv" name="pac_hv" placeholder="" />
+                                                </div>
+                                                <label class="label-control col-sm-1">HM:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_hm" name="pac_hm" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="label-control col-sm-1">FUP:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_fup" name="pac_fup" placeholder="" />
+                                                </div>
+                                                <label class="label-control col-sm-1">FUC:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_fuc" name="pac_fuc" placeholder="" />
+                                                </div>
+                                                <label class="label-control col-sm-1">Menarquía:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_menar" name="pac_menar" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="label-control col-sm-1" for="Ciclos" style="display: block; font-size: 10px;">Ciclos menstruales:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_cic_men" name="pac_cic_men" placeholder=""  />
+                                                </div>
+                                                <label class="label-control col-sm-1">FUM:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_fum" name="pac_fum" placeholder="" />
+                                                </div>
+                                                <label class="label-control col-sm-1" style="display: block; font-size: 11px;">Menos- pausia:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_menos" name="pac_menos" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="label-control col-sm-1">PAP:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_pap" name="pac_pap" placeholder="" />
+                                                </div>
+                                                <label class="label-control col-sm-1">Mamografía:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_mam" name="pac_mam" placeholder="" />
+                                                </div>
+                                                <label class="label-control col-sm-1">Anticoncepción:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_ant" name="pac_ant" placeholder="" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="label-control col-sm-1">Método anticonceptivo:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_met_ant" name="pac_met_ant" placeholder="" />
+                                                </div>
+                                                <label class="label-control col-sm-1">IVSA:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_ivs" name="pac_ivs" placeholder="" />
+                                                </div>
+                                                <label class="label-control col-sm-1">Parejas Sexuales:</label>
+                                                <div class="col-sm-3">
+                                                    <input type="text"  class="form-control" id="pac_par_sex" name="pac_par_sex" placeholder="" />
+                                                </div>
+                                            </div>    
+                                        </div>
+                                        
+        
+                                         
+                                        <div class="row">
+                                            <div class="col-md-8 col-md-offset-2">
+                                        
+                                        <div align="left">
+                                            <legend class="scheduler-border"><span class="nav-label"><h4>ANTECEDENTES PERSONALES NO PATOLÓGICOS</h4></span></legend>
+                                        </div>
+                                            
+                                        <div class="form-group">
+                                            <div align="center">
+                                                <label class="label-control col-sm-6">Toxico</label>
+                                                <label class="label-control col-sm-6">No Toxico</label>
+                                            </div>                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Alimentacion:  </label>
+                                                <textarea type="text" class="form-control" id="pac_ali" name="pac_ali" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Alcohol:</label>
+                                                <textarea type="text" class="form-control" id="pac_alc" name="pac_alc" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Actividad física:  </label>
+                                                <textarea type="text" class="form-control" id="pac_act_fis" name="pac_act_fis" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Tabaco:</label>
+                                                <textarea type="text" class="form-control" id="pac_tab" name="pac_tab" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Sueño:  </label>
+                                                <textarea type="text" class="form-control" id="pac_sue" name="pac_sue" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Drogas:</label>
+                                                <textarea type="text" class="form-control" id="pac_dro" name="pac_dro" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Hiegiene:  </label>
+                                                <textarea type="text" class="form-control" id="pac_hig" name="pac_hig" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Otros:</label>
+                                                <textarea type="text" class="form-control" id="pac_otr" name="pac_otr" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Micción:  </label>
+                                                <textarea type="text" class="form-control" id="pac_mic" name="pac_mic" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Deposición:  </label>
+                                                <textarea type="text" class="form-control" id="pac_dep" name="pac_dep" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+
+                                            </div>
+                                        </div>
                                     </fieldset>                        
                                     <!-- ************* BOTONES ***************-->
                                     <div class="row">
                                         <div align="center">
-                                            <button type="submit" onclick="validarFormulario()" class="btn btn-primary btn-large"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></button>
+                                            <button type="submit" onclick="" class="btn btn-primary btn-large"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></button>
                                         </div>
                                     </div>
                                     <!-- ************* BOTONES ***************-->
@@ -241,11 +403,178 @@
                                         </select>
                                     </div>
                                 </div>
+
+                                <div id="mujer2" hidden>
+                                    <div class="form-group">
+                                        <label class="label-control col-sm-1">G:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_g2" name="pac_g2" placeholder="" />
+                                        </div>
+                                        <label class="label-control col-sm-1">P:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_p2" name="pac_p2" placeholder="" />
+                                        </div>
+                                        <label class="label-control col-sm-1">C:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_c2" name="pac_c2" placeholder="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label-control col-sm-1">A:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_a2" name="pac_a2" placeholder="" />
+                                        </div>
+                                        <label class="label-control col-sm-1">HV:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_hv2" name="pac_hv2" placeholder="" />
+                                        </div>
+                                        <label class="label-control col-sm-1">HM:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_hm2" name="pac_hm2" placeholder="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label-control col-sm-1">FUP:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_fup2" name="pac_fup2" placeholder="" />
+                                        </div>
+                                        <label class="label-control col-sm-1">FUC:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_fuc2" name="pac_fuc2" placeholder="" />
+                                        </div>
+                                        <label class="label-control col-sm-1">Menarquía:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_menar2" name="pac_menar2" placeholder="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label-control col-sm-1" for="Ciclos" style="display: block; font-size: 10px;">Ciclos menstruales:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_cic_men2" name="pac_cic_men2" placeholder=""  />
+                                        </div>
+                                        <label class="label-control col-sm-1">FUM:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_fum2" name="pac_fum2" placeholder="" />
+                                        </div>
+                                        <label class="label-control col-sm-1" style="display: block; font-size: 11px;">Menos- pausia:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_menos2" name="pac_menos2" placeholder="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label-control col-sm-1">PAP:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_pap2" name="pac_pap2" placeholder="" />
+                                        </div>
+                                        <label class="label-control col-sm-1">Mamografía:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_mam2" name="pac_mam2" placeholder="" />
+                                        </div>
+                                        <label class="label-control col-sm-1">Anticoncepción:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_ant2" name="pac_ant2" placeholder="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="label-control col-sm-1">Método anticonceptivo:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_met_ant2" name="pac_met_ant2" placeholder="" />
+                                        </div>
+                                        <label class="label-control col-sm-1">IVSA:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_ivs2" name="pac_ivs2" placeholder="" />
+                                        </div>
+                                        <label class="label-control col-sm-1">Parejas Sexuales:</label>
+                                        <div class="col-sm-3">
+                                            <input type="text"  class="form-control" id="pac_par_sex2" name="pac_par_sex2" placeholder="" />
+                                        </div>
+                                    </div>    
+                                </div>
+
                             </form>
                         </div>           
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban">  </i><span class="nav-label"> Cancelar</span></button>
                             <a href="" type="button" class="btn btn-primary" id="btnModalGuardar"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></a>
+                        </div>                
+                    </div>
+                 </div>
+            </div>    
+        </div>
+    <!-- ********************* MODAL ANTECEDENTES **************************************** -->
+    <div class="row">
+            <div class="modal fade"  id="modalPacienteAntecedente" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" aria-hidden="true">
+                <div class="modal-dialog" style="width:800px">
+                    <div class="modal-content panel panel-primary">
+                        <div class="modal-header panel panel-heading">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title fa fa-pencil-square-o" id="myModalLabel2" style="text-align: center;"></h4>
+                        </div>                   
+                        <div class="modal-body" >
+                            <form id="frmPac2" class="form-horizontal">
+                                <div class="form-group">
+                                            <div align="center">
+                                                <label class="label-control col-sm-6">Toxico</label>
+                                                <label class="label-control col-sm-6">No Toxico</label>
+                                            </div>                                            
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Alimentacion:  </label>
+                                                <textarea type="text" class="form-control" id="pac_ali2" name="pac_ali2" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Alcohol:</label>
+                                                <textarea type="text" class="form-control" id="pac_alc2" name="pac_alc2" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Actividad física:  </label>
+                                                <textarea type="text" class="form-control" id="pac_act_fis2" name="pac_act_fis2" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Tabaco:</label>
+                                                <textarea type="text" class="form-control" id="pac_tab2" name="pac_tab2" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Sueño:  </label>
+                                                <textarea type="text" class="form-control" id="pac_sue2" name="pac_sue2" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Drogas:</label>
+                                                <textarea type="text" class="form-control" id="pac_dro2" name="pac_dro2" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Higiene:  </label>
+                                                <textarea type="text" class="form-control" id="pac_hig2" name="pac_hig2" rows="2" placeholder="...................."></textarea>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                 <label class="label-control col-sm-1" for="">Otros:</label>
+                                                <textarea type="text" class="form-control" id="pac_otr2" name="pac_otr2" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Micción:  </label>
+                                                <textarea type="text" class="form-control" id="pac_mic2" name="pac_mic2" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-6">
+                                                <label class="label-control" for="">Deposición:  </label>
+                                                <textarea type="text" class="form-control" id="pac_dep2" name="pac_dep2" rows="2" placeholder="...................."></textarea>
+                                            </div> 
+                                        </div>
+                            </form>
+                        </div>           
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-ban">  </i><span class="nav-label"> Cancelar</span></button>
+                            <a href="" type="button" class="btn btn-primary" id="btnModalAntecedenteGuardar"><i class="fa fa-save">  </i><span class="nav-label"> Guardar</span></a>
                         </div>                
                     </div>
                  </div>
