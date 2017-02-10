@@ -341,5 +341,8 @@ function buscar_paciente () {
     $('#divExamenes').show();
     $('#btn_salir').removeClass("hidden");
     $('#btn_salir_gen').removeClass("hidden");
+    $('html,body').animate({    
+                 scrollTop: $("#accordion2").offset().top    
+                 }, 2000);
 
   }
