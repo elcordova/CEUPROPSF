@@ -19,7 +19,7 @@ $(document).ready(function(){
                           "<td>"+res[i]['bri_des']+"</td>"+
                           "<td>"+
                               "<div class='btn-group'>"+
-                                "<button type='button' class='btn btn-default' onclick=carga_consulta_id("+res[i]['con_id']+",'"+res[i]['pac_nom']+"','"+res[i]['pac_ape']+"','"+res[i]['pac_sex']+"',"+res[i]['pac_id']+")>"+
+                                "<button type='button' class='btn btn-default' data-conid='"+res[i]['con_id']+"'  data-pacnom='"+res[i]['pac_nom']+"' data-pacape='"+res[i]['pac_ape']+"' data-pacsex='"+res[i]['pac_sex']+"'  data-pacid='"+res[i]['pac_id']+"' onclick=carga_consulta_id($(this))>"+
                                 "<span class='glyphicon glyphicon-edit'></span>"+
                                 "</button>"+
 
@@ -328,15 +328,15 @@ function buscar_paciente () {
 });
   
 
-  function carga_consulta_id(id_consulta, nombre_paciente, apellido_paciente,sexo_paciente,id_paciente) {
+  function carga_consulta_id(boton) {
     $('#dat_paci').empty();
     $('#dat_paci').show();
     $('#dat_pac').empty();
-    $('#dat_paci').append("<h4>Datos de paciente</h4><p>nombres :"+nombre_paciente+"</p> <p>Apellidos :"+apellido_paciente+"</p><p> sexo :"+sexo_paciente+"</p>");
-    $('#pac_cod').val(id_paciente);
+    $('#dat_paci').append("<h4>Datos de paciente</h4><p>nombres :"+$(boton).attr("data-pacnom")+"</p> <p>Apellidos :"+$(boton).attr("data-pacape")+"</p><p> sexo :"+$(boton).attr("data-pacsex")+"</p>");
+    $('#pac_cod').val($(boton).attr("data-pacid"));
     $('#dat_paci').show(3000);
-    $('#dat_paci').append("<h4>Datos de Consulta</h4><p>codigo de Consulta :"+id_consulta+"</p>");
-    $('#cod_consulta').val(id_consulta);
+    $('#dat_paci').append("<h4>Datos de Consulta</h4><p>codigo de Consulta :"+$(boton).attr("data-conid")+"</p>");
+    $('#cod_consulta').val($(boton).attr("data-conid"));
     $('#divFrmEsp').hide("slow");
     $('#divExamenes').show();
     $('#btn_salir').removeClass("hidden");
