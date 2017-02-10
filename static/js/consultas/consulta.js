@@ -49,9 +49,6 @@ $(document).ready(function(){
               $('#contenedor_tabla').append(tabla);
               $('table').DataTable({"order": [[ 0, "desc" ]]} );
               limp_form_consulta();
-              $('html,body').animate({
-                scrollTop: $("#accordion").offset().top
-                }, 2000);
 
             }
     });
@@ -273,7 +270,7 @@ $(function(){
               				$('#divExamenes').show();
               				$('#btn_salir').removeClass("hidden");
                       toastr.options={"progressBar": true}
-							       toastr.success('Nueva Consulta Generada','Estado');
+							        toastr.success('Nueva Consulta Generada','Estado');
                       $('#btn_salir_gen').removeClass("hidden");
 							         
               			},
@@ -344,9 +341,5 @@ function buscar_paciente () {
     $('#divExamenes').show();
     $('#btn_salir').removeClass("hidden");
     $('#btn_salir_gen').removeClass("hidden");
-
-    $('html,body').animate({
-                scrollTop: $("#accordion2").offset().top
-                }, 2000);
 
   }

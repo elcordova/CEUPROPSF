@@ -83,6 +83,7 @@
 										<button type="button" id="btn_reflejos" class="btn btn-info col-md-11">Reflejos</button>
 										<button type="button" id="btn_motilidad" class="btn btn-info col-md-11">Motilidad</button>
 										<button type="button" id="btn_sensibilidad" class="btn btn-info col-md-11">Sensibilidad</button>
+										<button type="button" id="btn_examenes" class="btn btn-info col-md-11">Examen de Laboratorio y Diagnostico</button>
 								</div>
 							</div>
 									<button type="button"  id="btn_salir_gen" class="btn btn-warning col-md-12 hidden ">Salir</button>
