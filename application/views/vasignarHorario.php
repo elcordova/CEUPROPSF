@@ -24,16 +24,27 @@
 					        <div id="divFrmInvoice" class="col-xs-12 col-sm-10 col-sm-offset-1" style="border: 1px solid #ccc; padding:10px 35px 40px 35px;background-color:#FFF;"> 
 					          
 					            <fieldset class="scheduler-border">
-					              <legend class="scheduler-border">Datos del Medico</legend>
-					              
-					              <div class="form-group col-xs-6">
-					              <label for="txtCedula">C.I.</label>
-					              <input type="text" required="true" class="form-control" id="med_ced" name="med_ced" placeholder="Ingrese C.I." maxlength="13" />
-					              </div>
+					              <legend class="scheduler-border">Datos del Medico</legend>         
+
+							    <div class="col-xs-6">
+							    	<label>Cedula:</label>
+							        <div class="input-group">									        	
+							            <input type="text" class="form-control" id="med_ced" name="med_ced" placeholder="Ingrese C.I" />
+							            <span class="input-group-addon" id="btnBuscarCed">
+							                <i class="fa fa-search"></i>
+							            </span>
+							        </div>
+							    </div>
+								
 
 					              <div class="form-group col-xs-6">
 					              <label for="txtNombre">Medico:</label>
-					              <input type="text" required="true" class="form-control" id="med_nom" name="med_nom" placeholder="Apellido Nombre"/>
+						              <div class="input-group">
+						              	<input type="text" required="true" class="form-control" id="med_nom" name="med_nom" placeholder="Apellido Nombre"/>
+						              	<span class="input-group-addon" id="btnBuscarNom">
+						              		<i class="fa fa-search"></i>
+						              	</span>
+						              </div>					              
 					              </div>
 
 					              <div class="form-group col-xs-6">

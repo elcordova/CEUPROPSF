@@ -195,7 +195,7 @@ $pdf->Cell(20,7,'SEXO',1,0,'C',true);
 
 $pdf->SetFillColor(210,190,210);
 $pdf->SetTextColor(0);
-$pdf->Cell(20,7,$data[3],1,0,'',true);
+$pdf->Cell(20,7,$data[2],1,0,'',true);
 
 $pdf->SetFillColor(180,100,180);
 $pdf->SetTextColor(255);
@@ -203,7 +203,7 @@ $pdf->Cell(50,7,'FECHA NAC.',1,0,'C',true);
 
 $pdf->SetFillColor(210,190,210);
 $pdf->SetTextColor(0);
-$pdf->Cell(50,7,$data[6],1,0,'',true);
+$pdf->Cell(50,7,$data[5],1,0,'',true);
 
 $pdf->SetFillColor(180,100,180);
 $pdf->SetTextColor(255);
@@ -211,7 +211,7 @@ $pdf->Cell(35,7,'EST. CIVIL',1,0,'C',true);
 
 $pdf->SetFillColor(210,190,210);
 $pdf->SetTextColor(0);
-$pdf->Cell(35,7,$data[4],1,0,'',true);
+$pdf->Cell(35,7,$data[3],1,0,'',true);
 
 $pdf->SetFillColor(180,100,180);
 $pdf->SetTextColor(255);
@@ -219,7 +219,7 @@ $pdf->Cell(35,7,'T. SANGRE',1,0,'C',true);
 
 $pdf->SetFillColor(210,190,210);
 $pdf->SetTextColor(0);
-$pdf->Cell(35,7,$data[5],1,0,'',true);
+$pdf->Cell(35,7,$data[4],1,0,'',true);
 
 $pdf->Ln();
 
@@ -229,7 +229,7 @@ $pdf->Cell(35,7,'DOMICILIO',1,0,'C',true);
 
 $pdf->SetFillColor(210,190,210);
 $pdf->SetTextColor(0);
-$pdf->Cell(105,7,$data[7],1,0,'',true);
+$pdf->Cell(105,7,$data[6],1,0,'',true);
 
 $pdf->SetFillColor(180,100,180);
 $pdf->SetTextColor(255);
@@ -247,9 +247,10 @@ $pdf->Cell(35,7,'ESTADO',1,0,'C',true);
 
 $pdf->SetFillColor(210,190,210);
 $pdf->SetTextColor(0);
-$pdf->Cell(50,7,$data[7],1,0,'',true);
+$pdf->Cell(50,7,$data[8],1,0,'',true);
 
 $pdf->Ln();
+
 
 $pdf->SetFillColor(0,0,102);
 $pdf->SetTextColor(255);

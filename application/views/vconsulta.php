@@ -83,6 +83,7 @@
 										<button type="button" id="btn_reflejos" class="btn btn-info col-md-11">Reflejos</button>
 										<button type="button" id="btn_motilidad" class="btn btn-info col-md-11">Motilidad</button>
 										<button type="button" id="btn_sensibilidad" class="btn btn-info col-md-11">Sensibilidad</button>
+										<button type="button" id="btn_examenes" class="btn btn-info col-md-11">Examen de Laboratorio y Diagnostico</button>
 								</div>
 							</div>
 									<button type="button"  id="btn_salir_gen" class="btn btn-warning col-md-12 hidden ">Salir</button>
@@ -118,6 +119,52 @@
 
 		</div> <!-- Fin de Panel de Acordeones -->
 	</div>
+
+
+	 <!-- MODAL VER CITA -->
+    <div class="modal fade" id="modalObservacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-dialog" style="width:500px ;">
+              <div class="modal-content panel panel-primary">
+
+                <div class="modal-header panel panel-heading">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                  <h4 class="modal-title" id="myModalLabel" style="text-align: center;">Observacion</h4>
+                </div>              
+                <div class="modal-body">
+                <fieldset class="scheduler-border">
+                <legend class="scheduler-border">Observacion</legend>
+                  <div class="row">
+                    <input type="hidden" name="con_id" id="con_id">
+                    
+                    <div class="col-xs-12" id="">
+                      <textarea class="form-control input-sm" rows="5" name="con_obs" id="con_obs" placeholder="......" ></textarea>
+                    </div>
+                  </div>
+                </fieldset>                        
+                </div>
+                
+                <div class="modal-footer" >
+                  <button type="button" class="btn btn-default"  data-dismiss="modal">Cancelar</button>
+                  <button type="button" class="btn btn-primary" id="guardarObservacion" name="guardarObservacion">Guardar</button>
+                </div>
+              </div>
+              </div>
+             </div>
+       </div>
+       <!--MODAL VER CITA --> 
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

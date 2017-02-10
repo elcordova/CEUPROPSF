@@ -89,6 +89,22 @@
 			}
 		}
 
+		public function get2()
+		{
+			if($this->input->is_ajax_request())
+			{
+				$sql	= "SELECT med_ced FROM medico";
+				$data = $this->mmedico->viewquery($sql);
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode(array("datos"=>$data));
+			}
+			else
+			{
+				exit("No direct scrip");
+				show_404();
+			}
+		}
+
 		public function delete()
 		{
 			if($this->input->is_ajax_request())
@@ -149,7 +165,7 @@
 			if ($this->input->is_ajax_request())
 			{
 				$sql = "SELECT * FROM vista_medico WHERE med_ced = ?";
-				$data["medico"] = $this->mmedico->customquery($sql,array($this->input->post('med_ced')));
+				$data["medico"] = $this->mmedico->customquery($sql,array($this->input->post('val')));
 				header('Content-type: application/json; charset=utf-8');
 				echo json_encode($data);
 			}
@@ -165,7 +181,7 @@
 			if ($this->input->is_ajax_request())
 			{
 				$sql = "SELECT * FROM vista_medico WHERE nombre = ?";
-				$data["medico"] = $this->mmedico->customquery($sql,array($this->input->post('med_nom')));
+				$data["medico"] = $this->mmedico->customquery($sql,array($this->input->post('val')));
 				header('Content-type: application/json; charset=utf-8');
 				echo json_encode($data);
 			}

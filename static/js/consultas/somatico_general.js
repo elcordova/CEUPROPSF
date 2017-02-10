@@ -90,7 +90,7 @@ $(document).ready(function(){
 					'sg_unias':$('#sg_unias').val(), 'sg_pelo':$('#sg_pelo').val(),
 					'con_id':$('#cod_consulta').val()},
 			success:function(res){
-				alert(res);
+				
 				toastr.options={"progressBar": true}
 				toastr.success('Datos Editados','Estado');
 				$('#btn_sg').removeClass("btn-info");

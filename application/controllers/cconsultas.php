@@ -26,6 +26,7 @@ class Cconsultas extends CI_Controller {
 		$this->load->view('modal_reflejos');
 		$this->load->view('modal_motilidad');
 		$this->load->view('modal_sensibilidad');
+		$this->load->view('modal_examenes');
 		$this->load->view('administracion/includes/footer');
 	}
 
@@ -543,7 +544,39 @@ class Cconsultas extends CI_Controller {
 		echo json_encode($result);
 	}
 
+	function save_observacion(){
+		$data = array('con_observcion'=> $this->input->post('observacion'));
+		$where=array('con_id' 		=> $this->input->post('id_consulta'));
+		$afected=$this->mconsulta->update($data,$where);
+		header('Content-type: application/json; charset=utf-8');
+		echo json_encode($afected);
+	}
 
+	public function save_examenes(){
+		$id_consulta=$this->input->post('id_consulta');
+		$laboratorio=$this->input->post('laboratorio');
+		$diagnostico=$this->input->post('diagnostico');
+
+		$data=array(
+					'examen_laboratorio'=> $this->input->post('laboratorio'),
+					'examen_diagnostico'=> $this->input->post('diagnostico')
+					);
+
+		$where=array(
+					'con_id'=>$this->input->post('id_consulta')
+					);
+		$result=$this->mconsulta->update($data,$where);
+		$mensaje='ok';
+		header('Content-type: application/json; charset=utf-8');
+		echo json_encode($mensaje);
+	}
+
+	public function cargar_examenes(){
+		$id_consulta=$this->input->post('id_consulta');
+		$result=$this->mconsulta->get($id_consulta);
+		header('Content-type: application/json; charset=utf-8');
+		echo json_encode($result);	
+	}
 
 }
 

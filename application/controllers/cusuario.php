@@ -56,8 +56,7 @@
 				'usu_nom' 	=> $this->input->post('nombre'),
 				'usu_ape' 	=> $this->input->post('apellido'),
 				'usu_dir'	=> $this->input->post('direccion'),
-				'usu_eml'	=> $this->input->post('email'),
-				//'usu_pas' 	=> $this->input->post('password'),
+				'usu_eml'	=> $this->input->post('email'),				
 				'usu_tip_cod' 	=> $this->input->post('tipo'),
 				'usu_est' 	=> TRUE,
 				);
@@ -80,7 +79,8 @@
 		{
 			if($this->input->is_ajax_request())
 			{
-				$data = $this->musuario->getAll();
+				$sql = "SELECT * FROM vista_usuario WHERE tip_cod != 3";
+				$data = $this->musuario->customQuery($sql);
 				header('Content-type: application/json; charset=utf-8');
 				echo json_encode(array("datos"=>$data));
 			}
@@ -88,6 +88,22 @@
 			{
 				exit("No direct script");
 				show_404();	
+			}
+		}
+
+		public function get2()
+		{
+			if($this->input->is_ajax_request())
+			{
+				$sql	= "SELECT usu_ced FROM usuario";
+				$data = $this->musuario->viewquery($sql);
+				header('Content-type: application/json; charset=utf-8');
+				echo json_encode(array("datos"=>$data));
+			}
+			else
+			{
+				exit("No direct scrip");
+				show_404();
 			}
 		}
 

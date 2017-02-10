@@ -59,7 +59,6 @@ $(document).ready(function(){
 					'cadera':$('#txt_cadera').val(), 'icc':$('#txt_icc').val(),
 					'con_id':$('#cod_consulta').val()},
 			success:function(res){
-				alert(res);
 				toastr.options={"progressBar": true}
 				toastr.success('Datos de Signos Vitales Guardados','Estado');
 				$('#id_sv').val(res)
@@ -90,7 +89,6 @@ $(document).ready(function(){
 					'cadera':$('#txt_cadera').val(), 'icc':$('#txt_icc').val(),
 					'con_id':$('#cod_consulta').val()},
 			success:function(res){
-				alert(res);
 				toastr.options={"progressBar": true}
 				toastr.success('Datos de Signos Vitales Guardados','Estado');
 				$('#btn_sv').removeClass("btn-info");

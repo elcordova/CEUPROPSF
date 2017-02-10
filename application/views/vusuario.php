@@ -26,36 +26,36 @@
                                       <legend class="scheduler-border"><i class="fa fa-user">  </i><span class="nav-label">     Nuevo Usuario</legend>         
                                       <div class="form-group">
                                         <label for="txtName">C.I:</label>
-                                        <input type="text" required="true" class="form-control" id="usu_ced" name="usu_ced" placeholder="Ingrese C.I." maxlength="10"/>
+                                        <input type="text" required="true" onkeypress="return event.charCode >= 48 && event.charCode <= 57" pattern="[0-9]*" class="form-control" id="usu_ced" name="usu_ced" placeholder="Ingrese C.I." maxlength="10"/>
                                       </div>
                                       <div class="form-group">
                                         <label for="txtName">Nombre:</label>
-                                        <input type="text" required="true" class="form-control" id="usu_nom" name="usu_nom" placeholder="Ingrese Nombre"/>
+                                        <input type="text" required="true" title="Ingrese solo letras" pattern="[aA-zZ;' ']*" class="form-control" id="usu_nom" name="usu_nom" placeholder="Ingrese Nombre"/>
                                       </div>
                                       <div class="form-group">
                                         <label for="txtName">Apellido:</label>
-                                        <input type="text" required="true" class="form-control" id="usu_ape" name="usu_ape" placeholder="Ingrese Apellido"/>
+                                        <input type="text" required="true" title="Ingrese solo letras" pattern="[aA-zZ;' ']*" class="form-control" id="usu_ape" name="usu_ape" placeholder="Ingrese Apellido"/>
                                       </div>
                                       <div class="form-group">
                                         <label for="txtName">Dirección:</label>
-                                        <input type="text" class="form-control" id="usu_dir" name="usu_dir" placeholder="Ingrese Dirección"/>
+                                        <input type="text" required="true" class="form-control" id="usu_dir" name="usu_dir" placeholder="Ingrese Dirección"/>
                                       </div>
                                       <div class="form-group">
                                         <label for="textName">Email</label>
-                                        <input type="text" class="form-control" id="usu_eml" name="usu_eml" value="@" placeholder="Ingrese el Email">
+                                        <input type="text" required="true" class="form-control" id="usu_eml" name="usu_eml" value="@" placeholder="Ingrese el Email">
                                       </div>
                                       
 
                                       <div class="form-group">
                                         <label for="txtName">Password:</label>
-                                        <input type="password"  class="form-control" id="usu_pas" name="usu_pas" value="" placeholder="Ingrese el Password"/>
+                                        <input type="password" required="true"  class="form-control" id="usu_pas" name="usu_pas" value="" placeholder="Ingrese el Password"/>
                                       </div>
                                       <div class="form-group">
                                         <label for="txtName">Tipo Usuario:</label>
-                                        <select class='form-control' id='selectUser' name='selectUser'>
+                                        <select class='form-control' required="true" id='selectUser' name='selectUser'>
                                                             <option value='-----'>-----</option>
-                                                            <option value='1'>Usuario</option>
-                                                            <option value='2'>Administrador</option>
+                                                            <option value='2'>Usuario</option>
+                                                            <option value='1'>Administrador</option>
                                                         </select>
                                       </div>
                                     </fieldset>                        
@@ -144,8 +144,8 @@
                             <label >Tipo de Usuario:</label>
                             <select class='form-control' id='selectUser2' name='selectUser2'>
                                 <option value='-----'>-----</option>
-                                <option value='1'>Usuario</option>
-                                <option value='2'>Administrador</option>
+                                <option value='2'>Usuario</option>
+                                <option value='1'>Administrador</option>
                             </select>
                         </div>           
                         <div class="modal-footer">

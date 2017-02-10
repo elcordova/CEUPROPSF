@@ -12,20 +12,22 @@
     <title>CEUPROPSF - El Centro Universitario de Promoción y Prevención de la Salud Familiar</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="<?=base_url()?>static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="<?=base_url()?>static/css/bootstraps.min.css" rel="stylesheet" type="text/css">
 	<link href="<?=base_url()?>static/css/bootstrap-select.css" rel="stylesheet" type="text/css">
 
 
     <!-- Fonts -->
     <link href="<?=base_url()?>static/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-		<link href="<?=base_url()?>static/css/animate.css" rel="stylesheet" />
+		<link href="<?=base_url()?>static/css/animates.css" rel="stylesheet" />
     <!-- theme CSS -->
     <link href="<?=base_url()?>static/css/style.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="<?=base_url()?>static/css/toastr/toastr.min.css">
 		<link rel="shortcut icon" href="<?=base_url()?>static/img/logo1.png">
 		<link href="<?php echo base_url()?>static/css/simple-sidebar.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>static/css/dataTables.bootstrap.css">
-
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>static/css/jquery-ui.min.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>static/css/dataTables.bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>static/css/jquery.dataTables.min.css">
+    
 
 	<!-- Core JavaScript Files -->
    
@@ -40,8 +42,9 @@
     <!-- Custom Theme JavaScript -->
     <script src="<?=base_url()?>static/js/custom.js"></script>
 	<script src="<?=base_url()?>static/js/ajaxfileupload.js"></script>
-	
+	<script src="<?=base_url()?>static/js/jquery-ui.min.js"></script>
     <script src="<?php echo base_url()?>static/js/alls.js"></script>
+    <script src="<?php echo base_url()?>static/js/user/menu.js"></script>
 
     <!-- DataTable --> 
     <script type="text/javascript" charset="utf8" src="<?php echo base_url()?>static/js/jquery.dataTables.min.js"></script>

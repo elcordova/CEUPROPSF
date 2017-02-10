@@ -29,15 +29,15 @@
                                       <legend class="scheduler-border"><i class="fa fa-user-md">  </i><span class="nav-label"> Nuevo Medico</legend>
                                       <div class="form-group">
                                         <label for="txtName">Cedula:</label>
-                                        <input type="text" required="true" class="form-control" id="med_ced" name="med_ced" placeholder="Ingrese C.I" maxlength="10"/>
+                                        <input type="text" required="true" onkeypress="return event.charCode >= 48 && event.charCode <= 57" pattern="[0-9]*" class="form-control" id="med_ced" name="med_ced" placeholder="Ingrese C.I" maxlength="10"/>
                                       </div>
                                       <div class="form-group">
                                         <label for="txtName">Nombre:</label>
-                                        <input type="text" required="true" class="form-control" id="med_nom" name="med_nom" placeholder="Ingrese Nombre"/>
+                                        <input type="text" required="true" title="Ingrese solo letras" pattern="[aA-zZ;' ']*" class="form-control" id="med_nom" name="med_nom" placeholder="Ingrese Nombre"/>
                                       </div>
                                       <div class="form-group">
                                         <label for="txtName">Apellido:</label>
-                                        <input type="text" required="true" class="form-control" id="med_ape" name="med_ape" placeholder="Ingrese Apellido"/>
+                                        <input type="text" required="true" title="Ingrese solo letras" pattern="[aA-zZ;' ']*" class="form-control" id="med_ape" name="med_ape" placeholder="Ingrese Apellido"/>
                                       </div>
                                       <div class="form-group">
                                         <label for="txtName">Dirección:</label>
@@ -45,11 +45,11 @@
                                       </div>
                                       <div class="form-group">
                                         <label for="txtName">Telefono:</label>
-                                        <input type="text"  class="form-control" id="med_tel" name="med_tel" placeholder="Ingrese Telefono" maxlength="10" />
+                                        <input type="text" required="true" class="form-control" onkeypress="return event.charCode >= 48 && event.charCode <= 57" pattern="[0-9]*" id="med_tel" name="med_tel" placeholder="Ingrese Telefono" maxlength="10" />
                                       </div>
                                       <div class="form-group">
                                         <label for="txtName">Email:</label>
-                                        <input type="email"  class="form-control" id="med_eml" name="med_eml" placeholder="Ingrese Email"/>
+                                        <input type="email" required="true"  class="form-control" id="med_eml" name="med_eml" placeholder="Ingrese Email"/>
                                       </div>
                                     </fieldset>
                                     <!-- ************* BOTONES ***************-->
@@ -121,18 +121,29 @@
                                     <legend class="scheduler-border">Datos del Medico</legend>
                                     
                                     <div class="form-group col-xs-6">
-                                    <label for="txtCedula">C.I.</label>
-                                    <input type="text" required="true" class="form-control" id="amed_ced" name="amed_ced" placeholder="Ingrese C.I." maxlength="13" required />
+                                    <label for="txtCedula">C.I.</label>                                    
+                                    <div class ="input-group">
+                                      <input type="text" required="true" class="form-control" id="amed_ced" name="amed_ced" placeholder="Ingrese C.I." maxlength="13" required />
+                                      <span class="input-group-addon" id="btnBuscarCed">
+                                        <i class="fa fa-search"></i>
+                                      </span>
+                                    </div>
+                                    
                                     </div>
 
                                     <div class="form-group col-xs-6">
                                     <label for="txtNombre">Medico:</label>
-                                    <input type="text" required="true" class="form-control" id="amed_nom" name="amed_nom" placeholder="Apellido Nombre"/>
+                                    <div class ="input-group">
+                                      <input type="text" required="true" class="form-control" id="amed_nom" name="amed_nom" placeholder="Apellido Nombre"/>
+                                      <span class="input-group-addon" id="btnBuscarNom">
+                                        <i class="fa fa-search"></i>
+                                      </span>
                                     </div>
+                                  </div>
 
                                     <div class="form-group col-xs-6">
                                     <label for="txtEmail">E-mail:</label>
-                                    <input type="email"  class="form-control" id="amed_eml" name="amed_eml" placeholder="Ingrese Email"/>
+                                    <input type="email" required="true" class="form-control" id="amed_eml" name="amed_eml" placeholder="Ingrese Email"/>
                                     </div>
 
                                     <div class="form-group col-xs-6">
@@ -142,7 +153,7 @@
 
                                     <div class="form-group col-xs-6">
                                     <label for="txtTelefono">Teléfono:</label>
-                                    <input type="text" class="form-control" id="amed_tel" name="amed_tel" placeholder="Ingrese Telefono"/>
+                                    <input type="text" required="true" onkeypress="return event.charCode >= 48 && event.charCode <= 57" pattern="[0-9]*" class="form-control" id="amed_tel" name="amed_tel" placeholder="Ingrese Telefono"/>
                                     </div>                                   
 
                                 </fieldset>

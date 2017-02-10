@@ -9,7 +9,7 @@
 						</a>
 					</div>
 					</div>
-					<p>&copy;Copyright 2016 - CEUPROPSF. All rights reserved. </p>
+					<p>&copy;Copyright 2016kjkhoiu - CEUPROPSF. All rights reserved. </p>
                     
 				</div>
 			</div>	

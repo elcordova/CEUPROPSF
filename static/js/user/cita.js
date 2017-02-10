@@ -1,7 +1,8 @@
 $(function(){
 
 	var med_ced_global, esp_cod_global , dmh_cod_global, cit_tur_global ,usuario = [],usu_cod_com = [];
-	var usu_cod_global = $('#usu_cod').attr('data-usucod'); 
+	var usu_cod_global = $('#usu_cod').attr('data-usucod');
+	var contador_citas = 0, contador_horario_checkbox = 0;
 
 	// LLENA EL COMBO BOX ESPECIALIDAD
 	$.getDataForCmbEsp = function(response)
@@ -39,31 +40,38 @@ $(function(){
 	* 	RETORNA EL MEDICO DEPENDIENDO DE LA ESPECIALIDAD ELEGIDA
 	*************************************************************/	
 	$('#cmbEsp').change(function(){
-		event.preventDefault();		
-		if($(this).val() !== "0")
+		event.preventDefault();
+		if($('#usu_cod').attr('data-usutip') ==="2" && contador_citas >0)
 		{
-			$.ajax({
-				type: "POST",
-				url: "/ceup/ccita/getMedico/",
-				dataType: 'json',
-				data: {
-					"esp_cod" : $(this).val(),
-					"usu_cod" : $('#usu_cod').attr('data-usutip')
-				},
-				success: function(s)
-				{
-					loadMedicos(s);						
-				},
-				error: function(response)
-				{
-					$.notify("error","error");
-				}				
-			});
+			$.notify("No puede reservar otra cita mientras la actual no sea atendida","error");
 		}
- 		else
- 		{
- 			tablaCita.fnClearTable();
- 		}
+		else
+		{
+			if($(this).val() !== "0" )
+			{
+				$.ajax({
+					type: "POST",
+					url: "/ceup/ccita/getMedico/",
+					dataType: 'json',
+					data: {
+						"esp_cod" : $(this).val(),
+						"usu_cod" : $('#usu_cod').attr('data-usutip')
+					},
+					success: function(s)
+					{
+						loadMedicos(s);						
+					},
+					error: function(response)
+					{
+						$.notify("error","error");
+					}				
+				});
+			}
+	 		else
+	 		{
+	 			tablaCita.fnClearTable();
+	 		}
+		}
 	});
 	
 	/****************************************
@@ -146,27 +154,57 @@ $(function(){
 	//Controla el evento change en un checkbox
 	$(document).on('change', '[type=checkbox]', function (e) {
 		
-		dmh_cod_global = $(this).attr("data-dmhcod"); //
-		var rows = $('#bodyTbCita >tr');
-
-		if($(this).is(":checked"))
+		if ($(this).attr('data-check') === 'p')
 		{
-			for(var i=0 ; i < $(rows).length ; i++)
-			{
-				if(!($("#check"+i).is(':checked')))  //unchecked y tiene data-dmhcod
-				{
-					$("#check"+i).prop("disabled",true);
-				}			
-			}
+			($(this).val() === "true") ?$(this).val(false):$(this).val(true);
+			var id 		= $(this).attr('name');
+			var estado 	= $(this).val();
+			var url 	= '/ceup/ccita/actualizar/';
+			$.ajax({
+					type	:"POST",
+					url		: url,
+					dataType: 'json',
+					data:{
+							"cit_cod"	: id,
+							"cit_est"	: estado
+						},
+					success: function(response){
+						$.notify("Estado actualizado correctamente","success");
+						$('#tbCitDet').DataTable().ajax.reload();
+					},
+
+					error: function(){
+						$.notify("Error al editar","error");
+					}
+			});
 		}
 		else
 		{
-			for(var j=0 ; j < $(rows).length ; j++)
-			{
-				$('#check'+j).prop("disabled",false);			
-			}
+			dmh_cod_global = $(this).attr("data-dmhcod"); //
+			var rows = $('#bodyTbCita >tr');
 
+			if($(this).is(":checked"))
+			{
+				contador_horario_checkbox=1;
+				for(var i=0 ; i < $(rows).length ; i++)
+				{
+					if(!($("#check"+i).is(':checked')))  //unchecked
+					{
+						$("#check"+i).prop("disabled",true);
+					}			
+				}
+			}
+			else
+			{
+				contador_horario_checkbox=0;
+				for(var j=0 ; j < $(rows).length ; j++)
+				{
+					$('#check'+j).prop("disabled",false);			
+				}
+
+			}
 		}
+		
 	});
 
 	/************************
@@ -174,7 +212,7 @@ $(function(){
 	*************************/
 	$('#btnGuardar').on("click", function(){
 		console.log("Usuario Id : "+usu_cod_global);
-		if( $("#cit_fec").val() >= getCurrentDate() )
+		if( $("#cit_fec").val() >= getCurrentDate() && (contador_horario_checkbox === 1))
 		{
 			$.ajax({
 				type: "POST",
@@ -223,6 +261,7 @@ $(function(){
 						$("input[type=date]").val("");
 						dmh_cod_global = 0;
 						cit_tur_global = 0;
+						contador_horario_checkbox = 0;
 						//usu_cod_global = 0;
 						tablaCita.fnClearTable();
 					},
@@ -233,11 +272,58 @@ $(function(){
 						$.notify("Error al guardar","error");						
 					}
 				});//
+		}
+		else{
+			$.notify("Escoja una hora para su cita","error");
 		}		
 	});	
 	
 
 //***************************************************CARGAR TABLAS*****************************************************************
+
+	$.eliminar = function(td){
+		
+		var cit_cod = $(td).parent().attr('data-cit_cod'); // se puede agregar data-"cualquier cosa" a un tr awesome.
+		
+		new PNotify({
+			title: 'Confirmación Necesaria',
+			text: 'Esta seguro de eliminar la Cita?',
+			icon: 'glyphicon glyphicon-question-sign',
+			hide: false,
+			confirm: {
+				confirm: true
+			},
+			buttons: {
+				closer: false,
+				sticker: false
+			},
+			history: {
+				history: false
+			}
+		}).get().on('pnotify.confirm', function(){
+			$.ajax({
+					type: "POST",
+					url: "/ceup/ccita/delete/", 
+					data: {
+							"cit_cod" : cit_cod
+							
+						},
+					dataType: 'json',
+					success: function(response){
+						contador_citas = 0;
+						$.notify("Eliminado con exito","success");
+						$('#tbCitDet').DataTable().row($(td).parent()).remove().draw();
+						
+						},
+
+					error: function(response){						
+						$.notify("No se puede eliminar esta cita","error");
+					}
+				});
+			}).on('pnotify.cancel', function() {
+				
+			});
+	};
 
 	$.verComentario = function(td){
 		var tr = $(td).parent();
@@ -245,22 +331,64 @@ $(function(){
 		$('#mcit_id').val($(tr).attr('data-cit_cod'));
 	};
 
-	var printReport ="<button style='border: 0; background: transparent' data-target='#modalComentario' data-toggle='modal' onclick='$.verComentario($(this).parent())' title='Comentario'>"+		
-						  "<span class='glyphicon glyphicon-comment'></span>"+
-						  "</button>"+
-						  "<button style='border: 0; background: transparent' data-target='#modalVerCita' data-toggle='modal' onclick='$.verCita($(this).parent())' 		title='Imprimir'>"+
-						  "<span class='glyphicon glyphicon-print'></span>"+
-						  "</button>";
+
+	//var printReport ="";
 
 	$.renderizeRow = function( nRow, aData, iDataIndex ) {
-	   if (aData['fec_act'] > aData['cit_fec']) 
+	   if (aData['cit_est'] !== "t") 
 	   {
-	   		$($(nRow).children('td')[0]).css({"background-color":"red"});
+	   	//$($(nRow).children('td')[0]).css({"background-color":"#ffcccc"});
+	   	$(nRow).css({"background-color":"#ffcccc"});
+	   	
+	   	if($('#usu_cod').attr('data-usutip') !== "2")//si es user
+		{
+	   		$(nRow).append("<td>"+
+						"<label class='switch'>"+
+							"<input class='switch-input' type='checkbox' value='false' id=check"+aData['cit_cod']+" name="+aData['cit_cod']+" data-check='p'>"+
+							"<span class='switch-label' data-on='Activo' data-off='Inactivo'></span>"+
+							"<span class='switch-handle'></span>"+
+							"</label>"+
+						"</td>");
+	   }
+	   	
+	   	var printReport ="<button style='border: 0; background: transparent' data-target='#modalComentario' data-toggle='modal' onclick='$.verComentario($(this).parent())' title='Comentario'>"+		
+						  "<span class='glyphicon glyphicon-comment'></span>"+
+						  "</button>"+
+						  "<button style='border: 0; background: transparent' onclick='$.verCita($(this).parent())' title='Imprimir'>"+
+						  "<span class='glyphicon glyphicon-print'></span>"+
+						  "</button>";	   	
+	   }
+	   else
+	   {
+	   	contador_citas+=1;
+	   	
+	   	if($('#usu_cod').attr('data-usutip') !== "2")//si es user
+		{
+
+	   		$(nRow).append("<td>"+
+								"<label class='switch'>"+
+								"<input class='switch-input' type='checkbox' checked value='true' id=check"+aData['cit_cod']+" name="+aData['cit_cod']+" data-check='p'>"+
+								"<span class='switch-label' data-on='Activo' data-off='Inactivo'></span>"+
+								"<span class='switch-handle'></span>"+
+								"</label>"+
+							"</td>");
+	   	}
+
+	   	var printReport ="<button style='border: 0; background: transparent' data-target='#modalComentario' data-toggle='modal' onclick='$.verComentario($(this).parent())' title='Comentario'>"+		
+						  "<span class='glyphicon glyphicon-comment'></span>"+
+						  "</button>"+
+						  "<button style='border: 0; background: transparent' onclick='$.eliminar($(this).parent())' title='Eliminar'>"+
+						  "<span class='glyphicon glyphicon-remove'></span>"+
+						  "</button>"+
+						  "<button style='border: 0; background: transparent' onclick='$.verCita($(this).parent())' title='Imprimir'>"+
+						  "<span class='glyphicon glyphicon-print'></span>"+
+						  "</button>";
 	   }
 	   $(nRow).append("<td class='text-center'>"+printReport+"</td>");   
 	   $($(nRow).children('td')).addClass("text-center"); //centra el texto
 	   $(nRow).attr('data-cit_cod',aData['cit_cod']);
 	   $(nRow).attr('data-cit_cmt',aData['cit_cmt']);
+	   $(nRow).attr('data-usu_cod',aData['usu_cod']);
 	};
 	
 	var tbCitDet = $('#tbCitDet');
@@ -293,12 +421,12 @@ $(function(){
 			var flagMedico = true;
 			if (flagLoadTable) 
 			{
-				if($('#usu_cod').attr('data-usutip') === "2")
+				if($('#usu_cod').attr('data-usutip') === "2")//si es user
 				{
 					flagTipUser = false;
 				}
 				
-				if($('#usu_cod').attr('data-usutip') === "3")
+				if($('#usu_cod').attr('data-usutip') === "3")//si es medico
 				{
 					flagMedico = false;
 				}
@@ -422,4 +550,14 @@ $(function(){
 			}					
 		});
 	});
+	
+	$.verCita = function(td){
+		var tr = $(td).parent();
+		var codCita = $(tr).attr('data-cit_cod');
+		var codPaciente = $(tr).attr('data-usu_cod');
+		var d = new Date();
+        	var fecha = d.getDate()+'-'+(d.getMonth()+1)+'-'+d.getFullYear()+' --- '+d.getHours()+':'+d.getMinutes()+':'+d.getSeconds();
+        	var autor = 'CEUPROPSF';
+		window.open('/ceup/static/reporte/reporte_h3.php?reporte=CITA&fecha='+fecha+'&autor='+autor+'&paciente='+codPaciente+'&cita='+codCita+'','_blank');
+	};
 });//final
